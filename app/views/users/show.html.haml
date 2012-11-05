@@ -1,0 +1,9 @@
+= "Ma board : #{current_user.email}"
+
+%ul
+  - current_user.beers.each do |beer|
+    %li= beer.name
+
+%ul
+  - current_user.badges.each do |badge|
+    %li= badge.name
