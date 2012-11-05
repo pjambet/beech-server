@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "1.9.3"
 
 gem 'rails', '3.2.8'
 
@@ -17,3 +18,7 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'haml'
+gem 'draper'
+gem 'simple_form'
+gem 'compass-rails'
+gem 'rails-i18n'
