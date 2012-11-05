@@ -1,9 +1,15 @@
-= "Ma board : #{current_user.email}"
+= "Ma board : #{@user.email}"
 
+%br
+%br
+Mes bieres
 %ul
-  - current_user.beers.each do |beer|
-    %li= beer.name
+  - @user.beers.each do |beer|
+    %li= "#{beer.name} #{beer.beer_type.name}"
 
+%br
+Mes badges
 %ul
-  - current_user.badges.each do |badge|
+  - @user.badges.each do |badge|
     %li= badge.name
+
