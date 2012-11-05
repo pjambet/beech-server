@@ -15,4 +15,6 @@ class Beer < ActiveRecord::Base
   belongs_to :beer_type
   has_many :checks
   has_many :users, through: :checks
+
+  delegate :name, to: :beer_type, prefix: :true
 end
