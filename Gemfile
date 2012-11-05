@@ -22,3 +22,11 @@ gem 'draper'
 gem 'simple_form'
 gem 'compass-rails'
 gem 'rails-i18n'
+gem 'annotate', ">=2.5.0"
+gem 'spork', '~> 1.0rc'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'watchr'
+end
