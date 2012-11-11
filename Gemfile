@@ -5,7 +5,6 @@ gem 'rails', '3.2.8'
 
 gem 'pg'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -22,6 +21,7 @@ gem 'draper'
 gem 'simple_form'
 gem 'compass-rails'
 gem 'rails-i18n'
+gem "active_model_serializers", :git => "git://github.com/josevalim/active_model_serializers.git"
 gem 'annotate', ">=2.5.0"
 gem 'spork', '~> 1.0rc'
 
@@ -29,4 +29,5 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'watchr'
+  gem 'pry'
 end
