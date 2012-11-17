@@ -14,4 +14,11 @@ class Check < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :beer
+
+  delegate :name, to: :beer
+
+  validates :beer, presence: true
+  validates :user, presence: true
+  validates :beer_id, uniqueness: { scope: :user_id }
+  validates :user_id, uniqueness: { scope: :beer_id }
 end

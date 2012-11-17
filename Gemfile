@@ -21,13 +21,19 @@ gem 'draper'
 gem 'simple_form'
 gem 'compass-rails'
 gem 'rails-i18n'
-gem "active_model_serializers", :git => "git://github.com/josevalim/active_model_serializers.git"
+gem "active_model_serializers", git: "git://github.com/josevalim/active_model_serializers.git"
 gem 'annotate', ">=2.5.0"
 gem 'spork', '~> 1.0rc'
+gem 'sextant'
+
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'shoulda'
   gem 'shoulda-matchers'
-  gem 'watchr'
+  gem 'guard-rspec'
   gem 'pry'
+  gem 'rb-fsevent', '~> 0.9.1'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
