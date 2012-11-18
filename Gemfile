@@ -29,8 +29,7 @@ gem 'sextant'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'shoulda'
-  gem 'shoulda-matchers'
+  gem 'shoulda', require: false
   gem 'guard-rspec'
   gem 'pry'
   gem 'rb-fsevent', '~> 0.9.1'

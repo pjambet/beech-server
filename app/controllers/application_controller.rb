@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     user_path user
   end
 
+  def current_user
+    User.first
+  end
+
 end

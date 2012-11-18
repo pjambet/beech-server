@@ -10,7 +10,7 @@
 #
 
 class Beer < ActiveRecord::Base
-  attr_accessible :name, :beer_type_id
+  attr_accessible :name, :beer_type, :beer_type_id
 
   belongs_to :beer_type
   has_many :checks

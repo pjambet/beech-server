@@ -10,10 +10,13 @@
 #
 
 class Check < ActiveRecord::Base
-  attr_accessible :user_id, :beer_id
+  include BeechServer::Eventable
+  attr_accessible :user_id, :beer_id, :user, :beer
 
   belongs_to :user
   belongs_to :beer
+
+  has_many :events, as: :eventable
 
   delegate :name, to: :beer
 
@@ -21,4 +24,12 @@ class Check < ActiveRecord::Base
   validates :user, presence: true
   validates :beer_id, uniqueness: { scope: :user_id }
   validates :user_id, uniqueness: { scope: :beer_id }
+
+  acts_as_eventable
+
+  default_scope -> { includes :user, :beer }
+  scope :for_users, ->(users = []) do
+    where('user_id IN (?)', users.includes(:beers).map(&:id))
+  end
+
 end
