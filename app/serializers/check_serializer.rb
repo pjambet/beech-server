@@ -1,4 +1,8 @@
 class CheckSerializer < ActiveModel::Serializer
-  attributes :id
-  # has_one :beer
+  embed :ids, include: true
+
+  attributes :id, :created_at
+  has_one :user
+  has_one :beer
 end
+
