@@ -27,7 +27,12 @@ class Check < ActiveRecord::Base
 
   default_scope -> { includes :user, :beer }
   scope :for_users, ->(users = []) do
-    where('user_id IN (?)', users.includes(:beers).map(&:id))
+    where('user_id IN (?)', users.map(&:id)).order('created_at DESC')
+  end
+
+  scope :after, ->(date) do
+    date = Time.at(date.to_i) if date.to_i > 0
+    where('created_at > ?', date)
   end
 
 end
