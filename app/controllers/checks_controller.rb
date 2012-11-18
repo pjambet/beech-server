@@ -8,9 +8,13 @@ class ChecksController < ApplicationController
   end
 
   def create
-    @check = Check.new params[:check]
-    @check.save
-    render json: @check
+    @check = Check.new params[:check] do |c|
+      c.user_id = params[:user_id]
+    end
+
+    if @check.save
+      render json: @check
+    end
   end
 
   protected

@@ -22,8 +22,6 @@ class Check < ActiveRecord::Base
 
   validates :beer, presence: true
   validates :user, presence: true
-  validates :beer_id, uniqueness: { scope: :user_id }
-  validates :user_id, uniqueness: { scope: :beer_id }
 
   acts_as_eventable
 
