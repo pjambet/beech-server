@@ -1,0 +1,7 @@
+test:
+  adapter: postgresql
+  database: vinallia_test
+  username: postgres
+  password:
+  host: localhost
+  encoding: UTF8
