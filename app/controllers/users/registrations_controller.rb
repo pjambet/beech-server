@@ -7,7 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    params[:password_confirmation] = params[:password]
+    params[:user][:password_confirmation] = params[:user][:password] if params[:user].present?
     super
   end
 end
