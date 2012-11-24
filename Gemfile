@@ -21,7 +21,7 @@ gem 'draper'
 gem 'simple_form'
 gem 'compass-rails'
 gem 'rails-i18n'
-gem "active_model_serializers", git: "git://github.com/josevalim/active_model_serializers.git"
+gem "active_model_serializers", git: "git://github.com/rails-api/active_model_serializers.git"
 gem 'annotate', ">=2.5.0"
 gem 'spork', '~> 1.0rc'
 gem 'sextant'
