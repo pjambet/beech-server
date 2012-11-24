@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  database: beech-server_development
+  username: <CHANGE ME>
+  host: localhost
+  encoding: UTF8
+test:
+  adapter: postgresql
+  database: beech-server_test
+  username: <CHANGE ME>
+  host: localhost
+  encoding: UTF8
+
