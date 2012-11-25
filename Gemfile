@@ -26,6 +26,8 @@ gem 'annotate', ">=2.5.0"
 gem 'spork', '~> 1.0rc'
 gem 'sextant'
 gem 'newrelic_rpm'
+gem 'carrierwave'
+gem 'rmagick'
 
 
 group :development, :test do

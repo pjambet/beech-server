@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :nickname
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :awards
   has_many :badges, through: :awards
   has_many :checks
@@ -36,6 +38,11 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true
   validates :nickname, presence: true
+
+  scope :except, ->(users = []) do
+    users = [users] unless users.is_a?(Array)
+    where('id NOT IN (?) ', users.map(&:id))
+  end
 
 end
 
