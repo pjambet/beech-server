@@ -12,7 +12,7 @@ end
 module BeerServer
   class Application < Rails::Application
 
-    config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Paris'
 
     # config.i18n.default_locale = :de
 
