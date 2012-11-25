@@ -25,14 +25,22 @@ class Check < ActiveRecord::Base
 
   acts_as_eventable
 
-  default_scope -> { includes :user, :beer }
+  default_scope -> { includes(:user, :beer).order('created_at DESC') }
   scope :for_users, ->(users = []) do
-    where('user_id IN (?)', users.map(&:id)).order('created_at DESC')
+    where('user_id IN (?)', users.map(&:id))
   end
 
   scope :after, ->(date) do
     date = Time.at(date.to_i).utc if date.to_i > 0
     where("date_trunc('second', created_at) > ?", date)
+  end
+
+  scope :paginate, ->(page = 1) do
+    limit(self.class.per_page).offset((page - 1) * self.class.per_page )
+  end
+
+  def self.per_page
+    20
   end
 
 end
