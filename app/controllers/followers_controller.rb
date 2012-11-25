@@ -1,6 +1,6 @@
 class FollowersController < ApplicationController
   def index
-    current_user.follower_users
+    render json: current_user.follower_users, root: "users"
   end
 end
 

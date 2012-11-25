@@ -3,10 +3,14 @@ BeerServer::Application.routes.draw do
 
   resources :users, only: [ :show, :index ] do
     resources :checks, only: [ :index, :create ]
-    resources :followings, only: [ :index, :create ]
+    resource :following, only: [ :index, :create, :destroy ]
     resources :followers, only: :index
     get :search, on: :collection
   end
+
+  resources :profile, only: [ :index, :show ]
+  resources :followers, only: :index
+  resources :followings, only: :index
 
   resources :beers, only: :index
 

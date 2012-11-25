@@ -1,13 +1,23 @@
 class FollowingsController < ApplicationController
 
   def index
-    current_user.following_users
+    render json: current_user.following_users, root: "users"
   end
 
   def create
-    follower = User.new params[:followee]
+    follower = User.find params[:user_id]
     unless current_user.following_users.include? follower
       current_user.following_users << follower
     end
+    render json: follower
+  end
+
+  def destroy
+    follower = User.find params[:user_id]
+    if current_user.following_users.include? follower
+      current_user.following_users.delete follower
+    end
+    render json: follower
+
   end
 end
