@@ -31,8 +31,8 @@ class Check < ActiveRecord::Base
   end
 
   scope :after, ->(date) do
-    date = Time.at(date.to_i) if date.to_i > 0
-    where('created_at > ?', date)
+    date = Time.at(date.to_i).utc if date.to_i > 0
+    where("date_trunc('second', created_at) > ?", date)
   end
 
 end
