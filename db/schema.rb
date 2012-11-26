@@ -34,10 +34,13 @@ ActiveRecord::Schema.define(:version => 20121125103639) do
 
   create_table "beers", :force => true do |t|
     t.string   "name"
+    t.string   "country"
     t.integer  "beer_type_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  add_index "beers", ["beer_type_id"], :name => "index_beers_on_beer_type_id"
 
   create_table "checks", :force => true do |t|
     t.integer  "user_id"
@@ -46,15 +49,18 @@ ActiveRecord::Schema.define(:version => 20121125103639) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "checks", ["beer_id"], :name => "index_checks_on_beer_id"
-  add_index "checks", ["user_id"], :name => "index_checks_on_user_id"
+  add_index "checks", ["user_id", "beer_id"], :name => "index_checks_on_user_id_and_beer_id"
 
   create_table "events", :force => true do |t|
     t.integer  "eventable_id"
+    t.integer  "user_id"
     t.string   "eventable_type"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
+
+  add_index "events", ["eventable_id"], :name => "index_events_on_eventable_id"
+  add_index "events", ["user_id"], :name => "index_events_on_user_id"
 
   create_table "followings", :force => true do |t|
     t.integer  "follower_id"
@@ -62,6 +68,8 @@ ActiveRecord::Schema.define(:version => 20121125103639) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "followings", ["follower_id", "followee_id"], :name => "index_followings_on_follower_id_and_followee_id"
 
   create_table "users", :force => true do |t|
     t.string   "nickname"

@@ -12,7 +12,7 @@ User.create! email: "hello@lukk.com", password: "wopata33", password_confirmatio
 User.create! email: "loic.duparc@gmail.com", password: "wopata33", password_confirmation: "wopata33", nickname: "Lolo"
 User.create! email: "dacost@gmail.com", password: "wopata33", password_confirmation: "wopata33", nickname: "Dacostino"
 User.create! email: "plau@gmail.com", password: "wopata33", password_confirmation: "wopata33", nickname: "Plauplau"
-User.create! email: "louis@gmail..com", password: "wopata33", password_confirmation: "wopata33", nickname: "Louis"
+User.create! email: "louis@gmail.com", password: "wopata33", password_confirmation: "wopata33", nickname: "Louis"
 User.create! email: "linguini@gmail.com", password: "wopata33", password_confirmation: "wopata33", nickname: "Linguini"
 User.create! email: "carnelito@gmail.com", password: "wopata33", password_confirmation: "wopata33", nickname: "Carnelito"
 

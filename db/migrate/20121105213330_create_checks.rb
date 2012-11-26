@@ -4,7 +4,6 @@ class CreateChecks < ActiveRecord::Migration
       t.belongs_to :user, :beer
       t.timestamps
     end
-    add_index :checks, :user_id
-    add_index :checks, :beer_id
+    add_index :checks, [:user_id, :beer_id]
   end
 end
