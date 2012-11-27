@@ -28,6 +28,7 @@ gem 'sextant'
 gem 'newrelic_rpm'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'dalli'
 
 
 group :development, :test do
