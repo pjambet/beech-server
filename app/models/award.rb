@@ -16,12 +16,8 @@ class Award < ActiveRecord::Base
   belongs_to :user
   belongs_to :badge
 
-  has_many :events, as: :eventable
-
   validates :user, presence: true
   validates :badge, presence: true
-  validates :badge_id, uniqueness: { scope: :user_id }
-  validates :user_id, uniqueness: { scope: :badge_id }
 
   acts_as_eventable
 end

@@ -5,9 +5,10 @@ class MyUserSerializer < ActiveModel::Serializer
              :following_count, :follower_count
 
   # has_many :beers
-  has_many :checks, serializer: CheckShortSerializer
+  # has_many :checks, serializer: CheckShortSerializer
   # has_many :awards, embed: :objects
   # has_many :badges, embed: :objects
+  has_many :events
 
   def avatar_url
     root_url + object.avatar.url

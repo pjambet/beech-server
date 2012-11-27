@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   has_many :badges, through: :awards
   has_many :checks
   has_many :beers, through: :checks
+  has_many :events
 
   has_many :followings, foreign_key: :follower_id, class_name: 'Following'
   has_many :following_users, through: :followings, source: :followee
