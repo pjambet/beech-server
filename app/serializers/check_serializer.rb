@@ -1,12 +1,11 @@
 class CheckSerializer < ActiveModel::Serializer
+  include BeechServer::Serializable
   embed :ids, include: true
 
-  attributes :id, :created_at
+  attributes :id
+  serialized_with_timestamp
   has_one :user
   has_one :beer
 
-  def created_at
-    check.created_at.to_i
-  end
 end
 
