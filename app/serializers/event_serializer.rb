@@ -1,8 +1,9 @@
 class EventSerializer < ActiveModel::Serializer
-  attributes :id
-  has_one :eventable, polymorphic: true
+  include BeechServer::Serializable
 
-  def type
-    object.eventable_type.downcase
-  end
+  attributes :id
+  serialized_with_timestamp
+  has_one :eventable, polymorphic: true
+  has_one :user
+
 end
