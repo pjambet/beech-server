@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
 
   attr_accessible :eventable, :user
 
-  default_scope -> { includes :eventable }
+  default_scope -> { includes(:eventable).order('created_at DESC') }
 
   scope :for_users, ->(users = []) do
     where('user_id IN (?)', users.map(&:id))
