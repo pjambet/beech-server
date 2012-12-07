@@ -4,6 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  name         :string(255)
+#  country      :string(255)
 #  beer_type_id :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -11,9 +12,11 @@
 
 class Beer < ActiveRecord::Base
   include BeechServer::Searchable::Models
+  include BeechServer::Pageable
   attr_accessible :name, :beer_type, :beer_type_id
 
   acts_as_searchable
+  acts_as_pageable
 
   belongs_to :beer_type
   has_many :checks
@@ -22,3 +25,4 @@ class Beer < ActiveRecord::Base
   delegate :name, to: :beer_type, prefix: :true
 
 end
+
