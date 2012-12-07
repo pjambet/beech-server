@@ -4,5 +4,6 @@ class CreateAwards < ActiveRecord::Migration
       t.belongs_to :user, :badge
       t.timestamps
     end
+    add_index :awards, [:user_id, :badge_id]
   end
 end

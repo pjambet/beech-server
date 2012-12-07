@@ -26,6 +26,8 @@ Spork.each_run do
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+  Dir[Rails.root.join("lib/beech_server/*.rb")].each {|f| require f}
+
   # reload all factories
   FactoryGirl.factories.clear
   Dir.glob("#{::Rails.root}/spec/factories/*.rb").each do |file|
@@ -47,8 +49,8 @@ Spork.each_run do
     # If you're not using ActiveRecord, or you'd prefer not to run each of your
     # examples within a transaction, remove the following line or assign false
     # instead of true.
-    config.use_transactional_fixtures = false
-    config.use_transactional_examples = false
+    config.use_transactional_fixtures = true
+    config.use_transactional_examples = true
 
     # If true, the base class of anonymous controllers will be inferred
     # automatically. This will be the default behavior in future versions of

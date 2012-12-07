@@ -13,25 +13,17 @@ class Check < ActiveRecord::Base
   include BeechServer::Eventable
   attr_accessible :user_id, :beer_id, :user, :beer
 
+  acts_as_eventable
+
   belongs_to :user
   belongs_to :beer
-
 
   delegate :name, to: :beer
 
   validates :beer, presence: true
   validates :user, presence: true
 
-  acts_as_eventable
-
   default_scope -> { includes(:user, :beer).order('created_at DESC') }
 
-  scope :paginate, ->(page = 1) do
-    limit(self.class.per_page).offset((page - 1) * self.class.per_page )
-  end
-
-  def self.per_page
-    20
-  end
-
 end
+

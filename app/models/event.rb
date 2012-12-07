@@ -14,4 +14,13 @@ class Event < ActiveRecord::Base
     date = Time.at(date.to_i).utc if date.to_i > 0
     where("date_trunc('second', created_at) > ?", date)
   end
+
+  scope :paginate, ->(page = 1, opts = {}) do
+    limit(per_page).offset((page - 1) * per_page )
+  end
+
+  def self.per_page
+    20
+  end
+
 end

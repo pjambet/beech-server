@@ -18,13 +18,15 @@
 #
 
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
+  include BeechServer::Searchable::Models
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :nickname
 
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
   mount_uploader :avatar, AvatarUploader
+  acts_as_searchable
 
   has_many :awards
   has_many :badges, through: :awards

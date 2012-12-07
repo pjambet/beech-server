@@ -10,8 +10,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    params[:s] ||= ""
-    @users = User.except(current_user).where('lower(nickname) ILIKE ?', "%#{params[:s].downcase}%")
+    @users = User.except(current_user)
     render json: @users, followings: current_user.following_users
   end
 end

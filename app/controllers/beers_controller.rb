@@ -1,10 +1,9 @@
 class BeersController < ApplicationController
+  include BeechServer::Searchable::Controllers
+
+  can_search_for :beers
+
   def index
-    if params[:s].present?
-      @beers = Beer.where('lower(name) ILIKE ?', "%#{params[:s].downcase}%")
-    else
-      @beers = Beer.all
-    end
     render json: @beers
   end
 
