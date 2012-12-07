@@ -4,6 +4,7 @@ module BeechServer::Searchable
     def self.included(base)
       base.extend(ClassMethods)
     end
+
     module ClassMethods
       def can_search_for(resource_name = nil)
         before_filter :search, only: :index
@@ -24,9 +25,10 @@ module BeechServer::Searchable
     def self.included(base)
       base.extend(ClassMethods)
     end
+
     module ClassMethods
       def acts_as_searchable(opts = {})
-        scope :search_for, ->(query="") do
+        scope :search_for, ->(query = "") do
           where('lower(name) ILIKE ?', "%#{query.downcase}%")
         end
       end

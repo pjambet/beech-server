@@ -13,6 +13,7 @@
 class Beer < ActiveRecord::Base
   include BeechServer::Searchable::Models
   include BeechServer::Pageable
+
   attr_accessible :name, :beer_type, :beer_type_id
 
   acts_as_searchable
