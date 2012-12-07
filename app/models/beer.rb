@@ -10,11 +10,15 @@
 #
 
 class Beer < ActiveRecord::Base
+  include BeechServer::Searchable::Models
   attr_accessible :name, :beer_type, :beer_type_id
+
+  acts_as_searchable
 
   belongs_to :beer_type
   has_many :checks
   has_many :users, through: :checks
 
   delegate :name, to: :beer_type, prefix: :true
+
 end
