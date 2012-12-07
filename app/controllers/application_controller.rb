@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery
 
   def after_sign_in_path_for(user)
     user_path user
@@ -9,8 +8,9 @@ class ApplicationController < ActionController::Base
     user_path user
   end
 
-  def current_user
-    User.find(1)
+  if Rails.env.development?
+    def current_user
+      User.find(1)
+    end
   end
-
 end
