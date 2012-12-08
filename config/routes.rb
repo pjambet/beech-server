@@ -11,10 +11,13 @@ BeerServer::Application.routes.draw do
   resources :profile, only: [:index, :show]
   resources :followers, only: :index
   resources :followings, only: :index
-
   resources :beers, only: :index
 
   match 'feed', to: 'feed#index'
+
+  namespace :admin do
+    resources :beers
+  end
 
   root to: 'home#index'
 end
