@@ -14,7 +14,7 @@ module BeerServer
 
     config.time_zone = 'Paris'
 
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = :fr
 
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
@@ -40,5 +40,6 @@ module BeerServer
     config.assets.version = '1.0'
 
     config.cache_store = :dalli_store
+
   end
 end
