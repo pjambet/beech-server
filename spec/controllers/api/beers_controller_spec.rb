@@ -2,7 +2,11 @@ require 'spec_helper'
 
 describe Api::BeersController do
   context 'when not logged in' do
-    it
+    describe "GET 'index'" do
+      it 'should respond with unauthorized' do
+
+      end
+    end
   end
 
   context 'when logged in' do
@@ -52,8 +56,9 @@ describe Api::BeersController do
           end
 
           it 'should only return results which match query' do
+            reg = %r{#{query}}
             assigns(:beers).each do |beer|
-              beer.name.should match %r{#{query}}
+              beer.name.should match reg
             end
           end
 

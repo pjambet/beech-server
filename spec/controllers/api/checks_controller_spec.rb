@@ -19,9 +19,7 @@ describe Api::ChecksController do
   end
 
   context 'when logged in' do
-    before(:each) do
-      sign_in user
-    end
+    before(:each) { sign_in user }
 
     describe "GET index" do
 

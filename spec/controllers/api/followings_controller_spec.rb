@@ -3,7 +3,34 @@ require 'spec_helper'
 describe Api::FollowingsController do
   let(:user) { create :user }
   context 'when not logged in' do
+    before(:each) { @followee_user = create :user }
 
+    describe "GET 'index'" do
+      before(:each) do
+        get :index, format: 'json'
+      end
+
+      it 'respond with unauthorized' do
+        response.response_code.should == 401
+      end
+    end
+
+    describe "POST 'create'" do
+      before(:each) do
+        post :create, format: 'json'
+      end
+
+      it 'respond with unauthorized' do
+        response.response_code.should == 401
+      end
+    end
+
+    describe "DELETE 'destroy'" do
+      it 'should respond with unauthorized' do
+        delete :destroy, id: user, format: 'json'
+        response.response_code.should == 401
+      end
+    end
   end
 
   context 'when logged in' do
@@ -13,7 +40,7 @@ describe Api::FollowingsController do
       before(:each) do
         @followees = 5.times.map { create :following, follower: user }
         @other_followees = 5.times.map { create :following }
-        get 'index'
+        get :index
       end
 
       it 'should return the followed users' do
@@ -32,7 +59,7 @@ describe Api::FollowingsController do
     describe "POST 'create'" do
       before(:each) do
         @followee_user = create :user
-        post 'create', user_id: @followee_user
+        post :create, user_id: @followee_user
       end
 
       it 'should have created the following association' do
@@ -43,7 +70,7 @@ describe Api::FollowingsController do
     describe "DELETE 'destroy'" do
       before(:each) do
         @following = create :following, follower: user
-        delete 'destroy', id: user, user_id: @following.followee_id
+      delete :destroy, id: user, user_id: @following.followee_id
       end
 
       it 'should have destroyed the following association' do

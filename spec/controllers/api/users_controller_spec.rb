@@ -4,16 +4,18 @@ describe Api::UsersController do
   describe "GET index" do
 
     context 'when not logged in' do
-      it
+      it 'should respond with unauthorized' do
+        get :index, format: 'json'
+        response.response_code.should == 401
+      end
     end
 
     context 'when logged in' do
       let(:user) { create :user }
-      before(:each) do
-        sign_in user
-      end
+      before(:each) { sign_in user }
+
       context 'without query' do
-        before(:each) { get :index }
+        before(:each) { get :index, format: 'json' }
 
         it 'should respond with success' do
           response.should be_success
