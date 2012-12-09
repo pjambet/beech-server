@@ -1,7 +1,8 @@
 test:
   adapter: postgresql
-  database: vinallia_test
+  database: beech-server_test
   username: postgres
   password:
   host: localhost
   encoding: UTF8
+
