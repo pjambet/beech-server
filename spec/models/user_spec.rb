@@ -10,9 +10,35 @@ describe User do
   it { should have_many(:following_users).through(:followings) }
   it { should have_many(:followers) }
   it { should have_many(:follower_users).through(:followers) }
+  it { should have_many(:memberships) }
+  it { should have_many(:roles).through(:memberships) }
 
   it { should validate_presence_of :email }
   it { should validate_presence_of :nickname }
+
+  context 'with a new instance' do
+    subject { create :user }
+
+    it { should validate_uniqueness_of(:email) }
+    it { should validate_uniqueness_of(:nickname) }
+  end
+
+  describe '#admin?' do
+
+    context 'with a regular user' do
+      subject { create :user }
+      it 'should return false' do
+        should_not be_admin
+      end
+    end
+
+    context 'with an admin' do
+      subject { create :user, :admin }
+      it 'should return true' do
+        should be_admin
+      end
+    end
+  end
 
   describe '.except' do
     before(:each) do

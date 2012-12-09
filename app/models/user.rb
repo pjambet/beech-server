@@ -41,8 +41,11 @@ class User < ActiveRecord::Base
   has_many :followers, foreign_key: :followee_id, class_name: 'Following'
   has_many :follower_users, through: :followers, source: :follower
 
-  validates :email, presence: true
-  validates :nickname, presence: true
+  has_many :memberships
+  has_many :roles, through: :memberships
+
+  validates :email, presence: true, uniqueness: true
+  validates :nickname, presence: true, uniqueness: true
 
   scope :except, ->(users = []) do
     users = [users] unless users.is_a?(Array)
@@ -51,6 +54,10 @@ class User < ActiveRecord::Base
     else
       scoped
     end
+  end
+
+  def admin?
+    roles.include? Role.admin_role
   end
 
 end

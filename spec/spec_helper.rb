@@ -38,7 +38,11 @@ Spork.each_run do
     load "#{file}"
   end
 
+  I18n.default_locale = :en
+  I18n.locale = :en
+
   RSpec.configure do |config|
+
     config.mock_with :mocha
 
     # If you're not using ActiveRecord, or you'd prefer not to run each of your

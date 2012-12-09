@@ -17,6 +17,8 @@ BeerServer::Application.routes.draw do
 
   namespace :admin do
     resources :beers
+
+    root to: 'beers#index'
   end
 
   root to: 'home#index'

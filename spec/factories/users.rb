@@ -14,6 +14,12 @@ FactoryGirl.define do
         ]
       end
     end
+
+    trait :admin do
+      after(:create) do |user|
+        user.roles << Role.admin_role
+      end
+    end
   end
 
 end

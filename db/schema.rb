@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125103639) do
+ActiveRecord::Schema.define(:version => 20121209183651) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -72,6 +72,21 @@ ActiveRecord::Schema.define(:version => 20121125103639) do
   end
 
   add_index "followings", ["follower_id", "followee_id"], :name => "index_followings_on_follower_id_and_followee_id"
+
+  create_table "memberships", :force => true do |t|
+    t.integer "role_id", :null => false
+    t.integer "user_id", :null => false
+  end
+
+  add_index "memberships", ["role_id", "user_id"], :name => "index_memberships_on_role_id_and_user_id"
+
+  create_table "roles", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "nickname"
