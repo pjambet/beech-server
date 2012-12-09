@@ -41,5 +41,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker', '1.0.1'
   gem 'simplecov', require: false
-  gem 'mocha'
+  gem 'mocha', '~> 0.13', require: false
 end

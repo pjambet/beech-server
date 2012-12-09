@@ -4,7 +4,7 @@ describe ChecksController do
   let(:user) { create :user, :with_checks }
 
   context 'when not logged in' do
-    # TODO
+    it
   end
 
   context 'when logged in' do

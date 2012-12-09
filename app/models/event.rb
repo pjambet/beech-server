@@ -18,11 +18,16 @@ class Event < ActiveRecord::Base
   belongs_to :eventable, polymorphic: true
   belongs_to :user
 
+  validates :eventable, presence: true
+
   acts_as_pageable
 
   default_scope -> { includes(:eventable).order('created_at DESC') }
 
-  scope :for_users, ->(users = []) do
+  delegate :user, to: :eventable, prefix: false
+
+  scope :for_users, ->(users) do
+    return [] unless Enumerable === users
     where('user_id IN (?)', users.map(&:id))
   end
 
