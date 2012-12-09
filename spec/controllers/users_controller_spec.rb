@@ -4,7 +4,7 @@ describe UsersController do
   describe "GET index" do
 
     context 'when not logged in' do
-      #TODO
+      it
     end
 
     context 'when logged in' do
