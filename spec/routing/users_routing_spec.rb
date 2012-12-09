@@ -30,12 +30,5 @@ describe 'routing to users' do
     )
   end
 
-  it 'routes /users/search to users#search' do
-    expect(get: '/users/search').to route_to(
-      controller: 'users',
-      action: 'search'
-    )
-  end
-
 end
 

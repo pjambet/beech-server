@@ -1,4 +1,4 @@
-class ProfileController < ApplicationController
+class Api::ProfileController < Api::ApplicationController
 
   def index
     @user = current_user

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe FeedController do
+describe Api::FeedController do
   let(:user) { create :user }
   context 'when not logged in' do
     it

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe FollowingsController do
+describe Api::FollowingsController do
   let(:user) { create :user }
   context 'when not logged in' do
 

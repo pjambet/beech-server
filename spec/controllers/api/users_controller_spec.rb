@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UsersController do
+describe Api::UsersController do
   describe "GET index" do
 
     context 'when not logged in' do

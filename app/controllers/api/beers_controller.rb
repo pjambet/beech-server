@@ -1,4 +1,4 @@
-class BeersController < ApplicationController
+class Api::BeersController < Api::ApplicationController
   include BeechServer::Searchable::Controllers
 
   can_search_for :beers

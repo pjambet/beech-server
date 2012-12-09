@@ -1,4 +1,4 @@
-class ChecksController < ApplicationController
+class Api::ChecksController < Api::ApplicationController
 
   before_filter :load_user
 

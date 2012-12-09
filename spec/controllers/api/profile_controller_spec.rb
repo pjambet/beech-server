@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ProfileController do
+describe Api::ProfileController do
   let(:user) { create :user }
   context 'when not logged in' do
     it

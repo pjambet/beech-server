@@ -1,4 +1,4 @@
-class FollowingsController < ApplicationController
+class Api::FollowingsController < Api::ApplicationController
 
   def index
     render json: current_user.following_users, root: "users"

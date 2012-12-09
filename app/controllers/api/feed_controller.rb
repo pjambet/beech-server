@@ -1,4 +1,4 @@
-class FeedController < ApplicationController
+class Api::FeedController < Api::ApplicationController
 
   def index
     @events = Event.for_users(current_user.following_users + [current_user])

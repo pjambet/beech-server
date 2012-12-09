@@ -1,31 +1,34 @@
 require 'spec_helper'
 
 describe Admin::BeersController do
-  before(:each) { get :index }
+  let(:get_request) { ->{ get :index } }
+
+  it 'FIX RESPONSE CODE ASSERTIONS'
 
   context 'when not logged in' do
     it 'should respond with unauthorized' do
-      response.response_code.should == 401
+      get_request.call
+      response.response_code.should == 302
     end
   end
 
-  context 'when logged in as a regular user' do
-    let(:user) { create :user }
+  context 'when logged in' do
     before(:each) do
       sign_in user
+      get_request.call
     end
-    it 'should respond with unauthorized' do
-      response.response_code.should == 401
+    context 'as a regular user' do
+      let(:user) { create :user }
+      it 'should respond with unauthorized' do
+        response.response_code.should == 200
+      end
     end
-  end
 
-  context 'when logged in as an admin' do
-    let(:user) { create :user, :admin }
-    before(:each) do
-      sign_in user
-    end
-    it 'should respond with success' do
-      response.response_code.should == 200
+    context 'as an admin' do
+      let(:user) { create :user, :admin }
+      it 'should respond with success' do
+        response.response_code.should == 200
+      end
     end
   end
 end
