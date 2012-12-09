@@ -7,7 +7,7 @@ env:
 script: bundle exec rspec spec --profile
 before_install: gem install bundler
 before_script:
-  - psql -c 'create database beech-server_test' -U postgres
+  - psql -c 'create database beech_test' -U postgres
   - mv config/database.travis.yml config/database.yml
   - RAILS_ENV=test rake db:migrate
 

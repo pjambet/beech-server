@@ -1,6 +1,6 @@
 test:
   adapter: postgresql
-  database: beech-server_test
+  database: beech_test
   username: postgres
   password:
   host: localhost
