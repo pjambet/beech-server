@@ -5,19 +5,19 @@ class FollowingsController < ApplicationController
   end
 
   def create
-    follower = User.find params[:user_id]
-    unless current_user.following_users.include? follower
-      current_user.following_users << follower
+    followee = User.find params[:user_id]
+    unless current_user.following_users.include? followee
+      current_user.following_users << followee
     end
-    render json: follower
+    render json: followee
   end
 
   def destroy
-    follower = User.find params[:user_id]
-    if current_user.following_users.include? follower
-      current_user.following_users.delete follower
+    followee = User.find params[:user_id]
+    if current_user.following_users.include? followee
+      current_user.following_users.destroy followee
     end
-    render json: follower
+    render json: followee
 
   end
 end

@@ -1,6 +1,6 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
-  factory :followings do
+  factory :following do
+    followee { create :user }
+    follower { create :user }
   end
 end
