@@ -102,8 +102,11 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     method_source (0.8.1)
     mime-types (1.19)
+    mocha (0.12.3)
+      metaclass (~> 0.0.1)
     multi_json (1.3.7)
     newrelic_rpm (3.5.2.17)
     orm_adapter (0.4.0)
@@ -174,6 +177,10 @@ GEM
     simple_form (2.0.4)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
     slop (3.3.3)
     spork (1.0.0rc3)
     sprockets (2.2.1)
@@ -214,6 +221,7 @@ DEPENDENCIES
   guard-rspec
   haml
   jquery-rails
+  mocha
   newrelic_rpm
   pg
   pry
@@ -226,6 +234,7 @@ DEPENDENCIES
   sextant
   shoulda
   simple_form
+  simplecov
   spork (~> 1.0rc)
   uglifier (>= 1.0.3)
   unicorn

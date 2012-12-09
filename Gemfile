@@ -40,4 +40,6 @@ group :development, :test do
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'factory_girl_rails'
   gem 'faker', '1.0.1'
+  gem 'simplecov', require: false
+  gem 'mocha'
 end
