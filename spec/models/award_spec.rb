@@ -7,6 +7,5 @@ describe Award do
   it { should validate_presence_of(:user)}
   it { should validate_presence_of(:badge)}
 
-  # TODO add a custom matcher so we can write
-  # it { should act_as_eventable}
+  it { should act_as_eventable}
 end

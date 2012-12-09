@@ -1,10 +1,20 @@
-# require 'spec_helper'
+require 'spec_helper'
 
-# describe BeechServer::Searchable::ClassMethods do
+describe BeechServer::Searchable do
 
-#   describe '#can_search' do
-#     p described_class
-#     it 'should '
-#   end
+  context 'Models' do
 
-# end
+    let(:dummy_class) do
+      Class.new(ActiveRecord::Base) do
+        include BeechServer::Searchable::Models
+        acts_as_searchable
+      end
+    end
+
+    describe '#search_for' do
+      it 'should respond to search_for' do
+        dummy_class.should respond_to(:search_for)
+      end
+    end
+  end
+end
