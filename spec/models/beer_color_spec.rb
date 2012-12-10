@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe BeerType do
+describe BeerColor do
   it { should have_many :beers }
 end

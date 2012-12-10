@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: beer_types
+# Table name: beer_colors
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -8,7 +8,7 @@
 #  updated_at :datetime         not null
 #
 
-class BeerType < ActiveRecord::Base
+class BeerColor < ActiveRecord::Base
   attr_accessible :name
 
   has_many :beers

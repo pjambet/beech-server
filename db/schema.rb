@@ -24,11 +24,14 @@ ActiveRecord::Schema.define(:version => 20121209183651) do
 
   create_table "badges", :force => true do |t|
     t.string   "name"
+    t.string   "hook_model"
+    t.string   "type"
+    t.text     "condition"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "beer_types", :force => true do |t|
+  create_table "beer_colors", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -37,12 +40,12 @@ ActiveRecord::Schema.define(:version => 20121209183651) do
   create_table "beers", :force => true do |t|
     t.string   "name"
     t.string   "country"
-    t.integer  "beer_type_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "beer_color_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
-  add_index "beers", ["beer_type_id"], :name => "index_beers_on_beer_type_id"
+  add_index "beers", ["beer_color_id"], :name => "index_beers_on_beer_color_id"
 
   create_table "checks", :force => true do |t|
     t.integer  "user_id"

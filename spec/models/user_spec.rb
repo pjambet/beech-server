@@ -91,4 +91,37 @@ describe User do
       end
     end
   end
+
+  describe '#unearned_badges' do
+    subject { create :user }
+
+    context 'without badges in the db' do
+      it 'should return an empty list' do
+        subject.unearned_badges.should be_empty
+      end
+    end
+
+    context 'with badges in the db' do
+      context 'when user has already earned everything' do
+        before(:each) do
+          4.times { subject.badges << create(:badge) }
+        end
+
+        it 'should return an empty list' do
+          subject.unearned_badges.should be_empty
+        end
+      end
+
+      context 'when user has not earned some badges' do
+        before(:each) do
+          4.times { create :badge }
+          3.times { subject.badges << create(:badge) }
+        end
+        it 'should return those badges' do
+          subject.unearned_badges.should_not be_empty
+          subject.unearned_badges.size.should == 4
+        end
+      end
+    end
+  end
 end

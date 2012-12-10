@@ -25,5 +25,17 @@ class Check < ActiveRecord::Base
 
   default_scope -> { includes(:user, :beer).order('created_at DESC') }
 
+  after_create do
+    check_if_user_earned_new_badges
+  end
+
+  def check_if_user_earned_new_badges
+    user.unearned_badges.each do |badge|
+      if eval(badge.condition)
+        user.awards.create(badge: badge)
+      end
+    end
+  end
+
 end
 
