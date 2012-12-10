@@ -21,3 +21,4 @@ pickle-email-*.html
 config/database.yml
 .rvmrc
 db/import
+db/seeds.rb
