@@ -4,6 +4,7 @@ BeerServer::Application.routes.draw do
   namespace :api do
     resources :users, only: [:show, :index] do
       resources :checks, only: [:index, :create]
+      resources :awards, only: :index
       resources :followers, only: :index
       resources :followings, only: :index
       resources :profile, only: :index
