@@ -4,7 +4,8 @@ describe Api::BeersController do
   context 'when not logged in' do
     describe "GET 'index'" do
       it 'should respond with unauthorized' do
-
+        get :index, format: 'json'
+        expect(response.code).to eq('401')
       end
     end
   end
@@ -17,9 +18,7 @@ describe Api::BeersController do
         before(:each) { 25.times.map { create :beer } }
 
         context 'without query' do
-          before(:each) do
-            get :index
-          end
+          before(:each) { get :index }
 
           it 'should respond with success' do
             response.should be_success

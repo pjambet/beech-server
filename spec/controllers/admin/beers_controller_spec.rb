@@ -3,12 +3,11 @@ require 'spec_helper'
 describe Admin::BeersController do
   let(:get_request) { ->{ get :index } }
 
-  it 'FIX RESPONSE CODE ASSERTIONS'
 
   context 'when not logged in' do
-    it 'should respond with unauthorized' do
+    it 'should redirect to sign_in form' do
       get_request.call
-      response.response_code.should == 302
+      expect(response.code).to redirect_to(new_user_session_path)
     end
   end
 
@@ -20,14 +19,14 @@ describe Admin::BeersController do
     context 'as a regular user' do
       let(:user) { create :user }
       it 'should respond with unauthorized' do
-        response.response_code.should == 200
+        expect(response.code).to eq('200')
       end
     end
 
     context 'as an admin' do
       let(:user) { create :user, :admin }
       it 'should respond with success' do
-        response.response_code.should == 200
+        expect(response.code).to eq('200')
       end
     end
   end
