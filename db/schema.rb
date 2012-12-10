@@ -24,15 +24,17 @@ ActiveRecord::Schema.define(:version => 20121209183651) do
 
   create_table "badges", :force => true do |t|
     t.string   "name"
-    t.string   "hook_model"
     t.string   "type"
     t.text     "condition"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "quantity"
+    t.datetime "published_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "beer_colors", :force => true do |t|
     t.string   "name"
+    t.string   "slug"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

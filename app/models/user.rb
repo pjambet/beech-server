@@ -21,6 +21,7 @@
 
 class User < ActiveRecord::Base
   include BeechServer::Searchable::Models
+  include BeechServer::Models::Badges
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :nickname
 

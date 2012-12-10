@@ -23,6 +23,7 @@ BeerServer::Application.routes.draw do
 
   namespace :admin do
     resources :beers
+    resources :badges
 
     root to: 'beers#index'
   end

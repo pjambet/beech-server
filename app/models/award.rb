@@ -20,4 +20,5 @@ class Award < ActiveRecord::Base
   validates :badge, presence: true
 
   acts_as_eventable
+
 end
