@@ -7,13 +7,13 @@ describe Api::ChecksController do
     describe "GET 'index'" do
       it 'should respond with unauthorized' do
         get :index, format: 'json'
-        response.response_code.should == 401
+        expect(response.code).to eq('401')
       end
     end
     describe "POST 'create'" do
       it 'should respond with unauthorized' do
         post :create, format: 'json'
-        response.response_code.should == 401
+        expect(response.code).to eq('401')
       end
     end
   end
@@ -36,8 +36,9 @@ describe Api::ChecksController do
       let(:attributes) { attributes_for :check_attributes }
 
       it "creates a check" do
-        post :create, user_id: user, check: attributes, format: 'json'
-        assert assigns(:check).present?
+        expect {
+          post :create, user_id: user, check: attributes, format: 'json'
+        }.to change{ Check.count }.by(1)
       end
     end
   end

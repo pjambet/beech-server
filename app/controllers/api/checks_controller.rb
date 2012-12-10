@@ -13,9 +13,7 @@ class Api::ChecksController < Api::ApplicationController
       c.user_id = params[:user_id]
     end
 
-    if @check.save
-      render json: @check
-    end
+    render json: @check if @check.save
   end
 
 end
