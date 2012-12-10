@@ -22,3 +22,4 @@ config/database.yml
 .rvmrc
 db/import
 db/seeds.rb
+db/dump.db
