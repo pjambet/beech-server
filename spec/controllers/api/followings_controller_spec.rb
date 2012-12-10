@@ -29,21 +29,50 @@ describe Api::FollowingsController do
     before(:each) { sign_in user }
 
     describe "GET 'index'" do
-      before(:each) do
-        @followees = 5.times.map { create :following, follower: user }
-        @other_followees = 5.times.map { create :following }
-        get :index, format: 'json'
-      end
+      context 'without user_id param' do
+        before(:each) do
+          @followees = 5.times.map { create :following, follower: user }
+          @other_followees = 5.times.map { create :following }
+          get :index, format: 'json'
+        end
+        it 'should return the followed users of the current_user' do
+          decoded_response = ActiveSupport::JSON.decode(response.body)
+          users = decoded_response['users']
+          users.size.should == user.following_users.size
+          users.map{|u| User.find(u['id'])}.each do |f|
+            user.following_users.should include(f)
+          end
+        end
 
-      it 'should return the followed users' do
-        @followees.map(&:followee).each do |f|
-          user.following_users.should include(f)
+        it 'should not return other users' do
+          @other_followees.map(&:followee).each do |f|
+            user.following_users.should_not include(f)
+          end
         end
       end
 
-      it 'should not return other users' do
-        @other_followees.map(&:followee).each do |f|
-          user.following_users.should_not include(f)
+      context 'with user_id param' do
+        let(:inspected_user) { create :user }
+        before(:each) do
+          @followees = 5.times.map { create :following,
+                                     follower: inspected_user }
+          @other_followees = 5.times.map { create :following }
+          get :index, user_id: inspected_user, format: 'json'
+        end
+        it 'should return the followed users of the given user' do
+          decoded_response = ActiveSupport::JSON.decode(response.body)
+          users = decoded_response['users']
+
+          users.size.should == inspected_user.following_users.size
+          users.map{|u| User.find(u['id'])}.each do |f|
+            inspected_user.following_users.should include(f)
+          end
+        end
+
+        it 'should not return other users' do
+          @other_followees.map(&:followee).each do |f|
+            inspected_user.following_users.should_not include(f)
+          end
         end
       end
     end
@@ -62,7 +91,10 @@ describe Api::FollowingsController do
     describe "DELETE 'destroy'" do
       before(:each) do
         @following = create :following, follower: user
-        delete :destroy, id: user, user_id: @following.followee_id, format: 'json'
+        delete :destroy,
+                id: user,
+                user_id: @following.followee_id,
+                format: 'json'
       end
 
       it 'should have destroyed the following association' do
