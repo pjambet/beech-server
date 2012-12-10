@@ -42,4 +42,5 @@ group :development, :test do
   gem 'faker', '~> 1.1.2'
   gem 'simplecov', require: false
   gem 'mocha', '~> 0.13', require: false
+  gem 'bullet'
 end

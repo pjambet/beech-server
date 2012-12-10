@@ -40,6 +40,8 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    bullet (4.2.0)
+      uniform_notifier
     carrierwave (0.7.1)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -202,6 +204,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uniform_notifier (1.1.0)
     warden (1.2.1)
       rack (>= 1.0)
 
@@ -211,6 +214,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers!
   annotate (>= 2.5.0)
+  bullet
   carrierwave
   coffee-rails (~> 3.2.1)
   compass-rails
