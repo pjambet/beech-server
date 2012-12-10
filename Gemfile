@@ -39,7 +39,7 @@ group :development, :test do
   gem 'pry'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'factory_girl_rails'
-  gem 'faker', '1.0.1'
+  gem 'faker', '~> 1.1.2'
   gem 'simplecov', require: false
   gem 'mocha', '~> 0.13', require: false
 end
