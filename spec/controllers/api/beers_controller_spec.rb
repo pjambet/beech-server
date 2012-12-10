@@ -18,7 +18,7 @@ describe Api::BeersController do
         before(:each) { 25.times.map { create :beer } }
 
         context 'without query' do
-          before(:each) { get :index }
+          before(:each) { get :index, format: 'json' }
 
           it 'should respond with success' do
             response.should be_success

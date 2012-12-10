@@ -1,6 +1,7 @@
 class Api::ChecksController < Api::ApplicationController
+  include BeechServer::Controllers::Concerns
 
-  before_filter :load_user
+  load_user
 
   def index
     @checks = @user.checks
@@ -17,10 +18,5 @@ class Api::ChecksController < Api::ApplicationController
     end
   end
 
-  protected
-
-  def load_user
-    @user = User.find params[:user_id]
-  end
 end
 
