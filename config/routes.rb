@@ -14,6 +14,7 @@ BeerServer::Application.routes.draw do
     match 'feed', to: 'feed#index'
     resources :profile, only: [:index, :show]
     resources :checks, only: [:index, :create]
+    resources :awards, only: :index
     resources :followings, only: [:index, :create, :destroy]
     resources :followers, only: :index
 
