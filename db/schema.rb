@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125103639) do
+ActiveRecord::Schema.define(:version => 20121209183651) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -24,12 +24,17 @@ ActiveRecord::Schema.define(:version => 20121125103639) do
 
   create_table "badges", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "badge_type"
+    t.text     "condition"
+    t.integer  "quantity"
+    t.datetime "published_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
-  create_table "beer_types", :force => true do |t|
+  create_table "beer_colors", :force => true do |t|
     t.string   "name"
+    t.string   "slug"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -37,12 +42,12 @@ ActiveRecord::Schema.define(:version => 20121125103639) do
   create_table "beers", :force => true do |t|
     t.string   "name"
     t.string   "country"
-    t.integer  "beer_type_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "beer_color_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
-  add_index "beers", ["beer_type_id"], :name => "index_beers_on_beer_type_id"
+  add_index "beers", ["beer_color_id"], :name => "index_beers_on_beer_color_id"
 
   create_table "checks", :force => true do |t|
     t.integer  "user_id"
@@ -72,6 +77,21 @@ ActiveRecord::Schema.define(:version => 20121125103639) do
   end
 
   add_index "followings", ["follower_id", "followee_id"], :name => "index_followings_on_follower_id_and_followee_id"
+
+  create_table "memberships", :force => true do |t|
+    t.integer "role_id", :null => false
+    t.integer "user_id", :null => false
+  end
+
+  add_index "memberships", ["role_id", "user_id"], :name => "index_memberships_on_role_id_and_user_id"
+
+  create_table "roles", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "nickname"

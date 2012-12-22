@@ -1,16 +1,13 @@
 require 'spec_helper'
 
-describe BeechServer::Eventable do
+describe Eventable do
 
+  # TODO : use a gem such as acts_as_fu
+  let(:subject_class) { Check }
 
-  let(:dummy_class) do
-    Class.new(ActiveRecord::Base) do
-      include BeechServer::Eventable
-      acts_as_eventable
-    end
+  it 'should have one event' do
+    subject_class.new.should respond_to(:event)
   end
-
-  it 'should have one event'
 
 end
 

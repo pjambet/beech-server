@@ -38,7 +38,11 @@ Spork.each_run do
     load "#{file}"
   end
 
+  I18n.default_locale = :en
+  I18n.locale = :en
+
   RSpec.configure do |config|
+
     config.mock_with :mocha
 
     # If you're not using ActiveRecord, or you'd prefer not to run each of your
@@ -53,6 +57,17 @@ Spork.each_run do
     config.infer_base_class_for_anonymous_controllers = false
 
     config.order = "random"
+
+    config.before(:each) do
+      Bullet.start_request if Bullet.enable?
+    end
+
+    config.after(:each) do
+      if Bullet.enable?
+        Bullet.perform_out_of_channel_notifications
+        Bullet.end_request
+      end
+    end
 
   end
 

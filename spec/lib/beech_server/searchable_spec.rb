@@ -1,13 +1,12 @@
 require 'spec_helper'
 
-describe BeechServer::Searchable do
+describe Searchable do
 
   context 'Models' do
 
     let(:dummy_class) do
       Class.new(ActiveRecord::Base) do
-        include BeechServer::Searchable::Models
-        acts_as_searchable
+        include Searchable::Models
       end
     end
 

@@ -1,13 +1,12 @@
 language: ruby
 rvm:
   - 1.9.3
-  - 1.9.2
 env:
-  - DB=sqlite
-  - DB=mysql
   - DB=postgresql
-script:
-  - RAILS_ENV=test bundle exec rake --trace db:migrate test
+script: bundle exec rspec spec --profile
+before_install: gem install bundler
 before_script:
-  - mysql -e 'create database myapp_test'
-  - psql -c 'create database myapp_test' -U postgres
+  - psql -c 'create database beech_test' -U postgres
+  - mv config/database.travis.yml config/database.yml
+  - RAILS_ENV=test rake db:migrate
+

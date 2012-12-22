@@ -10,7 +10,7 @@
 #
 
 class Award < ActiveRecord::Base
-  include BeechServer::Eventable
+  include Eventable
   attr_accessible :user_id, :badge_id, :user, :badge
 
   belongs_to :user
@@ -19,5 +19,5 @@ class Award < ActiveRecord::Base
   validates :user, presence: true
   validates :badge, presence: true
 
-  acts_as_eventable
 end
+

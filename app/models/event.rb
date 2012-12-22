@@ -11,7 +11,7 @@
 #
 
 class Event < ActiveRecord::Base
-  include BeechServer::Pageable
+  include Pageable
 
   attr_accessible :eventable, :user
 

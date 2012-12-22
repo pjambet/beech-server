@@ -20,7 +20,11 @@
 #
 
 class User < ActiveRecord::Base
-  include BeechServer::Searchable::Models
+  include Searchable::Models
+  include BeechServer::Models::Badges
+  include Followable
+  include Rolable
+
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :nickname
 
@@ -28,7 +32,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, AvatarUploader
-  acts_as_searchable
 
   has_many :awards
   has_many :badges, through: :awards
@@ -36,21 +39,20 @@ class User < ActiveRecord::Base
   has_many :beers, through: :checks
   has_many :events
 
-  has_many :followings, foreign_key: :follower_id, class_name: 'Following'
-  has_many :following_users, through: :followings, source: :followee
-  has_many :followers, foreign_key: :followee_id, class_name: 'Following'
-  has_many :follower_users, through: :followers, source: :follower
+  validates :email, presence: true, uniqueness: true
+  validates :nickname, presence: true, uniqueness: true
 
-  validates :email, presence: true
-  validates :nickname, presence: true
-
-  scope :except, ->(users = []) do
-    users = [users] unless users.is_a?(Array)
+  scope :except, ->(*users) do
+    users.flatten!
     if users.any?
       where('id NOT IN (?) ', users.map(&:id))
     else
       scoped
     end
+  end
+
+  def beer_countries
+    beers.map(&:country)
   end
 
 end
