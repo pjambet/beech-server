@@ -30,7 +30,7 @@ gem 'newrelic_rpm'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'dalli'
-
+gem 'coveralls', require: false
 
 group :development, :test do
   gem 'rspec-rails'
