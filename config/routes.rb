@@ -2,17 +2,19 @@ BeerServer::Application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
   namespace :api do
+    scope 'my' do
+      resource :profiles, path: 'profile', only: [:index, :show, :update]
+    end
     resources :users, only: [:show, :index] do
       resources :checks, only: [:index, :create]
       resources :awards, only: :index
       resources :followers, only: :index
       resources :followings, only: :index
-      resources :profile, only: :index
-
-      get :search, on: :collection
+      resource :profile, only: :index
     end
+
     match 'feed', to: 'feed#index'
-    resources :profile, only: [:index, :show]
+    resources :profiles, only: :show
     resources :checks, only: [:index, :create]
     resources :awards, only: :index
     resources :followings, only: [:index, :create, :destroy]

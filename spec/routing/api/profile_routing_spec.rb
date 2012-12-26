@@ -1,16 +1,9 @@
 require 'spec_helper'
 
 describe 'routing to profile' do
-  it 'routes /api/profile to api/profile#index' do
-    expect(get: '/api/profile').to route_to(
-      controller: 'api/profile',
-      action: 'index'
-    )
-  end
-
-  it 'routes /api/profile/:id to api/profile#show' do
-    expect(get: '/api/profile/20').to route_to(
-      controller: 'api/profile',
+  it 'routes /api/profiles/:id to api/profiles#show' do
+    expect(get: '/api/profiles/20').to route_to(
+      controller: 'api/profiles',
       action: 'show',
       id: '20'
     )
