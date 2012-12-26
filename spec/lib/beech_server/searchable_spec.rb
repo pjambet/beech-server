@@ -7,6 +7,7 @@ describe Searchable do
     let(:dummy_class) do
       Class.new(ActiveRecord::Base) do
         include Searchable::Models
+        searchable_by "dummy"
       end
     end
 

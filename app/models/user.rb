@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, AvatarUploader
+  searchable_by :nickname
 
   has_many :awards
   has_many :badges, through: :awards

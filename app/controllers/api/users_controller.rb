@@ -1,6 +1,10 @@
 class Api::UsersController < Api::ApplicationController
+  include SearchableMethods
+
+  can_search_for :users
+
   def index
-    @users = User.except(current_user).limit(10)
+    @users = @users.except(current_user).limit(10)
     render json: @users
   end
 
@@ -9,8 +13,14 @@ class Api::UsersController < Api::ApplicationController
     render json: @user
   end
 
-  def search
-    @users = User.except(current_user)
-    render json: @users, followings: current_user.following_users
+  def update
+    status = if current_user.update_attributes params[:user]
+               :success
+             else
+               :unprocessable_entity
+             end
+
+    render json: @user, status: status
   end
 end
+

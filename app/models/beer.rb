@@ -17,6 +17,7 @@ class Beer < ActiveRecord::Base
   attr_accessible :name, :beer_color, :beer_color_id
 
   acts_as_pageable
+  searchable_by :name
 
   belongs_to :beer_color
   has_many :checks
