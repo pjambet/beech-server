@@ -4,7 +4,7 @@ class Api::ProfilesController < Api::ApplicationController
   end
 
   def show
-    @user = User.find params[:id]
+    @user = params[:id].present? ? User.find(params[:id]) : current_user
     render json: @user, serializer: MyUserSerializer, root: 'profile'
   end
 

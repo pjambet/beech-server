@@ -8,12 +8,6 @@ class ApplicationController < ActionController::Base
     user_path user
   end
 
-  if Rails.env.development?
-    def current_user
-      User.find(1)
-    end
-  end
-
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, with: (lambda do |exception|
       # TODO notify exception (airbrake or honeybadger)
