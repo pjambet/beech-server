@@ -1,10 +1,11 @@
-%header= @user.email
+%header
+  %h2= @user.email
 
 %br
 %br
 Mes bieres
 %ul
-  - @user.beers.each do |beer|
+  - @beers.each do |beer|
     %li= "#{beer.name} #{beer.beer_color_name}"
 
 %br

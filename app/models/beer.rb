@@ -23,7 +23,7 @@ class Beer < ActiveRecord::Base
   has_many :checks
   has_many :users, through: :checks
 
-  delegate :name, to: :beer_color, prefix: :true
+  delegate :name, to: :beer_color, prefix: true
 
 end
 
