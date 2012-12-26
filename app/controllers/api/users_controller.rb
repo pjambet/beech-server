@@ -13,14 +13,5 @@ class Api::UsersController < Api::ApplicationController
     render json: @user
   end
 
-  def update
-    status = if current_user.update_attributes params[:user]
-               :success
-             else
-               :unprocessable_entity
-             end
-
-    render json: @user, status: status
-  end
 end
 
