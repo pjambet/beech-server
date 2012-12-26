@@ -42,6 +42,7 @@ GEM
     builder (3.0.4)
     bullet (4.2.0)
       uniform_notifier
+    cancan (1.6.8)
     carrierwave (0.7.1)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -224,6 +225,7 @@ DEPENDENCIES
   active_model_serializers!
   annotate (>= 2.5.0)
   bullet
+  cancan
   carrierwave
   coffee-rails (~> 3.2.1)
   compass-rails

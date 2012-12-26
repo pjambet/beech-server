@@ -18,6 +18,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'dalli'
 gem 'coveralls', require: false
+gem 'cancan'
 
 group :development do
   gem 'annotate', '>=2.5.0'
