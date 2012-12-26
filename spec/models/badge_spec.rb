@@ -9,7 +9,9 @@ describe Badge do
     let(:user) { create :user }
     context 'with a "Drink X beers of badge_type" badge' do
       let(:badge) do
-        create :badge, badge_type: 'quantity', condition: 'color:blond', quantity: '10'
+        create :badge, badge_type: 'quantity',
+                       condition: 'color:blond',
+                       quantity: '10'
       end
     end
 
