@@ -29,10 +29,12 @@ class User < ActiveRecord::Base
                   :nickname
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
 
   mount_uploader :avatar, AvatarUploader
   searchable_by :nickname
+
+  before_save :ensure_authentication_token
 
   has_many :awards
   has_many :badges, through: :awards

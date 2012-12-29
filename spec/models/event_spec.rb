@@ -65,6 +65,15 @@ describe Event do
       Check.any_instance.stubs(:create_event).returns(nil)
     end
 
+    context 'when params is 0' do
+      before(:each) do
+        @events = 2.times.map { |i| create :event, created_at: i.day.ago }
+      end
+      it 'should not apply any filter' do
+        Event.after(0).size.should == 2
+        Event.after('0').size.should == 2
+      end
+    end
     context "when there's no event after the last fetched" do
       before(:each) do
         @events = 5.times.map { |i| create :event, created_at: i.day.ago }
