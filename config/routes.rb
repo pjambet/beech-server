@@ -6,7 +6,7 @@ BeerServer::Application.routes.draw do
       resource :profiles, path: 'profile', only: [:index, :show, :update]
     end
     resources :users, only: [:show, :index] do
-      resources :checks, only: [:index, :create]
+      resources :checks, only: :index
       resources :awards, only: :index
       resources :followers, only: :index
       resources :followings, only: :index
