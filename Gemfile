@@ -32,9 +32,9 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'pry'
-  gem 'rb-inotify', :require => false
-  gem 'rb-fsevent', :require => false
-  gem 'rb-fchange', :require => false
+  gem 'rb-inotify', require: false
+  gem 'rb-fsevent', require: false
+  gem 'rb-fchange', require: false
   gem 'factory_girl_rails'
   gem 'faker', '~> 1.1.2'
   gem 'simplecov', require: false
