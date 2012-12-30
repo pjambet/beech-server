@@ -17,7 +17,9 @@ BeerServer::Application.routes.draw do
     resources :profiles, only: :show
     resources :checks, only: [:index, :create]
     resources :awards, only: :index
-    resources :followings, only: [:index, :create, :destroy]
+    resources :followings, only: [:index, :create] do
+      delete :destroy, on: :collection
+    end
     resources :followers, only: :index
 
     resources :beers, only: :index

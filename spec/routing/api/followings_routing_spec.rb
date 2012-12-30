@@ -15,11 +15,10 @@ describe 'routing to followings' do
     )
   end
 
-  it 'routes /api/followings/:id to api/followings#destroy' do
-    expect(delete: '/api/followings/20').to route_to(
+  it 'routes /api/followings/ to api/followings#destroy' do
+    expect(delete: '/api/followings').to route_to(
       controller: 'api/followings',
       action: 'destroy',
-      id: '20'
     )
   end
 
