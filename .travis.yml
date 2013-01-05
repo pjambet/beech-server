@@ -8,5 +8,6 @@ before_install: gem install bundler
 before_script:
   - psql -c 'create database beech_test' -U postgres
   - mv config/database.travis.yml config/database.yml
+  - mv secret_token.tmpl secret_token
   - RAILS_ENV=test rake db:migrate
 
