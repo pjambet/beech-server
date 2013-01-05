@@ -9,9 +9,7 @@ class Api::ChecksController < Api::ApplicationController
   end
 
   def create
-    @check = Check.new params[:check] do |c|
-      c.user_id = params[:user_id]
-    end
+    @check = current_user.checks.create params[:check]
 
     render json: @check if @check.save
   end

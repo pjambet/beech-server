@@ -8,15 +8,5 @@ describe 'routing to user checks' do
       user_id: '10'
     )
   end
-
-
-  it 'routes /api/users/checks to api/checks#create' do
-    expect(post: '/api/users/10/checks').to route_to(
-      controller: 'api/checks',
-      action: 'create',
-      user_id: '10'
-    )
-  end
-
 end
 

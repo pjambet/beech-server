@@ -37,7 +37,7 @@ describe Api::ChecksController do
 
       it "creates a check" do
         expect {
-          post :create, user_id: user, check: attributes, format: 'json'
+          post :create, check: attributes, format: 'json'
         }.to change{ Check.count }.by(1)
       end
     end
