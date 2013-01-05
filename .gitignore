@@ -19,6 +19,7 @@ pickle-email-*.html
 *.sublime-project
 *.sublime-workspace
 config/database.yml
+secret_token
 .rvmrc
 db/import
 db/seeds.rb
