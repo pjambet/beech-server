@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.10'
 gem 'unicorn'
 
 gem 'pg'
@@ -19,6 +19,7 @@ gem 'rmagick'
 gem 'dalli'
 gem 'coveralls', require: false
 gem 'cancan'
+gem 'honeybadger'
 
 group :development do
   gem 'annotate', '>=2.5.0'
