@@ -106,6 +106,9 @@ GEM
       spork (>= 0.8.4)
     haml (3.1.7)
     hike (1.2.1)
+    honeybadger (1.4.0)
+      activesupport
+      json
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.1.4)
@@ -249,6 +252,7 @@ DEPENDENCIES
   guard-rspec
   guard-spork
   haml
+  honeybadger
   jquery-rails
   mocha (~> 0.13)
   newrelic_rpm

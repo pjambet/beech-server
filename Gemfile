@@ -19,6 +19,7 @@ gem 'rmagick'
 gem 'dalli'
 gem 'coveralls', require: false
 gem 'cancan'
+gem 'honeybadger'
 
 group :development do
   gem 'annotate', '>=2.5.0'
