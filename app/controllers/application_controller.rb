@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
   end
 
   unless Rails.application.config.consider_all_requests_local
-    rescue_from Exception => e, with: (lambda do |exception|
+    rescue_from Exception, with: (lambda do |exception|
       render_error 500, exception
-      notify_honeybadger(e)
+      notify_honeybadger(exception)
     end)
     rescue_from CanCan::AccessDenied,
               with: lambda { |exception| render_error 401, exception }
