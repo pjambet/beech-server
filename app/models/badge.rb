@@ -15,7 +15,7 @@
 class Badge < ActiveRecord::Base
   attr_accessible :name
 
-  has_many :awards
+  has_many :awards, dependent: :destroy
   has_many :users, through: :awards
 
   validates :condition, presence: true

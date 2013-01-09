@@ -22,7 +22,7 @@ describe Badge do
     context 'with a "Drink X beers" badge' do
       let(:badge) do
         create :badge, badge_type: 'quantity',
-                       condition: 'any:',
+                       condition: 'any',
                        quantity: '3'
       end
 
@@ -110,6 +110,7 @@ describe Badge do
     end
 
     context 'with a "Drink X times a given beer" badge' do
+      # TODO this badge should use beer id
       let(:badge) do
         create :badge, badge_type: 'quantity',
                        condition: 'beer:guiness',
