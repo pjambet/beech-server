@@ -34,7 +34,7 @@ describe Check do
     context 'when user earned new badge' do
       it 'should create an award' do
 
-        create :badge, condition: 'true'
+        create :badge, condition: 'any', quantity: 0
 
         expect { check.check_if_user_earned_new_badges }.to change{
           Award.count
