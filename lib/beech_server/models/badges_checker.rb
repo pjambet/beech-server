@@ -9,8 +9,7 @@ module BeechServer
       end
 
       def deserves_badge?(badge)
-        checker = RegularBadgeChecker.create_badge badge, self
-        checker.check
+        RegularBadgeChecker.create_badge(badge, self).check
       end
 
       class RegularBadgeChecker
@@ -19,8 +18,8 @@ module BeechServer
 
         class << self
           def create_badge(badge, user)
-            cst_name = "#{badge.badge_type}_badge_checker".camelize
             cst_prefix = "BeechServer::Models::BadgesChecker::"
+            cst_name = "#{badge.badge_type}_badge_checker".camelize
             "#{cst_prefix}#{cst_name}".constantize.new badge, user
           end
         end
