@@ -41,12 +41,11 @@ module BeechServer
           when 'any'
             user.beers.size >= badge.quantity
           when 'country'
-            user.beers.where("country = ?", target).size >= badge.quantity
+            user.beers_for_country(target).size >= badge.quantity
           when 'color'
-            user.beers.joins(:beer_color)
-            .where(beer_colors: {slug: target}).size >= badge.quantity
+            user.beers_for_color(target).size >= badge.quantity
           when 'beer'
-            user.beers.where('name = ?', target).size >= badge.quantity
+            user.beers_for_name(target).size >= badge.quantity
           end
         end
       end
@@ -55,31 +54,30 @@ module BeechServer
         def check
           type, target = badge_condition_params
           targets = target.split(',')
-          case type
-          when 'color'
-            targets.all? do |color|
-              user.beers.joins(:beer_color)
-              .where(beer_colors: {slug: color}).any?
-            end
-          when 'beers'
-            targets.all? do |name|
-              user.beers.where(name: name).any?
-            end
-          when 'countries'
-            targets.all? do |name|
-              user.beers.where(country: name).any?
-            end
+
+          targets.all? do |target|
+            association_mapping(type, target).any?
           end
         end
+
+        def association_mapping(type, target)
+          mapping = {
+            color: :beers_for_color,
+            beers: :beers_for_name,
+            countries: :beers_for_country
+          }
+          user.send mapping[type.intern], target
+        end
+
       end
 
       class DifferentBadgeChecker < RegularBadgeChecker
         def check
           type, target = badge_condition_params
-          different_condition_mapping(type).size >= badge.quantity
+          association_mapping(type).size >= badge.quantity
         end
 
-        def different_condition_mapping(type)
+        def association_mapping(type)
           mapping = {beer: :beers, country: :beer_countries}
           user.send mapping[type.intern]
         end

@@ -26,10 +26,10 @@ class User < ActiveRecord::Base
   include Rolable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :nickname
+    :nickname
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
+  devise :database_authenticatable, :registerable, :recoverable,
+    :rememberable, :trackable, :validatable, :token_authenticatable
 
   mount_uploader :avatar, AvatarUploader
   searchable_by :nickname
@@ -56,6 +56,18 @@ class User < ActiveRecord::Base
 
   def beer_countries
     beers.map(&:country)
+  end
+
+  def beers_for_country(country)
+    beers.where("country = ?", country)
+  end
+
+  def beers_for_color(color)
+    beers.joins(:beer_color).where(beer_colors: {slug: color})
+  end
+
+  def beers_for_name(name)
+    beers.where('name = ?', name)
   end
 
 end
