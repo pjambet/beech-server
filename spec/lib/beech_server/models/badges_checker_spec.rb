@@ -31,8 +31,8 @@ describe BeechServer::Models::BadgesChecker do
 end
 
 describe 'badge checkers' do
-  let(:badge) { stub(:badge) }
-  let(:user) { stub(:user) }
+  let(:badge) { stub('badge') }
+  let(:user) { stub('user') }
   describe BeechServer::Models::BadgesChecker::RegularBadgeChecker do
     context 'with a new instance' do
       subject(:instance) { described_class.new badge, user  }
@@ -54,7 +54,7 @@ describe 'badge checkers' do
       end
 
       describe '#badge_condition_params' do
-        let(:badge) { stub :badge, condition: condition }
+        let(:badge) { stub 'badge', condition: condition }
         subject { instance.badge_condition_params }
 
         context 'with a blank condition' do
