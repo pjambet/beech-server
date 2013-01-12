@@ -29,7 +29,7 @@ class Check < ActiveRecord::Base
 
   def check_if_user_earned_new_badges
     user.unearned_badges.each do |badge|
-      if eval(badge.condition)
+      if user.deserves_badge?(badge)
         user.awards.create(badge: badge)
       end
     end

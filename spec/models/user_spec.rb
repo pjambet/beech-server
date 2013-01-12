@@ -124,4 +124,8 @@ describe User do
       end
     end
   end
+
+  describe '#beer_countries' do
+    # TODO
+  end
 end
