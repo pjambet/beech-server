@@ -40,20 +40,20 @@ describe User do
     end
   end
 
-  describe '.except' do
+  describe '.exclude' do
     before(:each) do
       @users = 20.times.map { create :user }
     end
 
     context 'without params' do
       before(:each) do
-        @excepted_users = User.except
+        @excluded_users = User.exclude
       end
 
       it 'should return all users' do
-        @excepted_users.size.should == 20
+        @excluded_users.size.should == 20
         @users.each do |u|
-          @excepted_users.should include(u)
+          @excluded_users.should include(u)
         end
       end
 
@@ -62,31 +62,31 @@ describe User do
     context 'with a single user' do
       before(:each) do
         @black_listed = create :user
-        @excepted_users = User.except @black_listed
+        @excluded_users = User.exclude @black_listed
       end
 
-      it 'should return all users except the given one' do
-        @excepted_users.size.should == 20
+      it 'should return all users exclude the given one' do
+        @excluded_users.size.should == 20
         @users.each do |u|
-          @excepted_users.should include(u)
+          @excluded_users.should include(u)
         end
-        @excepted_users.should_not include(@black_list)
+        @excluded_users.should_not include(@black_list)
       end
     end
 
     context 'with users' do
       before(:each) do
         @black_list = 3.times.map { create :user }
-        @excepted_users = User.except @black_list
+        @excluded_users = User.exclude @black_list
       end
 
       it 'should return all users' do
-        @excepted_users.size.should == 20
+        @excluded_users.size.should == 20
         @users.each do |u|
-          @excepted_users.should include(u)
+          @excluded_users.should include(u)
         end
         @black_list.each do |u|
-          @excepted_users.should_not include(u)
+          @excluded_users.should_not include(u)
         end
       end
     end
