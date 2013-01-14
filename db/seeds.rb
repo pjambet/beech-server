@@ -15,6 +15,9 @@ User.create! email: "plau@gmail.com", password: "wopata33", password_confirmatio
 User.create! email: "louis@gmail.com", password: "wopata33", password_confirmation: "wopata33", nickname: "Louis"
 User.create! email: "linguini@gmail.com", password: "wopata33", password_confirmation: "wopata33", nickname: "Linguini"
 User.create! email: "carnelito@gmail.com", password: "wopata33", password_confirmation: "wopata33", nickname: "Carnelito"
+User.create! email: "lavieille@gmail.com", password: "wopata33", password_confirmation: "wopata33", nickname: "levieux"
+User.create! email: "laurentromain@gmail.com", password: "wopata33", password_confirmation: "wopata33", nickname: "al-zeimer"
+User.create! email: "sachadso@gmail.com", password: "wopata33", password_confirmation: "wopata33", nickname: "sacha"
 
 blond = BeerColor.create! name: 'Blonde'
 dark  = BeerColor.create! name: 'Brune'
