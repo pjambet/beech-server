@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :nickname, presence: true, uniqueness: true
 
-  scope :except, ->(*users) do
+  scope :exclude, ->(*users) do
     users.flatten!
     if users.any?
       where('id NOT IN (?) ', users.map(&:id))

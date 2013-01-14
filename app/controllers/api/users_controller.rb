@@ -4,7 +4,7 @@ class Api::UsersController < Api::ApplicationController
   can_search_for :users
 
   def index
-    @users = @users.except(current_user).limit(10)
+    @users = @users.exclude(current_user).limit(10)
     render json: @users
   end
 
