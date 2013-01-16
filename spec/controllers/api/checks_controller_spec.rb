@@ -29,6 +29,13 @@ describe Api::ChecksController do
           assigns(:checks).map(&:name).should include b
         end
       end
+
+      it "returns ordered checks" do
+        get :index, user_id: user, format: 'json'
+        assigns(:checks)[0..-2].each_with_index do |check, i|
+          check.created_at.should < assigns(:checks)[i+1].created_at
+        end
+      end
     end
 
     describe "POST create" do

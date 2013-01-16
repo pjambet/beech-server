@@ -5,7 +5,7 @@ class Api::ChecksController < Api::ApplicationController
 
   def index
     @checks = @user.checks
-    render json: @checks
+    render json: @checks.ordered
   end
 
   def create

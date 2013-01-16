@@ -128,4 +128,27 @@ describe User do
   describe '#beer_countries' do
     # TODO
   end
+
+  describe '#self_and_following_users' do
+    subject { create :user }
+
+    it 'should include the user in the result' do
+      subject.self_and_following_users.should include(subject)
+    end
+
+    context 'without following users' do
+      it 'should return only the user' do
+        subject.self_and_following_users.length.should == 1
+      end
+    end
+
+    context 'with following users' do
+      it 'should return all following users' do
+        2.times { subject.following_users << create(:user) }
+        subject.following_users.each do |user|
+          subject.self_and_following_users.should include(user)
+        end
+      end
+    end
+  end
 end
