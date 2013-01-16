@@ -55,6 +55,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def beers_count_for(beer)
+    beers.where(id: beer.id).size
+  end
+
   def beer_countries
     beers.map(&:country)
   end
