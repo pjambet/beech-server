@@ -23,3 +23,4 @@ config/database.yml
 db/import
 db/seeds.rb
 db/dump.db
+cookies
