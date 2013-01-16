@@ -1,10 +1,10 @@
 class Api::FeedController < Api::ApplicationController
 
   def index
-    @events = Event.for_users(current_user.following_users + [current_user])
-    @events = @events.after(params[:after]) if params[:after].present?# && params[:after].to_i > 0
+    @events = Event.for_users(current_user.self_and_following_users)
+    @events = @events.after(params[:after]) if params[:after].present?
 
-    render json: @events, each_serializer: FeedSerializer
+    render json: @events
   end
 
 end

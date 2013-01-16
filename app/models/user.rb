@@ -55,6 +55,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self_and_following_users
+    following_users + [self]
+  end
+
   def beers_count_for(beer)
     beers.where(id: beer.id).size
   end
