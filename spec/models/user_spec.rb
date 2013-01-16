@@ -151,4 +151,14 @@ describe User do
       end
     end
   end
+
+  describe 'Avatar random assignation' do
+    subject { build :user }
+
+    it 'should have an avatar after being saved' do
+      subject.avatar.should be_blank
+      subject.save
+      subject.avatar.should_not be_blank
+    end
+  end
 end

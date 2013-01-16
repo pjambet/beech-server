@@ -36,6 +36,12 @@ class User < ActiveRecord::Base
 
   before_save :ensure_authentication_token
 
+  after_create do
+    image = File.open("public/default-avatar-#{(rand 4) + 1}.png")
+    self.avatar = image
+    save!
+  end
+
   has_many :awards
   has_many :badges, through: :awards
   has_many :checks
