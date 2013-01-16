@@ -102,13 +102,13 @@ describe Event do
 
     it 'should return the 20 first elements for page 1' do
       @checks = 21.times.map { create :check }
-      paginated = Event.paginate
+      paginated = Event.paginate 1
       paginated.size.should == 20
     end
 
     it 'should return 2 exact different lists for 2 different pages' do
       @checks = 40.times.map { create :check }
-      page1 = Event.paginate
+      page1 = Event.paginate 1
       page2 = Event.paginate 2
       page1.size.should == 20
       page2.size.should == 20
