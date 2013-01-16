@@ -128,4 +128,37 @@ describe User do
   describe '#beer_countries' do
     # TODO
   end
+
+  describe '#self_and_following_users' do
+    subject { create :user }
+
+    it 'should include the user in the result' do
+      subject.self_and_following_users.should include(subject)
+    end
+
+    context 'without following users' do
+      it 'should return only the user' do
+        subject.self_and_following_users.length.should == 1
+      end
+    end
+
+    context 'with following users' do
+      it 'should return all following users' do
+        2.times { subject.following_users << create(:user) }
+        subject.following_users.each do |user|
+          subject.self_and_following_users.should include(user)
+        end
+      end
+    end
+  end
+
+  describe 'Avatar random assignation' do
+    subject { build :user }
+
+    it 'should have an avatar after being saved' do
+      subject.avatar.should be_blank
+      subject.save
+      subject.avatar.should_not be_blank
+    end
+  end
 end

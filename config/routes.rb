@@ -4,6 +4,8 @@ BeerServer::Application.routes.draw do
   namespace :api do
     scope 'my' do
       resource :profiles, path: 'profile', only: [:index, :show, :update]
+      resources :beers, only: :index, controller: 'my_beers'
+      resources :badges, only: :index, controller: 'my_badges'
     end
     resources :users, only: [:show, :index] do
       resources :checks, only: :index

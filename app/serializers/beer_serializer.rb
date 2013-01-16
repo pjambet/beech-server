@@ -1,8 +1,5 @@
 class BeerSerializer < ActiveModel::Serializer
-  attributes :id, :name, :count
+  attributes :id, :name
 
-  def count
-    scope.beers_count_for(object)
-  end
 end
 
