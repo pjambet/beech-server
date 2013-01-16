@@ -15,6 +15,15 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_awards do
+      after(:create) do |user|
+        user.awards = [
+          create(:award, badge: create(:badge, name: '5 Kronembourg')),
+          create(:award, badge: create(:badge, name: '5 Stella Artois')),
+        ]
+      end
+    end
+
     trait :admin do
       after(:create) do |user|
         user.roles << Role.admin_role
