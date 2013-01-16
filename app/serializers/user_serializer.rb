@@ -8,6 +8,7 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def already_following
+    return false if scope.nil?
     followings = options[:followings] || scope.following_users
     followings.include?(object)
   end
