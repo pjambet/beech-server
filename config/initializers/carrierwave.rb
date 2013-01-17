@@ -8,7 +8,7 @@ CarrierWave.configure do |config|
       :region                 => 'eu-west-1',                  # optional, defaults to 'us-east-1'
     }
     config.fog_directory  = ENV['S3_BUCKET']                     # required
-    config.fog_public     = false                                   # optional, defaults to true
+    config.fog_public     = true                                   # optional, defaults to true
   elsif Rails.env.development?
     config.storage = :file
   end
