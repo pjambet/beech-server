@@ -17,6 +17,7 @@
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
 #  avatar                 :string(255)
+#  authentication_token   :string(255)
 #
 
 class User < ActiveRecord::Base

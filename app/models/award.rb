@@ -19,5 +19,7 @@ class Award < ActiveRecord::Base
   validates :user, presence: true
   validates :badge, presence: true
 
+  default_scope -> { includes(:user, :badge) }
+
 end
 

@@ -10,6 +10,8 @@
 #  published_at :datetime
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  description  :text
+#  photo        :string(255)
 #
 
 class Badge < ActiveRecord::Base
@@ -22,4 +24,5 @@ class Badge < ActiveRecord::Base
 
   attr_accessible :condition, :name, :badge_type, :quantity
 
+  mount_uploader :photo, BadgePhotoUploader
 end

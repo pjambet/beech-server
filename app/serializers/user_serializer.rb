@@ -1,10 +1,12 @@
 class UserSerializer < ActiveModel::Serializer
+  include ApplicationHelper
+
   embed :ids, include: true
 
   attributes :id, :email, :nickname, :avatar_url, :already_following
 
   def avatar_url
-    root_url + object.avatar.url
+    full_url_for_path object.avatar.url
   end
 
   def already_following
