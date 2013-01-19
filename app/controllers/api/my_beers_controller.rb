@@ -4,7 +4,7 @@ class Api::MyBeersController < Api::ApplicationController
 
   def index
     @beers = @user.beers.ordered.paginate params[:page]
-    render json: @beers, each_serializer: MyBeersSerializer
+    render json: @beers, each_serializer: MyBeersSerializer, root: 'beers'
   end
 end
 

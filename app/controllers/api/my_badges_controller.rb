@@ -4,7 +4,7 @@ class Api::MyBadgesController < Api::ApplicationController
 
   def index
     @badges = @user.badges.ordered
-    render json: @badges
+    render json: @badges, root: 'badges'
   end
 
 end

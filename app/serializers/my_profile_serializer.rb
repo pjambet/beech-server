@@ -7,7 +7,7 @@ class MyProfileSerializer < ActiveModel::Serializer
   has_many :events, root: 'feed'
 
   def avatar_url
-    root_url + object.avatar.url
+    object.avatar.url
   end
 
   def check_count

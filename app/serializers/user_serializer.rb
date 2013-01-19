@@ -6,7 +6,7 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :email, :nickname, :avatar_url, :already_following
 
   def avatar_url
-    full_url_for_path object.avatar.url
+    object.avatar.url
   end
 
   def already_following
