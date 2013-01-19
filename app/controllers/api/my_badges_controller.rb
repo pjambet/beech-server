@@ -1,8 +1,10 @@
 class Api::MyBadgesController < Api::ApplicationController
+  include UserLoader
+  load_user
 
   def index
-    @badges = current_user.badges
-    render json: @badges
+    @badges = @user.badges.ordered
+    render json: @badges, root: 'badges'
   end
 
 end

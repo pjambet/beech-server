@@ -26,7 +26,7 @@ describe Api::ProfilesController do
       end
       context 'with an id' do
         let(:other_user) { create :user }
-        before(:each) { get :show, id: other_user, format: 'json' }
+        before(:each) { get :show, user_id: other_user, format: 'json' }
         it 'should respond with success' do
           response.response_code.should == 200
         end

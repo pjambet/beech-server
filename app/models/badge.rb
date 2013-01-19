@@ -25,4 +25,6 @@ class Badge < ActiveRecord::Base
   attr_accessible :condition, :name, :badge_type, :quantity
 
   mount_uploader :photo, BadgePhotoUploader
+
+  scope :ordered, -> { order('created_at DESC') }
 end

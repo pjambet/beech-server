@@ -4,7 +4,7 @@ module UserLoader
 
   module ClassMethods
     def load_user(opts = {})
-      before_filter :load_user, only: :index
+      before_filter :load_user, only: [:index, :show]
 
       define_method :load_user do
         @user = if params[:user_id].present?

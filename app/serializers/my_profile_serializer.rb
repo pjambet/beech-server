@@ -1,4 +1,4 @@
-class MyUserSerializer < ActiveModel::Serializer
+class MyProfileSerializer < ActiveModel::Serializer
   embed :ids, include: true
 
   attributes :id, :email, :nickname, :avatar_url, :check_count,
@@ -7,7 +7,7 @@ class MyUserSerializer < ActiveModel::Serializer
   has_many :events, root: 'feed'
 
   def avatar_url
-    root_url + object.avatar.url
+    object.avatar.url
   end
 
   def check_count

@@ -8,14 +8,6 @@ describe Api::UsersController do
         response.response_code.should == 401
       end
     end
-
-    describe "GET 'show'" do
-      it 'should respond with unauthorized' do
-        user = create :user
-        get :show, id: user, format: 'json'
-        response.response_code.should == 401
-      end
-    end
   end
 
   context 'when logged in' do
@@ -46,14 +38,6 @@ describe Api::UsersController do
           assigns(:users).length.should == 1
           assigns(:users).map(&:nickname).should include('jean-michel')
         end
-      end
-    end
-
-    describe "GET 'show'" do
-      it 'should respond with success' do
-        user = create :user
-        get :show, id: user
-        response.should be_success
       end
     end
   end

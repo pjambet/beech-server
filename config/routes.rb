@@ -3,27 +3,26 @@ BeerServer::Application.routes.draw do
 
   namespace :api do
     scope 'my' do
-      resource :profiles, path: 'profile', only: [:index, :show, :update]
+      resources :feed, only: :index
+      resource :profile, only: [:show, :update]
       resources :beers, only: :index, controller: 'my_beers'
       resources :badges, only: :index, controller: 'my_badges'
+      resources :followings, only: [:index, :create] do
+        delete :destroy, on: :collection
+      end
+      resources :followers, only: :index
     end
-    resources :users, only: [:show, :index] do
-      resources :checks, only: :index
-      resources :awards, only: :index
+
+    resources :users, only: :index do
+      resources :feed, only: :index
+      resource :profile, only: :show
+      resources :beers, only: :index, controller: 'my_beers'
+      resources :badges, only: :index, controller: 'my_badges'
       resources :followers, only: :index
       resources :followings, only: :index
-      resource :profile, only: :index
     end
 
-    match 'feed', to: 'feed#index'
-    resources :profiles, only: :show
-    resources :checks, only: [:index, :create]
-    resources :awards, only: :index
-    resources :followings, only: [:index, :create] do
-      delete :destroy, on: :collection
-    end
-    resources :followers, only: :index
-
+    resources :checks, only: :create
     resources :beers, only: :index
   end
 
@@ -34,7 +33,7 @@ BeerServer::Application.routes.draw do
     root to: 'beers#index'
   end
 
-  namespace :me do
+  scope 'me' do
     root to: 'home#index'
   end
 

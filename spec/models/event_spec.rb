@@ -37,7 +37,7 @@ describe Event do
       let(:other_users) { 2.times.map { create :user } }
       before(:each) do
         (users + other_users).each do |u|
-          3.times { create :event, user: u }
+          create :event, user: u
         end
         @events = Event.for_users(users)
       end
@@ -100,18 +100,19 @@ describe Event do
 
   describe '.paginate' do
 
-    it 'should return the 20 first elements for page 1' do
-      @checks = 21.times.map { create :check }
+    before(:each) { Event.stubs(:per_page).returns(2) }
+    it 'should return the first elements for page 1' do
+      @checks = 3.times.map { create :check }
       paginated = Event.paginate 1
-      paginated.size.should == 20
+      paginated.size.should == 2
     end
 
     it 'should return 2 exact different lists for 2 different pages' do
-      @checks = 40.times.map { create :check }
+      @checks = 5.times.map { create :check }
       page1 = Event.paginate 1
       page2 = Event.paginate 2
-      page1.size.should == 20
-      page2.size.should == 20
+      page1.size.should == 2
+      page2.size.should == 2
       (page1 & page2).should be_empty
     end
 

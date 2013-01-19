@@ -1,12 +1,4 @@
 class Api::ChecksController < Api::ApplicationController
-  include UserLoader
-
-  load_user
-
-  def index
-    @checks = @user.checks
-    render json: @checks.ordered
-  end
 
   def create
     @check = current_user.checks.create params[:check]

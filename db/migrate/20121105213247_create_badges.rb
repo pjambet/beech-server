@@ -4,7 +4,6 @@ class CreateBadges < ActiveRecord::Migration
       t.string :name
       t.string :badge_type
       t.text :condition
-      t.text :description
       t.integer :quantity
       t.datetime :published_at
       t.timestamps
