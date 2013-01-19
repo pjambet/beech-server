@@ -1,4 +1,4 @@
-class MyUserSerializer < ActiveModel::Serializer
+class MyProfileSerializer < ActiveModel::Serializer
   embed :ids, include: true
 
   attributes :id, :email, :nickname, :avatar_url, :check_count,

@@ -15,7 +15,7 @@ describe Api::MyBeersController do
   context 'when logged in' do
     before(:each) { sign_in user }
     describe "GET 'index'" do
-      context 'with an id' do
+      context 'without an id' do
 
         let(:other_user) { create :user }
         before(:each) { get :index }
@@ -27,6 +27,12 @@ describe Api::MyBeersController do
         it 'should assigns the @beers' do
           assigns(:beers).length.should == 3
         end
+        it "assigns all beers to @beers" do
+          ['Kronembourg', 'Stella Artois', 'Guiness'].each do |b|
+            assigns(:beers).map(&:name).should include b
+          end
+        end
+
       end
     end
   end

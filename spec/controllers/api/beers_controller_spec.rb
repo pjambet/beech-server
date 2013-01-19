@@ -13,9 +13,12 @@ describe Api::BeersController do
   context 'when logged in' do
     context 'as a regular user' do
       let(:current_user) { create :user }
-      before(:each) { sign_in current_user }
+      before(:each) {
+        sign_in current_user
+        Beer.stubs(:per_page).returns 3
+      }
       describe "GET index" do
-        before(:each) { 25.times.map { create :beer } }
+        before(:each) { 5.times.map { create :beer } }
 
         context 'without query' do
           before(:each) { get :index, format: 'json' }
@@ -29,7 +32,7 @@ describe Api::BeersController do
           end
 
           it 'should paginate results' do
-            assigns(:beers).size.should == 20
+            assigns(:beers).size.should == 3
           end
         end
 

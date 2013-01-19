@@ -31,8 +31,8 @@ describe Api::FollowingsController do
     describe "GET 'index'" do
       context 'without user_id param' do
         before(:each) do
-          @followees = 5.times.map { create :following, follower: user }
-          @other_followees = 5.times.map { create :following }
+          @followees = 2.times.map { create :following, follower: user }
+          @other_followees = 2.times.map { create :following }
           get :index, format: 'json'
         end
         it 'should return the followed users of the current_user' do
@@ -54,9 +54,9 @@ describe Api::FollowingsController do
       context 'with user_id param' do
         let(:inspected_user) { create :user }
         before(:each) do
-          @followees = 5.times.map { create :following,
+          @followees = 2.times.map { create :following,
                                      follower: inspected_user }
-          @other_followees = 5.times.map { create :following }
+          @other_followees = 2.times.map { create :following }
           get :index, user_id: inspected_user, format: 'json'
         end
         it 'should return the followed users of the given user' do

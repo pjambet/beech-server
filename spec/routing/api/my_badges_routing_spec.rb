@@ -8,5 +8,13 @@ describe 'routing to my badges' do
     )
   end
 
+  it 'routes /api/users/10/badges to api/badges#index' do
+    expect(get: '/api/users/10/badges').to route_to(
+      controller: 'api/my_badges',
+      action: 'index',
+      user_id: '10'
+    )
+  end
+
 end
 
