@@ -2,6 +2,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protect_from_forgery except: :create
 
+  respond_to :json
+
   def new
     super
   end
