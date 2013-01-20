@@ -13,6 +13,6 @@ class AvatarUploader < BaseUploader
   end
 
   # Process files as they are uploaded:
-  process resize_to_fill: [68, 66]
+  process resize_to_fill: [68, 68]
 
 end
