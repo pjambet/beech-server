@@ -1,5 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
   include ApplicationHelper
+  include Serializable
 
   embed :ids, include: true
 
@@ -7,12 +8,6 @@ class UserSerializer < ActiveModel::Serializer
 
   def avatar_url
     object.avatar.url
-  end
-
-  def already_following
-    return false if scope.nil?
-    followings = options[:followings] || scope.following_users
-    followings.include?(object)
   end
 
 end
