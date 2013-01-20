@@ -1,8 +1,10 @@
 class MyProfileSerializer < ActiveModel::Serializer
+  include Serializable
+
   embed :ids, include: true
 
   attributes :id, :email, :nickname, :avatar_url, :check_count,
-             :following_count, :follower_count
+             :following_count, :follower_count, :already_following
 
   has_many :events, root: 'feed'
 
@@ -21,5 +23,6 @@ class MyProfileSerializer < ActiveModel::Serializer
   def following_count
     object.followings.size
   end
+
 end
 
