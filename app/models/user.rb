@@ -27,7 +27,9 @@ class User < ActiveRecord::Base
   include Rolable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-    :nickname
+    :nickname, :login
+
+  attr_accessor :login
 
   devise :database_authenticatable, :registerable, :recoverable,
     :rememberable, :trackable, :validatable, :token_authenticatable
@@ -93,6 +95,15 @@ class User < ActiveRecord::Base
 
   def beers_for_name(name)
     beers.where('name = ?', name)
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(["lower(nickname) = :value OR lower(email) = :value", { value: login.downcase }]).first
+    else
+      where(conditions).first
+    end
   end
 
 end
