@@ -7,6 +7,7 @@ class MyProfileSerializer < ActiveModel::Serializer
              :following_count, :follower_count, :already_following
 
   has_many :events, root: 'feed'
+  has_many :badges
 
   def events
     @options[:events]
