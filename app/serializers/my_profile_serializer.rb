@@ -8,6 +8,10 @@ class MyProfileSerializer < ActiveModel::Serializer
 
   has_many :events, root: 'feed'
 
+  def events
+    @options[:events]
+  end
+
   def avatar_url
     object.avatar.url
   end

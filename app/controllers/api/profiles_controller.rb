@@ -3,7 +3,11 @@ class Api::ProfilesController < Api::ApplicationController
   load_user
 
   def show
-    render json: @user, serializer: MyProfileSerializer, root: 'profile'
+    @events = Event.for_users(@user.self_and_following_users)
+    @events = @events.before(params[:before]) if params[:before].present?
+    @events = @events.paginate params[:page]
+
+    render json: @user, serializer: MyProfileSerializer, root: 'profile', events: @events
   end
 
   def update
