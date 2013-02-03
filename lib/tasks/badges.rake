@@ -10,7 +10,7 @@ namespace :badges do
   end
 
   task assign: :environment do
-    Badge.all.select{|badge| badge.photo.nil? }.each do |badge|
+    Badge.all.select{|badge| badge.photo.blank? }.each do |badge|
       image = File.open("public/default-badge-#{(rand 3) + 1}.png")
       badge.photo = image
       badge.save!
