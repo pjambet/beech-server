@@ -3,11 +3,7 @@ class Api::ProfilesController < Api::ApplicationController
   load_user
 
   def show
-    if @user == current_user
-      @events = Event.for_users(@user.self_and_following_users)
-    else
-      @events = Event.for_users([@user])
-    end
+    @events = Event.for_users([@user])
     @events = @events.before(params[:before]) if params[:before].present?
     @events = @events.paginate params[:page]
 
