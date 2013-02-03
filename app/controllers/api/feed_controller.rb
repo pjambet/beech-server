@@ -10,7 +10,7 @@ class Api::FeedController < Api::ApplicationController
     end
     @events = @events.after(params[:after]) if params[:after].present?
     @events = @events.before(params[:before]) if params[:before].present?
-    # @events = @events.paginate params[:page]
+    @events = @events.paginate params[:page]
 
     render json: @events
   end
