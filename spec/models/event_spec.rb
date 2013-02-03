@@ -119,7 +119,7 @@ describe Event do
   end
 
   describe '.per_page' do
-    it { described_class.per_page.should == 20 }
+    it { described_class.per_page.should == 40 }
   end
 
 end
