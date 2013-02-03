@@ -31,11 +31,19 @@ class Event < ActiveRecord::Base
     where('user_id IN (?)', users.map(&:id))
   end
 
-
   scope :after, ->(date) do
     if date.to_i > 0
       date = Time.at(date.to_i).utc
       where("date_trunc('second', created_at) > ?", date)
+    else
+      scoped
+    end
+  end
+
+  scope :before, ->(date) do
+    if date.to_i > 0
+      date = Time.at(date.to_i).utc
+      where("date_trunc('second', created_at) < ?", date)
     else
       scoped
     end
