@@ -8,5 +8,14 @@ namespace :badges do
       Badge.create badge_type: 'quantity', condition: "beer:#{b.name}", quantity: 5, name: "5 #{b.name}"
     end
   end
+
+  task assign: :environment do
+    Badge.all.select{|badge| badge.photo.nil? }.each do |badge|
+      image = File.open("public/default-badge-#{(rand 3) + 1}.png")
+      badge.photo = image
+      badge.save!
+      p "Changed avatar for #{badge.name}"
+    end
+  end
 end
 
