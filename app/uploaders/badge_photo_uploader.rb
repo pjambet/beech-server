@@ -13,10 +13,10 @@ class BadgePhotoUploader < BaseUploader
     asset_path "#{[version_name, DEFAULT_BADGE_NAME].compact.join('_')}.png"
   end
 
-  process resize_to_fill: [100, 100]
+  process resize_to_fill: [200, 200]
 
   version :thumb do
-    process resize_to_fill: [50, 50]
+    process resize_to_fill: [100, 100]
   end
 end
 
