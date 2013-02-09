@@ -12,7 +12,15 @@ class AvatarUploader < BaseUploader
     asset_path "#{DEFAULT_AVATAR_NAME}.png"
   end
 
+  def filename
+    extension = model.avatar.file.extension
+    extension = 'jpg' if extension.blank?
+    "original.#{DateTime.now.to_i}.#{extension}" if original_filename
+  end
+
   # Process files as they are uploaded:
-  process resize_to_fill: [68, 68]
+  version :thumb do
+    process resize_to_fill: [68, 68]
+  end
 
 end

@@ -7,7 +7,9 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :email, :nickname, :avatar_url, :already_following
 
   def avatar_url
-    object.avatar.url
+    versions = object.avatar.versions
+    {"url" => full_url_for_path(object.avatar.url)}
+      .merge Hash[versions.map { |name, version| [name, { "url" => full_url_for_path(version.url) }] }]
   end
 
 end
