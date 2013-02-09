@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   include Rolable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-    :nickname, :login
+    :nickname, :login, :avatar
 
   attr_accessor :login
 
