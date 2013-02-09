@@ -13,7 +13,9 @@ class AvatarUploader < BaseUploader
   end
 
   def filename
-    "original.#{DateTime.now.to_i}" if original_filename
+    extension = model.avatar.file.extension
+    extension = 'jpg' if extension.blank?
+    "original.#{DateTime.now.to_i}.#{extension}" if original_filename
   end
 
   # Process files as they are uploaded:
