@@ -3,8 +3,6 @@
 class AvatarUploader < BaseUploader
   DEFAULT_AVATAR_NAME = "default-avatar"
 
-  attr_accessor :timestamp
-
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
     # For Rails 3.1+ asset pipeline compatibility:
@@ -13,10 +11,12 @@ class AvatarUploader < BaseUploader
   end
 
   def filename
-    @timestamp ||= DateTime.now.to_i
+    ivar = "@#{mounted_as}_token"
+    timestamp = model.instance_variable_get(ivar)
+    timestamp ||= model.instance_variable_set(ivar, DateTime.now)
     extension = model.avatar.file.extension if model.avatar.file.present?
     extension = 'jpg' if extension.blank?
-    "original.#{@timestamp}.#{extension}" if original_filename
+    "original.#{timestamp.to_i}.#{extension}" if original_filename
   end
 
   # Process files as they are uploaded:
