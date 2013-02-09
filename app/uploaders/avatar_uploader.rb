@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 class AvatarUploader < BaseUploader
-
-
   DEFAULT_AVATAR_NAME = "default-avatar"
+
+  attr_accessor :timestamp
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
@@ -13,9 +13,10 @@ class AvatarUploader < BaseUploader
   end
 
   def filename
-    extension = model.avatar.file.extension
+    @timestamp ||= DateTime.now.to_i
+    extension = model.avatar.file.extension if model.avatar.file.present?
     extension = 'jpg' if extension.blank?
-    "original.#{DateTime.now.to_i}.#{extension}" if original_filename
+    "original.#{@timestamp}.#{extension}" if original_filename
   end
 
   # Process files as they are uploaded:
