@@ -12,7 +12,13 @@ class AvatarUploader < BaseUploader
     asset_path "#{DEFAULT_AVATAR_NAME}.png"
   end
 
+  def filename
+    "original.#{DateTime.now.to_i}" if original_filename
+  end
+
   # Process files as they are uploaded:
-  process resize_to_fill: [68, 68]
+  version :thumb do
+    process resize_to_fill: [68, 68]
+  end
 
 end

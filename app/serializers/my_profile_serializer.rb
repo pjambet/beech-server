@@ -1,4 +1,5 @@
 class MyProfileSerializer < ActiveModel::Serializer
+  include ApplicationHelper
   include Serializable
 
   embed :ids, include: true
@@ -14,7 +15,9 @@ class MyProfileSerializer < ActiveModel::Serializer
   end
 
   def avatar_url
-    object.avatar.url
+    versions = object.avatar.versions
+    {"url" => full_url_for_path(object.avatar.url)}
+      .merge Hash[versions.map { |name, version| [name, { "url" => full_url_for_path(version.url) }] }]
   end
 
   def check_count
