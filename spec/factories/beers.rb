@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :beer do
     name { Faker::Name.name }
+    accepted true
 
     trait :blond do
       beer_color { BeerColor.blond }
