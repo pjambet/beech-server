@@ -1,0 +1,19 @@
+= link_to 'New', new_admin_badge_path
+%table
+  %tr
+    - %w(photo name bage_type description conditon created_at published actions).each do |th|
+      %th= th
+
+  - @badges.each do |badge|
+    %tr
+      %td= image_tag badge.photo.thumb.url, size: '100x100'
+      %td= badge.name
+      %td= badge.badge_type
+      %td= badge.description
+      %td= badge.condition
+      %td= badge.created_at
+      %td= badge.published
+      %td
+        = link_to 'Edit', edit_admin_badge_path(badge)
+        = link_to 'Delete', admin_badge_path(badge), method: :delete, confirm: 'Are you sure?'
+

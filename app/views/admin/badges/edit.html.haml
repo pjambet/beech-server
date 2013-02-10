@@ -1,0 +1,5 @@
+= link_to 'Retour', admin_badges_path
+
+= simple_form_for @badge, url: admin_badge_path(@badge) do |f|
+  = render partial: 'form', locals: {f: f}
+

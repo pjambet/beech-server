@@ -54,5 +54,20 @@ describe 'routing to admin/beers' do
     )
   end
 
+  it 'routes /admin/beers/:id/accept to admin/beers#accept' do
+    expect(put: '/admin/beers/10/accept').to route_to(
+      controller: 'admin/beers',
+      action: 'accept',
+      id: '10'
+    )
+  end
+
+  it 'routes /admin/beers/:id/reject to admin/beers#reject' do
+    expect(put: '/admin/beers/10/reject').to route_to(
+      controller: 'admin/beers',
+      action: 'reject',
+      id: '10'
+    )
+  end
 end
 
