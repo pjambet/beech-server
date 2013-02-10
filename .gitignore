@@ -13,6 +13,7 @@ capybara-*.html
 /public/uploads/*
 /coverage/
 /spec/tmp/*
+/spec/support/uploads/**
 **.orig
 rerun.txt
 pickle-email-*.html
@@ -24,3 +25,4 @@ db/import
 db/seeds.rb
 db/dump.db
 cookies
+

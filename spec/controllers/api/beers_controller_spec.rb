@@ -37,10 +37,10 @@ describe Api::BeersController do
         end
 
         context 'with a query' do
-          let(:query) { 'guiness' }
+          let(:query) { 'guinness' }
           before(:each) do
-            create :beer, name: 'guines'
-            create :beer, name: 'guiness'
+            create :beer, name: 'guinnes'
+            create :beer, name: 'guinness'
 
             get :index, s: query
           end

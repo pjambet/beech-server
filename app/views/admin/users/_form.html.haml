@@ -1,0 +1,10 @@
+- user = f.object
+
+= image_tag user.avatar.thumb.url, size: '68x68'
+= f.input :avatar
+= f.input :nickname
+= f.input :email
+= f.input :password
+= f.input :password_confirmation
+
+= f.submit
