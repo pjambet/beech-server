@@ -6,4 +6,6 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    - if user_signed_in?
+      = link_to 'Se déconnecter', destroy_user_session_path, method: :delete, confirm: 'Are you sure'
     = yield

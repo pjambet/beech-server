@@ -32,6 +32,7 @@ BeerServer::Application.routes.draw do
       put :reject, on: :member
     end
     resources :badges
+    resources :users
 
     root to: 'beers#index'
   end
