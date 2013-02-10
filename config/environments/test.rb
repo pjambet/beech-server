@@ -43,4 +43,16 @@ BeerServer::Application.configure do
     Bullet.rails_logger = true
     Bullet.disable_browser_cache = true
   end
+
+  HOST = 'localhost:3000'
+
+  config.action_mailer.default_url_options = { :host => HOST }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.asset_host = "http://localhost:3000"
+
+  ActionMailer::Base.smtp_settings = {
+    address: "localhost",
+    port: 1025,
+    domain: HOST
+  }
 end

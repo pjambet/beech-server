@@ -12,9 +12,9 @@ BeerServer::Application.configure do
   config.serve_static_assets = true
 
   config.action_dispatch.rack_cache = {
-    :metastore    => Dalli::Client.new,
-    :entitystore  => 'file:tmp/cache/rack/body',
-    :allow_reload => false
+    metastore: Dalli::Client.new,
+    entitystore: 'file:tmp/cache/rack/body',
+    allow_reload: false
   }
 
   config.static_cache_control = "public, max-age=2592000"
@@ -72,4 +72,21 @@ BeerServer::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.action_mailer.default_url_options = { host: 'beech-server.herokuapp.com' }
+  config.action_controller.asset_host = 'http://beech-server.herokuapp.com/'
+
+  config.default_reply_to = "no-reply@beech.com"
+  config.default_sender = "no-reply@beech.com"
+  config.default_sender_name = "Beech"
+
+  ActionMailer::Base.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: '587',
+    authentication: :plain,
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    domain: 'heroku.com'
+  }
+  ActionMailer::Base.delivery_method = :smtp
 end
