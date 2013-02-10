@@ -5,7 +5,7 @@ class Api::BeersController < Api::ApplicationController
   can_search_for :beers
 
   def index
-    @beers = @beers.paginate params[:page] if @beers.any?
+    @beers = @beers.accepted.paginate params[:page] if @beers.any?
     render json: @beers
   end
 
