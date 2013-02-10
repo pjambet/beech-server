@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116194305) do
+ActiveRecord::Schema.define(:version => 20130210130133) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(:version => 20130116194305) do
     t.string   "badge_type"
     t.text     "condition"
     t.integer  "quantity"
-    t.datetime "published_at"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.text     "description"
     t.string   "photo"
+    t.boolean  "published"
   end
 
   create_table "beer_colors", :force => true do |t|
@@ -47,8 +47,11 @@ ActiveRecord::Schema.define(:version => 20130116194305) do
     t.integer  "beer_color_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.boolean  "accepted"
+    t.integer  "added_by_id"
   end
 
+  add_index "beers", ["added_by_id"], :name => "index_beers_on_added_by_id"
   add_index "beers", ["beer_color_id"], :name => "index_beers_on_beer_color_id"
 
   create_table "checks", :force => true do |t|
@@ -111,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20130116194305) do
     t.string   "last_sign_in_ip"
     t.string   "avatar"
     t.string   "authentication_token"
+    t.datetime "avatar_uploaded_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

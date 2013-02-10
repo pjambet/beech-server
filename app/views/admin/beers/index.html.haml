@@ -1,0 +1,32 @@
+= link_to 'New', new_admin_beer_path
+
+%h2= 'Suggestions'
+- if @suggestions.any?
+  = render layout: 'list', locals: { collection: @suggestions } do |beer|
+    = link_to 'Accept', accept_admin_beer_path(beer), method: :put
+    = link_to 'Edit', edit_admin_beer_path(beer)
+    = link_to 'Delete', admin_beer_path(beer), method: :delete, confirm: 'Are you sure?'
+- else
+  = "No suggestions"
+
+
+
+%h2= 'All beers'
+- if @beers.any?
+  = render layout: 'list', locals: { collection: @beers } do |beer|
+    = link_to 'Reject', reject_admin_beer_path(beer), method: :put
+    = link_to 'Edit', edit_admin_beer_path(beer)
+    = link_to 'Delete', admin_beer_path(beer), method: :delete, confirm: 'Are you sure?'
+- else
+  = "No beers"
+
+%h2= 'Rejected beers'
+- if @rejected.any?
+
+  = render layout: 'list', locals: { collection: @rejected } do |beer|
+    = link_to 'Re accept', accept_admin_beer_path(beer), method: :put
+    = link_to 'Edit', edit_admin_beer_path(beer)
+    = link_to 'Delete', admin_beer_path(beer), method: :delete, confirm: 'Are you sure?'
+
+- else
+  = "No beers"

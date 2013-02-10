@@ -23,11 +23,14 @@ BeerServer::Application.routes.draw do
     end
 
     resources :checks, only: :create
-    resources :beers, only: :index
+    resources :beers, only: [:index, :create]
   end
 
   namespace :admin do
-    resources :beers
+    resources :beers do
+      put :accept, on: :member
+      put :reject, on: :member
+    end
     resources :badges
 
     root to: 'beers#index'

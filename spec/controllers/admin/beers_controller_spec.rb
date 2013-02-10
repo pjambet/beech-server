@@ -18,8 +18,8 @@ describe Admin::BeersController do
     end
     context 'as a regular user' do
       let(:user) { create :user }
-      it 'should respond with unauthorized' do
-        expect(response.code).to eq('200')
+      it 'should redirect to sign_in page' do
+        response.should redirect_to(new_user_session_path)
       end
     end
 

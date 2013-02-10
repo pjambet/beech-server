@@ -1,0 +1,11 @@
+- badge = f.object
+
+= image_tag badge.photo.thumb.url, size: '100x100'
+= f.input :photo
+= f.input :name
+= f.input :badge_type
+= f.input :description
+= f.input :condition
+= f.input :published
+
+= f.submit

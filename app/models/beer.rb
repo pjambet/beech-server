@@ -8,18 +8,21 @@
 #  beer_color_id :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  accepted      :boolean
+#  added_by_id   :integer
 #
 
 class Beer < ActiveRecord::Base
   include Searchable::Models
   include Pageable
 
-  attr_accessible :name, :beer_color, :beer_color_id
+  attr_accessible :name, :beer_color, :beer_color_id, :country
 
   acts_as_pageable
   searchable_by :name
 
   belongs_to :beer_color
+  belongs_to :added_by, class_name: 'User'
   has_many :checks
   has_many :users, through: :checks
 
@@ -28,7 +31,12 @@ class Beer < ActiveRecord::Base
     .joins(:checks).order('checks_count DESC').group("beers.id")
   end
 
-  delegate :name, to: :beer_color, prefix: true
+  scope :with_color, -> { includes(:beer_color, :added_by) }
+  scope :suggestions, -> { where('accepted IS NULL').with_color }
+  scope :accepted, -> { where('accepted IS TRUE').with_color }
+  scope :rejected, -> { where('accepted IS FALSE').with_color }
+
+  delegate :name, to: :beer_color, prefix: true, allow_nil: true
 
 end
 

@@ -9,5 +9,11 @@ class Api::BeersController < Api::ApplicationController
     render json: @beers
   end
 
+  def create
+    @beer = Beer.new(params[:beer]).tap {|beer| beer.added_by = current_user}
+    @beer.save
+    render json: @beer
+  end
+
 end
 

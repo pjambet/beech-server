@@ -18,6 +18,7 @@
 #  last_sign_in_ip        :string(255)
 #  avatar                 :string(255)
 #  authentication_token   :string(255)
+#  avatar_uploaded_at     :datetime
 #
 
 class User < ActiveRecord::Base
@@ -48,6 +49,7 @@ class User < ActiveRecord::Base
   has_many :awards
   has_many :badges, through: :awards
   has_many :checks
+  has_many :created_beers, class_name: 'Beer', foreign_key: :added_by_id
   has_many :beers, through: :checks
   has_many :events
 
