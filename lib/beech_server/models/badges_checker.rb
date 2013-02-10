@@ -5,7 +5,7 @@ module BeechServer
       attr_accessor :badge
 
       def unearned_badges
-        Badge.all - awards.includes(:badge).map(&:badge)
+        Badge.published.all - awards.includes(:badge).map(&:badge)
       end
 
       def deserves_badge?(badge)
