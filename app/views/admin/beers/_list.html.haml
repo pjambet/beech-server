@@ -1,0 +1,14 @@
+%table
+  %tr
+    - %w(name beer_color country created_at added_by actions).each do |th|
+      %th= th
+
+    - collection.each do |beer|
+      %tr
+        %td= beer.name
+        %td= beer.beer_color_name
+        %td= beer.country
+        %td= beer.created_at
+        %td= beer.added_by.nickname
+        %td
+          = yield beer
