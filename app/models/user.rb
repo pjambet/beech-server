@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
   has_many :beers, through: :checks
   has_many :events
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, uniqueness: true
   validates :nickname, presence: true, uniqueness: true
 
   scope :ordered, -> { order('created_at DESC') }
