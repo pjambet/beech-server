@@ -10,7 +10,7 @@ module Pageable
       end
 
       def per_page
-        40
+        30
       end
     end
   end
