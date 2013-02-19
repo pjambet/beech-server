@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
   has_many :events
 
   validates :email, uniqueness: true
-  validates :nickname, presence: true, uniqueness: true
+  validates :nickname, presence: true, uniqueness: {case_sensitive: false}
 
   scope :ordered, -> { order('created_at DESC') }
   scope :exclude, ->(*users) do
