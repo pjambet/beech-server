@@ -25,4 +25,4 @@ db/import
 db/seeds.rb
 db/dump.db
 cookies
-
+.rbenv-version
