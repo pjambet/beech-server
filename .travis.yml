@@ -2,6 +2,8 @@ language: ruby
 rvm:
   - 1.9.3
   - 2.0.0
+gemfile:
+  - gemfiles/Gemfile
 env:
   - DB=postgresql SECRET_TOKEN=a51c642a6b66afcc7f17de704050b1f685c828982f2627bb86a3b949d1e4ee9dfa745eab97d9f3dbdaf8e103179931bedd9373cf0c4f13d8ebd3fa8dffe7b8f0
 script: bundle exec rspec spec --profile
