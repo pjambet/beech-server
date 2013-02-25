@@ -37,5 +37,14 @@ class Check < ActiveRecord::Base
     end
   end
 
+  def locate
+    client.search_venues ll: '40.7,-74', v: 20130225
+  end
+
+  def client
+    creds = OAUTH_CREDENTIALS[:foursquare]
+    client = Foursquare2::Client.new(client_id: creds[:client_id], client_secret: creds[:client_secret])
+  end
+
 end
 

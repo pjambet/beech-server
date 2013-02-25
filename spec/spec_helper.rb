@@ -25,6 +25,7 @@ Spork.each_run do
   require 'rspec/autorun'
   require 'factory_girl_rails'
   require 'shoulda'
+  require 'vcr'
 
   unless ENV['DRB']
     require 'simplecov'
@@ -73,6 +74,8 @@ Spork.each_run do
         Bullet.end_request
       end
     end
+
+    config.treat_symbols_as_metadata_keys_with_true_values = true
 
     # CarrierWave file deletion
     config.after(:all) do

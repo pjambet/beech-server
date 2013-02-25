@@ -23,6 +23,7 @@ gem 'honeybadger'
 gem 'fog', '~> 1.9.0'
 gem 'net-scp', '1.0.4'
 gem 'librato-rails'
+gem 'foursquare2'
 
 group :development do
   gem 'annotate', '>=2.5.0'
@@ -44,6 +45,8 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'mocha', '~> 0.13', require: false
   gem 'bullet'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :assets do

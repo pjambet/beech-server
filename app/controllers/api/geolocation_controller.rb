@@ -1,5 +1,5 @@
 class Api::GeolocationController < Api::ApplicationController
-  def index
+  def show
   end
 end
 
