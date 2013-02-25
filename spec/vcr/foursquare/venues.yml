@@ -7,172 +7,133 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby gem
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
   response:
     status:
       code: 200
-      message: !binary |-
-        T0s=
+      message: OK
     headers:
-      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
-      - !binary |-
-        Kg==
-      !binary "Q2FjaGUtQ29udHJvbA==":
-      - !binary |-
-        bm8tY2FjaGUsIHByaXZhdGUsIG5vLXN0b3Jl
-      !binary "Q29udGVudC1FbmNvZGluZw==":
-      - !binary |-
-        Z3ppcA==
-      !binary "Q29udGVudC1UeXBl":
-      - !binary |-
-        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
-      !binary "RGF0ZQ==":
-      - !binary |-
-        TW9uLCAyNSBGZWIgMjAxMyAxNTowNToyMyBHTVQ=
-      !binary "RXhwaXJlcw==":
-      - !binary |-
-        TW9uLCAyNSBGZWIgMjAxMyAxNTowNToyMyBHTVQ=
-      !binary "UHJhZ21h":
-      - !binary |-
-        bm8tY2FjaGU=
-      !binary "U2VydmVy":
-      - !binary |-
-        bmdpbngvMS4yLjE=
-      !binary "U3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eQ==":
-      - !binary |-
-        bWF4LWFnZT04NjQwMDA=
-      !binary "VHJhY2VyLVRpbWU=":
-      - !binary |-
-        MjIy
-      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
-      - !binary |-
-        NTAwMA==
-      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
-      - !binary |-
-        NDk5MA==
-      !binary "Q29udGVudC1MZW5ndGg=":
-      - !binary |-
-        NDg2OQ==
-      !binary "Q29ubmVjdGlvbg==":
-      - !binary |-
-        a2VlcC1hbGl2ZQ==
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - no-cache, private, no-store
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 25 Feb 2013 16:38:07 GMT
+      Expires:
+      - Mon, 25 Feb 2013 16:38:07 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - nginx/1.2.1
+      Strict-Transport-Security:
+      - max-age=864000
+      Tracer-Time:
+      - '100'
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4998'
+      Content-Length:
+      - '4829'
+      Connection:
+      - keep-alive
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        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
-        AGljemVuXgAA
+      encoding: UTF-8
+      string: '{"meta":{"code":200},"response":{"venues":[{"id":"4e15d1348877cd5712112a44","name":"The
+        Arena","contact":{},"location":{"address":"110 Wall Street","lat":40.69991640144227,"lng":-74.00135297634154,"distance":114,"city":"New
+        York","state":"NY","country":"United States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/the-arena\/4e15d1348877cd5712112a44","categories":[{"id":"4bf58dd8d48988d1e4941735","name":"Campground","pluralName":"Campgrounds","shortName":"Campground","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/parks_outdoors\/campground_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":104,"usersCount":25,"tipCount":4},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"500d8171e4b02ee07c2b90d8","name":"Chinese
+        Mirch","contact":{},"location":{"address":"Front Street and Wall Street","lat":40.700843811035156,"lng":-74.00211334228516,"distance":201,"postalCode":"10005","city":"New
+        York","state":"NY","country":"United States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/chinese-mirch\/500d8171e4b02ee07c2b90d8","categories":[{"id":"4bf58dd8d48988d1cb941735","name":"Food
+        Truck","pluralName":"Food Trucks","shortName":"Street Food","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/food\/streetfood_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":92,"usersCount":45,"tipCount":2},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"42377700f964a52024201fe3","name":"Brooklyn
+        Heights Promenade","contact":{},"location":{"address":"Columbia Heights","crossStreet":"btwn
+        Remsen & Orange","lat":40.69829137715981,"lng":-73.99663209915161,"distance":342,"postalCode":"11201","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/brooklyn-heights-promenade\/42377700f964a52024201fe3","categories":[{"id":"4bf58dd8d48988d164941735","name":"Plaza","pluralName":"Plazas","shortName":"Plaza
+        \/ Square","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/parks_outdoors\/plaza_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":13007,"usersCount":6100,"tipCount":77},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"503de4dce4b0857b003af5f7","name":"monkeyHut","contact":{},"location":{"lat":40.7,"lng":-74.0,"distance":0,"postalCode":"10004","city":"New
+        York","state":"NY","country":"United States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/monkeyhut\/503de4dce4b0857b003af5f7","categories":[{"id":"4bf58dd8d48988d1e1931735","name":"Arcade","pluralName":"Arcades","shortName":"Arcade","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/arts_entertainment\/arcade_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":2,"usersCount":2,"tipCount":4},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4ebac60a0cd6904066e4108f","name":"Brookyn
+        Bridge Park Greenway","contact":{},"location":{"address":"Fulton Ferry Landing
+        to Atlantic Ave.","lat":40.70025980212479,"lng":-73.99698615074158,"distance":255,"postalCode":"11201","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/brookyn-bridge-park-greenway\/4ebac60a0cd6904066e4108f","categories":[{"id":"4bf58dd8d48988d163941735","name":"Park","pluralName":"Parks","shortName":"Park","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/parks_outdoors\/park_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":279,"usersCount":178,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4c30d80aa0ced13a4dc1126e","name":"Govenors
+        island","contact":{},"location":{"lat":40.70206147385267,"lng":-73.99823689287338,"distance":273,"country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/govenors-island\/4c30d80aa0ced13a4dc1126e","categories":[{"id":"4bf58dd8d48988d162941735","name":"Other
+        Great Outdoors","pluralName":"Other Great Outdoors","shortName":"Other Outdoors","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/parks_outdoors\/outdoors_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":517,"usersCount":279,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4ff6de22e4b02ca33c0a04fb","name":"Brooklyn
+        Bridge Park Pop Up Pool","contact":{},"location":{"lat":40.6999710773688,"lng":-73.99664153033778,"distance":283,"postalCode":"11201","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/brooklyn-bridge-park-pop-up-pool\/4ff6de22e4b02ca33c0a04fb","categories":[{"id":"4bf58dd8d48988d15e941735","name":"Pool","pluralName":"Pools","shortName":"Pool","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/parks_outdoors\/pool_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":234,"usersCount":201,"tipCount":4},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4f22ee6ee4b03bdcfb3d2ba6","name":"Yips","contact":{},"location":{"lat":40.70043453867425,"lng":-74.00112917093159,"distance":106,"country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/yips\/4f22ee6ee4b03bdcfb3d2ba6","categories":[{"id":"4bf58dd8d48988d145941735","name":"Chinese
+        Restaurant","pluralName":"Chinese Restaurants","shortName":"Chinese","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/food\/chinese_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":13,"usersCount":9,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4a9acb4bf964a520c13220e3","name":"Fruit
+        Street Sitting Area","contact":{},"location":{"address":"Columbia Heights","crossStreet":"Cranberry
+        St.","lat":40.70071529713512,"lng":-73.99523735046387,"distance":409,"city":"New
+        York","state":"NY","country":"United States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/fruit-street-sitting-area\/4a9acb4bf964a520c13220e3","categories":[{"id":"4bf58dd8d48988d165941735","name":"Scenic
+        Lookout","pluralName":"Scenic Lookouts","shortName":"Scenic Lookout","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/parks_outdoors\/sceniclookout_","suffix":".png"},"primary":true}],"verified":true,"restricted":true,"stats":{"checkinsCount":452,"usersCount":246,"tipCount":2},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4e729560fa767a2b30fbfed3","name":"Destiny","contact":{},"location":{"lat":40.701723472408,"lng":-73.99677926000139,"distance":332,"country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/destiny\/4e729560fa767a2b30fbfed3","categories":[{"id":"4bf58dd8d48988d1e0941735","name":"Harbor
+        \/ Marina","pluralName":"Harbors \/ Marinas","shortName":"Harbor \/ Marina","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/parks_outdoors\/harbor_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":25,"usersCount":23,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"50d1e29ee4b06b9f174deb0a","name":"Yoga
+        At The Park","contact":{},"location":{"lat":40.69990921020508,"lng":-73.9961929321289,"distance":321,"postalCode":"11201","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/yoga-at-the-park\/50d1e29ee4b06b9f174deb0a","categories":[{"id":"4bf58dd8d48988d102941735","name":"Yoga
+        Studio","pluralName":"Yoga Studios","shortName":"Yoga Studio","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/shops\/gym_yogastudio_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":2,"usersCount":2,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4a882e27f964a520590520e3","name":"Harry
+        Chapin Playground","contact":{},"location":{"address":"Middagh & Columbia
+        Heights","lat":40.700682,"lng":-73.994859,"distance":440,"city":"New York","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/harry-chapin-playground\/4a882e27f964a520590520e3","categories":[{"id":"4bf58dd8d48988d1e7941735","name":"Playground","pluralName":"Playgrounds","shortName":"Playground","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/parks_outdoors\/playground_","suffix":".png"},"primary":true}],"verified":true,"restricted":true,"stats":{"checkinsCount":286,"usersCount":146,"tipCount":2},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4c863c7751ada1cd48233e10","name":"Columbia
+        heights","contact":{},"location":{"address":"216 columbia heights","lat":40.69989101977449,"lng":-73.99529866093064,"distance":396,"postalCode":"11201","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/columbia-heights\/4c863c7751ada1cd48233e10","categories":[],"verified":false,"restricted":true,"stats":{"checkinsCount":15,"usersCount":11,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4dcc605afa76e2535b237f50","name":"Celebrate
+        Brooklyn","contact":{},"location":{"address":"Pier 1","lat":40.70181927468727,"lng":-73.99731296151289,"distance":304,"city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/celebrate-brooklyn\/4dcc605afa76e2535b237f50","categories":[{"id":"4bf58dd8d48988d1e5931735","name":"Music
+        Venue","pluralName":"Music Venues","shortName":"Music Venue","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/arts_entertainment\/musicvenue_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":109,"usersCount":96,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4ff75105d86ca0c938e35829","name":"Oscar
+        Tuazon: People","contact":{"phone":"2122237800","formattedPhone":"(212) 223-7800","twitter":"publicartfund"},"location":{"address":"Brooklyn
+        Bridge Park Pier 1","lat":40.700959311037984,"lng":-73.99800539016724,"distance":199,"postalCode":"10004","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/oscar-tuazon-people\/4ff75105d86ca0c938e35829","categories":[{"id":"4bf58dd8d48988d1e2931735","name":"Art
+        Gallery","pluralName":"Art Galleries","shortName":"Art Gallery","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/arts_entertainment\/artgallery_","suffix":".png"},"primary":true}],"verified":true,"restricted":true,"stats":{"checkinsCount":14,"usersCount":12,"tipCount":1},"likes":{"count":0,"groups":[]},"specials":{"count":1,"items":[{"id":"50e74334582f40ca719aadb5","type":"count","message":"Get
+        a pair of tickets for our entire Spring Talks series on your third check-in!","imageUrls":{"count":0},"description":"Unlocked
+        on your 3rd check-in","finePrint":"Please email ngomez@publicartfund.org to
+        claim your special.","icon":"frequency","title":"Loyalty Special","provider":"foursquare","redemption":"standard","page":{"id":"15352106","firstName":"Public
+        Art Fund","gender":"none","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/1ESZR2KUXJ24XMSK.jpg"},"type":"chain","followers":{"count":597,"groups":[]},"tips":{"count":52},"lists":{"groups":[{"type":"created","count":4,"items":[]}]},"homeCity":"New
+        York, NY","bio":"","contact":{"twitter":"publicartfund","facebook":"90087781608"}},"likes":{"count":0,"groups":[]}}]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4e2192468130e92fc6a44f09","name":"Brooklyn
+        Hip Hop Festival","contact":{"twitter":"bkhiphopfest"},"location":{"address":"26
+        New Dock St.","crossStreet":"Water Street","lat":40.697459526448704,"lng":-73.9980991642575,"distance":325,"city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/brooklyn-hip-hop-festival\/4e2192468130e92fc6a44f09","categories":[{"id":"4bf58dd8d48988d1e5931735","name":"Music
+        Venue","pluralName":"Music Venues","shortName":"Music Venue","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/arts_entertainment\/musicvenue_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":329,"usersCount":300,"tipCount":1},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4ff764c3e4b01ead023da588","name":"Brooklyn
+        Beach Shack","contact":{},"location":{"lat":40.700051,"lng":-73.996479,"distance":297,"postalCode":"11201","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/brooklyn-beach-shack\/4ff764c3e4b01ead023da588","categories":[{"id":"4bf58dd8d48988d16c941735","name":"Burger
+        Joint","pluralName":"Burger Joints","shortName":"Burgers","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/food\/burger_","suffix":".png"},"primary":true}],"verified":true,"restricted":true,"stats":{"checkinsCount":88,"usersCount":45,"tipCount":6},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"venuePage":{"id":"33421350"},"referralId":"v-1361810287"},{"id":"50e9e1d2e4b06ad59e229d87","name":"Picnic
+        Peninsula Barbecue Area","contact":{},"location":{"lat":40.69577778893063,"lng":-73.99976911704667,"distance":470,"postalCode":"11201","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/picnic-peninsula-barbecue-area\/50e9e1d2e4b06ad59e229d87","categories":[{"id":"4bf58dd8d48988d163941735","name":"Park","pluralName":"Parks","shortName":"Park","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/parks_outdoors\/park_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":5,"usersCount":5,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4ed8467af790c0454324d6ac","name":"97
+        Columbia Heights","contact":{},"location":{"lat":40.69975879527122,"lng":-73.99549951806428,"distance":380,"postalCode":"11201","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/97-columbia-heights\/4ed8467af790c0454324d6ac","categories":[],"verified":false,"restricted":true,"stats":{"checkinsCount":17,"usersCount":8,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4b7c8bedf964a5202c9a2fe3","name":"160
+        Columbia Heights","contact":{},"location":{"address":"160 Columbia Heights","lat":40.69817619576914,"lng":-73.99641198067849,"distance":364,"city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/160-columbia-heights\/4b7c8bedf964a5202c9a2fe3","categories":[],"verified":false,"restricted":true,"stats":{"checkinsCount":178,"usersCount":27,"tipCount":1},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4c86983e74d7b60c4c80a5d8","name":"Hillside
+        Park","contact":{},"location":{"address":"Columbia Heights","crossStreet":"Vine
+        st.","lat":40.69982487223443,"lng":-73.99571759128533,"distance":361,"city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/hillside-park\/4c86983e74d7b60c4c80a5d8","categories":[{"id":"4bf58dd8d48988d163941735","name":"Park","pluralName":"Parks","shortName":"Park","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/parks_outdoors\/park_","suffix":".png"},"primary":true}],"verified":true,"restricted":true,"stats":{"checkinsCount":57,"usersCount":42,"tipCount":1},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4fdcb943e4b0199802c0140b","name":"I
+        278 E","contact":{},"location":{"lat":40.70093536376953,"lng":-73.99575805664062,"distance":372,"postalCode":"11201","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/i-278-e\/4fdcb943e4b0199802c0140b","categories":[{"id":"4f2a23984b9023bd5841ed2c","name":"Moving
+        Target","pluralName":"Moving Targets","shortName":"Moving Target","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/travel\/movingtarget_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":15,"usersCount":14,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4bd626ac5631c9b6a175a530","name":"BHA
+        Capote Reading","contact":{},"location":{"address":"70 Willow Street","lat":40.699111,"lng":-73.996389,"distance":320,"postalCode":"11201","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/bha-capote-reading\/4bd626ac5631c9b6a175a530","categories":[],"verified":false,"restricted":true,"stats":{"checkinsCount":3,"usersCount":3,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"50f42c19e4b0966177888196","name":"Columbia
+        Hts at Clark St","contact":{},"location":{"lat":40.698482,"lng":-73.996421,"distance":346,"postalCode":"11201","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/columbia-hts-at-clark-st\/50f42c19e4b0966177888196","categories":[{"id":"4f2a25ac4b909258e854f55f","name":"Neighborhood","pluralName":"Neighborhoods","shortName":"Neighborhood","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/parks_outdoors\/neighborhood_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":1,"usersCount":1,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4f603afae4b006673a95c90c","name":"Best
+        Of New York","contact":{},"location":{"lat":40.70219811621222,"lng":-73.9983057571442,"distance":283,"country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/best-of-new-york\/4f603afae4b006673a95c90c","categories":[{"id":"4bf58dd8d48988d146941735","name":"Deli
+        \/ Bodega","pluralName":"Delis \/ Bodegas","shortName":"Deli \/ Bodega","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/food\/deli_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":7,"usersCount":6,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4ff10351e4b0db77af77ef02","name":"Stairway
+        To Heaven","contact":{},"location":{"address":"Rooftop At 8 Clark Street","lat":40.6982421875,"lng":-73.99625396728516,"distance":371,"postalCode":"11201","city":"Brooklyn
+        Heights","state":"NY","country":"United States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/stairway-to-heaven\/4ff10351e4b0db77af77ef02","categories":[{"id":"4bf58dd8d48988d123941735","name":"Wine
+        Bar","pluralName":"Wine Bars","shortName":"Wine Bar","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/nightlife\/wine_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":18,"usersCount":6,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4d6d118e1dfca35d14ea42e0","name":"AHRC-
+        New York City","contact":{},"location":{"address":"83","lat":40.700182029302574,"lng":-74.0049797352277,"distance":420,"postalCode":"10038","city":"New
+        York","state":"New York","country":"United States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/ahrc-new-york-city\/4d6d118e1dfca35d14ea42e0","categories":[{"id":"4bf58dd8d48988d124941735","name":"Office","pluralName":"Offices","shortName":"Corporate
+        \/ Office","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/building\/default_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":33,"usersCount":12,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4bf0066151f2c9b6c917f192","name":"Granite
+        Prospect","contact":{},"location":{"address":"Brooklyn Bridge Park","lat":40.70198416160947,"lng":-73.99747364554779,"distance":306,"postalCode":"11201","city":"Brooklyn","state":"NY","country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/granite-prospect\/4bf0066151f2c9b6c917f192","categories":[{"id":"4bf58dd8d48988d165941735","name":"Scenic
+        Lookout","pluralName":"Scenic Lookouts","shortName":"Scenic Lookout","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/parks_outdoors\/sceniclookout_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":38,"usersCount":32,"tipCount":1},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4e1e2225ae60ef672d8572d0","name":"Metropolitan
+        Opera In The Park","contact":{},"location":{"address":"Brooklyn Bridge Park","lat":40.701736,"lng":-73.997377,"distance":293,"postalCode":"11201","city":"New
+        York","state":"NY","country":"United States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/metropolitan-opera-in-the-park\/4e1e2225ae60ef672d8572d0","categories":[{"id":"5032792091d4c4b30a586d5c","name":"Concert
+        Hall","pluralName":"Concert Halls","shortName":"Concert Hall","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/arts_entertainment\/musicvenue_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":44,"usersCount":43,"tipCount":0},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"},{"id":"4fd91ce8e4b0a8dbd1eddc69","name":"SS
+        Gawker","contact":{},"location":{"lat":40.69900610889219,"lng":-74.00171450760502,"distance":182,"country":"United
+        States","cc":"US"},"canonicalUrl":"https:\/\/foursquare.com\/v\/ss-gawker\/4fd91ce8e4b0a8dbd1eddc69","categories":[{"id":"4bf58dd8d48988d12d951735","name":"Boat
+        or Ferry","pluralName":"Boats or Ferries","shortName":"Boat \/ Ferry","icon":{"prefix":"https:\/\/foursquare.com\/img\/categories_v2\/travel\/ferry_","suffix":".png"},"primary":true}],"verified":false,"restricted":true,"stats":{"checkinsCount":14,"usersCount":7,"tipCount":1},"likes":{"count":0,"groups":[]},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"groups":[]},"referralId":"v-1361810287"}]}}'
     http_version: 
-  recorded_at: Mon, 25 Feb 2013 15:05:23 GMT
+  recorded_at: Mon, 25 Feb 2013 16:38:07 GMT
 recorded_with: VCR 2.4.0
