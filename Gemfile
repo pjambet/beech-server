@@ -1,5 +1,4 @@
 source :rubygems
-ruby '2.0.0'
 
 gem 'rails', '3.2.12'
 gem 'unicorn'
@@ -45,8 +44,11 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'mocha', '~> 0.13', require: false
   gem 'bullet'
-  gem 'webmock'
   gem 'vcr'
+end
+
+group :test do
+  gem 'webmock'
 end
 
 group :assets do
