@@ -37,8 +37,9 @@ class Check < ActiveRecord::Base
     end
   end
 
-  def locate
-    client.search_venues ll: '40.7,-74', v: 20130225
+  def locate(lat, lng)
+    res = client.search_venues ll: "#{lat},#{lng}", v: 20130225, categoryId: '4d4b7105d754a06376d81259', radius: 100
+    res.venues.first
   end
 
   def client

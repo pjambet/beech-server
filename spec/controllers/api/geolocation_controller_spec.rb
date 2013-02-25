@@ -17,9 +17,6 @@ describe Api::GeolocationController, vcr: vcr_options do
       let(:check) { create :check }
       before(:each) { sign_in current_user }
 
-      it 'calls foursquare API' do
-        check.locate.size.should > 0
-      end
     end
   end
 end

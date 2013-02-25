@@ -1,6 +1,7 @@
 require 'spec_helper'
 
-describe Check do
+vcr_options = { cassette_name: 'foursquare/venues', record: :new_episodes }
+describe Check, vcr: vcr_options do
   it { should belong_to :user }
   it { should belong_to :beer }
 
@@ -45,7 +46,26 @@ describe Check do
         }.by(1)
       end
     end
+  end
 
+  describe '#locate' do
+    subject(:check) { create :check }
+
+    it 'should find the H.M.S' do
+      check.locate(44.83232, -0.57290).name.should match(/h\.?m\.?s/i)
+    end
+
+    it 'should find the fitz patrick' do
+      check.locate(43.60834, 3.87645).name.should match(/fitz/i)
+    end
+
+    it 'should find titi twister' do
+      check.locate(44.83175, -0.56979).name.should match(/titi/i)
+    end
+
+    it 'should find les furieux' do
+      check.locate(48.85589, 2.37525).name.should match(/furieux/i)
+    end
   end
 end
 
