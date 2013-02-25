@@ -7,11 +7,13 @@
 #  beer_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  lat        :float
+#  lng        :float
 #
 
 class Check < ActiveRecord::Base
   include Eventable
-  attr_accessible :user_id, :beer_id, :user, :beer
+  attr_accessible :user_id, :beer_id, :user, :beer, :lat, :lng
 
   belongs_to :user
   belongs_to :beer

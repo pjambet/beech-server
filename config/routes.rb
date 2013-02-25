@@ -24,6 +24,7 @@ BeerServer::Application.routes.draw do
 
     resources :checks, only: :create
     resources :beers, only: [:index, :create]
+    resource :geolocation, controller: :geolocation, only: :show
   end
 
   namespace :admin do

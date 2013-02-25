@@ -8,6 +8,10 @@ describe Check do
   it { should validate_presence_of :beer }
 
   it { should have_db_index([:user_id, :beer_id])}
+  it { should have_db_column(:lat)}
+  it { should have_db_column(:lng)}
+  it { should allow_mass_assignment_of(:lat) }
+  it { should allow_mass_assignment_of(:lng) }
 
   context 'with an existing instance' do
     subject { create :check }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210130133) do
+ActiveRecord::Schema.define(:version => 20130225130928) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(:version => 20130210130133) do
     t.integer  "beer_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.float    "lat"
+    t.float    "lng"
   end
 
   add_index "checks", ["user_id", "beer_id"], :name => "index_checks_on_user_id_and_beer_id"
