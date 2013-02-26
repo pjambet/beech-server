@@ -46,7 +46,7 @@ group :development, :test do
 end
 
 group :assets do
-  gem 'sass-rails', git: 'git://githut.com/rails/sass-rails'
+  gem 'sass-rails', git: 'git://github.com/rails/sass-rails'
   gem 'coffee-rails', git: 'git://github.com/rails/coffee-rails.git'
   gem 'uglifier', '>= 1.0.3'
 end
