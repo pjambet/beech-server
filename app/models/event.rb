@@ -35,8 +35,6 @@ class Event < ActiveRecord::Base
     if date.to_i > 0
       date = Time.at(date.to_i).utc
       where("date_trunc('second', created_at) > ?", date)
-    else
-      scoped
     end
   end
 
@@ -44,8 +42,6 @@ class Event < ActiveRecord::Base
     if date.to_i > 0
       date = Time.at(date.to_i).utc
       where("date_trunc('second', created_at) < ?", date)
-    else
-      scoped
     end
   end
 

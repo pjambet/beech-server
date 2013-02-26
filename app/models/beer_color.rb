@@ -10,14 +10,14 @@
 #
 
 class BeerColor < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :slug
 
   has_many :beers
 
   class << self
     %w(blond dark white amber ale stout).each do |beer_color|
       define_method beer_color do
-        find_or_create_by_slug(beer_color)
+        find_or_create_by(slug: beer_color)
       end
     end
   end

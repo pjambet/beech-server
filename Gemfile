@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
 
 gem 'rails', '4.0.0.beta1'
 gem 'unicorn'
@@ -27,7 +26,6 @@ gem 'protected_attributes'
 
 group :development do
   gem 'annotate', '>=2.5.0'
-  gem 'sextant'
 end
 
 group :development, :test do
@@ -44,7 +42,6 @@ group :development, :test do
   gem 'faker', '~> 1.1.2'
   gem 'simplecov', require: false
   gem 'mocha', '~> 0.13', require: false
-  gem 'bullet'
 end
 
 gem 'sprockets-rails', github: 'rails/sprockets-rails'
