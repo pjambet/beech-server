@@ -43,5 +43,7 @@ module BeerServer
 
     config.cache_store = :dalli_store
 
+    config.sass.line_comments = false
+    config.sass.style = :nested
   end
 end
