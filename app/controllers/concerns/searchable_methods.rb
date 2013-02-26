@@ -13,7 +13,7 @@ module SearchableMethods
         if params[:s].present?
           instance_variable_set(inst_var_name, klass.search_for(params[:s]))
         else
-          instance_variable_set(inst_var_name, klass.scoped)
+          instance_variable_set(inst_var_name, klass.all)
         end
       end
     end

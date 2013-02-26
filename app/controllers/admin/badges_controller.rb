@@ -2,7 +2,7 @@ class Admin::BadgesController < Admin::ApplicationController
   load_resource only: [:edit, :update, :destroy]
 
   def index
-    @badges = Badge.scoped
+    @badges = Badge.all
   end
 
   def new

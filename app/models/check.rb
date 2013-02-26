@@ -21,7 +21,7 @@ class Check < ActiveRecord::Base
   validates :beer, presence: true
   validates :user, presence: true
 
-  default_scope -> { includes(:user, :beer) }
+  default_scope { includes(:user, :beer) }
 
   scope :ordered, -> { includes(:user, :beer).order('checks.created_at DESC') }
 

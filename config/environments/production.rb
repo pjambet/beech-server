@@ -17,6 +17,8 @@ BeerServer::Application.configure do
     allow_reload: false
   }
 
+  config.eager_load = true
+
   config.static_cache_control = "public, max-age=2592000"
 
   # Compress JavaScripts and CSS

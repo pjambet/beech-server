@@ -61,8 +61,6 @@ class User < ActiveRecord::Base
     users.flatten!
     if users.any?
       where('id NOT IN (?) ', users.map(&:id))
-    else
-      scoped
     end
   end
 
@@ -70,8 +68,6 @@ class User < ActiveRecord::Base
     if date.to_i > 0
       date = Time.at(date.to_i).utc
       where("date_trunc('second', created_at) > ?", date)
-    else
-      scoped
     end
   end
 
