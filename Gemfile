@@ -7,14 +7,14 @@ gem 'unicorn'
 gem 'pg'
 gem 'jquery-rails'
 gem 'devise', git: 'git@github.com:plataformatec/devise.git', branch: 'rails4'
-gem 'haml'
+gem 'haml', git: 'git://github.com/haml/haml.git', branch: 'stable'
 gem 'draper'
 gem 'simple_form', git: 'git@github.com:plataformatec/simple_form.git', branch: 'rails_4'
-gem 'compass-rails'
+gem 'compass-rails', git: 'git@github.com:milgner/compass-rails.git', branch: 'rails4'
 gem 'rails-i18n'
 gem 'active_model_serializers', git: 'git://github.com/rails-api/active_model_serializers.git'
 gem 'newrelic_rpm'
-gem 'carrierwave'
+gem 'carrierwave', github: 'jnicklas/carrierwave'
 gem 'rmagick'
 gem 'dalli'
 gem 'coveralls', require: false
@@ -23,6 +23,7 @@ gem 'honeybadger'
 gem 'fog', '~> 1.9.0'
 gem 'net-scp', '1.0.4'
 gem 'librato-rails'
+gem 'protected_attributes'
 
 group :development do
   gem 'annotate', '>=2.5.0'
@@ -46,8 +47,9 @@ group :development, :test do
   gem 'bullet'
 end
 
+gem 'sprockets-rails', github: 'rails/sprockets-rails'
 group :assets do
-  gem 'sass-rails', git: 'git@github.com:rails/sass-rails.git'
+  gem 'sass-rails', github: 'rails/sass-rails'
   gem 'coffee-rails', git: 'git@github.com:rails/coffee-rails.git'
   gem 'uglifier', '>= 1.0.3'
 end
