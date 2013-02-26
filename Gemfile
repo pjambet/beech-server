@@ -1,15 +1,15 @@
-source :rubygems
+source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '3.2.12'
+gem 'rails', '4.0.0.beta1'
 gem 'unicorn'
 
 gem 'pg'
 gem 'jquery-rails'
-gem 'devise'
+gem 'devise', git: 'git@github.com:plataformatec/devise.git', branch: 'rails4'
 gem 'haml'
 gem 'draper'
-gem 'simple_form'
+gem 'simple_form', git: 'git@github.com:plataformatec/simple_form.git', branch: 'rails_4'
 gem 'compass-rails'
 gem 'rails-i18n'
 gem 'active_model_serializers', git: 'git://github.com/rails-api/active_model_serializers.git'
@@ -47,7 +47,7 @@ group :development, :test do
 end
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails', git: 'git@github.com:rails/sass-rails.git'
+  gem 'coffee-rails', git: 'git@github.com:rails/coffee-rails.git'
   gem 'uglifier', '>= 1.0.3'
 end
