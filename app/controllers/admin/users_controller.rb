@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::ApplicationController
 
   def index
-    @users = User.scoped
+    @users = User.order('created_at DESC')
   end
 
   def new
