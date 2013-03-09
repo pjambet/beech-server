@@ -21,7 +21,6 @@ gem 'coveralls', require: false
 gem 'cancan'
 gem 'honeybadger'
 gem 'fog', '~> 1.9.0'
-gem 'net-scp', '1.0.4'
 gem 'librato-rails'
 
 group :development do
