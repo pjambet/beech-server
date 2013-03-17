@@ -38,5 +38,6 @@ class Beer < ActiveRecord::Base
 
   delegate :name, to: :beer_color, prefix: true, allow_nil: true
 
+  validates :name, presence: true
 end
 

@@ -8,6 +8,13 @@ describe Api::BeersController do
         expect(response.code).to eq('401')
       end
     end
+
+    describe "POST 'create'" do
+      it 'should respond with unauthorized' do
+        post :create, format: 'json'
+        expect(response.code).to eq('401')
+      end
+    end
   end
 
   context 'when logged in' do
@@ -17,6 +24,7 @@ describe Api::BeersController do
         sign_in current_user
         Beer.stubs(:per_page).returns 3
       }
+
       describe "GET index" do
         before(:each) { 5.times.map { create :beer } }
 
@@ -64,6 +72,33 @@ describe Api::BeersController do
             end
           end
 
+        end
+      end
+
+      describe "POST 'create'" do
+        let(:params) { {} }
+        let(:do_request) { post :create, beer: params }
+        context "with incorrect params" do
+          it 'should not create a beer' do
+            expect{do_request}.to change{Beer.count}.by(0)
+          end
+
+          it 'should return an error message'
+        end
+
+        context "with correct params" do
+          let(:params) { {name: 'Guinness'} }
+          it 'should not create a beer' do
+            expect{do_request}.to change{Beer.count}.by(1)
+          end
+
+          it 'should return the beer' do
+            do_request
+            json_response = JSON.parse(response.body)
+            json_response.should_not be_nil
+            json_response.should have_key('beer')
+            json_response['beer']['name'].should eq('Guinness')
+          end
         end
       end
     end
