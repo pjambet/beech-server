@@ -38,6 +38,7 @@ group :development, :test do
   gem 'spork', '~> 1.0rc'
   gem 'rspec-rails'
   gem 'shoulda', require: false
+  gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'guard-livereload'
@@ -46,7 +47,6 @@ group :development, :test do
   gem 'rb-inotify', require: false
   gem 'rb-fsevent', require: false
   gem 'rb-fchange', require: false
-  gem 'guard-jasmine', '~> 1.11.0'
   gem 'factory_girl_rails'
   gem 'faker', '~> 1.1.2'
   gem 'simplecov', require: false

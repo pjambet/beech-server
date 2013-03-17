@@ -345,6 +345,7 @@ DEPENDENCIES
   factory_girl_rails
   faker (~> 1.1.2)
   fog
+  guard
   guard-bundler
   guard-jasmine (~> 1.11.0)
   guard-livereload

@@ -9,6 +9,7 @@ env:
 script: rake travis
 before_install: gem install bundler
 before_script:
+  - bundle list
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - psql -c 'create database beech_test' -U postgres
