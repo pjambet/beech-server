@@ -197,6 +197,7 @@ GEM
     mime-types (1.21)
     mocha (0.13.3)
       metaclass (~> 0.0.1)
+    modernizr-rails (2.6.2)
     multi_json (1.7.0)
     multipart-post (1.2.0)
     net-scp (1.1.0)
@@ -352,6 +353,7 @@ DEPENDENCIES
   jquery-ui-rails
   librato-rails
   mocha (~> 0.13)
+  modernizr-rails
   newrelic_rpm
   pg
   pry

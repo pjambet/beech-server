@@ -25,7 +25,8 @@ gem 'librato-rails'
 # Client Side Javascript
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem "ember-rails"
+gem 'ember-rails'
+gem 'modernizr-rails'
 
 group :development do
   gem 'annotate', '>=2.5.0'
