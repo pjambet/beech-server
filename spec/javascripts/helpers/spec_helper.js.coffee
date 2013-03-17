@@ -4,30 +4,29 @@ window.model = (model) ->
     should:
       have:
         attribute: (name, type) ->
-          describe '', ->
+          describe "##{name}", ->
             beforeEach ->
               @meta = model.metaForProperty name
               console.log @meta
               expect(@meta).toBeDefined()
 
-            it "should have #{name} attribute", ->
+            it "should be an attribute", ->
               expect(@meta.isAttribute).toBeTruthy()
 
             if type?
-              describe "#{model}##{name} attribute", ->
-                it 'should have type #{type}', ->
-                  expect(@meta.type).toBe(type)
+              it "should have type #{type}", ->
+                expect(@meta.type).toBe(type)
 
 
           should
       belongsTo: (association) ->
         as: (property) ->
-          describe '', ->
+          describe "##{property}", ->
             beforeEach ->
               @meta = model.metaForProperty property
               expect(@meta).toBeDefined()
 
-            it "should belongs to #{association}", ->
+            it "should be a belongs to #{association} association", ->
               expect(@meta.isRelationship).toBeTruthy()
               expect(@meta.kind).toBe('belongsTo')
               expect(@meta.type).toBe(association.toString())
@@ -35,12 +34,12 @@ window.model = (model) ->
           should
       haveMany: (association) ->
         as: (property) ->
-          describe '', ->
+          describe "##{property}", ->
             beforeEach ->
               @meta = model.metaForProperty property
               expect(@meta).toBeDefined()
 
-            it "should have many #{association} as #{property}", ->
+            it "should be a has many #{association} association", ->
               expect(@meta.isRelationship).toBeTruthy()
               expect(@meta.kind).toBe('hasMany')
               expect(@meta.type).toBe(association.toString())
