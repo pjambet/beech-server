@@ -1,3 +1,3 @@
-BeechServer.ApplicationRoute = Ember.Route.extend({
+Beech.ApplicationRoute = Ember.Route.extend({
 
 })

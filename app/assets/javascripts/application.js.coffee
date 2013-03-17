@@ -5,5 +5,5 @@
 #= require ember
 #= require ember-data
 #= require_self
-#= require beech_server
-BeechServer = Ember.Application.create()
+#= require beech
+window.Beech = Ember.Application.create()

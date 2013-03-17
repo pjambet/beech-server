@@ -1,3 +1,3 @@
-BeechServer.ApplicationController = Ember.Controller.extend({
+Beech.ApplicationController = Ember.Controller.extend({
 
 })

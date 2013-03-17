@@ -1,3 +1,3 @@
-BeechServer.Store = DS.Store.extend
+Beech.Store = DS.Store.extend
   revision: 11
 
