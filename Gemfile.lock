@@ -5,6 +5,12 @@ GIT
     active_model_serializers (0.7.0)
       activemodel (>= 3.0)
 
+GIT
+  remote: https://github.com/wycats/rack-offline
+  revision: 355b2ecd88667857b26852a84a297c60fed7fc2d
+  specs:
+    rack-offline (0.6.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -357,6 +363,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   pry
+  rack-offline!
   rails (= 3.2.12)
   rails-i18n
   rb-fchange

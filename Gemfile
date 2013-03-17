@@ -21,6 +21,7 @@ gem 'cancan'
 gem 'honeybadger'
 gem 'fog'
 gem 'librato-rails'
+gem 'rack-offline', git: 'https://github.com/wycats/rack-offline'
 
 # Client Side Javascript
 gem 'jquery-rails'
