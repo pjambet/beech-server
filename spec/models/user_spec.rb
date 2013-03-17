@@ -161,4 +161,10 @@ describe User do
       subject.avatar.should_not be_blank
     end
   end
+
+  describe 'Filterable behavior' do
+    it 'should respond to after' do
+      User.should respond_to(:after)
+    end
+  end
 end

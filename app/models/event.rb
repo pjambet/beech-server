@@ -12,6 +12,7 @@
 
 class Event < ActiveRecord::Base
   include Pageable
+  include Filterable
 
   attr_accessible :eventable, :user
 
@@ -29,24 +30,6 @@ class Event < ActiveRecord::Base
   scope :for_users, ->(users) do
     return [] unless Enumerable === users
     where('user_id IN (?)', users.map(&:id))
-  end
-
-  scope :after, ->(date) do
-    if date.to_i > 0
-      date = Time.at(date.to_i).utc
-      where("date_trunc('second', created_at) > ?", date)
-    else
-      scoped
-    end
-  end
-
-  scope :before, ->(date) do
-    if date.to_i > 0
-      date = Time.at(date.to_i).utc
-      where("date_trunc('second', created_at) < ?", date)
-    else
-      scoped
-    end
   end
 
 end
