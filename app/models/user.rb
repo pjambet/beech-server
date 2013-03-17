@@ -62,8 +62,6 @@ class User < ActiveRecord::Base
     users.flatten!
     if users.any?
       where('id NOT IN (?) ', users.map(&:id))
-    else
-      scoped
     end
   end
 
