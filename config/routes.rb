@@ -1,23 +1,22 @@
 BeerServer::Application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
-  if defined?(Rack::Offline)
-    offline = if Rails.env.production?
-      Rack::Offline.configure root: "#{Rails.root}/public", cache: true do
-        cache 'assets/application.css'
-        cache 'assets/application.js'
+  offline = if Rails.env.production?
+    Rack::Offline.configure root: "#{Rails.root}/public", cache: true do
+      cache 'assets/application.css'
+      cache 'assets/application.js'
 
-        network '*'
-      end
-    else
-      Rack::Offline.configure cache: false do
-        # TODO: Find a way to list the files automatically.
-        # There's no application.css and application.js in development mode.
-        network '*'
-      end
+      network '*'
     end
-    match "/cache.manifest" => offline
+  else
+    Rack::Offline.configure cache: false do
+      # TODO: Find a way to list the files automatically.
+      # There's no application.css and application.js in development mode.
+      network '*'
+    end
   end
+  match "/cache.manifest" => offline
+
   namespace :api do
     scope 'my' do
       resources :feed, only: :index

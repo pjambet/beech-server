@@ -23,7 +23,6 @@ gem 'fog'
 gem 'librato-rails'
 gem 'rack-offline', git: 'https://github.com/wycats/rack-offline'
 
-# Client Side Javascript
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'ember-rails'
@@ -32,6 +31,8 @@ gem 'modernizr-rails'
 group :development do
   gem 'annotate', '>=2.5.0'
   gem 'sextant'
+  gem 'guard-livereload'
+  gem 'guard-bundler'
 end
 
 group :development, :test do
@@ -41,8 +42,11 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'guard-livereload'
-  gem 'guard-bundler'
+  gem 'guard-jasmine'
+  gem 'jasmine'
+  gem 'jasminerice'
+  gem 'jasmine-jquery-rails'
+  gem 'sinon-rails'
   gem 'pry'
   gem 'rb-inotify', require: false
   gem 'rb-fsevent', require: false
@@ -52,13 +56,6 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'mocha', '~> 0.13', require: false
   gem 'bullet'
-
-  # Client Side Javascript Test Tools
-  gem 'guard-jasmine', '~> 1.11.0'
-  gem 'jasmine', '~> 1.3.1'
-  gem 'jasminerice'
-  gem 'jasmine-jquery-rails'
-  gem 'sinon-rails'
 end
 
 group :assets do

@@ -4,7 +4,6 @@ gem 'rails', '3.2.12'
 gem 'unicorn'
 
 gem 'pg'
-gem 'jquery-rails'
 gem 'devise'
 gem 'haml'
 gem 'draper'
@@ -21,18 +20,32 @@ gem 'cancan'
 gem 'honeybadger'
 gem 'fog'
 gem 'librato-rails'
+gem 'rack-offline', git: 'https://github.com/wycats/rack-offline'
+
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'ember-rails'
+gem 'modernizr-rails'
 
 group :development do
   gem 'annotate', '>=2.5.0'
   gem 'sextant'
+  gem 'guard-livereload'
+  gem 'guard-bundler'
 end
 
 group :development, :test do
   gem 'spork', '~> 1.0rc'
   gem 'rspec-rails'
   gem 'shoulda', require: false
+  gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'guard-jasmine'
+  gem 'jasmine'
+  gem 'jasminerice'
+  gem 'jasmine-jquery-rails'
+  gem 'sinon-rails'
   gem 'pry'
   gem 'rb-inotify', require: false
   gem 'rb-fsevent', require: false

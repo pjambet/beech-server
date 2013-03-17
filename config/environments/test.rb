@@ -49,6 +49,8 @@ BeerServer::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.asset_host = "http://localhost:3000"
 
+  config.ember.variant = :environment
+
   ActionMailer::Base.smtp_settings = {
     address: "localhost",
     port: 1025,

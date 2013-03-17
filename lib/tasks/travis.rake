@@ -1,7 +1,7 @@
 task :travis do
   [
     'rspec spec --profile --color',
-    'guard-jasmine --server-timeout=30 -s webrick -e development'
+    'guard-jasmine --spec-dir spec/javascripts --server-timeout=60'
   ].each do |cmd|
     puts "Running #{cmd}..."
     system("bundle exec #{cmd}")
