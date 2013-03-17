@@ -53,6 +53,7 @@ group :frontend do
 
   guard :jasmine, jasmine_options do
     watch(%r{spec/javascripts/spec\.(js\.coffee|js|coffee)$}) { 'spec/javascripts' }
+    watch(%r{spec/javascripts/(helpers|matchers|fixtures)/.*\.(js\.coffee|js|coffee)$}) { 'spec/javascripts' }
     watch(%r{spec/javascripts/.+_spec\.(js\.coffee|js|coffee)$})
     watch(%r{app/assets/javascripts/(.+?)\.(js\.coffee|js|coffee)(?:\.\w+)*$}) { |m| "spec/javascripts/#{ m[1] }_spec.#{ m[2] }" }
   end
