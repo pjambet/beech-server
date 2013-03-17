@@ -22,6 +22,7 @@ gem 'cancan'
 gem 'honeybadger'
 gem 'fog'
 gem 'librato-rails'
+gem 'apipie-rails'
 
 group :development do
   gem 'annotate', '>=2.5.0'

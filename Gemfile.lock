@@ -38,6 +38,8 @@ GEM
     aggregate (0.2.2)
     annotate (2.5.0)
       rake
+    apipie-rails (0.0.19)
+      rails (>= 3.0.10)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
@@ -270,6 +272,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers!
   annotate (>= 2.5.0)
+  apipie-rails
   bullet
   cancan
   carrierwave
