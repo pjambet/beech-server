@@ -18,7 +18,6 @@
 #  last_sign_in_ip        :string(255)
 #  avatar                 :string(255)
 #  authentication_token   :string(255)
-#  avatar_uploaded_at     :datetime
 #
 
 class User < ActiveRecord::Base
