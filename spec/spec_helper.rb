@@ -26,7 +26,7 @@ Spork.each_run do
   require 'factory_girl_rails'
   require 'shoulda'
 
-  unless ENV['DRB']
+  if ENV['DRB']
     require 'simplecov'
     SimpleCov.start 'rails'
   end
