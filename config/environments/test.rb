@@ -35,6 +35,8 @@ BeerServer::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
+  config.ember.variant = :development
+
   config.after_initialize do
     Bullet.enable = true
     Bullet.alert = false

@@ -80,6 +80,8 @@ BeerServer::Application.configure do
   config.default_sender = "no-reply@beech.com"
   config.default_sender_name = "Beech"
 
+  config.ember.variant = :production
+
   ActionMailer::Base.smtp_settings = {
     address: 'smtp.sendgrid.net',
     port: '587',
