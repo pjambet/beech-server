@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   include BeechServer::Models::BadgesChecker
   include Followable
   include Rolable
+  include Filterable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me,
     :nickname, :login, :avatar
@@ -47,10 +48,10 @@ class User < ActiveRecord::Base
 
   has_many :awards
   has_many :badges, through: :awards
-  has_many :checks
+  has_many :checks, dependent: :destroy
   has_many :created_beers, class_name: 'Beer', foreign_key: :added_by_id
   has_many :beers, through: :checks
-  has_many :events
+  has_many :events, dependent: :destroy
 
   validates :email, uniqueness: true
   validates :nickname, presence: true, uniqueness: {case_sensitive: false}
@@ -60,17 +61,6 @@ class User < ActiveRecord::Base
     users.flatten!
     if users.any?
       where('id NOT IN (?) ', users.map(&:id))
-    else
-      scoped
-    end
-  end
-
-  scope :after, ->(date) do
-    if date.to_i > 0
-      date = Time.at(date.to_i).utc
-      where("date_trunc('second', created_at) > ?", date)
-    else
-      scoped
     end
   end
 

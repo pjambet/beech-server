@@ -3,9 +3,9 @@ require 'spec_helper'
 describe User do
   it { should have_many :awards }
   it { should have_many(:badges).through(:awards) }
-  it { should have_many :checks }
+  it { should have_many(:checks).dependent(:destroy) }
   it { should have_many(:beers).through(:checks) }
-  it { should have_many(:events) }
+  it { should have_many(:events).dependent(:destroy) }
   it { should have_many(:followings) }
   it { should have_many(:following_users).through(:followings) }
   it { should have_many(:followers) }
@@ -159,6 +159,12 @@ describe User do
       subject.avatar.should be_blank
       subject.save
       subject.avatar.should_not be_blank
+    end
+  end
+
+  describe 'Filterable behavior' do
+    it 'should respond to after' do
+      User.should respond_to(:after)
     end
   end
 end

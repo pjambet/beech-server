@@ -118,6 +118,16 @@ describe Event do
 
   end
 
+  describe 'filterable behavior' do
+    it 'should respond to .after' do
+      Event.should respond_to(:after)
+    end
+
+    it 'should respond to .before' do
+      Event.should respond_to(:before)
+    end
+  end
+
   describe '.per_page' do
     it { described_class.per_page.should == 30 }
   end
