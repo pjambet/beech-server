@@ -3,9 +3,9 @@ require 'spec_helper'
 describe User do
   it { should have_many :awards }
   it { should have_many(:badges).through(:awards) }
-  it { should have_many :checks }
+  it { should have_many(:checks).dependent(:destroy) }
   it { should have_many(:beers).through(:checks) }
-  it { should have_many(:events) }
+  it { should have_many(:events).dependent(:destroy) }
   it { should have_many(:followings) }
   it { should have_many(:following_users).through(:followings) }
   it { should have_many(:followers) }
