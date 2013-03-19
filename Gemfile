@@ -12,7 +12,7 @@ gem 'draper'
 gem 'simple_form'
 gem 'compass-rails'
 gem 'rails-i18n'
-gem 'active_model_serializers', git: 'git://github.com/rails-api/active_model_serializers.git'
+gem "active_model_serializers", "~> 0.7.0"
 gem 'newrelic_rpm'
 gem 'carrierwave'
 gem 'rmagick'
