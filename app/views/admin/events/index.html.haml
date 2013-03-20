@@ -1,0 +1,14 @@
+%table
+  %tr
+    - %w(date event_type details user).each do |th|
+      %th= th
+
+    - @events.each do |event|
+      %tr
+        %td= l event.created_at
+        %td= event.eventable_type
+        %td= event.details
+        %td= event.user.nickname
+
+= will_paginate @events
+

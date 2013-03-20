@@ -32,4 +32,8 @@ class Event < ActiveRecord::Base
     where('user_id IN (?)', users.map(&:id))
   end
 
+  def details
+    eventable.name
+  end
+
 end

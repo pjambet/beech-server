@@ -33,6 +33,7 @@ BeerServer::Application.routes.draw do
     end
     resources :badges
     resources :users
+    resources :events, only: :index
 
     root to: 'beers#index'
   end
