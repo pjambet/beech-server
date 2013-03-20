@@ -96,6 +96,10 @@ describe Api::BeersController do
             expect{do_request}.to change{current_user.created_beers.count}.by(1)
           end
 
+          it 'should send an email notification to the admin' do
+            expect{do_request}.to change{ActionMailer::Base.deliveries.count}.by(1)
+          end
+
           it 'should return the beer' do
             do_request
             json_response = JSON.parse(response.body)

@@ -11,6 +11,7 @@ class Api::BeersController < Api::ApplicationController
 
   def create
     @beer = current_user.created_beers.create(params[:beer])
+    NotificationMailer.new_beer(@beer).deliver
     render json: @beer
   end
 
