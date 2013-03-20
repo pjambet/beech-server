@@ -7,7 +7,7 @@ env:
 script: bundle exec rspec spec --profile
 before_install:
   - gem install bundler
-  - sed '2d' gemfiles/Gemfile
+  - sed '2d' Gemfile
 before_script:
   - psql -c 'create database beech_test' -U postgres
   - mv config/database.travis.yml config/database.yml
