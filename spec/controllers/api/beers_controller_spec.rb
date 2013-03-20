@@ -92,6 +92,10 @@ describe Api::BeersController do
             expect{do_request}.to change{Beer.count}.by(1)
           end
 
+          it 'should add a created beer to the current user' do
+            expect{do_request}.to change{current_user.created_beers.count}.by(1)
+          end
+
           it 'should return the beer' do
             do_request
             json_response = JSON.parse(response.body)
