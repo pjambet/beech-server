@@ -258,7 +258,6 @@ GEM
     uniform_notifier (1.2.0)
     warden (1.2.1)
       rack (>= 1.0)
-    will_paginate (3.0.4)
 
 PLATFORMS
   ruby
@@ -303,4 +302,3 @@ DEPENDENCIES
   spork (~> 1.0rc)
   uglifier (>= 1.0.3)
   unicorn
-  will_paginate
