@@ -17,11 +17,11 @@ gem 'newrelic_rpm'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'dalli'
+gem 'memcachier'
 gem 'coveralls', require: false
 gem 'cancan'
-gem 'honeybadger'
 gem 'fog'
-gem 'librato-rails'
+gem 'sentry-raven'
 
 group :development do
   gem 'annotate', '>=2.5.0'
