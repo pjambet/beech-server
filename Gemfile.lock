@@ -132,6 +132,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mail_view (1.0.3)
+      tilt
     memcachier (0.0.2)
     metaclass (0.0.1)
     method_source (0.8.1)
@@ -279,6 +281,7 @@ DEPENDENCIES
   guard-spork
   haml
   jquery-rails
+  mail_view (~> 1.0.3)
   memcachier
   mocha (~> 0.13)
   newrelic_rpm

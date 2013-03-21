@@ -22,6 +22,7 @@ gem 'coveralls', require: false
 gem 'cancan'
 gem 'fog'
 gem 'sentry-raven'
+gem 'mail_view', '~> 1.0.3'
 
 group :development do
   gem 'annotate', '>=2.5.0'

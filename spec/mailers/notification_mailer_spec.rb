@@ -30,4 +30,24 @@ describe NotificationMailer do
       end
     end
   end
+
+  describe 'accepted_beer' do
+    let(:user) { create :user }
+    let(:beer) { create :beer, added_by: user }
+    let(:mail) { NotificationMailer.accepted_beer(beer) }
+
+
+    it 'should assign the beer' do
+      mail.body.encoded.should match(user.nickname)
+    end
+
+    it 'should include the username in the mail' do
+      mail.body.encoded.should match(beer.name)
+    end
+
+    it 'should send the mail to the author of the beer' do
+      mail.to.should == [beer.added_by.email]
+    end
+
+  end
 end

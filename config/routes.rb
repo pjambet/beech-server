@@ -44,5 +44,9 @@ BeerServer::Application.routes.draw do
 
   resources :users, only: [:index, :show]
 
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
+
   root to: 'home#index'
 end

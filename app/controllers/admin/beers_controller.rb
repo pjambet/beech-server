@@ -37,6 +37,7 @@ class Admin::BeersController < Admin::ApplicationController
   def accept
     @beer.accepted = true
     @beer.save
+    NotificationMailer.accepted_beer(@beer).deliver
     redirect_to admin_beers_path
   end
 

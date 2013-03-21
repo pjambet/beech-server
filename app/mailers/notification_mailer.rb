@@ -7,6 +7,11 @@ class NotificationMailer < ActionMailer::Base
     mail(subject: 'New beer suggestion')
   end
 
+  def accepted_beer(beer)
+    @beer = beer
+    mail(to: beer.added_by.email, subject: 'Your suggestion has been accepted')
+  end
+
   private
 
   def default_to
