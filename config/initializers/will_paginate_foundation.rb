@@ -1,6 +1,11 @@
 module WillPaginate
-  module ViewHelpers
-    class LinkRenderer < LinkRendererBase
+  module ActionView
+    def will_paginate(collection = nil, options = {})
+      options[:renderer] ||= FoundationLinkRenderer
+      super.try :html_safe
+    end
+
+    class FoundationLinkRenderer < LinkRenderer
       protected
 
       def html_container(html)
