@@ -12,6 +12,11 @@ class NotificationMailer < ActionMailer::Base
     mail(to: beer.added_by.email, subject: 'Your suggestion has been accepted')
   end
 
+  def new_user(user)
+    @user = user
+    mail(subject: 'New user')
+  end
+
   private
 
   def default_to

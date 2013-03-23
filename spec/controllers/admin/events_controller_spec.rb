@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Admin::EventsController do
   render_views
+
   describe 'GET index' do
     context 'when not logged in' do
       it 'should redirect to the login form' do
