@@ -1,12 +1,17 @@
-%table
-  %tr
-    - %w(date event_type details user).each do |th|
-      %th= th
+.row
+  %h2= "#{Event.count} Events"
 
-    - @events.each do |event|
+  %table
+    %thead
       %tr
-        %td= l event.created_at
-        %td= event.eventable_type
-        %td= event.details
-        %td= event.user.nickname
+        - %w(date event_type details user).each do |th|
+          %th= th
+
+      %tbody
+        - @events.each do |event|
+          %tr
+            %td= l event.created_at
+            %td= event.eventable_type
+            %td= event.details
+            %td= event.user.nickname
 

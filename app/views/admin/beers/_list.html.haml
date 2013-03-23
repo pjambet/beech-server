@@ -1,8 +1,10 @@
-%table
-  %tr
-    - %w(name beer_color country created_at added_by actions).each do |th|
-      %th= th
+%table.large-12.columns
+  %thead
+    %tr
+      - %w(name beer_color country created_at added_by actions).each do |th|
+        %th= th
 
+  %tbody
     - collection.each do |beer|
       %tr
         %td= beer.name

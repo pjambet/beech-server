@@ -1,32 +1,36 @@
-= link_to 'New', new_admin_beer_path
+.row
+  = link_to 'New Beer', new_admin_beer_path, class: 'button'
 
-%h2= 'Suggestions'
-- if @suggestions.any?
-  = render layout: 'list', locals: { collection: @suggestions } do |beer|
-    = link_to 'Accept', accept_admin_beer_path(beer), method: :put
-    = link_to 'Edit', edit_admin_beer_path(beer)
-    = link_to 'Delete', admin_beer_path(beer), method: :delete, confirm: 'Are you sure?'
-- else
-  = "No suggestions"
+.row
+  %h2= 'Suggestions'
+  - if @suggestions.any?
+    = render layout: 'list', locals: { collection: @suggestions } do |beer|
+      = link_to 'Accept', accept_admin_beer_path(beer), method: :put, class: 'small success button'
+      = link_to 'Edit', edit_admin_beer_path(beer), class: 'small button'
+      = link_to 'Delete', admin_beer_path(beer), method: :delete, confirm: 'Are you sure?', class: 'small alert button'
+  - else
+    = "No suggestions"
 
 
 
-%h2= 'All beers'
-- if @beers.any?
-  = render layout: 'list', locals: { collection: @beers } do |beer|
-    = link_to 'Reject', reject_admin_beer_path(beer), method: :put
-    = link_to 'Edit', edit_admin_beer_path(beer)
-    = link_to 'Delete', admin_beer_path(beer), method: :delete, confirm: 'Are you sure?'
-- else
-  = "No beers"
+.row
+  %h2= "All beers (#{Beer.count})"
+  - if @beers.any?
+    = render layout: 'list', locals: { collection: @beers } do |beer|
+      = link_to 'Reject', reject_admin_beer_path(beer), method: :put, class: 'small success button'
+      = link_to 'Edit', edit_admin_beer_path(beer), class: 'small button'
+      = link_to 'Delete', admin_beer_path(beer), method: :delete, confirm: 'Are you sure?', class: 'small alert button'
+  - else
+    = "No beers"
 
-%h2= 'Rejected beers'
-- if @rejected.any?
+.row
+  %h2= 'Rejected beers'
+  - if @rejected.any?
 
-  = render layout: 'list', locals: { collection: @rejected } do |beer|
-    = link_to 'Re accept', accept_admin_beer_path(beer), method: :put
-    = link_to 'Edit', edit_admin_beer_path(beer)
-    = link_to 'Delete', admin_beer_path(beer), method: :delete, confirm: 'Are you sure?'
+    = render layout: 'list', locals: { collection: @rejected } do |beer|
+      = link_to 'Re accept', accept_admin_beer_path(beer), method: :put, class: 'small success button'
+      = link_to 'Edit', edit_admin_beer_path(beer), class: 'small button'
+      = link_to 'Delete', admin_beer_path(beer), method: :delete, confirm: 'Are you sure?', class: 'small alert button'
 
-- else
-  = "No beers"
+  - else
+    = "No beers"
