@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/pjambet/active_model_serializers-matchers.git
+  revision: 00d7f8085db3029d16eca6f00b5cf0fd9e032caf
+  specs:
+    active_model_serializers-matchers (0.5.2)
+      active_model_serializers (~> 0.7.0)
+      rspec (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -270,6 +278,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.7.0)
+  active_model_serializers-matchers!
   annotate (>= 2.5.0)
   bullet
   cancan

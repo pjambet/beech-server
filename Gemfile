@@ -45,6 +45,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'mocha', '~> 0.13', require: false
   gem 'bullet'
+  gem 'active_model_serializers-matchers', github: 'pjambet/active_model_serializers-matchers'
 end
 
 group :assets do

@@ -45,3 +45,41 @@ shared_examples 'an admin controller' do |actions|
     end
   end
 end
+
+shared_examples 'image serializer' do |opts={}|
+
+  let(:field_name) do
+    opts[:field_name] || 'photo'
+  end
+
+  let(:url_field_name) do
+    "#{field_name}_url"
+  end
+
+  let(:factory_name) do
+    opts[:factory_name] || described_class.to_s.underscore.split(/_/).first
+  end
+
+  describe 'image url' do
+    let(:instance) do
+      create factory_name
+    end
+    subject(:serializer) { described_class.new instance }
+
+    it 'should have a hash' do
+      serializer.send(url_field_name).should be_a(Hash)
+    end
+
+    it 'should have a url key' do
+      serializer.send(url_field_name).should have_key(:url)
+    end
+
+    it 'should have the image url' do
+      serializer.send(url_field_name)[:url].should include(instance.send(field_name).url)
+    end
+
+    it 'should have a thumb url' do
+      serializer.send(url_field_name)[:thumb][:url].should include(instance.send(field_name).thumb.url)
+    end
+  end
+end
