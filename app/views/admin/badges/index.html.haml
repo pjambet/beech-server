@@ -1,24 +1,26 @@
 .row
-  = link_to 'New Badge', new_admin_badge_path, class: 'button'
+  .large-12.columns
+    = link_to 'New Badge', new_admin_badge_path, class: 'button'
 
 .row
-  %table
-    %thead
-      %tr
-        - %w(photo name bage_type description conditon created_at published actions).each do |th|
-          %th= th
-
-    %tbody
-      - @badges.each do |badge|
+  .large-12.columns
+    %table.large-12.columns.responsive
+      %thead
         %tr
-          %td= image_tag badge.photo.thumb.url, size: '100x100'
-          %td= badge.name
-          %td= badge.badge_type
-          %td= badge.description
-          %td= badge.condition
-          %td= badge.created_at
-          %td= badge.published
-          %td
-            = link_to 'Edit', edit_admin_badge_path(badge), class: 'button success small'
-            = link_to 'Delete', admin_badge_path(badge), method: :delete, confirm: 'Are you sure?', class: 'button alert small'
+          - %w(photo name bage_type description conditon created_at published actions).each do |th|
+            %th= th
+
+      %tbody
+        - @badges.each do |badge|
+          %tr
+            %td= image_tag badge.photo.thumb.url, size: '100x100'
+            %td= badge.name
+            %td= badge.badge_type
+            %td= badge.description
+            %td= badge.condition
+            %td= badge.created_at
+            %td= badge.published
+            %td
+              = link_to 'Edit', edit_admin_badge_path(badge), class: 'button success small'
+              = link_to 'Delete', admin_badge_path(badge), method: :delete, confirm: 'Are you sure?', class: 'button alert small'
 

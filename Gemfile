@@ -6,6 +6,7 @@ gem 'unicorn'
 
 gem 'pg'
 gem 'jquery-rails'
+gem 'zepto-rails'
 gem 'devise'
 gem 'haml'
 gem 'draper'

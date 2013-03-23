@@ -1,17 +1,18 @@
 .row
-  %h2= "#{Event.count} Events"
+  .large-12.columns
+    %h2= "#{Event.count} Events"
 
-  %table
-    %thead
-      %tr
-        - %w(date event_type details user).each do |th|
-          %th= th
+    %table.large-12.columns.responsive
+      %thead
+        %tr
+          - %w(date event_type details user).each do |th|
+            %th= th
 
-      %tbody
-        - @events.each do |event|
-          %tr
-            %td= l event.created_at
-            %td= event.eventable_type
-            %td= event.details
-            %td= event.user.nickname
+        %tbody
+          - @events.each do |event|
+            %tr
+              %td= l event.created_at
+              %td= event.eventable_type
+              %td= event.details
+              %td= event.user.nickname
 

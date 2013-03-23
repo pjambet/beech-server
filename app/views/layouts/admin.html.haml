@@ -4,9 +4,10 @@
     %title BeechApp
     = stylesheet_link_tag    "admin", media: "all"
     = javascript_include_tag "admin"
+    = javascript_include_tag "vendor/custom.modernizr"
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     = csrf_meta_tags
-  %body
+  %body.antialiased
     %nav.top-bar
       %ul.title-area
         %li.name
@@ -14,7 +15,7 @@
             %a{href: "#"} Beech Admin
         %li.toggle-topbar.menu-icon
           %a{href: "#"}
-            %span Menu
+            %span
       %section.top-bar-section
         %ul.left
           %li.divider
