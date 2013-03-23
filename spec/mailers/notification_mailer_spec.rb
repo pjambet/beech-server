@@ -32,7 +32,7 @@ describe NotificationMailer do
       mail.body.encoded.should match(beer.name)
     end
 
-    it_behaves_like "default recipients"
+    include_examples "default recipients"
   end
 
   describe 'new_user' do
@@ -44,7 +44,7 @@ describe NotificationMailer do
       mail.body.encoded.should match(user.nickname)
     end
 
-    it_behaves_like "default recipients"
+    include_examples "default recipients"
   end
 
   describe 'accepted_beer' do
