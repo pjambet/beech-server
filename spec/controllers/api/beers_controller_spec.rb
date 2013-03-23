@@ -1,21 +1,10 @@
 require 'spec_helper'
 
 describe Api::BeersController do
-  context 'when not logged in' do
-    describe "GET 'index'" do
-      it 'should respond with unauthorized' do
-        get :index, format: 'json'
-        expect(response.code).to eq('401')
-      end
-    end
-
-    describe "POST 'create'" do
-      it 'should respond with unauthorized' do
-        post :create, format: 'json'
-        expect(response.code).to eq('401')
-      end
-    end
-  end
+  it_should_behave_like 'an api controller', {
+    index: :get,
+    create: :post,
+  }
 
   context 'when logged in' do
     context 'as a regular user' do
@@ -30,10 +19,6 @@ describe Api::BeersController do
 
         context 'without query' do
           before(:each) { get :index, format: 'json' }
-
-          it 'should respond with success' do
-            response.should be_success
-          end
 
           it 'should return results' do
             assigns(:beers).size.should > 0
@@ -51,10 +36,6 @@ describe Api::BeersController do
             create :beer, name: 'guinness'
 
             get :index, s: query
-          end
-
-          it 'should respond with success' do
-            response.should be_success
           end
 
           it 'should return results' do

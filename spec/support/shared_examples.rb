@@ -50,13 +50,19 @@ shared_examples 'an api controller' do |actions|
 
   def execute_action(action, opts)
     if opts.is_a?(Symbol)
-      send(opts, action, format: :json)
+      begin
+        send(opts, action, format: :json)
+      rescue ActiveRecord::RecordNotFound, ActionView::MissingTemplate => e
+      end
     elsif opts.is_a?(Hash)
       begin
         send(opts[:method], action, opts[:params].merge(format: :json))
-      rescue ActiveRecord::RecordNotFound => e
-        # If this exception is raised, it's that the user had access to the
-        # action
+      rescue ActiveRecord::RecordNotFound, ActionView::MissingTemplate => e
+        # If RecordNotFound exception is raised, it's that the user had access
+        # to the action
+        # It MissingTemplate, it's probably that a create action was not
+        # successful for instance
+        #
         # As it's not the purpose of this spec, we just silently fail
       end
     end

@@ -3,14 +3,9 @@ require 'spec_helper'
 describe Api::ChecksController do
   let(:user) { create :user, :with_checks }
 
-  context 'when not logged in' do
-    describe "POST 'create'" do
-      it 'should respond with unauthorized' do
-        post :create, format: 'json'
-        expect(response.code).to eq('401')
-      end
-    end
-  end
+  it_should_behave_like 'an api controller', {
+    create: :post,
+  }
 
   context 'when logged in' do
     before(:each) { sign_in user }
