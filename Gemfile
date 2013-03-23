@@ -13,7 +13,7 @@ gem 'draper'
 gem 'simple_form'
 gem 'compass-rails'
 gem 'rails-i18n'
-gem "active_model_serializers", "~> 0.7.0"
+gem 'active_model_serializers', '~> 0.7.0'
 gem 'newrelic_rpm'
 gem 'carrierwave'
 gem 'rmagick'
@@ -24,6 +24,7 @@ gem 'cancan'
 gem 'fog'
 gem 'sentry-raven'
 gem 'mail_view', '~> 1.0.3'
+gem 'will_paginate'
 
 group :development do
   gem 'annotate', '>=2.5.0'

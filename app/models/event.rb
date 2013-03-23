@@ -11,7 +11,6 @@
 #
 
 class Event < ActiveRecord::Base
-  include Pageable
   include Filterable
 
   attr_accessible :eventable, :user
@@ -20,8 +19,6 @@ class Event < ActiveRecord::Base
   belongs_to :user
 
   validates :eventable, presence: true
-
-  acts_as_pageable
 
   default_scope -> { includes(:eventable).order('created_at DESC') }
 

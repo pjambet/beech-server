@@ -1,6 +1,7 @@
 .row
   .large-12.columns
     %h2= "#{Event.count} Events"
+    = will_paginate @events
 
     %table.large-12.columns.responsive
       %thead
@@ -16,3 +17,5 @@
               %td= event.details
               %td= event.user.nickname
 
+  .large-12.columns
+    = will_paginate @events
