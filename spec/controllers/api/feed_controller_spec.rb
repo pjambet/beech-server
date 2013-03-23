@@ -13,7 +13,11 @@ describe Api::FeedController do
     end
 
     context 'when logged in' do
-      before(:each) { sign_in user }
+      before(:each) do
+        sign_in user
+        beer = create :beer, beer_color: BeerColor.blond
+        2.times { create :check, user: user, beer: beer }
+      end
 
       it 'should respond with success' do
         get_request.call
