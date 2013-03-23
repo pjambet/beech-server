@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'cancan/matchers'
 
 describe User do
   it { should have_many :awards }
@@ -165,6 +166,30 @@ describe User do
   describe 'Filterable behavior' do
     it 'should respond to after' do
       User.should respond_to(:after)
+    end
+  end
+
+  describe 'abilities' do
+    subject { ability }
+    let(:ability){ Ability.new(user) }
+    let(:user){ nil }
+
+    context 'when is a regular user' do
+      let(:user) { create(:user) }
+      let(:other_user) { create(:user) }
+
+      it{ should_not be_able_to(:manage, :all) }
+      it{ should be_able_to(:update, user) }
+      it{ should_not be_able_to(:update, other_user) }
+    end
+
+    context 'when is an admin' do
+      let(:user) { create(:user, :admin) }
+      let(:other_user) { create(:user) }
+
+      it{ should be_able_to(:manage, :all) }
+      it{ should be_able_to(:update, user) }
+      it{ should be_able_to(:update, other_user) }
     end
   end
 end
