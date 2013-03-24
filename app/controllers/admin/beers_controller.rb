@@ -1,5 +1,5 @@
 class Admin::BeersController < Admin::ApplicationController
-  load_resource only: [:edit, :update, :accept, :reject, :destroy]
+  load_and_authorize_resource
 
   def index
     @beers = Beer.accepted
