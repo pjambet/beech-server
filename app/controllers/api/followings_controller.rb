@@ -19,9 +19,9 @@ class Api::FollowingsController < Api::ApplicationController
   def handle_action
     followee = User.find params[:user_id]
     if current_user.following_users.include? followee
-      current_user.following_users.destroy followee
+      current_user.unfollow(followee)
     else
-      current_user.following_users << followee
+      current_user.follow(followee)
     end
     render json: followee
   end

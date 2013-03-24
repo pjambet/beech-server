@@ -192,4 +192,23 @@ describe User do
       it{ should be_able_to(:update, other_user) }
     end
   end
+
+  describe '#follow' do
+    subject(:user) { create(:user) }
+    let(:other_user) { create(:user) }
+    before(:each) { user.follow(other_user) }
+
+    its(:following_users) { should include(other_user) }
+  end
+
+  describe '#unfollow' do
+    subject(:user) { create(:user) }
+    let(:other_user) { create(:user) }
+    before(:each) do
+      user.follow(other_user)
+      user.unfollow(other_user)
+    end
+
+    its(:following_users) { should_not include(other_user) }
+  end
 end
