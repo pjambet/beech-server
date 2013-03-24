@@ -14,7 +14,7 @@ shared_examples 'an admin controller' do |actions|
     end
   end
 
-  context 'as an admin user' do
+  context 'when logged in as an admin user' do
     actions.each_pair do |action, opts|
       let(:user) { create :user, :admin }
       specify "I should be able to access ##{action} via #{opts}" do
@@ -25,7 +25,7 @@ shared_examples 'an admin controller' do |actions|
     end
   end
 
-  context 'as a regular user' do
+  context 'when logged in  as a regular user' do
     actions.each_pair do |action, opts|
       let(:user) { create :user }
       specify "I should be denied access to ##{action}" do
@@ -36,7 +36,7 @@ shared_examples 'an admin controller' do |actions|
     end
   end
 
-  context 'as an anonymous user' do
+  context 'when logged in  as an anonymous user' do
     actions.each_pair do |action, opts|
       specify "I should be denied access to ##{action}" do
         execute_action action, opts
@@ -50,47 +50,48 @@ shared_examples 'an api controller' do |actions|
 
   def execute_action(action, opts)
     if opts.is_a?(Symbol)
-      begin
-        send(opts, action, format: :json)
-      rescue ActiveRecord::RecordNotFound, ActionView::MissingTemplate => e
-      end
+      send(opts, action, format: :json)
     elsif opts.is_a?(Hash)
-      begin
-        send(opts[:method], action, opts[:params].merge(format: :json))
-      rescue ActiveRecord::RecordNotFound, ActionView::MissingTemplate => e
-        # If RecordNotFound exception is raised, it's that the user had access
-        # to the action
-        # It MissingTemplate, it's probably that a create action was not
-        # successful for instance
-        #
-        # As it's not the purpose of this spec, we just silently fail
-      end
+      send(opts[:method], action, opts[:params].merge(format: :json))
     end
   end
 
-  context 'as an admin user' do
+  context 'when logged in as an admin user' do
     actions.each_pair do |action, opts|
       let(:user) { create :user, :admin }
-      specify "I should be able to access ##{action} via #{opts}" do
+      before(:each) do
         sign_in user
         execute_action action, opts
+      end
+      specify "I should be able to access ##{action} via #{opts}" do
         response.status.should eq(200)
+      end
+
+      it "should return a valid JSON object for ##{action}" do
+        JSON.parse(response.body).should be_a(Hash)
       end
     end
   end
 
-  context 'as a regular user' do
+  context 'when logged in as a regular user' do
     actions.each_pair do |action, opts|
       let(:user) { create :user }
-      specify "I should be authorize access to ##{action}" do
+      before(:each) do
         sign_in user
         execute_action action, opts
+      end
+
+      specify "I should be authorize access to ##{action}" do
         response.status.should eq(200)
+      end
+
+      it "should return a valid JSON object for ##{action}" do
+        JSON.parse(response.body).should be_a(Hash)
       end
     end
   end
 
-  context 'as an anonymous user' do
+  context 'when logged in as an anonymous user' do
     actions.each_pair do |action, opts|
       specify "I should be denied access to ##{action}" do
         execute_action action, opts
