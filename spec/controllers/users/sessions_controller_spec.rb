@@ -17,9 +17,7 @@ describe Users::SessionsController do
       sign_in user
       get :new
     end
-    it 'should redirect to users#root' do
-      # response.should redirect_to(me_root_path)
-    end
+    it 'should redirect to users#root'
   end
 end
 

@@ -2,14 +2,11 @@ require 'spec_helper'
 
 describe Api::ProfilesController do
   let(:user) { create :user }
-  context 'when not logged in' do
-    describe "GET 'show'" do
-      it 'should respond with unauthorized' do
-        get :show, id: user, format: 'json'
-        response.response_code.should == 401
-      end
-    end
-  end
+
+  it_should_behave_like 'an api controller', {
+    show: :get,
+    update: {method: :put, params: {id: 1}},
+  }
 
   context 'when logged in' do
     before(:each) { sign_in user }

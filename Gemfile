@@ -1,28 +1,31 @@
-source :rubygems
+source 'https://rubygems.org'
+ruby '2.0.0'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 gem 'unicorn'
 
 gem 'pg'
 gem 'jquery-rails'
+gem 'zepto-rails'
 gem 'devise'
 gem 'haml'
 gem 'draper'
 gem 'simple_form'
 gem 'compass-rails'
 gem 'rails-i18n'
-gem 'active_model_serializers', git: 'git://github.com/rails-api/active_model_serializers.git'
+gem 'active_model_serializers', '~> 0.7.0'
 gem 'newrelic_rpm'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'dalli'
+gem 'memcachier'
 gem 'coveralls', require: false
 gem 'cancan'
-gem 'honeybadger'
-gem 'fog', '~> 1.9.0'
-gem 'net-scp', '1.0.4'
-gem 'librato-rails'
 gem 'foursquare2'
+gem 'fog'
+gem 'sentry-raven'
+gem 'mail_view', '~> 1.0.3'
+gem 'will_paginate'
 
 group :development do
   gem 'annotate', '>=2.5.0'
@@ -49,10 +52,12 @@ end
 
 group :test do
   gem 'webmock'
+  gem 'active_model_serializers-matchers', github: 'pjambet/active_model_serializers-matchers'
 end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'zurb-foundation'
 end

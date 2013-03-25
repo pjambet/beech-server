@@ -1,0 +1,13 @@
+%table{style: 'border: 1px solid rgb(231,231,231); border-spacing: 0; font-family: Helvetica neue, Helvetica, Arial; padding-bottom: 20px;'}
+  %thead
+    %th{style: 'padding: 0;'}= image_tag('/mail_header.gif')
+
+  %tbody{style: 'color: #666; padding: 10px;'}
+    = yield
+
+    %tr
+      %td{style: 'color: black; padding: 10px;'}
+        See you soon. Keep on beeching
+    %tr
+      %td{style: 'color: black; padding: 10px; text-align: center;'}
+        = link_to 'Follow us on twitter', 'https://twitter.com/getbeech', style: 'background-color: rgb(240,123,48); padding: 10px; margin-bottom: 20px; color: white; font-weight: bold; text-decoration: none; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;'

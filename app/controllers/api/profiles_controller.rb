@@ -5,7 +5,7 @@ class Api::ProfilesController < Api::ApplicationController
   def show
     @events = Event.for_users([@user])
     @events = @events.before(params[:before]) if params[:before].present?
-    @events = @events.paginate params[:page]
+    @events = @events.page params[:page]
 
     render json: @user, serializer: MyProfileSerializer, root: 'profile', events: @events
   end

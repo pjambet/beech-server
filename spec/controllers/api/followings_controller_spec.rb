@@ -2,28 +2,11 @@ require 'spec_helper'
 
 describe Api::FollowingsController do
   let(:user) { create :user }
-  context 'when not logged in' do
-    describe "GET 'index'" do
-      it 'respond with unauthorized' do
-        get :index, format: 'json'
-        expect(response.code).to eq('401')
-      end
-    end
-
-    describe "POST 'create'" do
-      it 'respond with unauthorized' do
-        post :create, format: 'json'
-        expect(response.code).to eq('401')
-      end
-    end
-
-    describe "DELETE 'destroy'" do
-      it 'should respond with unauthorized' do
-        delete :destroy, id: user, format: 'json'
-        expect(response.code).to eq('401')
-      end
-    end
-  end
+  it_should_behave_like 'an api controller', {
+    index: :get,
+    create: {method: :post, params: {id: 1}},
+    destroy: {method: :delete, params: {id: 1}},
+  }
 
   context 'when logged in' do
     before(:each) { sign_in user }
@@ -98,7 +81,12 @@ describe Api::FollowingsController do
       end
 
       it 'should have destroyed the following association' do
-        expect { Following.find(@following.id) }.to raise_error
+        expect { Following.find(@following.id) }.to raise_error(
+          ActiveRecord::RecordNotFound)
+      end
+
+      it 'should not be in the user following list' do
+        user.reload.following_users.should_not include(@following.followee)
       end
 
     end

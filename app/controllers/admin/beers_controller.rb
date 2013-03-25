@@ -1,4 +1,5 @@
 class Admin::BeersController < Admin::ApplicationController
+  load_and_authorize_resource
 
   def index
     @beers = Beer.accepted
@@ -23,11 +24,9 @@ class Admin::BeersController < Admin::ApplicationController
   end
 
   def edit
-    @beer = Beer.find(params[:id])
   end
 
   def update
-    @beer = Beer.find(params[:id])
     if @beer.update_attributes params[:beer]
       redirect_to admin_beers_path
     else
@@ -36,22 +35,21 @@ class Admin::BeersController < Admin::ApplicationController
   end
 
   def accept
-    @beer = Beer.find(params[:id])
     @beer.accepted = true
     @beer.save
+    NotificationMailer.accepted_beer(@beer).deliver
     redirect_to admin_beers_path
   end
 
   def reject
-    @beer = Beer.find(params[:id])
     @beer.accepted = false
     @beer.save
     redirect_to admin_beers_path
   end
 
   def destroy
-    @beer = Beer.find(params[:id])
     @beer.destroy
     redirect_to admin_beers_path
   end
+
 end

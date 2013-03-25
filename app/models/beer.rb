@@ -14,11 +14,9 @@
 
 class Beer < ActiveRecord::Base
   include Searchable::Models
-  include Pageable
 
   attr_accessible :name, :beer_color, :beer_color_id, :country
 
-  acts_as_pageable
   searchable_by :name
 
   belongs_to :beer_color
@@ -38,5 +36,6 @@ class Beer < ActiveRecord::Base
 
   delegate :name, to: :beer_color, prefix: true, allow_nil: true
 
+  validates :name, presence: true
 end
 

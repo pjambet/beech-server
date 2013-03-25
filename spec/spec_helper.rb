@@ -27,7 +27,7 @@ Spork.each_run do
   require 'shoulda'
   require 'vcr'
 
-  unless ENV['DRB']
+  if ENV['DRB']
     require 'simplecov'
     SimpleCov.start 'rails'
   end

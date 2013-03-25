@@ -1,16 +1,24 @@
-= link_to 'New', new_admin_user_path
-%table
-  %tr
-    - %w(avatar nickname email created_at actions).each do |th|
-      %th= th
+.row
+  .large-12.columns
+    = link_to 'New User', new_admin_user_path, class: 'button'
+    %h3= "Currently #{User.count} users"
 
-  - @users.each do |user|
-    %tr
-      %td= image_tag user.avatar.thumb.url, size: '68x68'
-      %td= user.nickname
-      %td= user.email
-      %td= user.created_at
-      %td
-        = link_to 'Edit', edit_admin_user_path(user)
-        = link_to 'Delete', admin_user_path(user), method: :delete, confirm: 'Are you sure?'
+.row
+  .large-12.columns
+    %table.large-12.small6.columns.responsive
+      %thead
+        %tr
+          - %w(avatar nickname email created_at actions).each do |th|
+            %th= th
+
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= image_tag user.avatar.thumb.url, size: '68x68'
+            %td= user.nickname
+            %td= user.email
+            %td= user.created_at
+            %td
+              = link_to 'Edit', edit_admin_user_path(user), class: 'button success small'
+              = link_to 'Delete', admin_user_path(user), method: :delete, confirm: 'Are you sure?', class: 'button alert small'
 

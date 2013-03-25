@@ -1,4 +1,5 @@
 class Admin::BadgesController < Admin::ApplicationController
+  load_and_authorize_resource
 
   def index
     @badges = Badge.scoped
@@ -18,11 +19,9 @@ class Admin::BadgesController < Admin::ApplicationController
   end
 
   def edit
-    @badge = Badge.find(params[:id])
   end
 
   def update
-    @badge = Badge.find(params[:id])
     if @badge.update_attributes params[:badge]
       redirect_to admin_badges_path
     else
@@ -31,7 +30,6 @@ class Admin::BadgesController < Admin::ApplicationController
   end
 
   def destroy
-    @badge = Badge.find(params[:id])
     @badge.destroy
     redirect_to admin_badges_path
   end

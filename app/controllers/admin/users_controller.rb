@@ -1,7 +1,8 @@
 class Admin::UsersController < Admin::ApplicationController
+  load_and_authorize_resource
 
   def index
-    @users = User.scoped
+    @users = User.order('created_at DESC')
   end
 
   def new

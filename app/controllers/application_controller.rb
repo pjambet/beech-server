@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+  respond_to :html, :json
+
   def after_sign_in_path_for(user)
     user_path user
   end
@@ -11,7 +13,7 @@ class ApplicationController < ActionController::Base
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, with: (lambda do |exception|
       render_error 500, exception
-      notify_honeybadger(exception)
+      Raven.capture_exception(exception)
     end)
     rescue_from CanCan::AccessDenied,
               with: lambda { |exception| render_error 401, exception }
