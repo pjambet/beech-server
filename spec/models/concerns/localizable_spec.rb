@@ -6,6 +6,10 @@ require 'foursquare2'
 vcr_options = { cassette_name: 'foursquare/venues', record: :new_episodes }
 describe Localizable, vcr: vcr_options do
 
+  before(:all) do
+    subject_class.any_instance.stubs(:v_parameter).returns('20130225')
+  end
+
   let(:subject_class) { Class.new.send :include, Localizable }
   subject(:subject_instance) { subject_class.new }
 
