@@ -44,5 +44,6 @@ module BeerServer
 
     config.cache_store = :dalli_store
 
+    config.active_record.schema_format = :sql
   end
 end

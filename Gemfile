@@ -5,6 +5,7 @@ gem 'rails', '3.2.13'
 gem 'unicorn'
 
 gem 'pg'
+gem 'activerecord-postgres-hstore'
 gem 'jquery-rails'
 gem 'zepto-rails'
 gem 'devise'
