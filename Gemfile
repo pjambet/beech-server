@@ -22,6 +22,8 @@ gem 'memcachier'
 gem 'coveralls', require: false
 gem 'cancan'
 gem 'fog'
+gem 'apipie-rails'
+gem 'maruku'
 gem 'sentry-raven'
 gem 'mail_view', '~> 1.0.3'
 gem 'will_paginate'

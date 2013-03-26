@@ -2,6 +2,10 @@ class Api::FeedController < Api::ApplicationController
   include UserLoader
   load_user
 
+  api :GET, '/my/feed/'
+  param :users, desc: 'If set to to me'
+  description "method description"
+  formats ['json']
   def index
     @events = filter_events
     render json: @events

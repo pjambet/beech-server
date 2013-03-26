@@ -16,4 +16,8 @@ class Api::ApplicationController < ApplicationController
     render json: {error: 'An error occured'}
   end
 
+  resource_description do
+    error code: 401, desc: "Unauthorized"
+    error code: 404, desc: "Not Found"
+  end
 end

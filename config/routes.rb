@@ -1,4 +1,6 @@
 BeerServer::Application.routes.draw do
+  apipie
+
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
   namespace :api do
