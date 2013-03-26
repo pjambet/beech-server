@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li>
+    <a href='../../apidoc.html'>BeechServer 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li>
+    <a href='../../apidoc/profiles.html'>
+      Profiles
+      
+    </a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>update</li>
+</ul>
+
+  <div class='page-header'>
+    <h1>
+      PUT /api/my/profile<br>
+      <small>Update a profile</small>
+    </h1>
+  </div>
+
+<div>
+
+  
+
+    <h2>Examples</h2>
+      <pre class="prettyprint">PUT /api/my/profile.json
+{
+  &quot;id&quot;: 1
+}
+200
+{
+  &quot;user&quot;: {
+    &quot;created_at&quot;: 1364265939,
+    &quot;id&quot;: 2017,
+    &quot;email&quot;: &quot;ignacio.torp@heller.info&quot;,
+    &quot;nickname&quot;: &quot;Ms. Karlie Renner&quot;,
+    &quot;avatar_url&quot;: {
+      &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2017/original.1364265939.png&quot;,
+      &quot;thumb&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2017/thumb_original.1364265939.png&quot;
+      }
+    },
+    &quot;already_following&quot;: false
+  }
+}</pre>
+
+
+
+</div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>  &copy; 2013 Pierre & Luc
+</footer>
+  </div>
+  <script type='text/javascript' src='../../apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

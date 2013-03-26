@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li>
+    <a href='../../apidoc.html'>BeechServer 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li>
+    <a href='../../apidoc/feed.html'>
+      Feed
+      
+    </a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>index</li>
+</ul>
+
+  <div class='page-header'>
+    <h1>
+      GET /api/my/feed<br>
+      <small></small>
+    </h1>
+  </div>
+
+<div>
+
+  <p>method description</p>
+
+    <h2>Examples</h2>
+      <pre class="prettyprint">GET /api/my/feed.json?users=me
+200
+{
+  &quot;checks&quot;: [
+    {
+      &quot;created_at&quot;: 1364265953,
+      &quot;id&quot;: 695,
+      &quot;user_id&quot;: 2250,
+      &quot;beer_id&quot;: 987
+    },
+    {
+      &quot;created_at&quot;: 1364265953,
+      &quot;id&quot;: 696,
+      &quot;user_id&quot;: 2250,
+      &quot;beer_id&quot;: 988
+    }
+  ],
+  &quot;users&quot;: [
+    {
+      &quot;created_at&quot;: 1364265953,
+      &quot;id&quot;: 2250,
+      &quot;email&quot;: &quot;olaf@bode.net&quot;,
+      &quot;nickname&quot;: &quot;Reginald Volkman&quot;,
+      &quot;avatar_url&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2250/original.1364265953.png&quot;,
+        &quot;thumb&quot;: {
+          &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2250/thumb_original.1364265953.png&quot;
+        }
+      },
+      &quot;already_following&quot;: false
+    }
+  ],
+  &quot;beers&quot;: [
+    {
+      &quot;id&quot;: 987,
+      &quot;name&quot;: &quot;Ms. Melisa Mayer&quot;,
+      &quot;beer_color_id&quot;: 85
+    },
+    {
+      &quot;id&quot;: 988,
+      &quot;name&quot;: &quot;Rudolph Koepp V&quot;,
+      &quot;beer_color_id&quot;: 85
+    }
+  ],
+  &quot;beer_colors&quot;: [
+    {
+      &quot;created_at&quot;: 1364265953,
+      &quot;id&quot;: 85,
+      &quot;name&quot;: null,
+      &quot;slug&quot;: &quot;blond&quot;
+    }
+  ],
+  &quot;feed&quot;: [
+    {
+      &quot;created_at&quot;: 1363920353,
+      &quot;id&quot;: 1073,
+      &quot;eventable&quot;: {
+        &quot;type&quot;: &quot;check&quot;,
+        &quot;id&quot;: 695
+      },
+      &quot;user_id&quot;: 2250
+    },
+    {
+      &quot;created_at&quot;: 1363747553,
+      &quot;id&quot;: 1074,
+      &quot;eventable&quot;: {
+        &quot;type&quot;: &quot;check&quot;,
+        &quot;id&quot;: 696
+      },
+      &quot;user_id&quot;: 2250
+    }
+  ]
+}</pre>
+
+    <h2>Supported Formats</h2>
+    json
+
+
+</div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>  &copy; 2013 Pierre & Luc
+</footer>
+  </div>
+  <script type='text/javascript' src='../../apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/apipie.js'></script>
+</body>
+</html>
