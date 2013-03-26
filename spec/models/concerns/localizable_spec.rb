@@ -2,7 +2,7 @@ require 'spec_helper_no_rails'
 require 'concerns/localizable'
 require 'oauth_credentials'
 require 'foursquare2'
-require 'mocha'
+require 'mocha/setup'
 
 vcr_options = { cassette_name: 'foursquare/venues', record: :new_episodes }
 describe Localizable, vcr: vcr_options do
