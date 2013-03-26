@@ -1,6 +1,6 @@
 ## master
 
-  * BeerSerializer now embeds ids for BeerColors (ff577bc95d673d4e773c216ecb58f3c5c8c73416)
+  * BeerSerializer now embeds ids for BeerColors [#ff577bc9](https://github.com/pjambet/beech-server/commit/ff577bc95d673d4e773c216ecb58f3c5c8c73416)
 
 
 ## 1.0
