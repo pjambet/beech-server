@@ -1,0 +1,9 @@
+.agignore
+.ruby-version
+config/
+cookies
+coverage/
+db/
+log/
+public/
+tmp/
