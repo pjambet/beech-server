@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li>
+    <a href='../apidoc.html'>BeechServer 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>
+    Followings
+    
+  </li>
+</ul>
+
+<div class='page-header'>
+  <h1>
+    Followings
+    <br>
+    <small></small>
+  </h1>
+</div>
+
+
+
+<div class='accordion' id='accordion'>
+
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/followings/index.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-index'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/my/followings
+          </a><br>
+          <small>List followings</small>
+        </h2>
+        <h2>
+          <a href='#description-index'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/users/:user_id/followings
+          </a><br>
+          <small>List followings</small>
+        </h2>
+    </div>
+
+
+    <div id='description-index' class='collapse accordion-body'>
+      
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">GET /api/my/followings.json
+200
+{
+  &quot;users&quot;: []
+}</pre>
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/followings/create.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-create'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST /api/my/followings
+          </a><br>
+          <small>Create a following</small>
+        </h2>
+    </div>
+
+
+    <div id='description-create' class='collapse accordion-body'>
+      
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">POST /api/my/followings.json
+{
+  &quot;user_id&quot;: {
+    &quot;avatar&quot;: {
+      &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2117/original.1364265946.png&quot;,
+      &quot;thumb&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2117/thumb_original.1364265946.png&quot;
+      }
+    },
+    &quot;avatar_uploaded_at&quot;: null,
+    &quot;created_at&quot;: &quot;2013-03-26T03:45:46+01:00&quot;,
+    &quot;email&quot;: &quot;jade@mayer.name&quot;,
+    &quot;id&quot;: 2117,
+    &quot;nickname&quot;: &quot;Cindy Reichert&quot;,
+    &quot;updated_at&quot;: &quot;2013-03-26T03:45:46+01:00&quot;
+  }
+}
+200
+{
+  &quot;user&quot;: {
+    &quot;created_at&quot;: 1364265946,
+    &quot;id&quot;: 2117,
+    &quot;email&quot;: &quot;jade@mayer.name&quot;,
+    &quot;nickname&quot;: &quot;Cindy Reichert&quot;,
+    &quot;avatar_url&quot;: {
+      &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2117/original.1364265946.png&quot;,
+      &quot;thumb&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2117/thumb_original.1364265946.png&quot;
+      }
+    },
+    &quot;already_following&quot;: true
+  }
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>user_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/followings/destroy.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-destroy'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            DELETE /api/my/followings
+          </a><br>
+          <small>Destroy a following</small>
+        </h2>
+    </div>
+
+
+    <div id='description-destroy' class='collapse accordion-body'>
+      
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">DELETE /api/my/followings.json
+200
+{
+  &quot;error&quot;: &quot;An error occured&quot;
+}</pre>
+          <pre class="prettyprint">DELETE /api/my/followings.json?id=2148&amp;user_id=2149
+200
+{
+  &quot;user&quot;: {
+    &quot;created_at&quot;: 1364265948,
+    &quot;id&quot;: 2149,
+    &quot;email&quot;: &quot;melisa@ernser.net&quot;,
+    &quot;nickname&quot;: &quot;Jack Cormier&quot;,
+    &quot;avatar_url&quot;: {
+      &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2149/original.1364265948.png&quot;,
+      &quot;thumb&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2149/thumb_original.1364265948.png&quot;
+      }
+    },
+    &quot;already_following&quot;: false
+  }
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>user_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+        <br>
+        Value: Must be a number.
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+</div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>  &copy; 2013 Pierre & Luc
+</footer>
+  </div>
+  <script type='text/javascript' src='../apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

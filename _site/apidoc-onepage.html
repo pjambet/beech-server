@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+          <h4><a href='#beers'>Beers</a></h4>
+  <ul>
+      <li><a href='#beers-index'>index</a></li>
+      <li><a href='#beers-create'>create</a></li>
+  </ul>
+  <h4><a href='#checks'>Checks</a></h4>
+  <ul>
+      <li><a href='#checks-create'>create</a></li>
+  </ul>
+  <h4><a href='#feed'>Feed</a></h4>
+  <ul>
+      <li><a href='#feed-index'>index</a></li>
+  </ul>
+  <h4><a href='#followers'>Followers</a></h4>
+  <ul>
+      <li><a href='#followers-index'>index</a></li>
+  </ul>
+  <h4><a href='#followings'>Followings</a></h4>
+  <ul>
+      <li><a href='#followings-index'>index</a></li>
+      <li><a href='#followings-create'>create</a></li>
+      <li><a href='#followings-destroy'>destroy</a></li>
+  </ul>
+  <h4><a href='#my_badges'>My badges</a></h4>
+  <ul>
+      <li><a href='#my_badges-index'>index</a></li>
+  </ul>
+  <h4><a href='#my_beers'>My beers</a></h4>
+  <ul>
+      <li><a href='#my_beers-index'>index</a></li>
+  </ul>
+  <h4><a href='#profiles'>Profiles</a></h4>
+  <ul>
+      <li><a href='#profiles-show'>show</a></li>
+      <li><a href='#profiles-update'>update</a></li>
+  </ul>
+  <h4><a href='#users'>Users</a></h4>
+  <ul>
+      <li><a href='#users-index'>index</a></li>
+  </ul>
+
+
+
+<div><p>This is where you can inform user about your application and API in general.</p></div>
+
+<hr>
+
+
+  <ul class='breadcrumb'  id='beers'>
+    <li><a href='#'>BeechServer</a><span class='divider'>/</span></li>
+    <li class='active'>Beers</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#beers'>Beers</a><br>
+      <small>Beer related endpoints</small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='beers-index'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#beers'>Beers</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>index</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#beers-index'>
+              GET /api/beers
+            </a><br>
+            <small>List all beers</small>
+          </h3>
+      </div>
+
+      <div>
+        <p>This endpoint returns the list of beers</p>
+          <h2>Examples</h2>
+            <pre>GET /api/beers.json
+200
+{
+  &quot;beer_colors&quot;: [],
+  &quot;beers&quot;: [
+    {
+      &quot;id&quot;: 1008,
+      &quot;name&quot;: &quot;Bart Carter&quot;,
+      &quot;beer_color_id&quot;: null
+    },
+    {
+      &quot;id&quot;: 1009,
+      &quot;name&quot;: &quot;Monserrat Wolff IV&quot;,
+      &quot;beer_color_id&quot;: null
+    },
+    {
+      &quot;id&quot;: 1010,
+      &quot;name&quot;: &quot;Miss Robin Schinner&quot;,
+      &quot;beer_color_id&quot;: null
+    }
+  ]
+}</pre>
+
+          <h2>Errors</h2>
+            500
+            Server crashed for some reason
+            <br>
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>page </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>The page index</p>
+        <br>
+        Value: Must be a number.
+    </td>
+  </tr>
+
+  
+
+            </tbody>
+          </table>
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='beers-create'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#beers'>Beers</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>create</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#beers-create'>
+              POST /api/beers
+            </a><br>
+            <small>Create a beer</small>
+          </h3>
+      </div>
+
+      <div>
+        
+          <h2>Examples</h2>
+            <pre>POST /api/beers
+{
+  &quot;beer&quot;: {
+    &quot;name&quot;: &quot;Guinness&quot;
+  }
+}
+200
+{
+  &quot;beer_colors&quot;: [],
+  &quot;beer&quot;: {
+    &quot;id&quot;: 1034,
+    &quot;name&quot;: &quot;Guinness&quot;,
+    &quot;beer_color_id&quot;: null
+  }
+}</pre>
+
+          <h2>Errors</h2>
+            500
+            Server crashed for some reason
+            <br>
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>beer </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+        <br>
+        Value: Must be a Hash
+    </td>
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>beer[name] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+
+
+            </tbody>
+          </table>
+      </div>
+  </div>
+
+  <ul class='breadcrumb'  id='checks'>
+    <li><a href='#'>BeechServer</a><span class='divider'>/</span></li>
+    <li class='active'>Checks</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#checks'>Checks</a><br>
+      <small></small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='checks-create'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#checks'>Checks</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>create</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#checks-create'>
+              POST /api/checks
+            </a><br>
+            <small>Create a check</small>
+          </h3>
+      </div>
+
+      <div>
+        
+          <h2>Examples</h2>
+            <pre>POST /api/checks.json
+{}
+200
+{
+  &quot;error&quot;: &quot;An error occured&quot;
+}</pre>
+            <pre>POST /api/checks.json
+{
+  &quot;check&quot;: {
+    &quot;user_id&quot;: 1875,
+    &quot;beer_id&quot;: 893
+  }
+}
+200
+{
+  &quot;users&quot;: [
+    {
+      &quot;created_at&quot;: 1364265919,
+      &quot;id&quot;: 1871,
+      &quot;email&quot;: &quot;olaf@bode.net&quot;,
+      &quot;nickname&quot;: &quot;Reginald Volkman&quot;,
+      &quot;avatar_url&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/1871/original.1364265919.png&quot;,
+        &quot;thumb&quot;: {
+          &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/1871/thumb_original.1364265919.png&quot;
+        }
+      },
+      &quot;already_following&quot;: false
+    }
+  ],
+  &quot;beers&quot;: [
+    {
+      &quot;id&quot;: 893,
+      &quot;name&quot;: &quot;Adelia Powlowski&quot;,
+      &quot;beer_color_id&quot;: null
+    }
+  ],
+  &quot;beer_colors&quot;: [],
+  &quot;check&quot;: {
+    &quot;created_at&quot;: 1364265919,
+    &quot;id&quot;: 612,
+    &quot;user_id&quot;: 1871,
+    &quot;beer_id&quot;: 893
+  }
+}</pre>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>check </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+        <br>
+        Value: Must be a Hash
+    </td>
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>check[beer_id] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+        <br>
+        Value: Must be a number.
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>check[user_id] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+        <br>
+        Value: Must be a number.
+    </td>
+  </tr>
+
+  
+
+
+            </tbody>
+          </table>
+      </div>
+  </div>
+
+  <ul class='breadcrumb'  id='feed'>
+    <li><a href='#'>BeechServer</a><span class='divider'>/</span></li>
+    <li class='active'>Feed</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#feed'>Feed</a><br>
+      <small></small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='feed-index'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#feed'>Feed</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>index</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#feed-index'>
+              GET /api/my/feed
+            </a><br>
+            <small></small>
+          </h3>
+      </div>
+
+      <div>
+        <p>method description</p>
+          <h2>Examples</h2>
+            <pre>GET /api/my/feed.json?users=me
+200
+{
+  &quot;checks&quot;: [
+    {
+      &quot;created_at&quot;: 1364265953,
+      &quot;id&quot;: 695,
+      &quot;user_id&quot;: 2250,
+      &quot;beer_id&quot;: 987
+    },
+    {
+      &quot;created_at&quot;: 1364265953,
+      &quot;id&quot;: 696,
+      &quot;user_id&quot;: 2250,
+      &quot;beer_id&quot;: 988
+    }
+  ],
+  &quot;users&quot;: [
+    {
+      &quot;created_at&quot;: 1364265953,
+      &quot;id&quot;: 2250,
+      &quot;email&quot;: &quot;olaf@bode.net&quot;,
+      &quot;nickname&quot;: &quot;Reginald Volkman&quot;,
+      &quot;avatar_url&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2250/original.1364265953.png&quot;,
+        &quot;thumb&quot;: {
+          &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2250/thumb_original.1364265953.png&quot;
+        }
+      },
+      &quot;already_following&quot;: false
+    }
+  ],
+  &quot;beers&quot;: [
+    {
+      &quot;id&quot;: 987,
+      &quot;name&quot;: &quot;Ms. Melisa Mayer&quot;,
+      &quot;beer_color_id&quot;: 85
+    },
+    {
+      &quot;id&quot;: 988,
+      &quot;name&quot;: &quot;Rudolph Koepp V&quot;,
+      &quot;beer_color_id&quot;: 85
+    }
+  ],
+  &quot;beer_colors&quot;: [
+    {
+      &quot;created_at&quot;: 1364265953,
+      &quot;id&quot;: 85,
+      &quot;name&quot;: null,
+      &quot;slug&quot;: &quot;blond&quot;
+    }
+  ],
+  &quot;feed&quot;: [
+    {
+      &quot;created_at&quot;: 1363920353,
+      &quot;id&quot;: 1073,
+      &quot;eventable&quot;: {
+        &quot;type&quot;: &quot;check&quot;,
+        &quot;id&quot;: 695
+      },
+      &quot;user_id&quot;: 2250
+    },
+    {
+      &quot;created_at&quot;: 1363747553,
+      &quot;id&quot;: 1074,
+      &quot;eventable&quot;: {
+        &quot;type&quot;: &quot;check&quot;,
+        &quot;id&quot;: 696
+      },
+      &quot;user_id&quot;: 2250
+    }
+  ]
+}</pre>
+
+
+      </div>
+  </div>
+
+  <ul class='breadcrumb'  id='followers'>
+    <li><a href='#'>BeechServer</a><span class='divider'>/</span></li>
+    <li class='active'>Followers</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#followers'>Followers</a><br>
+      <small></small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='followers-index'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#followers'>Followers</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>index</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#followers-index'>
+              GET /api/my/followers
+            </a><br>
+            <small>List followers</small>
+          </h3>
+          <h3>
+            <a href='#followers-index'>
+              GET /api/users/:user_id/followers
+            </a><br>
+            <small>List followers</small>
+          </h3>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+  </div>
+
+  <ul class='breadcrumb'  id='followings'>
+    <li><a href='#'>BeechServer</a><span class='divider'>/</span></li>
+    <li class='active'>Followings</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#followings'>Followings</a><br>
+      <small></small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='followings-index'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#followings'>Followings</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>index</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#followings-index'>
+              GET /api/my/followings
+            </a><br>
+            <small>List followings</small>
+          </h3>
+          <h3>
+            <a href='#followings-index'>
+              GET /api/users/:user_id/followings
+            </a><br>
+            <small>List followings</small>
+          </h3>
+      </div>
+
+      <div>
+        
+          <h2>Examples</h2>
+            <pre>GET /api/my/followings.json
+200
+{
+  &quot;users&quot;: []
+}</pre>
+
+
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='followings-create'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#followings'>Followings</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>create</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#followings-create'>
+              POST /api/my/followings
+            </a><br>
+            <small>Create a following</small>
+          </h3>
+      </div>
+
+      <div>
+        
+          <h2>Examples</h2>
+            <pre>POST /api/my/followings.json
+{
+  &quot;user_id&quot;: {
+    &quot;avatar&quot;: {
+      &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2117/original.1364265946.png&quot;,
+      &quot;thumb&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2117/thumb_original.1364265946.png&quot;
+      }
+    },
+    &quot;avatar_uploaded_at&quot;: null,
+    &quot;created_at&quot;: &quot;2013-03-26T03:45:46+01:00&quot;,
+    &quot;email&quot;: &quot;jade@mayer.name&quot;,
+    &quot;id&quot;: 2117,
+    &quot;nickname&quot;: &quot;Cindy Reichert&quot;,
+    &quot;updated_at&quot;: &quot;2013-03-26T03:45:46+01:00&quot;
+  }
+}
+200
+{
+  &quot;user&quot;: {
+    &quot;created_at&quot;: 1364265946,
+    &quot;id&quot;: 2117,
+    &quot;email&quot;: &quot;jade@mayer.name&quot;,
+    &quot;nickname&quot;: &quot;Cindy Reichert&quot;,
+    &quot;avatar_url&quot;: {
+      &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2117/original.1364265946.png&quot;,
+      &quot;thumb&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2117/thumb_original.1364265946.png&quot;
+      }
+    },
+    &quot;already_following&quot;: true
+  }
+}</pre>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>user_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+
+  
+
+            </tbody>
+          </table>
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='followings-destroy'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#followings'>Followings</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>destroy</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#followings-destroy'>
+              DELETE /api/my/followings
+            </a><br>
+            <small>Destroy a following</small>
+          </h3>
+      </div>
+
+      <div>
+        
+          <h2>Examples</h2>
+            <pre>DELETE /api/my/followings.json
+200
+{
+  &quot;error&quot;: &quot;An error occured&quot;
+}</pre>
+            <pre>DELETE /api/my/followings.json?id=2148&amp;user_id=2149
+200
+{
+  &quot;user&quot;: {
+    &quot;created_at&quot;: 1364265948,
+    &quot;id&quot;: 2149,
+    &quot;email&quot;: &quot;melisa@ernser.net&quot;,
+    &quot;nickname&quot;: &quot;Jack Cormier&quot;,
+    &quot;avatar_url&quot;: {
+      &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2149/original.1364265948.png&quot;,
+      &quot;thumb&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2149/thumb_original.1364265948.png&quot;
+      }
+    },
+    &quot;already_following&quot;: false
+  }
+}</pre>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>user_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+        <br>
+        Value: Must be a number.
+    </td>
+  </tr>
+
+  
+
+            </tbody>
+          </table>
+      </div>
+  </div>
+
+  <ul class='breadcrumb'  id='my_badges'>
+    <li><a href='#'>BeechServer</a><span class='divider'>/</span></li>
+    <li class='active'>My badges</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#my_badges'>My badges</a><br>
+      <small></small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='my_badges-index'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#my_badges'>My badges</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>index</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#my_badges-index'>
+              GET /api/my/badges
+            </a><br>
+            <small>List my badges</small>
+          </h3>
+          <h3>
+            <a href='#my_badges-index'>
+              GET /api/users/:user_id/badges
+            </a><br>
+            <small>List my badges</small>
+          </h3>
+      </div>
+
+      <div>
+        
+          <h2>Examples</h2>
+            <pre>GET /api/my/badges.json
+200
+{
+  &quot;badges&quot;: [
+    {
+      &quot;created_at&quot;: 1364265942,
+      &quot;id&quot;: 375,
+      &quot;name&quot;: &quot;Mrs. Tyra Schultz&quot;,
+      &quot;description&quot;: null,
+      &quot;photo_url&quot;: {
+        &quot;url&quot;: &quot;/assets/default-badge.png&quot;,
+        &quot;thumb&quot;: {
+          &quot;url&quot;: &quot;/assets/thumb_default-badge.png&quot;
+        }
+      }
+    },
+    {
+      &quot;created_at&quot;: 1364265942,
+      &quot;id&quot;: 374,
+      &quot;name&quot;: &quot;Ms. Pete Greenfelder&quot;,
+      &quot;description&quot;: null,
+      &quot;photo_url&quot;: {
+        &quot;url&quot;: &quot;/assets/default-badge.png&quot;,
+        &quot;thumb&quot;: {
+          &quot;url&quot;: &quot;/assets/thumb_default-badge.png&quot;
+        }
+      }
+    },
+    {
+      &quot;created_at&quot;: 1364265942,
+      &quot;id&quot;: 373,
+      &quot;name&quot;: &quot;5 Stella Artois&quot;,
+      &quot;description&quot;: null,
+      &quot;photo_url&quot;: {
+        &quot;url&quot;: &quot;/assets/default-badge.png&quot;,
+        &quot;thumb&quot;: {
+          &quot;url&quot;: &quot;/assets/thumb_default-badge.png&quot;
+        }
+      }
+    },
+    {
+      &quot;created_at&quot;: 1364265942,
+      &quot;id&quot;: 372,
+      &quot;name&quot;: &quot;5 Kronembourg&quot;,
+      &quot;description&quot;: null,
+      &quot;photo_url&quot;: {
+        &quot;url&quot;: &quot;/assets/default-badge.png&quot;,
+        &quot;thumb&quot;: {
+          &quot;url&quot;: &quot;/assets/thumb_default-badge.png&quot;
+        }
+      }
+    }
+  ]
+}</pre>
+
+
+      </div>
+  </div>
+
+  <ul class='breadcrumb'  id='my_beers'>
+    <li><a href='#'>BeechServer</a><span class='divider'>/</span></li>
+    <li class='active'>My beers</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#my_beers'>My beers</a><br>
+      <small></small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='my_beers-index'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#my_beers'>My beers</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>index</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#my_beers-index'>
+              GET /api/my/beers
+            </a><br>
+            <small>List my beers</small>
+          </h3>
+          <h3>
+            <a href='#my_beers-index'>
+              GET /api/users/:user_id/beers
+            </a><br>
+            <small>List my beers</small>
+          </h3>
+      </div>
+
+      <div>
+        
+          <h2>Examples</h2>
+            <pre>GET /api/my/beers
+200
+{
+  &quot;beers&quot;: [
+    {
+      &quot;id&quot;: 1038,
+      &quot;name&quot;: &quot;Kronembourg&quot;,
+      &quot;checks_count&quot;: &quot;1&quot;
+    },
+    {
+      &quot;id&quot;: 1039,
+      &quot;name&quot;: &quot;Stella Artois&quot;,
+      &quot;checks_count&quot;: &quot;1&quot;
+    },
+    {
+      &quot;id&quot;: 1040,
+      &quot;name&quot;: &quot;Guiness&quot;,
+      &quot;checks_count&quot;: &quot;1&quot;
+    }
+  ]
+}</pre>
+
+
+      </div>
+  </div>
+
+  <ul class='breadcrumb'  id='profiles'>
+    <li><a href='#'>BeechServer</a><span class='divider'>/</span></li>
+    <li class='active'>Profiles</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#profiles'>Profiles</a><br>
+      <small></small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='profiles-show'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#profiles'>Profiles</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>show</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#profiles-show'>
+              GET /api/my/profile
+            </a><br>
+            <small>Show a profile</small>
+          </h3>
+          <h3>
+            <a href='#profiles-show'>
+              GET /api/users/:user_id/profile
+            </a><br>
+            <small>Show a profile</small>
+          </h3>
+      </div>
+
+      <div>
+        
+          <h2>Examples</h2>
+            <pre>GET /api/my/profile.json
+200
+{
+  &quot;feed&quot;: [],
+  &quot;badges&quot;: [],
+  &quot;profile&quot;: {
+    &quot;created_at&quot;: 1364265939,
+    &quot;id&quot;: 2017,
+    &quot;email&quot;: &quot;ignacio.torp@heller.info&quot;,
+    &quot;nickname&quot;: &quot;Ms. Karlie Renner&quot;,
+    &quot;avatar_url&quot;: {
+      &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2017/original.1364265939.png&quot;,
+      &quot;thumb&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2017/thumb_original.1364265939.png&quot;
+      }
+    },
+    &quot;check_count&quot;: 0,
+    &quot;following_count&quot;: 0,
+    &quot;follower_count&quot;: 0,
+    &quot;already_following&quot;: false,
+    &quot;event_ids&quot;: [],
+    &quot;badge_ids&quot;: []
+  }
+}</pre>
+
+
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='profiles-update'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#profiles'>Profiles</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>update</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#profiles-update'>
+              PUT /api/my/profile
+            </a><br>
+            <small>Update a profile</small>
+          </h3>
+      </div>
+
+      <div>
+        
+          <h2>Examples</h2>
+            <pre>PUT /api/my/profile.json
+{
+  &quot;id&quot;: 1
+}
+200
+{
+  &quot;user&quot;: {
+    &quot;created_at&quot;: 1364265939,
+    &quot;id&quot;: 2017,
+    &quot;email&quot;: &quot;ignacio.torp@heller.info&quot;,
+    &quot;nickname&quot;: &quot;Ms. Karlie Renner&quot;,
+    &quot;avatar_url&quot;: {
+      &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2017/original.1364265939.png&quot;,
+      &quot;thumb&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2017/thumb_original.1364265939.png&quot;
+      }
+    },
+    &quot;already_following&quot;: false
+  }
+}</pre>
+
+
+      </div>
+  </div>
+
+  <ul class='breadcrumb'  id='users'>
+    <li><a href='#'>BeechServer</a><span class='divider'>/</span></li>
+    <li class='active'>Users</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#users'>Users</a><br>
+      <small></small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='users-index'>
+        <li>
+          <a href='#'>BeechServer</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#users'>Users</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>index</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#users-index'>
+              GET /api/users
+            </a><br>
+            <small>List users</small>
+          </h3>
+      </div>
+
+      <div>
+        
+          <h2>Examples</h2>
+            <pre>GET /api/users?s=jean-mich
+200
+{
+  &quot;users&quot;: [
+    {
+      &quot;created_at&quot;: 1364265945,
+      &quot;id&quot;: 2102,
+      &quot;email&quot;: &quot;monserrat_wolff@sipes.info&quot;,
+      &quot;nickname&quot;: &quot;jean-michel&quot;,
+      &quot;avatar_url&quot;: {
+        &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2102/original.1364265945.png&quot;,
+        &quot;thumb&quot;: {
+          &quot;url&quot;: &quot;/Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2102/thumb_original.1364265945.png&quot;
+        }
+      },
+      &quot;already_following&quot;: false
+    }
+  ]
+}</pre>
+
+
+      </div>
+  </div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>  &copy; 2013 Pierre & Luc
+</footer>
+  </div>
+  <script type='text/javascript' src='./apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/apipie.js'></script>
+</body>
+</html>
