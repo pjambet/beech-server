@@ -5,3 +5,6 @@ beech-server
 
 This app will be awesome ;)
 
+## API Documentation
+The API is documented with apipie. Even though it's defintely not sinished yet,
+you can find it [here](http://pjambet.github.com/beech-server/doc/apidoc.html)
