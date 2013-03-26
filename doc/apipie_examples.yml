@@ -1,5 +1,46 @@
 --- !omap
-- beers#edit:
+- badges#create:
+  - !omap
+    - verb: :POST
+    - path: /admin/badges
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /admin/badges
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+- badges#destroy:
+  - !omap
+    - verb: :DELETE
+    - path: /admin/badges/1
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
   - !omap
     - verb:
     - path:
@@ -11,8 +52,50 @@
     - show_in_doc: 0
     - recorded: true
   - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+- badges#edit:
+  - !omap
     - verb: :GET
-    - path: /admin/beers/147/edit
+    - path: /admin/badges/1/edit
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+- badges#index:
+  - !omap
+    - verb: :GET
+    - path: /admin/badges
     - versions: []
     - query: ''
     - request_data:
@@ -22,7 +105,7 @@
     - recorded: true
   - !omap
     - verb: :GET
-    - path: /admin/beers/148/edit
+    - path: /admin/badges
     - versions: []
     - query: ''
     - request_data:
@@ -30,17 +113,6 @@
     - code: '200'
     - show_in_doc: 0
     - recorded: true
-  - !omap
-    - verb: :GET
-    - path: /admin/beers/149/edit
-    - versions: []
-    - query: ''
-    - request_data:
-    - response_data:
-    - code: '200'
-    - show_in_doc: 0
-    - recorded: true
-- beers#index:
   - !omap
     - verb:
     - path:
@@ -51,9 +123,10 @@
     - code:
     - show_in_doc: 0
     - recorded: true
+- badges#new:
   - !omap
     - verb: :GET
-    - path: /admin/beers
+    - path: /admin/badges/new
     - versions: []
     - query: ''
     - request_data:
@@ -63,7 +136,7 @@
     - recorded: true
   - !omap
     - verb: :GET
-    - path: /admin/beers
+    - path: /admin/badges/new
     - versions: []
     - query: ''
     - request_data:
@@ -74,8 +147,28 @@
   - !omap
     - verb:
     - path:
-    - versions:
-      - '1.0'
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+- badges#update:
+  - !omap
+    - verb: :PUT
+    - path: /admin/badges/1
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
     - query:
     - request_data:
     - response_data:
@@ -83,129 +176,107 @@
     - show_in_doc: 0
     - recorded: true
   - !omap
-    - verb: :GET
-    - path: /api/beers.json
-    - versions:
-      - '1.0'
-    - query: ''
+    - verb:
+    - path:
+    - versions: []
+    - query:
     - request_data:
     - response_data:
-        beers:
-        - id: 197
-          name: Christophe Nitzsche
-          beer_color:
-        - id: 198
-          name: Faye Davis
-          beer_color:
-        - id: 199
-          name: Mrs. Candida Funk
-          beer_color:
-    - code: '200'
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+- beers#accept:
+  - !omap
+    - verb: :PUT
+    - path: /admin/beers/1/accept
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
     - show_in_doc: 0
     - recorded: true
   - !omap
-    - verb: :GET
-    - path: /api/beers.json
-    - versions:
-      - '1.0'
-    - query: ''
+    - verb:
+    - path:
+    - versions: []
+    - query:
     - request_data:
     - response_data:
-        beers:
-        - id: 202
-          name: Bret Harber
-          beer_color:
-        - id: 203
-          name: Noemy Ledner
-          beer_color:
-        - id: 204
-          name: Kaleigh Mills
-          beer_color:
-    - code: '200'
+    - code:
     - show_in_doc: 0
     - recorded: true
   - !omap
-    - verb: :GET
-    - path: /api/beers.json
-    - versions:
-      - '1.0'
-    - query: ''
+    - verb:
+    - path:
+    - versions: []
+    - query:
     - request_data:
     - response_data:
-        beers:
-        - id: 207
-          name: Wava Mitchell
-          beer_color:
-        - id: 208
-          name: Mrs. Armand Bode
-          beer_color:
-        - id: 209
-          name: Edward Purdy IV
-          beer_color:
-    - code: '200'
+    - code:
     - show_in_doc: 0
     - recorded: true
   - !omap
-    - verb: :GET
-    - path: /api/beers
-    - versions:
-      - '1.0'
-    - query: s=guinness
-    - request_data:
-    - response_data:
-        beers:
-        - id: 218
-          name: guinness
-          beer_color:
-    - code: '200'
+    - verb: :PUT
+    - path: /admin/beers/902/accept
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data: <html><body>You are being <a href="http://test.host/admin/beers">redirected</a>.</body></html>
+    - code: '302'
     - show_in_doc: 0
     - recorded: true
   - !omap
-    - verb: :GET
-    - path: /api/beers
-    - versions:
-      - '1.0'
-    - query: s=guinness
-    - request_data:
-    - response_data:
-        beers:
-        - id: 225
-          name: guinness
-          beer_color:
-    - code: '200'
+    - verb: :PUT
+    - path: /admin/beers/903/accept
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data: <html><body>You are being <a href="http://test.host/admin/beers">redirected</a>.</body></html>
+    - code: '302'
     - show_in_doc: 0
     - recorded: true
   - !omap
-    - verb: :GET
-    - path: /api/beers
-    - versions:
-      - '1.0'
-    - query: s=guinness
-    - request_data:
-    - response_data:
-        beers:
-        - id: 232
-          name: guinness
-          beer_color:
-    - code: '200'
+    - verb: :PUT
+    - path: /admin/beers/904/accept
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data: <html><body>You are being <a href="http://test.host/admin/beers">redirected</a>.</body></html>
+    - code: '302'
     - show_in_doc: 0
     - recorded: true
   - !omap
-    - verb: :GET
-    - path: /api/beers
-    - versions:
-      - '1.0'
-    - query: s=guinness
-    - request_data:
+    - verb: :PUT
+    - path: /admin/beers/904/accept
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data: <html><body>You are being <a href="http://test.host/admin/beers">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+- beers#create:
+  - !omap
+    - verb: :POST
+    - path: /admin/beers
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /admin/beers
+    - versions: []
+    - query:
+    - request_data: {}
     - response_data:
-        beers:
-        - id: 239
-          name: guinness
-          beer_color:
     - code: '200'
     - show_in_doc: 0
     - recorded: true
-- checks#create:
   - !omap
     - verb:
     - path:
@@ -218,37 +289,811 @@
     - recorded: true
   - !omap
     - verb: :POST
-    - path: /api/checks.json
-    - versions: []
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data: {}
+    - response_data:
+        beer_colors: []
+        beer:
+          id:
+          name:
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data: {}
+    - response_data:
+        beer_colors: []
+        beer:
+          id:
+          name:
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data: {}
+    - response_data:
+        beer_colors: []
+        beer:
+          id:
+          name:
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data: {}
+    - response_data:
+        beer_colors: []
+        beer:
+          id:
+          name:
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data: {}
+    - response_data:
+        beer_colors: []
+        beer:
+          id:
+          name:
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data: {}
+    - response_data:
+        beer_colors: []
+        beer:
+          id:
+          name:
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data: {}
+    - response_data:
+        beer_colors: []
+        beer:
+          id:
+          name:
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data: {}
+    - response_data:
+        beer_colors: []
+        beer:
+          id:
+          name:
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions:
+      - '1.0'
     - query:
     - request_data:
-        check:
-          user_id: 528
-          beer_id: 252
     - response_data:
-        users:
-        - created_at: 1364262486
-          id: 524
-          email: murphy_streich@mccullough.net
-          nickname: Casper Corwin
-          avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/524/original.1364262486.png
-            thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/524/thumb_original.1364262486.png
-          already_following: false
-        beers:
-        - id: 252
-          name: Ansel Rodriguez
-          beer_color:
-        check:
-          created_at: 1364262487
-          id: 158
-          user_id: 524
-          beer_id: 252
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/beers
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        beer: {}
+    - response_data:
+        beer_colors: []
+        beer:
+          id:
+          name:
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/beers
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        beer:
+          name: Guinness
+    - response_data:
+        beer_colors: []
+        beer:
+          id: 1034
+          name: Guinness
+          beer_color_id:
     - code: '200'
     - show_in_doc: 1
     - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/beers
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        beer:
+          name: Guinness
+    - response_data:
+        beer_colors: []
+        beer:
+          id: 1035
+          name: Guinness
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/beers
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        beer:
+          name: Guinness
+    - response_data:
+        beer_colors: []
+        beer:
+          id: 1036
+          name: Guinness
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/beers
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        beer:
+          name: Guinness
+    - response_data:
+        beer_colors: []
+        beer:
+          id: 1037
+          name: Guinness
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+- beers#destroy:
+  - !omap
+    - verb: :DELETE
+    - path: /admin/beers/1
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+- beers#edit:
+  - !omap
+    - verb: :GET
+    - path: /admin/beers/901/edit
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /admin/beers/1/edit
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+- beers#index:
+  - !omap
+    - verb: :GET
+    - path: /admin/beers
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /admin/beers
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beers: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beers: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beers: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beers: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beers: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beers: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beers: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beers: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beer_colors: []
+        beers:
+        - id: 1003
+          name: Melisa Mayer
+          beer_color_id:
+        - id: 1004
+          name: Rudolph Koepp V
+          beer_color_id:
+        - id: 1005
+          name: Jack Cormier
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beer_colors: []
+        beers:
+        - id: 1008
+          name: Bart Carter
+          beer_color_id:
+        - id: 1009
+          name: Monserrat Wolff IV
+          beer_color_id:
+        - id: 1010
+          name: Miss Robin Schinner
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 1
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers
+    - versions:
+      - '1.0'
+    - query: s=guinness
+    - request_data:
+    - response_data:
+        beer_colors: []
+        beers:
+        - id: 1019
+          name: guinness
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers
+    - versions:
+      - '1.0'
+    - query: s=guinness
+    - request_data:
+    - response_data:
+        beer_colors: []
+        beers:
+        - id: 1026
+          name: guinness
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/beers
+    - versions:
+      - '1.0'
+    - query: s=guinness
+    - request_data:
+    - response_data:
+        beer_colors: []
+        beers:
+        - id: 1033
+          name: guinness
+          beer_color_id:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+- beers#new:
+  - !omap
+    - verb: :GET
+    - path: /admin/beers/new
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /admin/beers/new
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+- beers#reject:
+  - !omap
+    - verb: :PUT
+    - path: /admin/beers/1/reject
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+- beers#update:
+  - !omap
+    - verb: :PUT
+    - path: /admin/beers/1
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+- checks#create:
+  - !omap
+    - verb: :POST
+    - path: /api/checks.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data: {}
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 1
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/checks.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data: {}
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/checks.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data: {}
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/checks.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data: {}
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/checks.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        check:
+          user_id: 1875
+          beer_id: 893
+    - response_data:
+        users:
+        - created_at: 1364265919
+          id: 1871
+          email: olaf@bode.net
+          nickname: Reginald Volkman
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/1871/original.1364265919.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/1871/thumb_original.1364265919.png
+          already_following: false
+        beers:
+        - id: 893
+          name: Adelia Powlowski
+          beer_color_id:
+        beer_colors: []
+        check:
+          created_at: 1364265919
+          id: 612
+          user_id: 1871
+          beer_id: 893
+    - code: '200'
+    - show_in_doc: 1
+    - recorded: true
+- events#index:
+  - !omap
+    - verb: :GET
+    - path: /admin/events
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /admin/events
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /admin/events
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
 - feed#index:
+  - !omap
+    - verb: :GET
+    - path: /api/my/feed.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        feed: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/feed.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        feed: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/feed.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        feed: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/feed.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        feed: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
   - !omap
     - verb:
     - path:
@@ -265,18 +1110,297 @@
     - path: /api/my/feed.json
     - versions:
       - '1.0'
+    - query: users=me
+    - request_data:
+    - response_data:
+        checks:
+        - created_at: 1364265953
+          id: 695
+          user_id: 2250
+          beer_id: 987
+        - created_at: 1364265953
+          id: 696
+          user_id: 2250
+          beer_id: 988
+        users:
+        - created_at: 1364265953
+          id: 2250
+          email: olaf@bode.net
+          nickname: Reginald Volkman
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2250/original.1364265953.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2250/thumb_original.1364265953.png
+          already_following: false
+        beers:
+        - id: 987
+          name: Ms. Melisa Mayer
+          beer_color_id: 85
+        - id: 988
+          name: Rudolph Koepp V
+          beer_color_id: 85
+        beer_colors:
+        - created_at: 1364265953
+          id: 85
+          name:
+          slug: blond
+        feed:
+        - created_at: 1363920353
+          id: 1073
+          eventable:
+            type: check
+            id: 695
+          user_id: 2250
+        - created_at: 1363747553
+          id: 1074
+          eventable:
+            type: check
+            id: 696
+          user_id: 2250
+    - code: '200'
+    - show_in_doc: 1
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/feed.json
+    - versions:
+      - '1.0'
+    - query: after=1363920353
+    - request_data:
+    - response_data:
+        checks:
+        - created_at: 1364265954
+          id: 702
+          user_id: 2253
+          beer_id: 994
+        - created_at: 1364265954
+          id: 701
+          user_id: 2253
+          beer_id: 993
+        users:
+        - created_at: 1364265953
+          id: 2253
+          email: jack_cormier@hansen.name
+          nickname: Toney Brekke
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2253/original.1364265953.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2253/thumb_original.1364265953.png
+          already_following: true
+        beers:
+        - id: 994
+          name: Oral Lesch
+          beer_color_id: 86
+        - id: 993
+          name: Orville Ryan
+          beer_color_id: 86
+        beer_colors:
+        - created_at: 1364265953
+          id: 86
+          name:
+          slug: blond
+        feed:
+        - created_at: 1364179554
+          id: 1080
+          eventable:
+            type: check
+            id: 702
+          user_id: 2253
+        - created_at: 1364093154
+          id: 1079
+          eventable:
+            type: check
+            id: 701
+          user_id: 2253
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/feed.json
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
-        feed: []
+        checks:
+        - created_at: 1364265954
+          id: 706
+          user_id: 2255
+          beer_id: 998
+        - created_at: 1364265954
+          id: 705
+          user_id: 2255
+          beer_id: 997
+        - created_at: 1364265954
+          id: 703
+          user_id: 2254
+          beer_id: 995
+        - created_at: 1364265954
+          id: 704
+          user_id: 2254
+          beer_id: 996
+        users:
+        - created_at: 1364265954
+          id: 2255
+          email: jack_cormier@hansen.name
+          nickname: Toney Brekke
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2255/original.1364265954.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2255/thumb_original.1364265954.png
+          already_following: true
+        - created_at: 1364265954
+          id: 2254
+          email: olaf@bode.net
+          nickname: Reginald Volkman
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2254/original.1364265954.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2254/thumb_original.1364265954.png
+          already_following: false
+        beers:
+        - id: 998
+          name: Oral Lesch
+          beer_color_id: 87
+        - id: 997
+          name: Orville Ryan
+          beer_color_id: 87
+        - id: 995
+          name: Ms. Melisa Mayer
+          beer_color_id: 87
+        - id: 996
+          name: Rudolph Koepp V
+          beer_color_id: 87
+        beer_colors:
+        - created_at: 1364265954
+          id: 87
+          name:
+          slug: blond
+        feed:
+        - created_at: 1364179554
+          id: 1084
+          eventable:
+            type: check
+            id: 706
+          user_id: 2255
+        - created_at: 1364093154
+          id: 1083
+          eventable:
+            type: check
+            id: 705
+          user_id: 2255
+        - created_at: 1363920354
+          id: 1081
+          eventable:
+            type: check
+            id: 703
+          user_id: 2254
+        - created_at: 1363747554
+          id: 1082
+          eventable:
+            type: check
+            id: 704
+          user_id: 2254
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/feed.json
+    - versions:
+      - '1.0'
+    - query: before=1363920354
+    - request_data:
+    - response_data:
+        checks:
+        - created_at: 1364265954
+          id: 708
+          user_id: 2256
+          beer_id: 1000
+        users:
+        - created_at: 1364265954
+          id: 2256
+          email: olaf@bode.net
+          nickname: Reginald Volkman
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2256/original.1364265954.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2256/thumb_original.1364265954.png
+          already_following: false
+        beers:
+        - id: 1000
+          name: Rudolph Koepp V
+          beer_color_id: 88
+        beer_colors:
+        - created_at: 1364265954
+          id: 88
+          name:
+          slug: blond
+        feed:
+        - created_at: 1363747554
+          id: 1086
+          eventable:
+            type: check
+            id: 708
+          user_id: 2256
     - code: '200'
     - show_in_doc: 0
     - recorded: true
 - followers#index:
   - !omap
+    - verb: :GET
+    - path: /api/my/followers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
     - verb:
     - path:
-    - versions: []
+    - versions:
+      - '1.0'
     - query:
     - request_data:
     - response_data:
@@ -286,7 +1410,8 @@
   - !omap
     - verb: :GET
     - path: /api/my/followers.json
-    - versions: []
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
@@ -297,7 +1422,8 @@
   - !omap
     - verb: :GET
     - path: /api/my/followers.json
-    - versions: []
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
@@ -307,8 +1433,9 @@
     - recorded: true
   - !omap
     - verb: :GET
-    - path: /api/users/445/followers.json
-    - versions: []
+    - path: /api/users/1909/followers.json
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
@@ -318,8 +1445,9 @@
     - recorded: true
   - !omap
     - verb: :GET
-    - path: /api/users/453/followers.json
-    - versions: []
+    - path: /api/users/1917/followers.json
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
@@ -329,9 +1457,166 @@
     - recorded: true
 - followings#create:
   - !omap
+    - verb: :POST
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
     - verb:
     - path:
-    - versions: []
+    - versions:
+      - '1.0'
     - query:
     - request_data:
     - response_data:
@@ -341,39 +1626,185 @@
   - !omap
     - verb: :POST
     - path: /api/my/followings.json
-    - versions: []
+    - versions:
+      - '1.0'
     - query:
     - request_data:
         user_id:
           avatar:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/511/original.1364262486.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2117/original.1364265946.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/511/thumb_original.1364262486.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2117/thumb_original.1364265946.png
           avatar_uploaded_at:
-          created_at: '2013-03-26T02:48:06+01:00'
-          email: felix_conn@jakubowski.org
-          id: 511
-          nickname: Leora Stark
-          updated_at: '2013-03-26T02:48:06+01:00'
+          created_at: '2013-03-26T03:45:46+01:00'
+          email: jade@mayer.name
+          id: 2117
+          nickname: Cindy Reichert
+          updated_at: '2013-03-26T03:45:46+01:00'
     - response_data:
         user:
-          created_at: 1364262486
-          id: 511
-          email: felix_conn@jakubowski.org
-          nickname: Leora Stark
+          created_at: 1364265946
+          id: 2117
+          email: jade@mayer.name
+          nickname: Cindy Reichert
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/511/original.1364262486.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2117/original.1364265946.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/511/thumb_original.1364262486.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2117/thumb_original.1364265946.png
           already_following: true
     - code: '200'
     - show_in_doc: 1
     - recorded: true
 - followings#destroy:
   - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 1
+    - recorded: true
+  - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        error: An error occured
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
     - verb:
     - path:
-    - versions: []
+    - versions:
+      - '1.0'
     - query:
     - request_data:
     - response_data:
@@ -383,28 +1814,195 @@
   - !omap
     - verb: :DELETE
     - path: /api/my/followings.json
-    - versions: []
-    - query: id=508&user_id=509
+    - versions:
+      - '1.0'
+    - query: id=2148&user_id=2149
     - request_data:
     - response_data:
         user:
-          created_at: 1364262485
-          id: 509
-          email: felix_conn@jakubowski.org
-          nickname: Leora Stark
+          created_at: 1364265948
+          id: 2149
+          email: melisa@ernser.net
+          nickname: Jack Cormier
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/509/original.1364262485.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2149/original.1364265948.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/509/thumb_original.1364262485.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2149/thumb_original.1364265948.png
           already_following: false
     - code: '200'
     - show_in_doc: 1
     - recorded: true
+  - !omap
+    - verb: :DELETE
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: id=2150&user_id=2151
+    - request_data:
+    - response_data:
+        user:
+          created_at: 1364265948
+          id: 2151
+          email: leie@shanahantreutel.info
+          nickname: Mrs. Monserrat Wolff
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2151/original.1364265948.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2151/thumb_original.1364265948.png
+          already_following: false
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
 - followings#index:
+  - !omap
+    - verb: :GET
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 1
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/followings.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
   - !omap
     - verb:
     - path:
-    - versions: []
+    - versions:
+      - '1.0'
     - query:
     - request_data:
     - response_data:
@@ -414,28 +2012,29 @@
   - !omap
     - verb: :GET
     - path: /api/my/followings.json
-    - versions: []
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         users:
-        - created_at: 1364262484
-          id: 479
-          email: felix_conn@jakubowski.org
-          nickname: Leora Stark
+        - created_at: 1364265946
+          id: 2119
+          email: melisa@ernser.net
+          nickname: Jack Cormier
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/479/original.1364262484.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2119/original.1364265946.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/479/thumb_original.1364262484.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2119/thumb_original.1364265946.png
           already_following: true
-        - created_at: 1364262484
-          id: 480
-          email: candida_funk@boehm.com
-          nickname: Janae Powlowski III
+        - created_at: 1364265947
+          id: 2120
+          email: jerry_harvey@lakinbrekke.net
+          nickname: Orville Ryan
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/480/original.1364262484.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2120/original.1364265947.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/480/thumb_original.1364262484.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2120/thumb_original.1364265947.png
           already_following: true
     - code: '200'
     - show_in_doc: 0
@@ -443,86 +2042,89 @@
   - !omap
     - verb: :GET
     - path: /api/my/followings.json
-    - versions: []
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         users:
-        - created_at: 1364262484
-          id: 486
-          email: janet.spencer@herzog.org
-          nickname: Candida Murazik
+        - created_at: 1364265947
+          id: 2126
+          email: irma_damore@brakus.net
+          nickname: Nedra Kessler
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/486/original.1364262484.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2126/original.1364265947.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/486/thumb_original.1364262484.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2126/thumb_original.1364265947.png
           already_following: true
-        - created_at: 1364262484
-          id: 487
-          email: fleta@wisozkjakubowski.biz
-          nickname: Mr. Nelson Boyer
+        - created_at: 1364265947
+          id: 2127
+          email: aletha_koelpin@mitchellpollich.info
+          nickname: Pasquale Von
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/487/original.1364262484.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2127/original.1364265947.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/487/thumb_original.1364262484.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2127/thumb_original.1364265947.png
           already_following: true
     - code: '200'
     - show_in_doc: 0
     - recorded: true
   - !omap
     - verb: :GET
-    - path: /api/users/493/followings.json
-    - versions: []
+    - path: /api/users/2133/followings.json
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         users:
-        - created_at: 1364262485
-          id: 495
-          email: elmo@durganhettinger.org
-          nickname: Bret Harber
+        - created_at: 1364265947
+          id: 2134
+          email: jerry_harvey@lakinbrekke.net
+          nickname: Orville Ryan
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/495/original.1364262485.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2134/original.1364265947.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/495/thumb_original.1364262485.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2134/thumb_original.1364265947.png
           already_following: false
-        - created_at: 1364262485
-          id: 494
-          email: candida_funk@boehm.com
-          nickname: Janae Powlowski III
+        - created_at: 1364265947
+          id: 2135
+          email: leie@shanahantreutel.info
+          nickname: Mrs. Monserrat Wolff
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/494/original.1364262485.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2135/original.1364265947.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/494/thumb_original.1364262485.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2135/thumb_original.1364265947.png
           already_following: false
     - code: '200'
     - show_in_doc: 0
     - recorded: true
   - !omap
     - verb: :GET
-    - path: /api/users/501/followings.json
-    - versions: []
+    - path: /api/users/2141/followings.json
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         users:
-        - created_at: 1364262485
-          id: 502
-          email: leonor@reynoldsernser.com
-          nickname: Leann Crona
+        - created_at: 1364265948
+          id: 2142
+          email: antonia@oconnell.name
+          nickname: Judy Schaefer
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/502/original.1364262485.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2142/original.1364265948.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/502/thumb_original.1364262485.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2142/thumb_original.1364265948.png
           already_following: false
-        - created_at: 1364262485
-          id: 503
-          email: percy.kulas@jastdaugherty.com
-          nickname: Diana Metz
+        - created_at: 1364265948
+          id: 2143
+          email: heather@beattypfeffer.info
+          nickname: Mathias Pouros
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/503/original.1364262485.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2143/original.1364265948.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/503/thumb_original.1364262485.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2143/thumb_original.1364265948.png
           already_following: false
     - code: '200'
     - show_in_doc: 0
@@ -540,9 +2142,58 @@
     - recorded: true
 - my_badges#index:
   - !omap
+    - verb: :GET
+    - path: /api/my/badges.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        badges: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/badges.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        badges: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/badges.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        badges: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/badges.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        badges: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
     - verb:
     - path:
-    - versions: []
+    - versions:
+      - '1.0'
     - query:
     - request_data:
     - response_data:
@@ -551,20 +2202,39 @@
     - recorded: true
   - !omap
     - verb: :GET
-    - path: /api/my/badges
-    - versions: []
+    - path: /api/my/badges.json
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         badges:
-        - id: 60
+        - created_at: 1364265942
+          id: 375
+          name: Mrs. Tyra Schultz
+          description:
+          photo_url:
+            url: /assets/default-badge.png
+            thumb:
+              url: /assets/thumb_default-badge.png
+        - created_at: 1364265942
+          id: 374
+          name: Ms. Pete Greenfelder
+          description:
+          photo_url:
+            url: /assets/default-badge.png
+            thumb:
+              url: /assets/thumb_default-badge.png
+        - created_at: 1364265942
+          id: 373
           name: 5 Stella Artois
           description:
           photo_url:
             url: /assets/default-badge.png
             thumb:
               url: /assets/thumb_default-badge.png
-        - id: 59
+        - created_at: 1364265942
+          id: 372
           name: 5 Kronembourg
           description:
           photo_url:
@@ -572,113 +2242,43 @@
             thumb:
               url: /assets/thumb_default-badge.png
     - code: '200'
-    - show_in_doc: 0
-    - recorded: true
-  - !omap
-    - verb: :GET
-    - path: /api/my/badges
-    - versions: []
-    - query: ''
-    - request_data:
-    - response_data:
-        badges:
-        - id: 62
-          name: 5 Stella Artois
-          description:
-          photo_url:
-            url: /assets/default-badge.png
-            thumb:
-              url: /assets/thumb_default-badge.png
-        - id: 61
-          name: 5 Kronembourg
-          description:
-          photo_url:
-            url: /assets/default-badge.png
-            thumb:
-              url: /assets/thumb_default-badge.png
-    - code: '200'
-    - show_in_doc: 0
-    - recorded: true
-  - !omap
-    - verb: :GET
-    - path: /api/users/310/badges.json
-    - versions: []
-    - query: ''
-    - request_data:
-    - response_data:
-        badges:
-        - id: 66
-          name: Lawson Smith
-          description:
-          photo_url:
-            url: /assets/default-badge.png
-            thumb:
-              url: /assets/thumb_default-badge.png
-        - id: 65
-          name: Mr. Shanny Fisher
-          description:
-          photo_url:
-            url: /assets/default-badge.png
-            thumb:
-              url: /assets/thumb_default-badge.png
-    - code: '200'
-    - show_in_doc: 0
-    - recorded: true
-  - !omap
-    - verb: :GET
-    - path: /api/users/316/badges.json
-    - versions: []
-    - query: ''
-    - request_data:
-    - response_data:
-        badges:
-        - id: 72
-          name: Ava Hodkiewicz
-          description:
-          photo_url:
-            url: /assets/default-badge.png
-            thumb:
-              url: /assets/thumb_default-badge.png
-        - id: 71
-          name: Ricky Yost
-          description:
-          photo_url:
-            url: /assets/default-badge.png
-            thumb:
-              url: /assets/thumb_default-badge.png
-    - code: '200'
-    - show_in_doc: 0
+    - show_in_doc: 1
     - recorded: true
   - !omap
     - verb: :GET
     - path: /api/my/badges.json
-    - versions: []
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         badges:
-        - id: 78
-          name: Douglas Bogan
+        - created_at: 1364265942
+          id: 381
+          name: Alberta Luettgen
           description:
           photo_url:
             url: /assets/default-badge.png
             thumb:
               url: /assets/thumb_default-badge.png
-        - id: 77
-          name: Vivien Braun DVM
+        - created_at: 1364265942
+          id: 380
+          name: Cassie Hettinger
           description:
           photo_url:
             url: /assets/default-badge.png
             thumb:
               url: /assets/thumb_default-badge.png
-        - id: 76
+        - created_at: 1364265942
+          id: 379
           name: 5 Stella Artois
           description:
           photo_url:
             url: /assets/default-badge.png
             thumb:
               url: /assets/thumb_default-badge.png
-        - id: 75
+        - created_at: 1364265942
+          id: 378
           name: 5 Kronembourg
           description:
           photo_url:
@@ -690,35 +2290,108 @@
     - recorded: true
   - !omap
     - verb: :GET
-    - path: /api/my/badges.json
-    - versions: []
+    - path: /api/my/badges
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         badges:
-        - id: 84
-          name: Yasmin Hackett
-          description:
-          photo_url:
-            url: /assets/default-badge.png
-            thumb:
-              url: /assets/thumb_default-badge.png
-        - id: 83
-          name: Keaton Keebler MD
-          description:
-          photo_url:
-            url: /assets/default-badge.png
-            thumb:
-              url: /assets/thumb_default-badge.png
-        - id: 82
+        - created_at: 1364265942
+          id: 385
           name: 5 Stella Artois
           description:
           photo_url:
             url: /assets/default-badge.png
             thumb:
               url: /assets/thumb_default-badge.png
-        - id: 81
+        - created_at: 1364265942
+          id: 384
           name: 5 Kronembourg
+          description:
+          photo_url:
+            url: /assets/default-badge.png
+            thumb:
+              url: /assets/thumb_default-badge.png
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/badges
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        badges:
+        - created_at: 1364265943
+          id: 387
+          name: 5 Stella Artois
+          description:
+          photo_url:
+            url: /assets/default-badge.png
+            thumb:
+              url: /assets/thumb_default-badge.png
+        - created_at: 1364265943
+          id: 386
+          name: 5 Kronembourg
+          description:
+          photo_url:
+            url: /assets/default-badge.png
+            thumb:
+              url: /assets/thumb_default-badge.png
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/users/2067/badges.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        badges:
+        - created_at: 1364265943
+          id: 391
+          name: Dr. Gregoria Marquardt
+          description:
+          photo_url:
+            url: /assets/default-badge.png
+            thumb:
+              url: /assets/thumb_default-badge.png
+        - created_at: 1364265943
+          id: 390
+          name: Junior Stoltenberg
+          description:
+          photo_url:
+            url: /assets/default-badge.png
+            thumb:
+              url: /assets/thumb_default-badge.png
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/users/2073/badges.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        badges:
+        - created_at: 1364265943
+          id: 397
+          name: Jayme Ortiz
+          description:
+          photo_url:
+            url: /assets/default-badge.png
+            thumb:
+              url: /assets/thumb_default-badge.png
+        - created_at: 1364265943
+          id: 396
+          name: Jodie Kihn
           description:
           photo_url:
             url: /assets/default-badge.png
@@ -729,9 +2402,58 @@
     - recorded: true
 - my_beers#index:
   - !omap
+    - verb: :GET
+    - path: /api/my/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beers: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beers: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beers: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/beers.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        beers: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
     - verb:
     - path:
-    - versions: []
+    - versions:
+      - '1.0'
     - query:
     - request_data:
     - response_data:
@@ -741,58 +2463,40 @@
   - !omap
     - verb: :GET
     - path: /api/my/beers
-    - versions: []
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         beers:
-        - id: 240
+        - id: 1038
           name: Kronembourg
           checks_count: '1'
-        - id: 241
+        - id: 1039
           name: Stella Artois
           checks_count: '1'
-        - id: 242
+        - id: 1040
           name: Guiness
           checks_count: '1'
     - code: '200'
-    - show_in_doc: 0
+    - show_in_doc: 1
     - recorded: true
   - !omap
     - verb: :GET
     - path: /api/my/beers
-    - versions: []
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         beers:
-        - id: 243
+        - id: 1041
           name: Kronembourg
           checks_count: '1'
-        - id: 244
+        - id: 1042
           name: Stella Artois
           checks_count: '1'
-        - id: 245
-          name: Guiness
-          checks_count: '1'
-    - code: '200'
-    - show_in_doc: 0
-    - recorded: true
-  - !omap
-    - verb: :GET
-    - path: /api/my/beers
-    - versions: []
-    - query: ''
-    - request_data:
-    - response_data:
-        beers:
-        - id: 246
-          name: Kronembourg
-          checks_count: '1'
-        - id: 247
-          name: Stella Artois
-          checks_count: '1'
-        - id: 248
+        - id: 1043
           name: Guiness
           checks_count: '1'
     - code: '200'
@@ -800,9 +2504,234 @@
     - recorded: true
 - profiles#show:
   - !omap
+    - verb: :GET
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        feed: []
+        badges: []
+        profile:
+          created_at: 1364265939
+          id: 2017
+          email: ignacio.torp@heller.info
+          nickname: Ms. Karlie Renner
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2017/original.1364265939.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2017/thumb_original.1364265939.png
+          check_count: 0
+          following_count: 0
+          follower_count: 0
+          already_following: false
+          event_ids: []
+          badge_ids: []
+    - code: '200'
+    - show_in_doc: 1
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        feed: []
+        badges: []
+        profile:
+          created_at: 1364265939
+          id: 2018
+          email: cindy@west.name
+          nickname: Toney Brekke
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2018/original.1364265939.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2018/thumb_original.1364265939.png
+          check_count: 0
+          following_count: 0
+          follower_count: 0
+          already_following: false
+          event_ids: []
+          badge_ids: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        feed: []
+        badges: []
+        profile:
+          created_at: 1364265939
+          id: 2019
+          email: orville@christiansen.net
+          nickname: Lessie Kuvalis IV
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2019/original.1364265939.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2019/thumb_original.1364265939.png
+          check_count: 0
+          following_count: 0
+          follower_count: 0
+          already_following: false
+          event_ids: []
+          badge_ids: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        feed: []
+        badges: []
+        profile:
+          created_at: 1364265939
+          id: 2020
+          email: junius@bashirian.com
+          nickname: Fidel Sipes
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2020/original.1364265939.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2020/thumb_original.1364265939.png
+          check_count: 0
+          following_count: 0
+          follower_count: 0
+          already_following: false
+          event_ids: []
+          badge_ids: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        feed: []
+        badges: []
+        profile:
+          created_at: 1364265939
+          id: 2021
+          email: ignacio.torp@heller.info
+          nickname: Ms. Karlie Renner
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2021/original.1364265939.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2021/thumb_original.1364265939.png
+          check_count: 0
+          following_count: 0
+          follower_count: 0
+          already_following: false
+          event_ids: []
+          badge_ids: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        feed: []
+        badges: []
+        profile:
+          created_at: 1364265940
+          id: 2022
+          email: cindy@west.name
+          nickname: Toney Brekke
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2022/original.1364265940.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2022/thumb_original.1364265940.png
+          check_count: 0
+          following_count: 0
+          follower_count: 0
+          already_following: false
+          event_ids: []
+          badge_ids: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        feed: []
+        badges: []
+        profile:
+          created_at: 1364265940
+          id: 2023
+          email: orville@christiansen.net
+          nickname: Lessie Kuvalis IV
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2023/original.1364265940.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2023/thumb_original.1364265940.png
+          check_count: 0
+          following_count: 0
+          follower_count: 0
+          already_following: false
+          event_ids: []
+          badge_ids: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        feed: []
+        badges: []
+        profile:
+          created_at: 1364265940
+          id: 2024
+          email: junius@bashirian.com
+          nickname: Fidel Sipes
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2024/original.1364265940.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2024/thumb_original.1364265940.png
+          check_count: 0
+          following_count: 0
+          follower_count: 0
+          already_following: false
+          event_ids: []
+          badge_ids: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
     - verb:
     - path:
-    - versions: []
+    - versions:
+      - '1.0'
     - query:
     - request_data:
     - response_data:
@@ -812,21 +2741,22 @@
   - !omap
     - verb: :GET
     - path: /api/my/profile.json
-    - versions: []
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         feed: []
         badges: []
         profile:
-          created_at: 1364262483
-          id: 463
-          email: yadira.roob@beershields.net
-          nickname: Casper Corwin
+          created_at: 1364265940
+          id: 2025
+          email: salvatore@kuvalis.net
+          nickname: Glen Heller
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/463/original.1364262483.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2025/original.1364265940.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/463/thumb_original.1364262483.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2025/thumb_original.1364265940.png
           check_count: 0
           following_count: 0
           follower_count: 0
@@ -839,21 +2769,22 @@
   - !omap
     - verb: :GET
     - path: /api/my/profile.json
-    - versions: []
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         feed: []
         badges: []
         profile:
-          created_at: 1364262483
-          id: 464
-          email: felix_conn@jakubowski.org
-          nickname: Leora Stark
+          created_at: 1364265940
+          id: 2026
+          email: melisa@ernser.net
+          nickname: Jack Cormier
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/464/original.1364262483.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2026/original.1364265940.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/464/thumb_original.1364262483.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2026/thumb_original.1364265940.png
           check_count: 0
           following_count: 0
           follower_count: 0
@@ -865,22 +2796,23 @@
     - recorded: true
   - !omap
     - verb: :GET
-    - path: /api/users/466/profile.json
-    - versions: []
+    - path: /api/users/2028/profile.json
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         feed: []
         badges: []
         profile:
-          created_at: 1364262483
-          id: 466
-          email: felix_conn@jakubowski.org
-          nickname: Leora Stark
+          created_at: 1364265940
+          id: 2028
+          email: melisa@ernser.net
+          nickname: Jack Cormier
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/466/original.1364262483.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2028/original.1364265940.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/466/thumb_original.1364262483.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2028/thumb_original.1364265940.png
           check_count: 0
           following_count: 0
           follower_count: 0
@@ -892,22 +2824,23 @@
     - recorded: true
   - !omap
     - verb: :GET
-    - path: /api/users/468/profile.json
-    - versions: []
+    - path: /api/users/2030/profile.json
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
         feed: []
         badges: []
         profile:
-          created_at: 1364262483
-          id: 468
-          email: elmo@durganhettinger.org
-          nickname: Bret Harber
+          created_at: 1364265940
+          id: 2030
+          email: leie@shanahantreutel.info
+          nickname: Mrs. Monserrat Wolff
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/468/original.1364262483.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2030/original.1364265940.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/468/thumb_original.1364262483.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2030/thumb_original.1364265940.png
           check_count: 0
           following_count: 0
           follower_count: 0
@@ -921,20 +2854,297 @@
   - !omap
     - verb: :PUT
     - path: /api/my/profile.json
-    - versions: []
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        user:
+          created_at: 1364265939
+          id: 2017
+          email: ignacio.torp@heller.info
+          nickname: Ms. Karlie Renner
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2017/original.1364265939.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2017/thumb_original.1364265939.png
+          already_following: false
+    - code: '200'
+    - show_in_doc: 1
+    - recorded: true
+  - !omap
+    - verb: :PUT
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        user:
+          created_at: 1364265939
+          id: 2018
+          email: cindy@west.name
+          nickname: Toney Brekke
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2018/original.1364265939.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2018/thumb_original.1364265939.png
+          already_following: false
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :PUT
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        user:
+          created_at: 1364265939
+          id: 2019
+          email: orville@christiansen.net
+          nickname: Lessie Kuvalis IV
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2019/original.1364265939.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2019/thumb_original.1364265939.png
+          already_following: false
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :PUT
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        user:
+          created_at: 1364265939
+          id: 2020
+          email: junius@bashirian.com
+          nickname: Fidel Sipes
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2020/original.1364265939.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2020/thumb_original.1364265939.png
+          already_following: false
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :PUT
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        user:
+          created_at: 1364265939
+          id: 2021
+          email: ignacio.torp@heller.info
+          nickname: Ms. Karlie Renner
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2021/original.1364265939.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2021/thumb_original.1364265939.png
+          already_following: false
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :PUT
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        user:
+          created_at: 1364265940
+          id: 2022
+          email: cindy@west.name
+          nickname: Toney Brekke
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2022/original.1364265940.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2022/thumb_original.1364265940.png
+          already_following: false
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :PUT
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        user:
+          created_at: 1364265940
+          id: 2023
+          email: orville@christiansen.net
+          nickname: Lessie Kuvalis IV
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2023/original.1364265940.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2023/thumb_original.1364265940.png
+          already_following: false
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :PUT
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+        id: 1
+    - response_data:
+        user:
+          created_at: 1364265940
+          id: 2024
+          email: junius@bashirian.com
+          nickname: Fidel Sipes
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2024/original.1364265940.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2024/thumb_original.1364265940.png
+          already_following: false
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :PUT
+    - path: /api/my/profile.json
+    - versions:
+      - '1.0'
     - query:
     - request_data: {}
     - response_data:
         user:
-          created_at: 1364262483
-          id: 469
-          email: murphy_streich@mccullough.net
-          nickname: Casper Corwin
+          created_at: 1364265940
+          id: 2031
+          email: olaf@bode.net
+          nickname: Reginald Volkman
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/469/original.1364262483.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2031/original.1364265940.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/469/thumb_original.1364262483.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2031/thumb_original.1364265940.png
           already_following: false
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+- registrations#create:
+  - !omap
+    - verb: :POST
+    - path: /users
+    - versions: []
+    - query:
+    - request_data:
+        user:
+          nickname: nickname
+          email: foo@bar.com
+          password: password
+          password_confirmation: password
+    - response_data: <html><body>You are being <a href="http://test.host/users/1967">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /users
+    - versions: []
+    - query:
+    - request_data:
+        user:
+          nickname: nickname
+          email: foo@bar.com
+          password: password
+          password_confirmation: password
+    - response_data: <html><body>You are being <a href="http://test.host/users/1968">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /users.json
+    - versions: []
+    - query:
+    - request_data:
+        user:
+          nickname: nickname
+          email: foo@bar.com
+          password: password
+          password_confirmation: password
+    - response_data:
+        user:
+          created_at: 1364265928
+          id: 1969
+          email: foo@bar.com
+          nickname: nickname
+          avatar_url:
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/1969/original.1364265928.png
+            thumb:
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/1969/thumb_original.1364265928.png
+          already_following: false
+    - code: '201'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /users
+    - versions: []
+    - query:
+    - request_data:
+        foo: bar
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /users
+    - versions: []
+    - query:
+    - request_data:
+        foo: bar
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /users
+    - versions: []
+    - query:
+    - request_data:
+        foo: bar
+    - response_data:
     - code: '200'
     - show_in_doc: 0
     - recorded: true
@@ -960,7 +3170,130 @@
     - code: '200'
     - show_in_doc: 0
     - recorded: true
+- users#create:
+  - !omap
+    - verb: :POST
+    - path: /admin/users
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /admin/users
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+- users#destroy:
+  - !omap
+    - verb: :DELETE
+    - path: /admin/users/1
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+- users#edit:
+  - !omap
+    - verb: :GET
+    - path: /admin/users/1/edit
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
 - users#index:
+  - !omap
+    - verb: :GET
+    - path: /admin/users
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /admin/users
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /admin/users
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
   - !omap
     - verb:
     - path:
@@ -974,7 +3307,67 @@
   - !omap
     - verb: :GET
     - path: /api/users.json
-    - versions: []
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/users.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/users.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/users.json
+    - versions:
+      - '1.0'
+    - query: ''
+    - request_data:
+    - response_data:
+        users: []
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions:
+      - '1.0'
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /api/users.json
+    - versions:
+      - '1.0'
     - query: ''
     - request_data:
     - response_data:
@@ -985,19 +3378,20 @@
   - !omap
     - verb: :GET
     - path: /api/users
-    - versions: []
+    - versions:
+      - '1.0'
     - query: s=jean-mich
     - request_data:
     - response_data:
         users:
-        - created_at: 1364262473
-          id: 291
-          email: felix_conn@jakubowski.org
+        - created_at: 1364265945
+          id: 2099
+          email: melisa@ernser.net
           nickname: jean-michel
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/291/original.1364262473.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2099/original.1364265945.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/291/thumb_original.1364262473.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2099/thumb_original.1364265945.png
           already_following: false
     - code: '200'
     - show_in_doc: 0
@@ -1005,31 +3399,114 @@
   - !omap
     - verb: :GET
     - path: /api/users
-    - versions: []
+    - versions:
+      - '1.0'
     - query: s=jean-mich
     - request_data:
     - response_data:
         users:
-        - created_at: 1364262473
-          id: 294
-          email: audrey@gutkowski.biz
+        - created_at: 1364265945
+          id: 2102
+          email: monserrat_wolff@sipes.info
           nickname: jean-michel
           avatar_url:
-            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/294/original.1364262473.png
+            url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2102/original.1364265945.png
             thumb:
-              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/294/thumb_original.1364262473.png
+              url: /Users/pierre/prog/beech/beech-server/spec/support/uploads/user/avatar/2102/thumb_original.1364265945.png
           already_following: false
+    - code: '200'
+    - show_in_doc: 1
+    - recorded: true
+- users#new:
+  - !omap
+    - verb: :GET
+    - path: /admin/users/new
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /admin/users/new
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /admin/users/new
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data:
+    - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb: :GET
+    - path: /admin/users/new
+    - versions: []
+    - query: ''
+    - request_data:
+    - response_data:
     - code: '200'
     - show_in_doc: 0
     - recorded: true
 - users#show:
   - !omap
     - verb: :GET
-    - path: /users/461
+    - path: /users/1948
     - versions: []
     - query: ''
     - request_data:
     - response_data:
     - code: '200'
+    - show_in_doc: 0
+    - recorded: true
+- users#update:
+  - !omap
+    - verb: :PUT
+    - path: /admin/users/1
+    - versions: []
+    - query:
+    - request_data: {}
+    - response_data: <html><body>You are being <a href="http://test.host/users/sign_in">redirected</a>.</body></html>
+    - code: '302'
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
+    - show_in_doc: 0
+    - recorded: true
+  - !omap
+    - verb:
+    - path:
+    - versions: []
+    - query:
+    - request_data:
+    - response_data:
+    - code:
     - show_in_doc: 0
     - recorded: true

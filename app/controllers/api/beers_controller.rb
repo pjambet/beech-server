@@ -3,8 +3,7 @@ class Api::BeersController < Api::ApplicationController
   resource_description do
     short 'Beer related endpoints'
     formats ['json']
-    error 404, "Missing"
-    error 500, "Server crashed for some <%= reason %>"
+    error 500, "Server crashed for some reason"
   end
 
   include SearchableMethods
@@ -19,6 +18,10 @@ class Api::BeersController < Api::ApplicationController
     render json: @beers
   end
 
+  api :POST, "/beers", "Create a beer"
+  param :beer, Hash do
+    param :name, String
+  end
   def create
     @beer = current_user.created_beers.create(params[:beer])
     NotificationMailer.new_beer(@beer).deliver
