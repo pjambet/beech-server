@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+# ruby '2.0.0'
 
 gem 'rails', '3.2.12'
 gem 'unicorn'
@@ -23,6 +23,7 @@ gem 'honeybadger'
 gem 'fog'
 gem 'librato-rails'
 gem 'apipie-rails'
+gem 'maruku'
 
 group :development do
   gem 'annotate', '>=2.5.0'

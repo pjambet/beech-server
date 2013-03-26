@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li class='active'><a href='./apidoc.html'>BeechServer 1.0</a></li>
+</ul>
+
+<div><p>This is where you can inform user about your application and API in general.</p></div>
+
+<h1 class='page-header'>Resources</h1>
+
+  <h2>
+    <a href='./apidoc/beers.html'>
+      Beers
+    </a><br>
+    <small>Beer related endpoints</small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/beers/index.html'>GET /api/beers</a></td>
+            <td width='60%'>List all beers</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/checks.html'>
+      Checks
+    </a><br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/checks/create.html'>POST /api/checks</a></td>
+            <td width='60%'>Create a check</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/feed.html'>
+      Feed
+    </a><br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/feed/index.html'>GET /api/my/feed</a></td>
+            <td width='60%'></td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/followers.html'>
+      Followers
+    </a><br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/followers/index.html'>GET /api/my/followers</a></td>
+            <td width='60%'>List followers</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/followers/index.html'>GET /api/users/:user_id/followers</a></td>
+            <td width='60%'>List followers</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/followings.html'>
+      Followings
+    </a><br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/followings/index.html'>GET /api/my/followings</a></td>
+            <td width='60%'>List followings</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/followings/index.html'>GET /api/users/:user_id/followings</a></td>
+            <td width='60%'>List followings</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/followings/create.html'>POST /api/my/followings</a></td>
+            <td width='60%'>Create a following</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/followings/destroy.html'>DELETE /api/my/followings</a></td>
+            <td width='60%'>Destroy a following</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/my_badges.html'>
+      My badges
+    </a><br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/my_badges/index.html'>GET /api/my/badges</a></td>
+            <td width='60%'>List my badges</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/my_badges/index.html'>GET /api/users/:user_id/badges</a></td>
+            <td width='60%'>List my badges</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/my_beers.html'>
+      My beers
+    </a><br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/my_beers/index.html'>GET /api/my/beers</a></td>
+            <td width='60%'>List my beers</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/my_beers/index.html'>GET /api/users/:user_id/beers</a></td>
+            <td width='60%'>List my beers</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/profiles.html'>
+      Profiles
+    </a><br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/profiles/show.html'>GET /api/my/profile</a></td>
+            <td width='60%'>Show a profile</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/profiles/show.html'>GET /api/users/:user_id/profile</a></td>
+            <td width='60%'>Show a profile</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/profiles/update.html'>PUT /api/my/profile</a></td>
+            <td width='60%'>Update a profile</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/users.html'>
+      Users
+    </a><br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/users/index.html'>GET /api/users</a></td>
+            <td width='60%'>List users</td>
+          </tr>
+    </tbody>
+  </table>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>  &copy; 2013 Pierre & Luc
+</footer>
+  </div>
+  <script type='text/javascript' src='./apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/apipie.js'></script>
+</body>
+</html>
