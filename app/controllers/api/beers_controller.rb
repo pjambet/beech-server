@@ -15,13 +15,13 @@ class Api::BeersController < Api::ApplicationController
   param :page, :number, desc: 'The page index'
   description 'This endpoint returns the list of beers'
   def index
-    @beers = @beers.accepted.paginate params[:page] if @beers.any?
+    @beers = @beers.accepted.page params[:page] if @beers.any?
     render json: @beers
   end
 
   def create
-    @beer = Beer.new(params[:beer]).tap {|beer| beer.added_by = current_user}
-    @beer.save
+    @beer = current_user.created_beers.create(params[:beer])
+    NotificationMailer.new_beer(@beer).deliver
     render json: @beer
   end
 

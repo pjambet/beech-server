@@ -1,14 +1,9 @@
 require 'spec_helper'
 
 describe Api::UsersController do
-  context 'when not logged in' do
-    describe "GET index" do
-      it 'should respond with unauthorized' do
-        get :index, format: 'json'
-        response.response_code.should == 401
-      end
-    end
-  end
+  it_should_behave_like 'an api controller', {
+    index: :get,
+  }
 
   context 'when logged in' do
     let(:user) { create :user }

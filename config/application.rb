@@ -19,6 +19,7 @@ module BeerServer
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/app/models/concerns)
     config.autoload_paths += %W(#{config.root}/app/controllers/concerns)
+    config.autoload_paths += %W(#{config.root}/app/serializers/concerns)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     # Configure the default encoding used in templates for Ruby 1.9.

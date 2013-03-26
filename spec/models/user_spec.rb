@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'cancan/matchers'
 
 describe User do
   it { should have_many :awards }
@@ -160,5 +161,54 @@ describe User do
       subject.save
       subject.avatar.should_not be_blank
     end
+  end
+
+  describe 'Filterable behavior' do
+    it 'should respond to after' do
+      User.should respond_to(:after)
+    end
+  end
+
+  describe 'abilities' do
+    subject { ability }
+    let(:ability){ Ability.new(user) }
+    let(:user){ nil }
+
+    context 'when is a regular user' do
+      let(:user) { create(:user) }
+      let(:other_user) { create(:user) }
+
+      it{ should_not be_able_to(:manage, :all) }
+      it{ should be_able_to(:update, user) }
+      it{ should_not be_able_to(:update, other_user) }
+    end
+
+    context 'when is an admin' do
+      let(:user) { create(:user, :admin) }
+      let(:other_user) { create(:user) }
+
+      it{ should be_able_to(:manage, :all) }
+      it{ should be_able_to(:update, user) }
+      it{ should be_able_to(:update, other_user) }
+    end
+  end
+
+  describe '#follow' do
+    subject(:user) { create(:user) }
+    let(:other_user) { create(:user) }
+    before(:each) { user.follow(other_user) }
+
+    its(:following_users) { should include(other_user) }
+  end
+
+  describe '#unfollow' do
+    subject(:user) { create(:user) }
+    let(:other_user) { create(:user) }
+    before(:each) do
+      user.follow(other_user)
+      user.unfollow(other_user)
+    end
+
+    its(:following_users) { should_not include(other_user) }
   end
 end

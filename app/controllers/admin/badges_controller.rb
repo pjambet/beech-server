@@ -1,5 +1,5 @@
 class Admin::BadgesController < Admin::ApplicationController
-  load_resource only: [:edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     @badges = Badge.scoped

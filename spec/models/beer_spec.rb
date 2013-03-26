@@ -8,4 +8,6 @@ describe Beer do
 
   it { should act_as_searchable }
   it { should act_as_pageable }
+
+  it { should validate_presence_of(:name) }
 end

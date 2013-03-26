@@ -9,11 +9,5 @@ class Api::UsersController < Api::ApplicationController
     @users = @users.after(params[:after]) if params[:after].present?
     render json: @users
   end
-
-  def show
-    @user = User.find(params[:id])
-    render json: @user
-  end
-
 end
 

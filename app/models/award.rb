@@ -21,5 +21,7 @@ class Award < ActiveRecord::Base
 
   default_scope -> { includes(:user, :badge) }
 
+  delegate :name, to: :badge
+
 end
 

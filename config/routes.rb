@@ -35,6 +35,7 @@ BeerServer::Application.routes.draw do
     end
     resources :badges
     resources :users
+    resources :events, only: :index
 
     root to: 'beers#index'
   end
@@ -44,6 +45,10 @@ BeerServer::Application.routes.draw do
   end
 
   resources :users, only: [:index, :show]
+
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
 
   root to: 'home#index'
 end
