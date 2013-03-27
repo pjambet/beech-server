@@ -11,5 +11,8 @@ CarrierWave.configure do |config|
     config.fog_public     = true                                   # optional, defaults to true
   elsif Rails.env.development?
     config.storage = :file
+  elsif Rails.env.test?
+    config.storage = :file
+    config.enable_processing = false
   end
 end
