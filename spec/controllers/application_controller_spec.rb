@@ -15,6 +15,9 @@ shared_examples "an application controller" do |exception, code|
     end
   end
 
+  # This weird hting is needed so the exception is available in the anonymous
+  # controller. The defined class is stored in the metadata so with the
+  # class_eval we can define an accessor to the exception
   metadata[:example_group][:described_class].class_eval do
     define_method :exception do
       exception
