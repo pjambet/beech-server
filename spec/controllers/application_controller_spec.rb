@@ -7,6 +7,8 @@ shared_examples "an application controller" do |exception, code|
 
   controller do
     def index
+      # Somehow ActionController::RoutingError needs a parameter otherwhise it raises
+      # an exception, and it blows everything up
       if exception == ActionController::RoutingError
         raise exception, nil
       else
