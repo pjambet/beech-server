@@ -285,6 +285,7 @@ DEPENDENCIES
   active_model_serializers-matchers!
   annotate (>= 2.5.0)
   apipie-rails
+  bourne
   bullet
   cancan
   carrierwave

@@ -53,4 +53,22 @@ describe ApplicationController do
   it_should_behave_like('an application controller',
                         Exception,
                         500)
+
+  context "Regular exception" do
+    before(:each) do
+      Rails.application.config.stubs(:consider_all_requests_local).returns(false)
+      Raven.stubs(:capture_exception)
+    end
+
+    controller do
+      def index
+        raise Exception
+      end
+    end
+
+    it "sends the message through Raven" do
+      get :index
+      Raven.should have_received(:capture_exception)
+    end
+  end
 end

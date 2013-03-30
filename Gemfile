@@ -46,6 +46,7 @@ group :development, :test do
   gem 'faker', '~> 1.1.2'
   gem 'simplecov', require: false
   gem 'mocha', '~> 0.13', require: false
+  gem 'bourne'
   gem 'bullet'
   gem 'active_model_serializers-matchers', github: 'pjambet/active_model_serializers-matchers'
 end
