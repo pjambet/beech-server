@@ -5,8 +5,8 @@
 .row
   .large-12.columns
     %h2= 'Suggestions'
-    - if @suggestions.any?
-      = render layout: 'list', locals: { collection: @suggestions } do |beer|
+    - if @suggested.any?
+      = render layout: 'list', locals: { collection: @suggested } do |beer|
         = link_to 'Accept', accept_admin_beer_path(beer), method: :put, class: 'small success button'
         = link_to 'Edit', edit_admin_beer_path(beer), class: 'small button'
         = link_to 'Delete', admin_beer_path(beer), method: :delete, confirm: 'Are you sure?', class: 'small alert button'
@@ -17,7 +17,7 @@
 
 .row
   .large-12.columns
-    %h2= "All beers (#{Beer.count})"
+    %h2= "All beers (#{Beer.accepted.count})"
     - if @beers.any?
       = render layout: 'list', locals: { collection: @beers } do |beer|
         = link_to 'Reject', reject_admin_beer_path(beer), method: :put, class: 'small success button'

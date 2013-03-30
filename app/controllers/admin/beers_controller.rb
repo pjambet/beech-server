@@ -3,7 +3,7 @@ class Admin::BeersController < Admin::ApplicationController
 
   def index
     @beers = Beer.accepted
-    @suggestions = Beer.suggestions
+    @suggested = Beer.suggested
     @rejected = Beer.rejected
   end
 

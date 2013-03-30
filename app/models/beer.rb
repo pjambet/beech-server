@@ -30,7 +30,7 @@ class Beer < ActiveRecord::Base
   end
 
   scope :with_color, -> { includes(:beer_color, :added_by) }
-  scope :suggestions, -> { where('accepted IS NULL').with_color }
+  scope :suggested, -> { where('accepted IS NULL').with_color }
   scope :accepted, -> { where('accepted IS TRUE').with_color }
   scope :rejected, -> { where('accepted IS FALSE').with_color }
 
