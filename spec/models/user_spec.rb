@@ -151,4 +151,29 @@ describe User do
 
     its(:following_users) { should_not include(other_user) }
   end
+
+  describe '.find_first_by_auth_conditions' do
+    subject { User.find_first_by_auth_conditions(params) }
+    let(:user) { create :user, nickname: 'pierre', email: 'pierre@gmail.com' }
+
+    before(:each) { create :user }
+
+    context 'with empty conditions' do
+      let(:params) { {} }
+      it { should_not be_nil }
+    end
+
+    context 'with login condition' do
+      context 'is a nickname' do
+        let(:params) { {login: 'pierre'} }
+
+        it { should eq(user) }
+      end
+      context 'is an email' do
+        let(:params) { {login: 'pierre@gmail.com'} }
+
+        it { should eq(user) }
+      end
+    end
+  end
 end

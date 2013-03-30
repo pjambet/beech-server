@@ -91,11 +91,13 @@ class User < ActiveRecord::Base
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
+    user_request = scoped
     if login = conditions.delete(:login)
-      where(conditions).where(["lower(nickname) = :value OR lower(email) = :value", { value: login.downcase }]).first
-    else
-      where(conditions).first
+      user_request = user_request.where(
+        "lower(nickname) = :value OR lower(email) = :value",
+        value: login.downcase )
     end
+    user_request.where(conditions).first
   end
 
 end
