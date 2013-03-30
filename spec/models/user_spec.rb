@@ -118,16 +118,6 @@ describe User do
     end
   end
 
-  describe 'Avatar random assignation' do
-    subject(:user) { build :user }
-
-    it 'should have an avatar after being saved' do
-      subject.avatar.should be_blank
-      subject.save
-      subject.avatar.should_not be_blank
-    end
-  end
-
   describe 'Filterable behavior' do
     subject { User }
     it { should respond_to(:after) }
@@ -174,6 +164,21 @@ describe User do
 
         it { should eq(user) }
       end
+    end
+  end
+
+  describe '#generate_random_avatar' do
+    context 'with a new instance' do
+      subject { build :user }
+
+      its(:avatar) { should be_blank }
+    end
+
+    context 'with a persisted instance' do
+      subject { create :user }
+
+      its(:avatar) { should_not be_blank }
+      its('avatar.url') { should match(/original/) }
     end
   end
 end

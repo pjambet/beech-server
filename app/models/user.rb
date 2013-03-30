@@ -41,11 +41,7 @@ class User < ActiveRecord::Base
 
   before_save :ensure_authentication_token
 
-  after_create do
-    image = File.open("public/default-avatar-#{(rand 4) + 1}.png")
-    self.avatar = image
-    save!
-  end
+  after_create :generate_random_avatar
 
   has_many :awards
   has_many :badges, through: :awards
@@ -78,7 +74,7 @@ class User < ActiveRecord::Base
   end
 
   def beers_for_country(country)
-    beers.where("country = ?", country)
+    beers.where('country = ?', country)
   end
 
   def beers_for_color(color)
@@ -94,11 +90,16 @@ class User < ActiveRecord::Base
     user_request = scoped
     if login = conditions.delete(:login)
       user_request = user_request.where(
-        "lower(nickname) = :value OR lower(email) = :value",
+        'lower(nickname) = :value OR lower(email) = :value',
         value: login.downcase )
     end
     user_request.where(conditions).first
   end
 
+  def generate_random_avatar
+    image = File.open("public/default-avatar-#{(rand 4) + 1}.png")
+    self.avatar = image
+    save!
+  end
 end
 
