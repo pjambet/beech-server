@@ -9,9 +9,9 @@ describe Api::FeedController do
 
   describe "GET 'index'" do
     let(:params) { {} }
+    let(:beer) { create :beer, beer_color: BeerColor.blond }
 
     def create_check_for_user(user, date=DateTime.now)
-      beer = create :beer, beer_color: BeerColor.blond
       check = create(:check, user: user, beer: beer)
       check.event.created_at = date
       check.event.save
@@ -20,6 +20,7 @@ describe Api::FeedController do
 
     context 'when logged in' do
       before(:each) do
+        Event.stubs(:per_page).returns(4)
         sign_in user
         checks = []
         checks << create_check_for_user(user, 4.days.ago)
@@ -65,6 +66,15 @@ describe Api::FeedController do
           new_events = @all_events[0..0]
           expect(assigns(:events)).to match_array(new_events)
         end
+      end
+
+      context 'pagination' do
+        before(:each) do
+          2.times { create_check_for_user(user, 2.days.ago) }
+          get :index, params.merge(format: :json)
+        end
+
+        it { expect(assigns(:events).size).to be <= Event.per_page }
       end
     end
   end
