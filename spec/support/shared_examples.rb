@@ -60,6 +60,8 @@ shared_examples 'an api controller' do |actions|
     actions.each_pair do |action, opts|
       let(:user) { create :user, :admin }
       before(:each) do
+        Rails.application.config.stubs(:consider_all_requests_local)
+        .returns(false)
         sign_in user
         execute_action action, opts
       end
@@ -77,6 +79,8 @@ shared_examples 'an api controller' do |actions|
     actions.each_pair do |action, opts|
       let(:user) { create :user }
       before(:each) do
+        Rails.application.config.stubs(:consider_all_requests_local)
+        .returns(false)
         sign_in user
         execute_action action, opts
       end

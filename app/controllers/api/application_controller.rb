@@ -6,8 +6,10 @@ class Api::ApplicationController < ApplicationController
   end
 
   rescue_from Exception, with: (lambda do |exception|
-    render_error
-    unless Rails.application.config.consider_all_requests_local
+    if Rails.application.config.consider_all_requests_local
+      raise exception
+    else
+      render_error
       Raven.capture_exception(exception)
     end
   end)
