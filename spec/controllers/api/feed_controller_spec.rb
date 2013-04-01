@@ -42,11 +42,13 @@ describe Api::FeedController do
 
       context 'without params' do
         it { expect(assigns(:events)).to match_array(@all_events) }
+        it { expect(assigns(:events).size).to be <= Event.per_page }
       end
 
       context 'with users = me' do
         let(:params) { {users: 'me'} }
 
+        it { expect(assigns(:events).size).to be <= Event.per_page }
         it 'should only return my events' do
           expect(assigns(:events)).to match_array(@my_events)
         end
@@ -54,6 +56,8 @@ describe Api::FeedController do
 
       context 'with after' do
         let(:params) { {after: @marker.created_at.to_i} }
+
+        it { expect(assigns(:events).size).to be <= Event.per_page }
         it "should only return events created after the given date" do
           past_events = @all_events[2..-1]
           expect(assigns(:events)).to match_array(past_events)
@@ -62,6 +66,8 @@ describe Api::FeedController do
 
       context 'with before' do
         let(:params) { {before: @marker.created_at.to_i} }
+
+        it { expect(assigns(:events).size).to be <= Event.per_page }
         it 'should only return events created before the given time' do
           new_events = @all_events[0..0]
           expect(assigns(:events)).to match_array(new_events)
