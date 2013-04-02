@@ -2,16 +2,17 @@
 #
 # Table name: badges
 #
-#  id          :integer          not null, primary key
-#  name        :string(255)
-#  badge_type  :string(255)
-#  condition   :text
-#  quantity    :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  description :text
-#  photo       :string(255)
-#  published   :boolean
+#  id             :integer          not null, primary key
+#  name           :string(255)
+#  badge_type     :string(255)
+#  condition      :text
+#  quantity       :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  description_fr :text
+#  photo          :string(255)
+#  published      :boolean
+#  description_en :text
 #
 
 class Badge < ActiveRecord::Base

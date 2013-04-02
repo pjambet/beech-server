@@ -7,7 +7,7 @@
     %table.large-12.columns.responsive
       %thead
         %tr
-          - %w(photo name bage_type description conditon created_at published actions).each do |th|
+          - %w(photo name bage_type description_fr description_en conditon created_at published actions).each do |th|
             %th= th
 
       %tbody
@@ -16,7 +16,8 @@
             %td= image_tag badge.photo.thumb.url, size: '100x100'
             %td= badge.name
             %td= badge.badge_type
-            %td= badge.description
+            %td= badge.description_fr
+            %td= badge.description_en
             %td= badge.condition
             %td= badge.created_at
             %td= badge.published

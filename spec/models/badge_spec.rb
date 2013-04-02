@@ -4,6 +4,8 @@ describe Badge do
   it { should have_many :awards }
   it { should have_many(:users).through(:awards) }
   it { should validate_presence_of(:condition) }
+  it { should have_db_column(:description_fr) }
+  it { should have_db_column(:description_en) }
 
   describe 'condition mechanism' do
     let(:user) { create :user }

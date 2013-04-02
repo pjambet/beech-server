@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210130133) do
+ActiveRecord::Schema.define(:version => 20130402000554) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -27,11 +27,12 @@ ActiveRecord::Schema.define(:version => 20130210130133) do
     t.string   "badge_type"
     t.text     "condition"
     t.integer  "quantity"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.text     "description"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.text     "description_fr"
     t.string   "photo"
     t.boolean  "published"
+    t.text     "description_en"
   end
 
   create_table "beer_colors", :force => true do |t|
