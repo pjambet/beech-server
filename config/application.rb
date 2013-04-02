@@ -15,6 +15,7 @@ module BeerServer
     config.time_zone = 'Paris'
 
     config.i18n.default_locale = :fr
+    config.i18n.available_locales = [:en, :fr]
 
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/app/models/concerns)
