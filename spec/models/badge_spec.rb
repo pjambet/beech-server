@@ -19,20 +19,28 @@ describe Badge do
     end
 
     context 'with french locale' do
-      it { badge.description(:fr).should eq('Une description') }
+      subject{ badge.description(:fr) }
+
+      it { should eq('Une description') }
     end
 
     context 'with english locale' do
-      it { badge.description(:en).should eq('A description') }
+      subject { badge.description(:en) }
+
+      it { should eq('A description') }
     end
 
     context 'with a non existing locale' do
-      it { badge.description(:fifoo).should eq('A description') }
+      subject { badge.description(:fifoo) }
+
+      it { should eq('A description') }
     end
   end
 
   describe 'condition mechanism' do
     let(:user) { create :user }
+    subject { user.deserves_badge?(badge) }
+
     context 'with a "Drink X beers of badge_type" badge' do
       let(:badge) do
         create :badge, badge_type: 'quantity',
@@ -58,9 +66,8 @@ describe Badge do
             user.checks.create(beer: create(:beer))
           end
         end
-        it 'should not be validated' do
-          user.deserves_badge?(badge).should be_false
-        end
+
+        it { should be_false }
       end
 
       context 'with a user who satisfies the condition' do
@@ -69,9 +76,8 @@ describe Badge do
             user.checks.create(beer: create(:beer))
           end
         end
-        it 'should be validated' do
-          user.deserves_badge?(badge).should be_true
-        end
+
+        it { should be_true }
       end
 
     end
@@ -89,9 +95,8 @@ describe Badge do
             user.checks.create(beer: create(:beer, country: 'belgium'))
           end
         end
-        it 'should not be validated' do
-          user.deserves_badge?(badge).should be_false
-        end
+
+        it { should be_false }
       end
 
       context 'with a user who satisfies the condition' do
@@ -100,9 +105,8 @@ describe Badge do
             user.checks.create(beer: create(:beer, country: 'belgium'))
           end
         end
-        it 'should be validated' do
-          user.deserves_badge?(badge).should be_true
-        end
+
+        it { should be_true }
       end
 
     end
@@ -117,9 +121,7 @@ describe Badge do
           2.times { user.checks.create(beer: create(:beer, :blond )) }
         end
 
-        it 'should not be validated' do
-          user.deserves_badge?(badge).should be_false
-        end
+        it { should be_false }
       end
 
       context 'with a user who satisfies the condition' do
@@ -128,9 +130,8 @@ describe Badge do
             user.checks.create(beer: create(:beer, :blond ))
           end
         end
-        it 'should be validated' do
-          user.deserves_badge?(badge).should be_true
-        end
+
+        it { should be_true }
       end
 
     end
@@ -149,9 +150,8 @@ describe Badge do
             user.checks.create(beer: create(:beer, name: 'guiness' ))
           end
         end
-        it 'should not be validated' do
-          user.deserves_badge?(badge).should be_false
-        end
+
+        it { should be_false }
       end
 
       context 'with a user who satisfies the condition' do
@@ -160,9 +160,8 @@ describe Badge do
             user.checks.create(beer: create(:beer, name: 'guiness' ))
           end
         end
-        it 'should be validated' do
-          user.deserves_badge?(badge).should be_true
-        end
+
+        it { should be_true }
       end
 
     end
@@ -183,9 +182,8 @@ describe Badge do
           user.checks.create(beer: create(:beer, :blond))
           user.checks.create(beer: create(:beer, :dark))
         end
-        it 'should not be validated' do
-          user.deserves_badge?(badge).should_not be_true
-        end
+
+        it { should_not be_true }
       end
 
       context 'with a user who satisfies the condition' do
@@ -195,9 +193,8 @@ describe Badge do
           user.checks.create(beer: create(:beer, :amber))
           user.checks.create(beer: create(:beer, :white))
         end
-        it 'should be validated' do
-          user.deserves_badge?(badge).should be_true
-        end
+
+        it { should be_true }
       end
     end
 
@@ -212,9 +209,8 @@ describe Badge do
         before(:each) do
           user.checks.create(beer: create(:beer, country: 'belgium'))
         end
-        it 'should not be validated' do
-          user.deserves_badge?(badge).should_not be_true
-        end
+
+        it { should_not be_true }
       end
 
       context 'with a user who satisfies the condition' do
@@ -222,9 +218,8 @@ describe Badge do
           user.checks.create(beer: create(:beer, country: 'belgium'))
           user.checks.create(beer: create(:beer, country: 'scotland'))
         end
-        it 'should be validated' do
-          user.deserves_badge?(badge).should be_true
-        end
+
+        it { should be_true }
       end
     end
 
@@ -238,9 +233,8 @@ describe Badge do
         before(:each) do
           user.checks.create(beer: create(:beer, name: 'guiness'))
         end
-        it 'should not be validated' do
-          user.deserves_badge?(badge).should_not be_true
-        end
+
+        it { should_not be_true }
       end
 
       context 'with a user who satisfies the condition' do
@@ -248,9 +242,8 @@ describe Badge do
           user.checks.create(beer: create(:beer, name: 'guiness'))
           user.checks.create(beer: create(:beer, name: 'london stripe'))
         end
-        it 'should be validated' do
-          user.deserves_badge?(badge).should be_true
-        end
+
+        it { should be_true }
       end
     end
 
@@ -270,18 +263,16 @@ describe Badge do
         before(:each) do
           user.checks.create(beer: create(:beer))
         end
-        it 'should not be validated' do
-          user.deserves_badge?(badge).should_not be_true
-        end
+
+        it { should_not be_true }
       end
 
       context 'with a user who satisfies the condition' do
         before(:each) do
           2.times { user.checks.create(beer: create(:beer)) }
         end
-        it 'should be validated' do
-          user.deserves_badge?(badge).should be_true
-        end
+
+        it { should be_true }
       end
     end
 
@@ -297,9 +288,8 @@ describe Badge do
         before(:each) do
           user.checks.create(beer: create(:beer, country: 'belgium'))
         end
-        it 'should not be validated' do
-          user.deserves_badge?(badge).should_not be_true
-        end
+
+        it { should_not be_true }
       end
 
       context 'with a user who satisfies the condition' do
@@ -307,9 +297,8 @@ describe Badge do
           user.checks.create(beer: create(:beer, country: 'france'))
           user.checks.create(beer: create(:beer, country: 'belgium'))
         end
-        it 'should be validated' do
-          user.deserves_badge?(badge).should be_true
-        end
+
+        it { should be_true }
       end
     end
   end
