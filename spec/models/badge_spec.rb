@@ -7,6 +7,30 @@ describe Badge do
   it { should have_db_column(:description_fr) }
   it { should have_db_column(:description_en) }
 
+  describe '#description' do
+    subject(:badge) do
+      build(:badge,
+        description_fr: "Une description",
+        description_en: "A description")
+    end
+
+    context 'without params' do
+      its(:description) { should eq('A description') }
+    end
+
+    context 'with french locale' do
+      it { badge.description(:fr).should eq('Une description') }
+    end
+
+    context 'with english locale' do
+      it { badge.description(:en).should eq('A description') }
+    end
+
+    context 'with a non existing locale' do
+      it { badge.description(:fifoo).should eq('A description') }
+    end
+  end
+
   describe 'condition mechanism' do
     let(:user) { create :user }
     context 'with a "Drink X beers of badge_type" badge' do

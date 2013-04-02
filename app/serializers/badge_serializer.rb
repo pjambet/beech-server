@@ -9,5 +9,9 @@ class BadgeSerializer < ActiveModel::Serializer
     image_url
   end
 
+  def description
+    object.description(I18n.locale)
+  end
+
 end
 

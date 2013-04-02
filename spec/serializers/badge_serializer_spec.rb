@@ -9,5 +9,6 @@ describe BadgeSerializer do
   it { should include_root }
 
   include_examples 'image serializer'
+
 end
 
