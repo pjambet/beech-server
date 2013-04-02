@@ -16,8 +16,8 @@
 #
 
 class Badge < ActiveRecord::Base
-  attr_accessible :name, :badge_type, :condition, :quantity, :description,
-                  :photo, :published
+  attr_accessible :name, :badge_type, :condition, :quantity, :description_fr,
+                  :photo, :published, :description_en
 
   has_many :awards, dependent: :destroy
   has_many :users, through: :awards
