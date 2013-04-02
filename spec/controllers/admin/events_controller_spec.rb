@@ -17,9 +17,7 @@ describe Admin::EventsController do
         get 'index'
       end
 
-      it 'should assign the events' do
-        expect(assigns(:events)).to match_array(@events)
-      end
+      it { expect(assigns(:events)).to match_array(@events) }
     end
   end
 end

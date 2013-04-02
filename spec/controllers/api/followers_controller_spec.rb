@@ -18,7 +18,7 @@ describe Api::FollowersController do
           @other_followers = 2.times.map { create :following }
           get :index, format: 'json'
         end
-        it 'should return the follower users of the current_user' do
+        it 'returns the follower users of the current_user' do
           decoded_response = ActiveSupport::JSON.decode(response.body)
           users = decoded_response['users']
           users.size.should == user.follower_users.size
@@ -27,7 +27,7 @@ describe Api::FollowersController do
           end
         end
 
-        it 'should not return other users' do
+        it 'does not return other users' do
           @other_followers.map(&:follower).each do |f|
             user.follower_users.should_not include(f)
           end
@@ -42,7 +42,7 @@ describe Api::FollowersController do
           @other_followers = 2.times.map { create :following }
           get :index, user_id: inspected_user, format: 'json'
         end
-        it 'should return the follower users of the given user' do
+        it 'returns the follower users of the given user' do
           decoded_response = ActiveSupport::JSON.decode(response.body)
           users = decoded_response['users']
 
@@ -52,7 +52,7 @@ describe Api::FollowersController do
           end
         end
 
-        it 'should not return other users' do
+        it 'does not return other users' do
           @other_followers.map(&:follower).each do |f|
             inspected_user.following_users.should_not include(f)
           end

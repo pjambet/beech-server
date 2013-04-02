@@ -20,13 +20,8 @@ describe Api::BeersController do
         context 'without query' do
           before(:each) { get :index, format: 'json' }
 
-          it 'should return results' do
-            assigns(:beers).size.should > 0
-          end
-
-          it 'should paginate results' do
-            assigns(:beers).size.should == 3
-          end
+          it { assigns(:beers).size.should > 0 }
+          it { assigns(:beers).size.should == 3 }
         end
 
         context 'with a query' do
@@ -38,15 +33,10 @@ describe Api::BeersController do
             get :index, s: query
           end
 
-          it 'should return results' do
-            assigns(:beers).size.should > 0
-          end
+          it { assigns(:beers).size.should > 0 }
+          it { assigns(:beers).size.should <= 20 }
 
-          it 'should paginate results' do
-            assigns(:beers).size.should <= 20
-          end
-
-          it 'should only return results which match query' do
+          it 'returns results which match query' do
             reg = %r{#{query}}
             assigns(:beers).each do |beer|
               beer.name.should match reg
@@ -60,7 +50,7 @@ describe Api::BeersController do
         let(:params) { {} }
         let(:do_request) { post :create, beer: params }
         context "with incorrect params" do
-          it 'should not create a beer' do
+          it 'does not create a beer' do
             expect{do_request}.to change{Beer.count}.by(0)
           end
 
@@ -69,17 +59,10 @@ describe Api::BeersController do
 
         context "with correct params" do
           let(:params) { {name: 'Guinness'} }
-          it 'should not create a beer' do
-            expect{do_request}.to change{Beer.count}.by(1)
-          end
 
-          it 'should add a created beer to the current user' do
-            expect{do_request}.to change{current_user.created_beers.count}.by(1)
-          end
-
-          it 'should send an email notification to the admin' do
-            expect{do_request}.to change{ActionMailer::Base.deliveries.count}.by(1)
-          end
+          it { expect{do_request}.to change{Beer.count}.by(1) }
+          it { expect{do_request}.to change{current_user.created_beers.count}.by(1) }
+          it { expect{do_request}.to change{ActionMailer::Base.deliveries.count}.by(1) }
 
           it 'should return the beer' do
             do_request

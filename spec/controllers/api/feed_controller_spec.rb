@@ -49,9 +49,7 @@ describe Api::FeedController do
         let(:params) { {users: 'me'} }
 
         it { expect(assigns(:events).size).to be <= Event.per_page }
-        it 'should only return my events' do
-          expect(assigns(:events)).to match_array(@my_events)
-        end
+        it { expect(assigns(:events)).to match_array(@my_events) }
       end
 
       context 'with after' do
