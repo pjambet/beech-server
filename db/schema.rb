@@ -115,7 +115,6 @@ ActiveRecord::Schema.define(:version => 20130402000554) do
     t.string   "last_sign_in_ip"
     t.string   "avatar"
     t.string   "authentication_token"
-    t.datetime "avatar_uploaded_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
