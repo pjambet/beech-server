@@ -19,4 +19,3 @@ you can find it [here](http://pjambet.github.com/beech-server/)
 
 ## Contributing
 Well there's no rule so far, feel welcome :)
-
