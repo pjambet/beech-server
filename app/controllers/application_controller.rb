@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+  before_filter :set_locale, :set_user_agent
+
   respond_to :html, :json
 
   def after_sign_in_path_for(user)
@@ -8,6 +10,19 @@ class ApplicationController < ActionController::Base
 
   def after_sign_up_path_for(user)
     user_path user
+  end
+
+  def set_user_agent
+    # TODO : detect android and other devices
+    if request.env['HTTP_USER_AGENT'].match(/(iPhone|iPad|iPod)/)
+      @user_agent = :ios
+    else
+      @user_agent = :other
+    end
+  end
+
+  def set_locale
+    I18n.locale = extract_locale_from_accept_language_header
   end
 
   rescue_from Exception, with: :render_error
@@ -43,5 +58,20 @@ class ApplicationController < ActionController::Base
       Raven.capture_exception(exception)
       500
     end
+  end
+
+  def extract_locale_from_accept_language_header
+    preferred_language = request.env['HTTP_ACCEPT_LANGUAGE'] || ''
+    preferred_language = preferred_language.scan(/^[a-z]{2}/).first
+
+    if available_locales.include?(preferred_language)
+      preferred_language
+    else
+      :en
+    end
+  end
+
+  def available_locales
+    I18n.available_locales + I18n.available_locales.map(&:to_s)
   end
 end
