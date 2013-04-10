@@ -17,6 +17,11 @@ describe User do
   it { should validate_presence_of :email }
   it { should validate_presence_of :nickname }
 
+  context 'default per page size' do
+    subject { User.per_page }
+    it { should eq(10) }
+  end
+
   context 'with a new instance' do
     subject { create :user }
 
