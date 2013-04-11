@@ -1,7 +1,11 @@
 BeerServer::Application.routes.draw do
   apipie
 
-  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
+  }
 
   namespace :api do
     scope 'my' do

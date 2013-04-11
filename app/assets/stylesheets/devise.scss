@@ -1,6 +1,8 @@
 @import "compass";
 
-$font_proxima: 'Proxima';
+$font_proxima: 'proxima_novaregular', Helvetica, Arial, serif;
+$font_proxima_light: 'proxima_novalight', Helvetica, Arial, serif;
+$font_proxima_semibold: 'proxima_novasemibold', Helvetica, Arial, serif;
 
 * {
   -webkit-tap-highlight-color: transparent;
@@ -11,9 +13,25 @@ body {
   width: 100%;
   margin: 0;
   background-color: rgb(229, 229, 229);
+  font-family: $font_proxima_semibold;
+
+  & > section {
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: #999;
+
+    &:visited {
+      color: #999;
+      text-decoration: none;
+    }
+  }
 
   header {
-    background-color: rgba(246, 110, 48, 0.9);
+    background-color: rgba(248, 131, 71, 1);
     position: relative;
     padding: 14px;
     @include box-shadow(rgba(0,0,0,0.3) 0 1px 1px);
@@ -23,20 +41,28 @@ body {
       font-size: 18px;
       text-align: center;
       color: white;
+      font-weight: normal;
     }
 
     input {
       padding: 5px;
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 9px;
+      right: 9px;
       color: rgb(222, 92, 28);
       background-color: white;
-      font-size: 16px;
+      font-size: 14px;
       border: none;
       -webkit-appearance: none;
+      font-family: $font_proxima;
       @include border-radius(2px);
     }
+  }
+
+  .errors {
+    text-align: center;
+    color: red;
+    margin: 20px 0 0 0;
   }
 
   .form-inputs {
@@ -71,13 +97,15 @@ body {
     }
 
     input {
-      padding: 15px 12px;
+      padding: 15px 20px;
       margin: 0;
       border-left: 1px solid rgb(208, 208, 208);
       border-right: 1px solid rgb(208, 208, 208);
       border-bottom: 1px solid rgb(246, 246, 246);
       width: 100%;
-      font-size: 16px;
+      font-size: 14px;
+      font-weight: normal;
+      font-family: $font_proxima_light;
       @include box-shadow(none);
       @include border-radius(0);
       -webkit-appearance: none;

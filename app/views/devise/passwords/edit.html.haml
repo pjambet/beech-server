@@ -1,11 +1,14 @@
-= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
   %header
     %h2 New password
     = f.button :submit, "Submit"
 
-  = f.error_notification
-  = f.input :reset_password_token, :as => :hidden
+  - if f.object.errors.any?
+    .errors
+      = f.error_notification
+      = f.full_error :password
+  = f.input :reset_password_token, as: :hidden
   = f.full_error :reset_password_token
   .form-inputs
-    = f.input :password, :placeholder => "New password", :required => true, label: false
-    = f.input :password_confirmation, :placeholder => "Confirm your new password", :required => true, label: false
+    = f.input :password, placeholder: "New password", required: true, label: false, error: false
+    = f.input :password_confirmation, placeholder: "Confirm your new password", required: true, label: false, error: false
