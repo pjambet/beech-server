@@ -35,7 +35,7 @@ end
 group :development, :test do
   gem 'spork', '~> 1.0rc'
   gem 'rspec-rails'
-  gem 'shoulda', require: false
+  gem 'shoulda-matchers'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'pry'
