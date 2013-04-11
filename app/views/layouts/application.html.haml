@@ -8,5 +8,6 @@
     %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1.0", name: "viewport"}
   %body
     - if user_signed_in?
-      = link_to 'Se déconnecter', destroy_user_session_path, method: :delete, confirm: 'Are you sure'
+      .links
+        = link_to 'Se déconnecter', destroy_user_session_path, method: :delete, confirm: 'Are you sure'
     = yield
