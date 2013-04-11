@@ -38,6 +38,8 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   searchable_by :nickname
 
+  self.per_page = 10
+
   before_save :ensure_authentication_token
 
   after_create :generate_random_avatar

@@ -35,15 +35,16 @@ end
 group :development, :test do
   gem 'spork', '~> 1.0rc'
   gem 'rspec-rails'
-  gem 'shoulda', require: false
+  gem 'shoulda-matchers'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'pry'
+  gem 'terminal-notifier-guard'
   gem 'rb-inotify', require: false
   gem 'rb-fsevent', require: false
   gem 'rb-fchange', require: false
   gem 'factory_girl_rails'
-  gem 'faker', '~> 1.1.2'
+  gem 'faker', git: 'git://github.com/stympy/faker.git'
   gem 'simplecov', require: false
   gem 'mocha', '~> 0.13', require: false
   gem 'bourne'
