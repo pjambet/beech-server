@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412034009) do
+ActiveRecord::Schema.define(:version => 20130412035741) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -69,6 +69,16 @@ ActiveRecord::Schema.define(:version => 20130412034009) do
   end
 
   add_index "checks", ["user_id", "beer_id"], :name => "index_checks_on_user_id_and_beer_id"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["user_id", "event_id"], :name => "index_comments_on_user_id_and_event_id"
 
   create_table "events", :force => true do |t|
     t.integer  "eventable_id"

@@ -23,3 +23,10 @@ RSpec::Matchers.define :act_as_likable do
     actual.should have_many(:likers).through(:likes)
   end
 end
+
+RSpec::Matchers.define :act_as_commentable do
+  match do |actual|
+    actual.should have_many(:comments)
+    actual.should have_many(:commenters).through(:comments)
+  end
+end

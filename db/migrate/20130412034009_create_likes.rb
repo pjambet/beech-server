@@ -5,5 +5,6 @@ class CreateLikes < ActiveRecord::Migration
       t.belongs_to :user
       t.timestamps
     end
+    add_index :comments, [:user_id, :event_id]
   end
 end

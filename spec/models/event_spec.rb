@@ -7,6 +7,7 @@ describe Event do
   it { should have_db_index(:user_id)}
   it { should have_db_index(:eventable_id)}
   it { should act_as_likable }
+  it { should act_as_commentable }
 
   describe 'default_scope' do
     it 'should order results by descending created_at' do

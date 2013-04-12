@@ -13,6 +13,7 @@
 class Event < ActiveRecord::Base
   include Filterable
   include Likeable
+  include Commentable
 
   attr_accessible :eventable, :user
 
