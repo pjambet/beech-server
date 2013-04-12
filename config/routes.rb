@@ -28,6 +28,12 @@ BeerServer::Application.routes.draw do
       resources :followings, only: :index
     end
 
+    resources :events, only: [] do
+      resources :likes, only: [:index, :create] do
+        delete :destroy, on: :collection
+      end
+      resources :comments, only: [:index, :create, :destroy]
+    end
     resources :checks, only: :create
     resources :beers, only: [:index, :create]
   end
