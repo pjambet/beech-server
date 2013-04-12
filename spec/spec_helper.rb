@@ -24,6 +24,7 @@ Spork.each_run do
   require 'rspec/rails'
   require 'rspec/autorun'
   require 'factory_girl_rails'
+  require "cancan/matchers"
 
   if ENV['DRB']
     require 'simplecov'
