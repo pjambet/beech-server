@@ -51,7 +51,9 @@ class User < ActiveRecord::Base
   has_many :beers, through: :checks
   has_many :events, dependent: :destroy
   has_many :likes
-  has_many :liked_events, through: :likes
+  has_many :liked_events, through: :likes, uniq: true, class_name: 'Event'
+  has_many :comments
+  has_many :commented_events, through: :comments, uniq: true, class_name: 'Event'
 
   validates :email, uniqueness: true
   validates :nickname, presence: true, uniqueness: {case_sensitive: false}

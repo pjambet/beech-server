@@ -15,6 +15,8 @@ describe User do
   it { should have_many(:roles).through(:memberships) }
   it { should have_many(:likes) }
   it { should have_many(:liked_events).through(:likes) }
+  it { should have_many(:comments) }
+  it { should have_many(:commented_events).through(:comments) }
 
   it { should validate_presence_of :email }
   it { should validate_presence_of :nickname }
