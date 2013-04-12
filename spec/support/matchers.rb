@@ -17,3 +17,9 @@ RSpec::Matchers.define :act_as_searchable do
   end
 end
 
+RSpec::Matchers.define :act_as_likable do
+  match do |actual|
+    actual.should have_many(:likes)
+    actual.should have_many(:likers).through(:likes)
+  end
+end

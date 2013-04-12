@@ -13,6 +13,8 @@ describe User do
   it { should have_many(:follower_users).through(:followers) }
   it { should have_many(:memberships) }
   it { should have_many(:roles).through(:memberships) }
+  it { should have_many(:likes) }
+  it { should have_many(:liked_events).through(:likes) }
 
   it { should validate_presence_of :email }
   it { should validate_presence_of :nickname }
