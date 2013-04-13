@@ -24,6 +24,8 @@ class Beer < ActiveRecord::Base
   has_many :checks
   has_many :users, through: :checks
 
+  default_scope -> { includes(:beer_color) }
+
   scope :ordered, -> do
     select('beers.id, beers.name, COUNT(DISTINCT(checks.id)) AS checks_count')
     .joins(:checks).order('checks_count DESC').group("beers.id")
