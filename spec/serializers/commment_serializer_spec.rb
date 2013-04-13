@@ -1,7 +1,8 @@
 require 'spec_helper'
 
-describe LikeSerializer do
+describe CommentSerializer do
   it { should have_attribute(:id) }
+  it { should have_attribute(:content) }
 
   it { should embed(:ids) }
 
@@ -11,4 +12,5 @@ describe LikeSerializer do
 
   it { should include_root }
 end
+
 

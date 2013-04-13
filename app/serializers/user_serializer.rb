@@ -1,5 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
-  include ApplicationHelper
   include Serializable
 
   serialiaze_image_as :avatar

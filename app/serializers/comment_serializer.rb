@@ -1,9 +1,10 @@
-class LikeSerializer < ActiveModel::Serializer
+class CommentSerializer < ActiveModel::Serializer
   include Serializable
 
   embed :ids, include: true
-  attributes :id
+  attributes :id, :content
 
   has_one :event
   has_one :user
 end
+
