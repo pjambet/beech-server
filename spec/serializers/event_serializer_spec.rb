@@ -9,6 +9,8 @@ describe EventSerializer do
   # There's a conflict with shoulda, so those tests don't pass ATM
   xit { should have_one(:eventable) }
   xit { should have_one(:user) }
+  xit { should have_many(:likes) }
+  xit { should have_many(:comments) }
 
   it { should include_root }
 end
