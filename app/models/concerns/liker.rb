@@ -4,14 +4,18 @@ module Liker
 
   included do
     has_many :likes, dependent: :destroy
-    has_many :liked_events, through: :likes, uniq: true, source: :event
+    has_many :liked_events, through: :likes, source: :event
 
     def like(event)
-      self.likes.create event: event
+      self.likes.create! event: event
     end
 
     def unlike(event)
       self.liked_events.delete(event)
+    end
+
+    def like?(event)
+      self.liked_events.include? event
     end
   end
 end

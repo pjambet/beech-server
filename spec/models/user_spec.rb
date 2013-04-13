@@ -190,4 +190,32 @@ describe User do
       its('avatar.url') { should match(/original/) }
     end
   end
+
+  context '#like/#unlike' do
+    subject(:user) { create :user }
+    let(:event) { create :event }
+
+    describe '#like' do
+      before(:each) { user.like event }
+
+      it { user.like?(event).should be_true }
+
+      context 'like an already liked event' do
+        it { expect{user.like(event)}.to raise_error(ActiveRecord::RecordInvalid) }
+      end
+    end
+
+    describe '#unlike' do
+      before(:each) do
+        user.like event
+        user.unlike event
+      end
+
+      it { user.like?(event).should be_false }
+
+      context 'unlike an already unliked event' do
+        it { expect{user.unlike(event)}.to change{Like.count}.by(0) }
+      end
+    end
+  end
 end

@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
 
   validates :eventable, presence: true
 
-  default_scope -> { includes(:eventable).order('created_at DESC') }
+  default_scope -> { includes(:eventable).order('events.created_at DESC') }
 
   delegate :user, to: :eventable, prefix: false
 
