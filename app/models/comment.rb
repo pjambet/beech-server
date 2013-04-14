@@ -19,4 +19,6 @@ class Comment < ActiveRecord::Base
   validates :content, presence: true
 
   attr_accessible :content, :event
+
+  default_scope -> { order('comments.created_at ASC') }
 end
