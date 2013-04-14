@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
 
   validates :eventable, presence: true
 
-  default_scope -> { includes(:eventable).order('events.created_at DESC') }
+  default_scope -> { order('events.created_at DESC') }
 
   # This triggers n+1 queries, until I find a way to remove the user from here
   # this will stay commented
