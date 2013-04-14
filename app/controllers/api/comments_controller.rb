@@ -2,7 +2,7 @@ class Api::CommentsController < Api::ApplicationController
   load_and_authorize_resource :event
 
   def index
-    @comments = @event.comments
+    @comments = @event.comments.includes(:user)
     render json: @comments
   end
 

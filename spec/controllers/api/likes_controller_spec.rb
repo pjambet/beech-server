@@ -30,7 +30,6 @@ describe Api::LikesController do
     }
     before(:each) do
       sign_in user
-      post_request.call
     end
 
     it { expect{post_request.call}.to change{Like.count}.by(1) }

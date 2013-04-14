@@ -5,7 +5,7 @@ class Api::ProfilesController < Api::ApplicationController
   api :GET, "/my/profile", "Show a profile"
   api :GET, "/users/:user_id/profile", "Show a profile"
   def show
-    @events = Event.for_users([@user])
+    @events = Event.for_users([@user]).includes(:user, :eventable, {comments: :user}, {likes: :user})
     @events = @events.before(params[:before]) if params[:before].present?
     @events = @events.page params[:page]
 

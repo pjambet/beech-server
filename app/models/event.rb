@@ -24,7 +24,9 @@ class Event < ActiveRecord::Base
 
   default_scope -> { includes(:eventable).order('events.created_at DESC') }
 
-  delegate :user, to: :eventable, prefix: false
+  # This triggers n+1 queries, until I find a way to remove the user from here
+  # this will stay commented
+  # delegate :user, to: :eventable, prefix: false
 
   scope :for_users, ->(users) do
     return [] unless Enumerable === users

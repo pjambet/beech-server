@@ -4,7 +4,7 @@ module Commentable
 
   included do
     has_many :comments
-    has_many :commenters, through: :comments, uniq: true, class_name: 'User'
+    has_many :commenters, through: :comments, source: :user
   end
 end
 

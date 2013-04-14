@@ -2,7 +2,7 @@ class Api::LikesController < Api::ApplicationController
   load_and_authorize_resource :event
 
   def index
-    @likes = @event.likes
+    @likes = @event.likes.includes(:user)
     render json: @likes
   end
 

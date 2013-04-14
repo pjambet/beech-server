@@ -20,4 +20,5 @@ class Like < ActiveRecord::Base
   validates :event_id, uniqueness: { scope: :user_id }
 
   attr_accessible :user, :event
+
 end

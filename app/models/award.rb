@@ -19,7 +19,7 @@ class Award < ActiveRecord::Base
   validates :user, presence: true
   validates :badge, presence: true
 
-  default_scope -> { includes(:user, :badge) }
+  default_scope -> { includes(:badge) }
 
   delegate :name, to: :badge
 

@@ -4,7 +4,7 @@ class CommentSerializer < ActiveModel::Serializer
   embed :ids, include: true
   attributes :id, :content
 
-  has_one :event
+  has_one :event, emded: :ids, include: false
   has_one :user
 end
 

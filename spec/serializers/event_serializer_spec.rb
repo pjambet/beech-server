@@ -3,6 +3,7 @@ require 'spec_helper'
 describe EventSerializer do
   it { should have_attribute(:id) }
   it { should have_attribute(:created_at) }
+  it { should have_attribute(:is_liked) }
 
   it { should embed(:ids) }
 
@@ -13,5 +14,6 @@ describe EventSerializer do
   xit { should have_many(:comments) }
 
   it { should include_root }
+
 end
 

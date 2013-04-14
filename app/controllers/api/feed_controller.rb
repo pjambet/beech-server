@@ -7,8 +7,8 @@ class Api::FeedController < Api::ApplicationController
   description "method description"
   formats ['json']
   def index
-    @events = filter_events.includes(:comments, :likes).page params[:page]
-    render json: @events
+    @events = filter_events.includes(:user, :eventable, {comments: :user}, {likes: :user}).page params[:page]
+    render json: @events, liked_events: current_user.liked_events
   end
 
   private
