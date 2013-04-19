@@ -4,13 +4,13 @@ module Filterable
   included do
     scope :after, ->(date) do
       if date.to_i > 0
-        build_date_condition('>', date)
+        build_date_condition('>=', date)
       end
     end
 
     scope :before, ->(date) do
       if date.to_i > 0
-        build_date_condition('<', date)
+        build_date_condition('<=', date)
       end
     end
 

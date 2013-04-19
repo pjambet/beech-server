@@ -11,6 +11,8 @@
 #
 
 class Comment < ActiveRecord::Base
+  include Filterable
+
   belongs_to :user
   belongs_to :event
 
@@ -20,5 +22,4 @@ class Comment < ActiveRecord::Base
 
   attr_accessible :content, :event
 
-  default_scope -> { order('comments.created_at ASC') }
 end

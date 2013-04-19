@@ -3,7 +3,12 @@ class Api::LikesController < Api::ApplicationController
 
   def index
     @likes = @event.likes.includes(:user)
-    render json: @likes
+    if params[:before]
+      @likes = @likes.before(params[:before])
+    else
+      @likes = @likes.order('created_at DESC').limit(20)
+    end
+    render json: @likes, meta: { total: @event.likes.count }
   end
 
   def create

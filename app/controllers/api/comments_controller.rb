@@ -3,7 +3,12 @@ class Api::CommentsController < Api::ApplicationController
 
   def index
     @comments = @event.comments.includes(:user)
-    render json: @comments
+    if params[:before]
+      @comments = @comments.before(params[:before])
+    else
+      @comments = @comments.order('created_at DESC').limit(5)
+    end
+    render json: @comments, meta: { total: @event.comments.count }
   end
 
   def create

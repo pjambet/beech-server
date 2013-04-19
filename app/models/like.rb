@@ -10,6 +10,7 @@
 #
 
 class Like < ActiveRecord::Base
+  include Filterable
 
   belongs_to :user
   belongs_to :event
@@ -21,5 +22,4 @@ class Like < ActiveRecord::Base
 
   attr_accessible :user, :event
 
-  default_scope -> { order('likes.created_at ASC') }
 end
