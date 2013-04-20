@@ -26,6 +26,7 @@ gem 'maruku'
 gem 'sentry-raven'
 gem 'mail_view', '~> 1.0.3'
 gem 'will_paginate'
+gem 'ember-rails'
 
 group :development do
   gem 'annotate', '>=2.5.0'

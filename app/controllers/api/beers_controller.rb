@@ -18,6 +18,11 @@ class Api::BeersController < Api::ApplicationController
     render json: @beers
   end
 
+  def show
+    @beer = Beer.find(params[:id])
+    render json: @beer
+  end
+
   api :POST, "/beers", "Create a beer"
   param :beer, Hash do
     param :name, String

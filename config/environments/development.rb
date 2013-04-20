@@ -56,4 +56,6 @@ BeerServer::Application.configure do
     port: 1025,
     domain: HOST
   }
+
+  config.ember.variant = :development
 end

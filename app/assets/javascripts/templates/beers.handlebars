@@ -1,0 +1,27 @@
+<h1>Beers</h1>
+<h2>{{#linkTo "index"}}Home{{/linkTo}}</h2>
+
+<div class="row">
+  <div class="large12 columns">
+    <table>
+      <thead>
+        <th>name</th>
+        <th>beer_color</th>
+        <th>country</th>
+      </thead>
+      <tobdy>
+      {{#each beer in controller}}
+        <tr>
+          <td>{{beer.name}}</td>
+          <td>{{beer.beer_color.name}}</td>
+          <td>{{beer.country}}</td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="3"><li>There are no beers.</li></td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class BeerSerializer < ActiveModel::Serializer
-  attributes :id, :name, :color_pattern
-  embed :ids, include: true
+  attributes :id, :name, :country, :color_pattern
+  embed :objects, include: true
   has_one :beer_color
 end
 

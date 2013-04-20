@@ -12,8 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require_self
+//= require beer_server
 //= require foundation
 //= require responsive-tables
+
+BeerServer = Ember.Application.create();
 
 $(function(){
   $(document).foundation();

@@ -35,7 +35,7 @@ BeerServer::Application.routes.draw do
       resources :comments, only: [:index, :create, :destroy]
     end
     resources :checks, only: :create
-    resources :beers, only: [:index, :create]
+    resources :beers, only: [:index, :show, :create]
   end
 
   namespace :admin do
