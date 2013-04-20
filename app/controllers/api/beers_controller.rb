@@ -14,7 +14,7 @@ class Api::BeersController < Api::ApplicationController
   param :page, :number, desc: 'The page index'
   description 'This endpoint returns the list of beers'
   def index
-    @beers = @beers.accepted.page params[:page] if @beers.any?
+    @beers = @beers.accepted
     render json: @beers
   end
 
