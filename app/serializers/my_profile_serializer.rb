@@ -11,6 +11,7 @@ class MyProfileSerializer < ActiveModel::Serializer
 
   has_many :events, root: 'feed'
   has_many :badges
+  has_many :awards
 
   def events
     @options[:events]
