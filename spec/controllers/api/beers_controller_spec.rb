@@ -21,7 +21,7 @@ describe Api::BeersController do
           before(:each) { get :index, format: 'json' }
 
           it { assigns(:beers).size.should > 0 }
-          it { assigns(:beers).size.should == 3 }
+          it { assigns(:beers).size.should == Beer.count }
         end
 
         context 'with a query' do

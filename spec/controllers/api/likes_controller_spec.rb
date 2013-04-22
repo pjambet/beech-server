@@ -19,7 +19,7 @@ describe Api::LikesController do
       get :index, event_id: event, format: :json
     end
 
-    it { expect(assigns(:likes)).to eq(likes) }
+    it { expect(assigns(:likes)).to match_array(likes) }
     it { expect(assigns(:likes)).not_to match_array(other_likes) }
   end
 

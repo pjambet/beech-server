@@ -20,7 +20,7 @@ describe Api::CommentsController do
       get :index, event_id: event, format: :json
     end
 
-    it { expect(assigns(:comments)).to eq(comments) }
+    it { expect(assigns(:comments)).to match_array(comments) }
     it { expect(assigns(:comments)).not_to match_array(other_comments) }
   end
 
