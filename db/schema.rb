@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418030325) do
+ActiveRecord::Schema.define(:version => 20130422015731) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -100,6 +100,16 @@ ActiveRecord::Schema.define(:version => 20130418030325) do
   end
 
   add_index "followings", ["follower_id", "followee_id"], :name => "index_followings_on_follower_id_and_followee_id"
+
+  create_table "journal_entries", :force => true do |t|
+    t.string   "loggable_type"
+    t.integer  "loggable_id"
+    t.string   "entry_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "journal_entries", ["loggable_id"], :name => "index_journal_entries_on_loggable_id"
 
   create_table "likes", :force => true do |t|
     t.integer  "event_id"

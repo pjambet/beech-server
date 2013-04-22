@@ -10,10 +10,12 @@
 #  updated_at    :datetime         not null
 #  accepted      :boolean
 #  added_by_id   :integer
+#  color_pattern :integer
 #
 
 class Beer < ActiveRecord::Base
   include Searchable::Models
+  include Loggable
 
   NUMBER_OF_COLOR_PATTERNS = 3
 
@@ -45,8 +47,7 @@ class Beer < ActiveRecord::Base
   validates :name, presence: true
 
   def assign_color_pattern
-    self.color_pattern = rand(NUMBER_OF_COLOR_PATTERNS)
-    self.save
+    self.update_column :color_pattern, rand(NUMBER_OF_COLOR_PATTERNS)
   end
 end
 

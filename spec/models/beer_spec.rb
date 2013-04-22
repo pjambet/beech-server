@@ -16,4 +16,5 @@ describe Beer do
 
     its(:color_pattern) { should_not be_nil }
   end
+
 end
