@@ -13,6 +13,7 @@ class UserSerializer < ActiveModel::Serializer
 
   def include_authentication_token?
     # If action was successful signed in
+    # TODO : also accept signup
     path_segment = @options[:url_options][:_path_segments]
     return false unless path_segment
     @options[:status] == 201 && path_segment[:action] == 'create' && path_segment[:controller] == 'users/sessions'
