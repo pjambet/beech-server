@@ -14,13 +14,8 @@ describe Api::MyBadgesController do
 
         before(:each) { get :index }
 
-        it 'should respond with success' do
-          response.response_code.should == 200
-        end
-
-        it 'should assigns the @badges' do
-          assigns(:badges).length.should == 2
-        end
+        it { response.response_code.should == 200 }
+        it { assigns(:badges).length.should == 2 }
       end
 
       context 'without user_id param' do

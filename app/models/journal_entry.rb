@@ -7,4 +7,5 @@ class JournalEntry < ActiveRecord::Base
   attr_accessible :entry_type, :loggable
 
   default_scope -> { order('journal_entries.created_at ASC') }
+  scope :after, ->(last_id) { where('journal_entries.id > ?', last_id) }
 end
