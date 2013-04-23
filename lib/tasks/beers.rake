@@ -7,7 +7,7 @@ namespace :beers do
   end
 
   task generate_journal: :environment do
-    Beer.all.each do |beer|
+    Beer.accepted.each do |beer|
       JournalEntry.create(loggable: beer, entry_type: 'new')
     end
   end
