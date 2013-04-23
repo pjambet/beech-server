@@ -9,7 +9,7 @@ describe JournalEntry do
 
     describe 'create' do
       let(:beer) { Beer.create(name: 'Kro') }
-      before(:each) { beer }
+      before(:each) { beer.accepted=true; beer.save }
 
       it { JournalEntry.last.loggable.should eq(beer) }
       it { JournalEntry.last.entry_type.should eq('new') }
@@ -18,6 +18,8 @@ describe JournalEntry do
     describe 'update' do
       let(:beer) { Beer.create(name: 'Kro') }
       before(:each) do
+        beer.accepted=true
+        beer.save
         beer.name = 'foo'
         beer.save
       end
@@ -30,6 +32,8 @@ describe JournalEntry do
     describe 'destroy' do
       let(:beer) { Beer.create(name: 'Kro') }
       before(:each) do
+        beer.accepted=true
+        beer.save
         beer.destroy
       end
 

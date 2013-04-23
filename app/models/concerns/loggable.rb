@@ -2,12 +2,12 @@ module Loggable
   extend ActiveSupport::Concern
 
   included do
-    after_create do
-      create_log('new')
-    end
-
     after_update do
-      create_log('edit')
+      if self.accepted_changed? && self.accepted
+        create_log('new')
+      elsif self.accepted
+        create_log('edit')
+      end
     end
 
     after_destroy do
