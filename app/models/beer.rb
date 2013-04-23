@@ -25,7 +25,7 @@ class Beer < ActiveRecord::Base
 
   belongs_to :beer_color
   belongs_to :added_by, class_name: 'User'
-  has_many :checks
+  has_many :checks, dependent: :destroy
   has_many :users, through: :checks
 
   after_create :assign_color_pattern
@@ -48,6 +48,10 @@ class Beer < ActiveRecord::Base
 
   def assign_color_pattern
     self.update_column :color_pattern, rand(NUMBER_OF_COLOR_PATTERNS)
+  end
+
+  def should_be_logged?
+    self.accepted
   end
 end
 
