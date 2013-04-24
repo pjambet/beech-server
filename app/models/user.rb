@@ -59,9 +59,7 @@ class User < ActiveRecord::Base
   scope :ordered, -> { order('created_at DESC') }
   scope :exclude, ->(*users) do
     users.flatten!
-    if users.any?
-      where('id NOT IN (?) ', users.map(&:id))
-    end
+    where('id NOT IN (?) ', users.map(&:id)) if users.any?
   end
 
   def self_and_following_users
@@ -94,7 +92,7 @@ class User < ActiveRecord::Base
     if login = conditions.delete(:login)
       user_request = user_request.where(
         'lower(nickname) = :value OR lower(email) = :value',
-        value: login.downcase )
+        value: login.downcase)
     end
     user_request.where(conditions).first
   end

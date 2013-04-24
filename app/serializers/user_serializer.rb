@@ -5,7 +5,8 @@ class UserSerializer < ActiveModel::Serializer
 
   embed :ids, include: true
 
-  attributes :id, :email, :nickname, :avatar_url, :already_following, :authentication_token
+  attributes :id, :email, :nickname, :avatar_url, :already_following,
+             :authentication_token
 
   def avatar_url
     image_url
@@ -16,7 +17,8 @@ class UserSerializer < ActiveModel::Serializer
     # TODO : also accept signup
     path_segment = @options[:url_options][:_path_segments]
     return false unless path_segment
-    @options[:status] == 201 && path_segment[:action] == 'create' && path_segment[:controller] == 'users/sessions'
+    @options[:status] == 201 && path_segment[:action] == 'create' &&
+      path_segment[:controller] == 'users/sessions'
   end
 end
 

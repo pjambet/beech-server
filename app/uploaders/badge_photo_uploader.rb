@@ -2,7 +2,7 @@
 
 class BadgePhotoUploader < BaseUploader
 
-  DEFAULT_BADGE_NAME = "default-badge"
+  DEFAULT_BADGE_NAME = 'default-badge'
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url

@@ -3,15 +3,11 @@ module Filterable
 
   included do
     scope :after, ->(date) do
-      if date.to_i > 0
-        build_date_condition('>', date)
-      end
+      build_date_condition('>', date) if date.to_i > 0
     end
 
     scope :before, ->(date) do
-      if date.to_i > 0
-        build_date_condition('<', date)
-      end
+      build_date_condition('<', date) if date.to_i > 0
     end
 
     class << self

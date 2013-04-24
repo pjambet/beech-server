@@ -6,7 +6,7 @@ module Searchable
 
     module ClassMethods
       def searchable_by(column_name)
-        scope :search_for, ->(query = "") do
+        scope :search_for, ->(query = '') do
           where("lower(#{column_name}) ILIKE ?", "%#{query.downcase}%")
         end
       end

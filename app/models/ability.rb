@@ -1,7 +1,7 @@
 class Ability
   include CanCan::Ability
 
-  def initialize user, params={}
+  def initialize(user, params = {})
     if user && user.admin?
       can :manage, :all
     elsif user

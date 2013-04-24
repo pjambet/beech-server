@@ -31,7 +31,7 @@ class Badge < ActiveRecord::Base
   scope :ordered, -> { order('created_at DESC') }
   scope :published, -> { where('published IS TRUE') }
 
-  def description(locale=I18n.default_locale)
+  def description(locale = I18n.default_locale)
     if I18n.available_locales.include?(locale)
       send("description_#{locale}")
     else

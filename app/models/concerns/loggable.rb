@@ -3,6 +3,7 @@ module Loggable
 
   included do
     after_update do
+      # TODO : Fix that, there should not be any Beer related code here
       if self.accepted_changed? && self.accepted
         create_log('new')
       elsif self.accepted
