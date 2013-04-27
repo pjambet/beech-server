@@ -13,11 +13,11 @@ class Api::LikesController < Api::ApplicationController
 
   def create
     @like = current_user.like(@event)
-    render json: @like
+    render json: @event
   end
 
   def destroy
     @like = current_user.unlike(@event)
-    render json: @like
+    render json: @event
   end
 end

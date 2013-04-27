@@ -10,7 +10,11 @@ class EventSerializer < ActiveModel::Serializer
 
   def is_liked
     return false if scope.nil?
-    scope.like?(object, events: options[:liked_events].to_a)
+    if options[:liked_events]
+      scope.like?(object, events: options[:liked_events].to_a)
+    else
+      scope.like?(object)
+    end
   end
 
 end
