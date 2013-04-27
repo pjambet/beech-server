@@ -3,7 +3,6 @@ require 'spec_helper'
 describe BeerSerializer do
   it { should have_attribute(:id) }
   it { should have_attribute(:name) }
-  it { should have_attribute(:color_pattern) }
 
   it { should embed(:ids) }
 

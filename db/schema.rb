@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422015731) do
+ActiveRecord::Schema.define(:version => 20130427233519) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(:version => 20130422015731) do
     t.datetime "updated_at",    :null => false
     t.boolean  "accepted"
     t.integer  "added_by_id"
-    t.integer  "color_pattern"
   end
 
   add_index "beers", ["added_by_id"], :name => "index_beers_on_added_by_id"

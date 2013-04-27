@@ -11,10 +11,4 @@ describe Beer do
 
   it { should validate_presence_of(:name) }
 
-  context 'new instance' do
-    subject { create :beer }
-
-    its(:color_pattern) { should_not be_nil }
-  end
-
 end

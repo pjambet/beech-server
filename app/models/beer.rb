@@ -10,14 +10,11 @@
 #  updated_at    :datetime         not null
 #  accepted      :boolean
 #  added_by_id   :integer
-#  color_pattern :integer
 #
 
 class Beer < ActiveRecord::Base
   include Searchable::Models
   include Loggable
-
-  NUMBER_OF_COLOR_PATTERNS = 3
 
   attr_accessible :name, :beer_color, :beer_color_id, :country
 
@@ -27,8 +24,6 @@ class Beer < ActiveRecord::Base
   belongs_to :added_by, class_name: 'User'
   has_many :checks, dependent: :destroy
   has_many :users, through: :checks
-
-  after_create :assign_color_pattern
 
   default_scope -> { includes(:beer_color) }
 
@@ -45,10 +40,6 @@ class Beer < ActiveRecord::Base
   delegate :name, to: :beer_color, prefix: true, allow_nil: true
 
   validates :name, presence: true
-
-  def assign_color_pattern
-    self.update_column :color_pattern, rand(NUMBER_OF_COLOR_PATTERNS)
-  end
 
   def should_be_logged?
     self.accepted

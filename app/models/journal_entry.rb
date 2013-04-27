@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: journal_entries
+#
+#  id            :integer          not null, primary key
+#  loggable_type :string(255)
+#  loggable_id   :integer
+#  entry_type    :string(255)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 class JournalEntry < ActiveRecord::Base
   belongs_to :loggable, polymorphic: true
 
