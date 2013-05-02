@@ -2,23 +2,35 @@
 #
 # Table name: beers
 #
-#  id            :integer          not null, primary key
-#  name          :string(255)
-#  country       :string(255)
-#  beer_color_id :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  accepted      :boolean
-#  added_by_id   :integer
+#  id               :integer          not null, primary key
+#  name             :string(255)
+#  country          :string(255)
+#  beer_color_id    :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  accepted         :boolean
+#  added_by_id      :integer
+#  font_color       :string(255)
+#  background_color :string(255)
 #
 
 class Beer < ActiveRecord::Base
   include Searchable::Models
   include Loggable
 
+  COLOR_POOL = [
+    ['#000000', '#ffffff'],
+    ['#ff0000', '#ffffff'],
+    ['#00ff00', '#ffffff'],
+    ['#0000ff', '#ffffff'],
+    ['#49a5ad', '#ffffff'],
+  ]
+
   attr_accessible :name, :beer_color, :beer_color_id, :country
 
   searchable_by :name
+
+  after_create :assign_color
 
   belongs_to :beer_color
   belongs_to :added_by, class_name: 'User'
@@ -43,6 +55,12 @@ class Beer < ActiveRecord::Base
 
   def should_be_logged?
     self.accepted
+  end
+
+  def assign_color
+    random_pattern = COLOR_POOL[rand(COLOR_POOL.length)]
+    self.update_column :background_color, random_pattern[0]
+    self.update_column :font_color, random_pattern[1]
   end
 end
 

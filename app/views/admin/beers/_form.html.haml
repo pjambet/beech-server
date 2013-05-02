@@ -3,8 +3,12 @@
 %fieldset
   %legend New Beer
   .row
-    .large-12.columns
+    .large-6.columns
       = f.input :name, wrapper: :foundation
+    .large-3.columns
+      = f.input :background_color, wrapper: :foundation
+    .large-3.columns
+      = f.input :font_color, wrapper: :foundation
   .row
     .large-6.columns
       = f.association :beer_color

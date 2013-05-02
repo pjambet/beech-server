@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427233519) do
+ActiveRecord::Schema.define(:version => 20130502001928) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -52,10 +52,12 @@ ActiveRecord::Schema.define(:version => 20130427233519) do
     t.string   "name"
     t.string   "country"
     t.integer  "beer_color_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.boolean  "accepted"
     t.integer  "added_by_id"
+    t.string   "font_color"
+    t.string   "background_color"
   end
 
   add_index "beers", ["added_by_id"], :name => "index_beers_on_added_by_id"
