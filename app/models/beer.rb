@@ -26,7 +26,8 @@ class Beer < ActiveRecord::Base
     ['#49a5ad', '#ffffff'],
   ]
 
-  attr_accessible :name, :beer_color, :beer_color_id, :country
+  attr_accessible :name, :beer_color, :beer_color_id, :country, :font_color,
+    :background_color
 
   searchable_by :name
 
