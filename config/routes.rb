@@ -37,10 +37,6 @@ BeerServer::Application.routes.draw do
     root to: 'beers#index'
   end
 
-  scope 'me' do
-    root to: 'home#index'
-  end
-
   resources :users, only: [:index, :show]
 
   root to: 'home#index'
