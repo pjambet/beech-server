@@ -11,6 +11,7 @@ BeerServer::Application.configure do
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = true
 
+<<<<<<< HEAD
   config.action_dispatch.rack_cache = {
     metastore: Dalli::Client.new,
     entitystore: 'file:tmp/cache/rack/body',
@@ -19,6 +20,8 @@ BeerServer::Application.configure do
 
   config.eager_load = true
 
+=======
+>>>>>>> master
   config.static_cache_control = "public, max-age=2592000"
 
   # Compress JavaScripts and CSS
@@ -50,13 +53,13 @@ BeerServer::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :dalli_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( admin.js )
+  config.assets.precompile += %w( admin.js admin.css )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -71,19 +74,25 @@ BeerServer::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { host: 'beech-server.herokuapp.com' }
-  config.action_controller.asset_host = 'http://beech-server.herokuapp.com/'
+  # Log the query plan for queries taking more than this (works
+  # with SQLite, MySQL, and PostgreSQL)
+  # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.default_reply_to = "no-reply@beech.com"
-  config.default_sender = "no-reply@beech.com"
+  HOST = 'beech-server.herokuapp.com'
+  config.action_mailer.default_url_options = { host: HOST }
+  config.action_mailer.asset_host = "http://#{HOST}/"
+  config.action_controller.asset_host = "http://#{HOST}/"
+
+  config.default_reply_to = "no-reply@getbeech.com"
+  config.default_sender = "no-reply@getbeech.com"
   config.default_sender_name = "Beech"
 
   ActionMailer::Base.smtp_settings = {
-    address: 'smtp.sendgrid.net',
+    address: 'smtp.mandrillapp.com',
     port: '587',
     authentication: :plain,
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
+    user_name: ENV['MANDRILL_USERNAME'],
+    password: ENV['MANDRILL_APIKEY'],
     domain: 'heroku.com'
   }
   ActionMailer::Base.delivery_method = :smtp

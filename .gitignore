@@ -27,3 +27,4 @@ db/dump.db
 cookies
 .rbenv-version
 .ruby-version
+.agignore

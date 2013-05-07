@@ -6,6 +6,8 @@ describe Event do
   it { should belong_to(:user)}
   it { should have_db_index(:user_id)}
   it { should have_db_index(:eventable_id)}
+  it { should act_as_likable }
+  it { should act_as_commentable }
 
   describe 'default_scope' do
     it 'should order results by descending created_at' do
@@ -98,24 +100,34 @@ describe Event do
     end
   end
 
-  describe '.paginate' do
+  describe '.page' do
 
     before(:each) { Event.stubs(:per_page).returns(2) }
     it 'should return the first elements for page 1' do
       @checks = 3.times.map { create :check }
-      paginated = Event.paginate 1
+      paginated = Event.page 1
       paginated.size.should == 2
     end
 
     it 'should return 2 exact different lists for 2 different pages' do
       @checks = 5.times.map { create :check }
-      page1 = Event.paginate 1
-      page2 = Event.paginate 2
+      page1 = Event.page 1
+      page2 = Event.page 2
       page1.size.should == 2
       page2.size.should == 2
       (page1 & page2).should be_empty
     end
 
+  end
+
+  describe 'filterable behavior' do
+    it 'should respond to .after' do
+      Event.should respond_to(:after)
+    end
+
+    it 'should respond to .before' do
+      Event.should respond_to(:before)
+    end
   end
 
   describe '.per_page' do

@@ -2,13 +2,50 @@
 %html
   %head
     %title BeechApp
-    = stylesheet_link_tag    "application", media: "all"
+    = stylesheet_link_tag    "admin", media: "all"
     = javascript_include_tag "admin"
+    = javascript_include_tag "vendor/custom.modernizr"
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     = csrf_meta_tags
-  %body
-    %nav
-      = link_to 'Beers', admin_beers_path
-      = link_to 'Badges', admin_badges_path
-      = link_to 'Users', admin_users_path
+  %body.antialiased
+    %nav.top-bar
+      %ul.title-area
+        %li.name
+          %h1
+            %a{href: "#"} Beech Admin
+        %li.toggle-topbar.menu-icon
+          %a{href: "#"}
+            %span
+      %section.top-bar-section
+        %ul.left
+          %li.divider
+          %li.active
+            = link_to 'Beers', admin_beers_path
+          %li.divider
+          %li
+            = link_to 'Badges', admin_badges_path
+          %li.divider
+          %li
+            = link_to 'Users', admin_users_path
+          %li.divider
+          %li
+            = link_to 'Events', admin_events_path
+
+        %ul.right
+          %li.divider
+          %li.has-form
+            %form
+              .row.collapse
+                .small-8.columns
+                  %input(type="text")
+
+                .small-4.columns
+                  %a(href="#" class="alert button")Search
+          %li.divider.show-for-small
+          %li.has-dropdown
+            %a{:href => "#"}= current_user.nickname
+            %ul.dropdown
+              %li= link_to 'Logout', destroy_user_session_path, method: 'delete', confirm: 'are you sur ?'
 
     = yield
+

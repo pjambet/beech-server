@@ -1,9 +1,9 @@
 class Admin::BeersController < Admin::ApplicationController
-  load_resource only: [:edit, :update, :accept, :reject, :destroy]
+  load_and_authorize_resource
 
   def index
     @beers = Beer.accepted
-    @suggestions = Beer.suggestions
+    @suggested = Beer.suggested
     @rejected = Beer.rejected
   end
 
@@ -37,6 +37,7 @@ class Admin::BeersController < Admin::ApplicationController
   def accept
     @beer.accepted = true
     @beer.save
+    NotificationMailer.accepted_beer(@beer).deliver
     redirect_to admin_beers_path
   end
 

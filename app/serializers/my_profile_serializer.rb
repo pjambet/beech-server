@@ -2,6 +2,8 @@ class MyProfileSerializer < ActiveModel::Serializer
   include ApplicationHelper
   include Serializable
 
+  serialiaze_image_as :avatar
+
   embed :ids, include: true
 
   attributes :id, :email, :nickname, :avatar_url, :check_count,
@@ -9,15 +11,10 @@ class MyProfileSerializer < ActiveModel::Serializer
 
   has_many :events, root: 'feed'
   has_many :badges
+  has_many :awards
 
   def events
     @options[:events]
-  end
-
-  def avatar_url
-    versions = object.avatar.versions
-    {"url" => full_url_for_path(object.avatar.url)}
-      .merge Hash[versions.map { |name, version| [name, { "url" => full_url_for_path(version.url) }] }]
   end
 
   def check_count
@@ -30,6 +27,10 @@ class MyProfileSerializer < ActiveModel::Serializer
 
   def following_count
     object.followings.size
+  end
+
+  def avatar_url
+    image_url
   end
 
 end

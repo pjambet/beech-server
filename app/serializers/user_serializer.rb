@@ -1,16 +1,24 @@
 class UserSerializer < ActiveModel::Serializer
-  include ApplicationHelper
   include Serializable
+
+  serialiaze_image_as :avatar
 
   embed :ids, include: true
 
-  attributes :id, :email, :nickname, :avatar_url, :already_following
+  attributes :id, :email, :nickname, :avatar_url, :already_following,
+             :authentication_token
 
   def avatar_url
-    versions = object.avatar.versions
-    {"url" => full_url_for_path(object.avatar.url)}
-      .merge Hash[versions.map { |name, version| [name, { "url" => full_url_for_path(version.url) }] }]
+    image_url
   end
 
+  def include_authentication_token?
+    # If action was successful signed in
+    # TODO : also accept signup
+    path_segment = @options[:url_options][:_path_segments]
+    return false unless path_segment
+    @options[:status] == 201 && path_segment[:action] == 'create' &&
+      path_segment[:controller] == 'users/sessions'
+  end
 end
 

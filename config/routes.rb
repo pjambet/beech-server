@@ -1,5 +1,11 @@
 BeerServer::Application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
+  apipie
+
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
+  }
 
   namespace :api do
     scope 'my' do
@@ -22,8 +28,16 @@ BeerServer::Application.routes.draw do
       resources :followings, only: :index
     end
 
+    resources :events, only: [] do
+      resources :likes, only: [:index, :create] do
+        delete :destroy, on: :collection
+      end
+      resources :comments, only: [:index, :create, :destroy]
+    end
+
     resources :checks, only: :create
     resources :beers, only: [:index, :create]
+    resources :journal_entries, only: :index
   end
 
   namespace :admin do
@@ -33,11 +47,16 @@ BeerServer::Application.routes.draw do
     end
     resources :badges
     resources :users
+    resources :events, only: :index
 
     root to: 'beers#index'
   end
 
   resources :users, only: [:index, :show]
+
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
 
   root to: 'home#index'
 end

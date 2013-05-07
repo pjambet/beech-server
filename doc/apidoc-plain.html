@@ -1,0 +1,513 @@
+  <h4><a href='#beers'>Beers</a></h4>
+  <ul>
+      <li><a href='#beers-index'>index</a></li>
+  </ul>
+  <h4><a href='#checks'>Checks</a></h4>
+  <ul>
+      <li><a href='#checks-create'>create</a></li>
+  </ul>
+  <h4><a href='#feed'>Feed</a></h4>
+  <ul>
+      <li><a href='#feed-index'>index</a></li>
+  </ul>
+  <h4><a href='#followers'>Followers</a></h4>
+  <ul>
+      <li><a href='#followers-index'>index</a></li>
+  </ul>
+  <h4><a href='#followings'>Followings</a></h4>
+  <ul>
+      <li><a href='#followings-index'>index</a></li>
+      <li><a href='#followings-create'>create</a></li>
+      <li><a href='#followings-destroy'>destroy</a></li>
+  </ul>
+  <h4><a href='#my_badges'>My badges</a></h4>
+  <ul>
+      <li><a href='#my_badges-index'>index</a></li>
+  </ul>
+  <h4><a href='#my_beers'>My beers</a></h4>
+  <ul>
+      <li><a href='#my_beers-index'>index</a></li>
+  </ul>
+  <h4><a href='#profiles'>Profiles</a></h4>
+  <ul>
+      <li><a href='#profiles-show'>show</a></li>
+      <li><a href='#profiles-update'>update</a></li>
+  </ul>
+  <h4><a href='#users'>Users</a></h4>
+  <ul>
+      <li><a href='#users-index'>index</a></li>
+  </ul>
+
+
+
+  <hr/>
+
+  <div>
+    <h2 id="beers">
+      <a href='#beers'>Beers</a><br>
+      <small>Beer related endpoints</small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="beers-index">
+      <a href='#beers'>Beers</a> / <a href='#beers-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/beers
+            <br>
+            <small>List all beers</small>
+          </h4>
+      </div>
+
+      <div>
+        <p>This endpoint returns the list of beers</p>
+
+          <h4>Errors</h4>
+            404
+            Missing
+            <br>
+            500
+            Server crashed for some &lt;%= reason %&gt;
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>page </strong>:
+      <small>
+        optional
+        
+          [ Must be a number. ]
+      </small>
+      <p>The page index</p>
+    </li>
+    
+</ul>
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="checks">
+      <a href='#checks'>Checks</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="checks-create">
+      <a href='#checks'>Checks</a> / <a href='#checks-create'>create</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/checks
+            <br>
+            <small>Create a check</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>check </strong>:
+      <small>
+        optional
+        
+          [ Must be a Hash ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>beer_id </strong>:
+      <small>
+        optional
+        
+          [ Must be a number. ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>user_id </strong>:
+      <small>
+        optional
+        
+          [ Must be a number. ]
+      </small>
+      
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="feed">
+      <a href='#feed'>Feed</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="feed-index">
+      <a href='#feed'>Feed</a> / <a href='#feed-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/my/feed
+            <br>
+            <small></small>
+          </h4>
+      </div>
+
+      <div>
+        <p>method description</p>
+
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="followers">
+      <a href='#followers'>Followers</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="followers-index">
+      <a href='#followers'>Followers</a> / <a href='#followers-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/my/followers
+            <br>
+            <small>List followers</small>
+          </h4>
+          <h4>
+              GET /api/users/:user_id/followers
+            <br>
+            <small>List followers</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="followings">
+      <a href='#followings'>Followings</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="followings-index">
+      <a href='#followings'>Followings</a> / <a href='#followings-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/my/followings
+            <br>
+            <small>List followings</small>
+          </h4>
+          <h4>
+              GET /api/users/:user_id/followings
+            <br>
+            <small>List followings</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="followings-create">
+      <a href='#followings'>Followings</a> / <a href='#followings-create'>create</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/my/followings
+            <br>
+            <small>Create a following</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>user_id </strong>:
+      <small>
+        optional
+        
+      </small>
+      
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="followings-destroy">
+      <a href='#followings'>Followings</a> / <a href='#followings-destroy'>destroy</a>
+      </h3>
+
+      <div>
+          <h4>
+              DELETE /api/my/followings
+            <br>
+            <small>Destroy a following</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        optional
+        
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>user_id </strong>:
+      <small>
+        optional
+        
+          [ Must be a number. ]
+      </small>
+      
+    </li>
+    
+</ul>
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="my_badges">
+      <a href='#my_badges'>My badges</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="my_badges-index">
+      <a href='#my_badges'>My badges</a> / <a href='#my_badges-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/my/badges
+            <br>
+            <small>List my badges</small>
+          </h4>
+          <h4>
+              GET /api/users/:user_id/badges
+            <br>
+            <small>List my badges</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="my_beers">
+      <a href='#my_beers'>My beers</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="my_beers-index">
+      <a href='#my_beers'>My beers</a> / <a href='#my_beers-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/my/beers
+            <br>
+            <small>List my beers</small>
+          </h4>
+          <h4>
+              GET /api/users/:user_id/beers
+            <br>
+            <small>List my beers</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="profiles">
+      <a href='#profiles'>Profiles</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="profiles-show">
+      <a href='#profiles'>Profiles</a> / <a href='#profiles-show'>show</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/my/profile
+            <br>
+            <small>Show a profile</small>
+          </h4>
+          <h4>
+              GET /api/users/:user_id/profile
+            <br>
+            <small>Show a profile</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="profiles-update">
+      <a href='#profiles'>Profiles</a> / <a href='#profiles-update'>update</a>
+      </h3>
+
+      <div>
+          <h4>
+              PUT /api/my/profile
+            <br>
+            <small>Update a profile</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="users">
+      <a href='#users'>Users</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="users-index">
+      <a href='#users'>Users</a> / <a href='#users-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/users
+            <br>
+            <small>List users</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+  </div>

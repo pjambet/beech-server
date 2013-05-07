@@ -18,7 +18,6 @@
 #  last_sign_in_ip        :string(255)
 #  avatar                 :string(255)
 #  authentication_token   :string(255)
-#  avatar_uploaded_at     :datetime
 #
 
 class User < ActiveRecord::Base
@@ -26,6 +25,9 @@ class User < ActiveRecord::Base
   include BeechServer::Models::BadgesChecker
   include Followable
   include Rolable
+  include Filterable
+  include Liker
+  include Commenter
 
   attr_accessible :email, :password, :password_confirmation, :remember_me,
     :nickname, :login, :avatar
@@ -38,20 +40,18 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   searchable_by :nickname
 
+  self.per_page = 10
+
   before_save :ensure_authentication_token
 
-  after_create do
-    image = File.open("public/default-avatar-#{(rand 4) + 1}.png")
-    self.avatar = image
-    save!
-  end
+  after_create :generate_random_avatar
 
   has_many :awards
   has_many :badges, through: :awards
-  has_many :checks
+  has_many :checks, dependent: :destroy
   has_many :created_beers, class_name: 'Beer', foreign_key: :added_by_id
   has_many :beers, through: :checks
-  has_many :events
+  has_many :events, dependent: :destroy
 
   validates :email, uniqueness: true
   validates :nickname, presence: true, uniqueness: {case_sensitive: false}
@@ -59,16 +59,7 @@ class User < ActiveRecord::Base
   scope :ordered, -> { order('created_at DESC') }
   scope :exclude, ->(*users) do
     users.flatten!
-    if users.any?
-      where('id NOT IN (?) ', users.map(&:id))
-    end
-  end
-
-  scope :after, ->(date) do
-    if date.to_i > 0
-      date = Time.at(date.to_i).utc
-      where("date_trunc('second', created_at) > ?", date)
-    end
+    where('id NOT IN (?) ', users.map(&:id)) if users.any?
   end
 
   def self_and_following_users
@@ -84,7 +75,7 @@ class User < ActiveRecord::Base
   end
 
   def beers_for_country(country)
-    beers.where("country = ?", country)
+    beers.where('country = ?', country)
   end
 
   def beers_for_color(color)
@@ -97,12 +88,19 @@ class User < ActiveRecord::Base
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
+    user_request = scoped
     if login = conditions.delete(:login)
-      where(conditions).where(["lower(nickname) = :value OR lower(email) = :value", { value: login.downcase }]).first
-    else
-      where(conditions).first
+      user_request = user_request.where(
+        'lower(nickname) = :value OR lower(email) = :value',
+        value: login.downcase)
     end
+    user_request.where(conditions).first
   end
 
+  def generate_random_avatar
+    image = File.open("public/default-avatar-#{(rand 4) + 1}.png")
+    self.avatar = image
+    save!
+  end
 end
 

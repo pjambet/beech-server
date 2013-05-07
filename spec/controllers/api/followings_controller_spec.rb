@@ -2,28 +2,11 @@ require 'spec_helper'
 
 describe Api::FollowingsController do
   let(:user) { create :user }
-  context 'when not logged in' do
-    describe "GET 'index'" do
-      it 'respond with unauthorized' do
-        get :index, format: 'json'
-        expect(response.code).to eq('401')
-      end
-    end
-
-    describe "POST 'create'" do
-      it 'respond with unauthorized' do
-        post :create, format: 'json'
-        expect(response.code).to eq('401')
-      end
-    end
-
-    describe "DELETE 'destroy'" do
-      it 'should respond with unauthorized' do
-        delete :destroy, id: user, format: 'json'
-        expect(response.code).to eq('401')
-      end
-    end
-  end
+  it_should_behave_like 'an api controller', {
+    index: :get,
+    create: {method: :post, params: {id: 1}},
+    destroy: {method: :delete, params: {id: 1}},
+  }
 
   context 'when logged in' do
     before(:each) { sign_in user }
@@ -35,7 +18,7 @@ describe Api::FollowingsController do
           @other_followees = 2.times.map { create :following }
           get :index, format: 'json'
         end
-        it 'should return the followed users of the current_user' do
+        it 'returns the followed users of the current_user' do
           decoded_response = ActiveSupport::JSON.decode(response.body)
           users = decoded_response['users']
           users.size.should == user.following_users.size
@@ -44,7 +27,7 @@ describe Api::FollowingsController do
           end
         end
 
-        it 'should not return other users' do
+        it 'does not return other users' do
           @other_followees.map(&:followee).each do |f|
             user.following_users.should_not include(f)
           end
@@ -59,7 +42,7 @@ describe Api::FollowingsController do
           @other_followees = 2.times.map { create :following }
           get :index, user_id: inspected_user, format: 'json'
         end
-        it 'should return the followed users of the given user' do
+        it 'returns the followed users of the given user' do
           decoded_response = ActiveSupport::JSON.decode(response.body)
           users = decoded_response['users']
 
@@ -69,7 +52,7 @@ describe Api::FollowingsController do
           end
         end
 
-        it 'should not return other users' do
+        it 'does not return other users' do
           @other_followees.map(&:followee).each do |f|
             inspected_user.following_users.should_not include(f)
           end
@@ -83,7 +66,7 @@ describe Api::FollowingsController do
         post :create, user_id: @followee_user, format: 'json'
       end
 
-      it 'should have created the following association' do
+      it 'has created the following association' do
         user.following_users.should include(@followee_user)
       end
     end
@@ -97,8 +80,13 @@ describe Api::FollowingsController do
                 format: 'json'
       end
 
-      it 'should have destroyed the following association' do
-        expect { Following.find(@following.id) }.to raise_error
+      it 'has destroyed the following association' do
+        expect { Following.find(@following.id) }.to raise_error(
+          ActiveRecord::RecordNotFound)
+      end
+
+      it 'is not in the user following list' do
+        user.reload.following_users.should_not include(@following.followee)
       end
 
     end

@@ -1,0 +1,14 @@
+%tr
+  %td
+    %h1{style: 'color: black; padding: 10px;'}
+      Your suggestion has been accepted
+%tr
+  %td{style: 'color: black; padding: 10px;'}
+    Hello
+    = succeed ',' do
+      %strong= @beer.added_by.nickname
+%tr
+  %td{style: 'color: black; padding: 10px;'}
+    Congratulations, your suggestion for the beer
+    %strong= @beer.name
+    has been accepted !

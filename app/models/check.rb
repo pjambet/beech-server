@@ -21,17 +21,15 @@ class Check < ActiveRecord::Base
   validates :beer, presence: true
   validates :user, presence: true
 
-  default_scope { includes(:user, :beer) }
+  default_scope -> { includes(:beer) }
 
-  scope :ordered, -> { includes(:user, :beer).order('checks.created_at DESC') }
+  scope :ordered, -> { includes(:user).order('checks.created_at DESC') }
 
   after_create :check_if_user_earned_new_badges
 
   def check_if_user_earned_new_badges
     user.unearned_badges.each do |badge|
-      if user.deserves_badge?(badge)
-        user.awards.create(badge: badge)
-      end
+      user.awards.create(badge: badge) if user.deserves_badge?(badge)
     end
   end
 

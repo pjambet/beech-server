@@ -1,5 +1,7 @@
-= link_to 'Back', admin_badges_path
+.row
+  = link_to 'Back', admin_badges_path, class: 'button'
 
-= simple_form_for @user, url: admin_user_path(@user) do |f|
-  = render partial: 'form', locals: {f: f}
+.row
+  = simple_form_for @user, url: admin_user_path(@user) do |f|
+    = render partial: 'form', locals: {f: f}
 

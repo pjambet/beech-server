@@ -15,6 +15,12 @@ FactoryGirl.define do
     trait :amber do
       beer_color { BeerColor.amber }
     end
+    trait :suggested do
+      accepted nil
+    end
+    trait :rejected do
+      accepted false
+    end
   end
 
 end

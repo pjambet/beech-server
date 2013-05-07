@@ -8,4 +8,13 @@ describe Beer do
 
   it { should act_as_searchable }
   it { should act_as_pageable }
+
+  it { should validate_presence_of(:name) }
+
+  context 'new instance' do
+    subject { create :beer }
+
+    its(:background_color) { should_not be_nil }
+    its(:font_color) { should_not be_nil }
+  end
 end

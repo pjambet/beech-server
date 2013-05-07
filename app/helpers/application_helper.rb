@@ -1,6 +1,9 @@
 module ApplicationHelper
-
-  def full_url_for_path(path)
-    path
+  def link_to_app
+    if @user_agent == :ios
+      'beech://'
+    else
+      '/'
+    end
   end
 end

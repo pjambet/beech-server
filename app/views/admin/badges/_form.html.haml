@@ -1,12 +1,29 @@
 - badge = f.object
 
-= image_tag badge.photo.thumb.url, size: '100x100'
-= f.input :photo
-= f.input :name
-= f.input :badge_type
-= f.input :description
-= f.input :condition
-= f.input :quantity
-= f.input :published
+%fieldset
+  %legend New Badge
 
-= f.submit
+  .row
+    .large-6.columns
+      = f.input :photo
+    .large-6.columns
+      = image_tag badge.photo.thumb.url, size: '100x100'
+  .row
+    .large-6.columns
+      = f.input :name
+    .large-6.columns
+      = f.input :badge_type
+  .row
+    .large-3.columns
+      = f.input :description_fr
+    .large-3.columns
+      = f.input :description_en
+    .large-6.columns
+      = f.input :condition
+  .row
+    .large-6.columns
+      = f.input :quantity
+    .large-6.columns
+      = f.input :published, wrapper: 'foundation'
+
+  = f.button :submit

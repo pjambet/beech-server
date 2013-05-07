@@ -11,7 +11,9 @@
 #
 
 class Event < ActiveRecord::Base
-  include Pageable
+  include Filterable
+  include Likeable
+  include Commentable
 
   attr_accessible :eventable, :user
 
@@ -20,29 +22,19 @@ class Event < ActiveRecord::Base
 
   validates :eventable, presence: true
 
-  acts_as_pageable
+  default_scope -> { order('events.created_at DESC') }
 
-  default_scope -> { includes(:eventable).order('created_at DESC') }
-
-  delegate :user, to: :eventable, prefix: false
+  # This triggers n+1 queries, until I find a way to remove the user from here
+  # this will stay commented
+  # delegate :user, to: :eventable, prefix: false
 
   scope :for_users, ->(users) do
     return [] unless Enumerable === users
     where('user_id IN (?)', users.map(&:id))
   end
 
-  scope :after, ->(date) do
-    if date.to_i > 0
-      date = Time.at(date.to_i).utc
-      where("date_trunc('second', created_at) > ?", date)
-    end
-  end
-
-  scope :before, ->(date) do
-    if date.to_i > 0
-      date = Time.at(date.to_i).utc
-      where("date_trunc('second', created_at) < ?", date)
-    end
+  def details
+    eventable.name
   end
 
 end

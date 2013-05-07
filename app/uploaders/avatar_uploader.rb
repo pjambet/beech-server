@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class AvatarUploader < BaseUploader
-  DEFAULT_AVATAR_NAME = "default-avatar"
+  DEFAULT_AVATAR_NAME = 'default-avatar'
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url

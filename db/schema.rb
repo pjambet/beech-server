@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210130133) do
+ActiveRecord::Schema.define(:version => 20130502001928) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -27,11 +27,12 @@ ActiveRecord::Schema.define(:version => 20130210130133) do
     t.string   "badge_type"
     t.text     "condition"
     t.integer  "quantity"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.text     "description"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.text     "description_fr"
     t.string   "photo"
     t.boolean  "published"
+    t.text     "description_en"
   end
 
   create_table "beer_colors", :force => true do |t|
@@ -41,14 +42,22 @@ ActiveRecord::Schema.define(:version => 20130210130133) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "beer_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "beers", :force => true do |t|
     t.string   "name"
     t.string   "country"
     t.integer  "beer_color_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.boolean  "accepted"
     t.integer  "added_by_id"
+    t.string   "font_color"
+    t.string   "background_color"
   end
 
   add_index "beers", ["added_by_id"], :name => "index_beers_on_added_by_id"
@@ -62,6 +71,16 @@ ActiveRecord::Schema.define(:version => 20130210130133) do
   end
 
   add_index "checks", ["user_id", "beer_id"], :name => "index_checks_on_user_id_and_beer_id"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["user_id", "event_id"], :name => "index_comments_on_user_id_and_event_id"
 
   create_table "events", :force => true do |t|
     t.integer  "eventable_id"
@@ -82,6 +101,23 @@ ActiveRecord::Schema.define(:version => 20130210130133) do
   end
 
   add_index "followings", ["follower_id", "followee_id"], :name => "index_followings_on_follower_id_and_followee_id"
+
+  create_table "journal_entries", :force => true do |t|
+    t.string   "loggable_type"
+    t.integer  "loggable_id"
+    t.string   "entry_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "journal_entries", ["loggable_id"], :name => "index_journal_entries_on_loggable_id"
+
+  create_table "likes", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "memberships", :force => true do |t|
     t.integer "role_id", :null => false
@@ -114,7 +150,6 @@ ActiveRecord::Schema.define(:version => 20130210130133) do
     t.string   "last_sign_in_ip"
     t.string   "avatar"
     t.string   "authentication_token"
-    t.datetime "avatar_uploaded_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
