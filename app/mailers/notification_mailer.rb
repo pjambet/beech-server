@@ -1,5 +1,5 @@
 class NotificationMailer < ActionMailer::Base
-  default to: -> { default_to }
+  default to: Proc.new { default_to }
   default from: 'notifications@getbeech.com'
 
   def new_beer(beer)
