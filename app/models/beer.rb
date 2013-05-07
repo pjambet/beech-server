@@ -20,10 +20,11 @@ class Beer < ActiveRecord::Base
 
   COLOR_POOL = [
     ['#000000', '#ffffff'],
-    ['#ff0000', '#ffffff'],
-    ['#00ff00', '#ffffff'],
-    ['#0000ff', '#ffffff'],
-    ['#49a5ad', '#ffffff'],
+    ['#00C57D', '#ffffff'],
+    ['#FF5800', '#ffffff'],
+    ['#FF9C00', '#ffffff'],
+    ['#FF4233', '#ffffff'],
+    ['#0089C6', '#ffffff'],
   ]
 
   attr_accessible :name, :beer_color, :beer_color_id, :country, :font_color,
