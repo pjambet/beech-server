@@ -45,7 +45,7 @@
           %li.has-dropdown
             %a{:href => "#"}= current_user.nickname
             %ul.dropdown
-              %li= link_to 'Logout', destroy_user_session_path, method: 'delete', confirm: 'are you sur ?'
+              %li= link_to 'Logout', destroy_user_session_path, method: 'delete', data: {confirm: 'Are you sure?'}
 
     = yield
 

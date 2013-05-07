@@ -23,5 +23,5 @@
             %td= badge.published
             %td
               = link_to 'Edit', edit_admin_badge_path(badge), class: 'button success small'
-              = link_to 'Delete', admin_badge_path(badge), method: :delete, confirm: 'Are you sure?', class: 'button alert small'
+              = link_to 'Delete', admin_badge_path(badge), method: :delete, data: {confirm: 'Are you sure?'}, class: 'button alert small'
 

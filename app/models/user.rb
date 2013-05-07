@@ -88,7 +88,7 @@ class User < ActiveRecord::Base
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
-    user_request = scoped
+    user_request = self.all
     if login = conditions.delete(:login)
       user_request = user_request.where(
         'lower(nickname) = :value OR lower(email) = :value',

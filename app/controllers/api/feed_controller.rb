@@ -19,7 +19,7 @@ class Api::FeedController < Api::ApplicationController
     events
   end
 
-  def select_events_for_users(events=Event.scoped)
+  def select_events_for_users(events=Event.all)
     if params[:users] == 'me'
       events.for_users([@user])
     else
@@ -27,7 +27,7 @@ class Api::FeedController < Api::ApplicationController
     end
   end
 
-  def select_events_for_period(events=Event.scoped)
+  def select_events_for_period(events=Event.all)
     events = events.after(params[:after]) if params[:after].present?
     events = events.before(params[:before]) if params[:before].present?
     events

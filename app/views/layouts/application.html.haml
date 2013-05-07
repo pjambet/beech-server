@@ -9,5 +9,5 @@
   %body
     - if user_signed_in?
       .links
-        = link_to 'Se déconnecter', destroy_user_session_path, method: :delete, confirm: 'Are you sure'
+        = link_to 'Se déconnecter', destroy_user_session_path, method: :delete, data: {confirm: 'Are you sure?'}
     = yield
