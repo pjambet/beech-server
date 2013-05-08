@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508035429) do
+ActiveRecord::Schema.define(:version => 20130508051611) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -150,6 +150,17 @@ ActiveRecord::Schema.define(:version => 20130508035429) do
   end
 
   add_index "memberships", ["role_id", "user_id"], :name => "index_memberships_on_role_id_and_user_id"
+
+  create_table "notifications", :force => true do |t|
+    t.string   "notificable_type"
+    t.integer  "notificable_id"
+    t.integer  "user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "notifications", ["notificable_id"], :name => "index_notifications_on_notificable_id"
+  add_index "notifications", ["user_id"], :name => "index_notifications_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name",       :null => false
