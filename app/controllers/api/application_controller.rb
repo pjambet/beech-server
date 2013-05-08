@@ -15,7 +15,7 @@ class Api::ApplicationController < ApplicationController
   end)
 
   def render_error
-    render json: {error: 'An error occured'}
+    render json: {error: 'An error occured'}, status: 500
   end
 
   resource_description do
