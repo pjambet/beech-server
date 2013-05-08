@@ -12,6 +12,7 @@
 #  added_by_id      :integer
 #  font_color       :string(255)
 #  background_color :string(255)
+#  brewery_id       :integer
 #
 
 class Beer < ActiveRecord::Base
@@ -35,6 +36,7 @@ class Beer < ActiveRecord::Base
   after_create :assign_color
 
   belongs_to :beer_color
+  belongs_to :brewery
   belongs_to :added_by, class_name: 'User'
   has_many :checks, dependent: :destroy
   has_many :users, through: :checks

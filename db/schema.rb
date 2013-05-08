@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502001928) do
+ActiveRecord::Schema.define(:version => 20130508035429) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -58,10 +58,28 @@ ActiveRecord::Schema.define(:version => 20130502001928) do
     t.integer  "added_by_id"
     t.string   "font_color"
     t.string   "background_color"
+    t.integer  "brewery_id"
   end
 
   add_index "beers", ["added_by_id"], :name => "index_beers_on_added_by_id"
   add_index "beers", ["beer_color_id"], :name => "index_beers_on_beer_color_id"
+  add_index "beers", ["brewery_id"], :name => "index_beers_on_brewery_id"
+
+  create_table "breweries", :force => true do |t|
+    t.integer  "country_id"
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "zipcode"
+    t.string   "phone"
+    t.string   "website"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.float    "lat"
+    t.float    "lng"
+  end
+
+  add_index "breweries", ["country_id"], :name => "index_breweries_on_country_id"
 
   create_table "checks", :force => true do |t|
     t.integer  "user_id"
@@ -81,6 +99,13 @@ ActiveRecord::Schema.define(:version => 20130502001928) do
   end
 
   add_index "comments", ["user_id", "event_id"], :name => "index_comments_on_user_id_and_event_id"
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.string   "country_code"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "events", :force => true do |t|
     t.integer  "eventable_id"
