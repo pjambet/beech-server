@@ -50,6 +50,7 @@ group :development, :test do
   gem 'bourne'
   gem 'bullet'
   gem 'active_model_serializers-matchers', github: 'pjambet/active_model_serializers-matchers'
+  gem 'rails-erd'
 end
 
 group :assets do
