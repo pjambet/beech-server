@@ -19,9 +19,10 @@ module Serializable
     end
 
     def already_following
+      # TODO : Move this methods elsewhere, it seems it doesn't belong here
       return false if scope.nil?
       followings = options[:followings] || scope.following_users
-      followings.include?(object)
+      followings.to_a.include?(object)
     end
 
     def image_url
