@@ -7,20 +7,16 @@ FactoryGirl.define do
 
     trait :with_checks do
       after(:create) do |user|
-        user.checks = [
-          create(:check, beer: create(:beer, name: 'Kronembourg')),
-          create(:check, beer: create(:beer, name: 'Stella Artois')),
-          create(:check, beer: create(:beer, name: 'Guiness')),
-        ]
+        user.checks << create(:check, beer: create(:beer, name: 'Kronembourg'))
+        user.checks << create(:check, beer: create(:beer, name: 'Stella Artois'))
+        user.checks << create(:check, beer: create(:beer, name: 'Guiness'))
       end
     end
 
     trait :with_awards do
       after(:create) do |user|
-        user.awards = [
-          create(:award, badge: create(:badge, name: '5 Kronembourg')),
-          create(:award, badge: create(:badge, name: '5 Stella Artois')),
-        ]
+        user.awards << create(:award, badge: create(:badge, name: '5 Kronembourg'))
+        user.awards << create(:award, badge: create(:badge, name: '5 Stella Artois'))
       end
     end
 

@@ -18,7 +18,7 @@ class Role < ActiveRecord::Base
 
   class << self
     def admin_role
-      Role.find_or_create_by_name('admin')
+      Role.find_or_create_by(name: 'admin')
     end
   end
 end

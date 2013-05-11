@@ -63,17 +63,6 @@ Spork.each_run do
 
     config.order = "random"
 
-    config.before(:each) do
-      Bullet.start_request if Bullet.enable?
-    end
-
-    config.after(:each) do
-      if Bullet.enable?
-        Bullet.perform_out_of_channel_notifications
-        Bullet.end_request
-      end
-    end
-
     # CarrierWave file deletion
     config.after(:all) do
       if Rails.env.test?

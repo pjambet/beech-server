@@ -52,10 +52,6 @@ BeerServer::Application.routes.draw do
     root to: 'beers#index'
   end
 
-  scope 'me' do
-    root to: 'home#index'
-  end
-
   resources :users, only: [:index, :show]
 
   if Rails.env.development?

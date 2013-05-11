@@ -12,7 +12,7 @@ describe Event do
   describe 'default_scope' do
     it 'should order results by descending created_at' do
       10.times { create :event, created_at: rand(10).days.ago }
-      events = Event.scoped
+      events = Event.all
       events[0..-2].each_with_index do |event, i|
         event.created_at.should > events[i + 1].created_at
       end

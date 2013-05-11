@@ -2,7 +2,7 @@ class Admin::BadgesController < Admin::ApplicationController
   load_and_authorize_resource
 
   def index
-    @badges = Badge.scoped
+    @badges = Badge.all
   end
 
   def new

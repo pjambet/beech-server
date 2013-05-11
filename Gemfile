@@ -1,35 +1,35 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0.rc1'
 gem 'puma'
 
 gem 'pg'
 gem 'jquery-rails'
-gem 'devise'
-gem 'haml'
+gem 'devise', '3.0.0.rc'
+gem 'haml', '4.0.2'
 gem 'draper'
-gem 'simple_form'
-gem 'compass-rails'
+gem 'simple_form', '3.0.0.beta1'
+gem 'compass-rails', git: 'git://github.com/milgner/compass-rails.git', branch: 'rails4'
 gem 'rails-i18n'
-gem 'active_model_serializers', '~> 0.7.0'
+gem 'active_model_serializers', '~> 0.8.0'
 gem 'newrelic_rpm'
-gem 'carrierwave'
+gem 'carrierwave', github: 'jnicklas/carrierwave'
 gem 'rmagick'
 gem 'dalli'
 gem 'memcachier'
 gem 'coveralls', require: false
 gem 'cancan'
+gem 'protected_attributes'
 gem 'fog'
 gem 'apipie-rails'
 gem 'maruku'
 gem 'sentry-raven'
-gem 'mail_view', '~> 1.0.3'
+gem 'mail_view'
 gem 'will_paginate'
 
 group :development do
-  gem 'annotate', '>=2.5.0'
-  gem 'sextant'
+  gem 'annotate'
 end
 
 group :development, :test do
@@ -53,9 +53,10 @@ group :development, :test do
   gem 'rails-erd'
 end
 
+gem 'sprockets-rails', '2.0.0.rc4'
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails', '4.0.0.rc1'
+  gem 'coffee-rails', '4.0.0.beta1'
   gem 'uglifier', '>= 1.0.3'
   gem 'zurb-foundation'
 end
