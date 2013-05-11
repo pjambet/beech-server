@@ -18,3 +18,4 @@ describe Searchable do
     end
   end
 end
+
