@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require foundation
+//= require vendor/custom.modernizr
 //= require responsive-tables
 
 $(function(){
