@@ -8,7 +8,7 @@ module Liker
 
     def like(event)
       like_obj = self.likes.create! event: event
-      Notifier.new(like_obj, self).create_notification
+      Notifier.new(like_obj, event.user).create_notification
       like_obj
     end
 
