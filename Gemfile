@@ -55,9 +55,9 @@ group :development, :test do
 end
 
 gem 'sprockets-rails', '2.0.0.rc4'
+gem 'zurb-foundation'
+gem 'sass-rails', '4.0.0.rc1'
 group :assets do
-  gem 'sass-rails', '4.0.0.rc1'
   gem 'coffee-rails', '4.0.0.beta1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'zurb-foundation'
 end
