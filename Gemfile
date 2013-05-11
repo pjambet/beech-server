@@ -58,7 +58,5 @@ end
 gem 'sprockets-rails', '2.0.0.rc4'
 gem 'zurb-foundation'
 gem 'sass-rails', '4.0.0.rc1'
-group :assets do
-  gem 'coffee-rails', '4.0.0.beta1'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'coffee-rails', '4.0.0.beta1'
+gem 'uglifier', '>= 1.0.3'
