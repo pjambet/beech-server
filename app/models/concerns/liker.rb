@@ -14,7 +14,7 @@ module Liker
       self.liked_events.delete(event)
     end
 
-    def like?(event, events: self.liked_events)
+    def like?(event, events: self.liked_events.to_a)
       return false if events.nil?
       events.include? event
     end
