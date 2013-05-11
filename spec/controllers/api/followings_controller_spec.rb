@@ -63,6 +63,7 @@ describe Api::FollowingsController do
     describe "POST 'create'" do
       before(:each) do
         @followee_user = create :user
+        Notifier.any_instance.expects(:create_notification)
         post :create, user_id: @followee_user, format: 'json'
       end
 

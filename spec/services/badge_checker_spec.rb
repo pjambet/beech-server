@@ -16,6 +16,7 @@ describe BadgeChecker do
     context 'when user earned new badge' do
       it 'should create an award' do
         create :badge, condition: 'any', quantity: 0
+        Notifier.any_instance.expects(:create_notification)
         expect { checker.check_if_user_earned_new_badges }.to change{
           Award.count
         }.by(1)

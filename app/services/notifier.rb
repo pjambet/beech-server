@@ -8,7 +8,7 @@ class Notifier
   end
 
   def create_notification
-    Notification.create(notificable: model, user: user)
+    Notification.create!(notificable: model, user: user)
   end
 
 end

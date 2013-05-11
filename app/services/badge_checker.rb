@@ -8,7 +8,10 @@ class BadgeChecker
 
   def check_if_user_earned_new_badges
     unearned_badges.each do |badge|
-      user.awards.create(badge: badge) if deserves_badge?(badge)
+      if deserves_badge?(badge)
+        award = user.awards.create(badge: badge)
+        Notifier.new(award, user).create_notification
+      end
     end
   end
 
