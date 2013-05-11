@@ -28,6 +28,7 @@ gem 'maruku'
 gem 'sentry-raven'
 gem 'mail_view'
 gem 'will_paginate'
+gem 'turbolinks'
 
 group :development do
   gem 'annotate'

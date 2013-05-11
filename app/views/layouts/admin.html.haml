@@ -2,8 +2,8 @@
 %html
   %head
     %title BeechApp
-    = stylesheet_link_tag    "admin", media: "all"
-    = javascript_include_tag "admin"
+    = stylesheet_link_tag    "admin", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "admin", "data-turbolinks-track" => true
     = javascript_include_tag "vendor/custom.modernizr"
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     = csrf_meta_tags
