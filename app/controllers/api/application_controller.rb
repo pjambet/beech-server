@@ -9,8 +9,8 @@ class Api::ApplicationController < ApplicationController
     if Rails.application.config.consider_all_requests_local
       raise exception
     else
+      raise exception
       render_error
-      Raven.capture_exception(exception)
     end
   end)
 

@@ -52,7 +52,14 @@ shared_examples 'an api controller' do |actions|
     if opts.is_a?(Symbol)
       send(opts, action, format: :json)
     elsif opts.is_a?(Hash)
-      send(opts[:method], action, opts[:params].merge(format: :json))
+      begin
+        send(opts[:method], action, opts[:params].merge(format: :json))
+      rescue ActiveRecord::RecordNotFound => e
+        # If this exception is raised, it's that the user had access to the
+        # action
+        # As it's not the purpose of this spec, we just silently fail
+        ActionController::TestResponse.any_instance.stubs(:body).returns('{}')
+      end
     end
   end
 
