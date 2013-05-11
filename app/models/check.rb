@@ -25,13 +25,5 @@ class Check < ActiveRecord::Base
 
   scope :ordered, -> { includes(:user).order('checks.created_at DESC') }
 
-  after_create :check_if_user_earned_new_badges
-
-  def check_if_user_earned_new_badges
-    user.unearned_badges.each do |badge|
-      user.awards.create(badge: badge) if user.deserves_badge?(badge)
-    end
-  end
-
 end
 

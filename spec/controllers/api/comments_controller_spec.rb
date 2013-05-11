@@ -32,7 +32,7 @@ describe Api::CommentsController do
     }
     before(:each) do
       sign_in user
-      post_request.call
+      Notifier.any_instance.expects(:create_notification)
     end
 
     it { expect{post_request.call}.to change{Comment.count}.by(1) }

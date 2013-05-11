@@ -11,7 +11,6 @@
 
 class Like < ActiveRecord::Base
   include Filterable
-  include Notificable
 
   belongs_to :user
   belongs_to :event

@@ -79,33 +79,6 @@ describe User do
     end
   end
 
-  describe '#unearned_badges' do
-    subject(:user) { create :user }
-
-    context 'without badges in the db' do
-      its(:unearned_badges) { should be_empty }
-    end
-
-    context 'with badges in the db' do
-      context 'when user has already earned everything' do
-        before(:each) do
-          4.times { subject.badges << create(:badge) }
-        end
-
-        its(:unearned_badges) { should be_empty }
-      end
-
-      context 'when user has not earned some badges' do
-        before(:each) do
-          4.times { create :badge }
-          3.times { subject.badges << create(:badge) }
-        end
-
-        its(:unearned_badges) { should_not be_empty }
-        its('unearned_badges.size') { should == 4 }
-      end
-    end
-  end
 
   describe '#beer_countries' do
     # TODO

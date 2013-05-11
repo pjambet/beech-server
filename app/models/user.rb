@@ -22,7 +22,6 @@
 
 class User < ActiveRecord::Base
   include Searchable::Models
-  include BeechServer::Models::BadgesChecker
   include Followable
   include Rolable
   include Filterable

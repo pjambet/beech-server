@@ -11,7 +11,6 @@
 
 class Award < ActiveRecord::Base
   include Eventable
-  include Notificable
 
   attr_accessible :user_id, :badge_id, :user, :badge
 

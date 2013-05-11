@@ -30,6 +30,7 @@ describe Api::LikesController do
     }
     before(:each) do
       sign_in user
+      Notifier.any_instance.expects(:create_notification)
     end
 
     it { expect{post_request.call}.to change{Like.count}.by(1) }

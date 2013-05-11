@@ -15,6 +15,7 @@ describe Api::ChecksController do
       let(:attributes) { attributes_for :check_attributes }
 
       it "creates a check" do
+        BadgeChecker.any_instance.expects(:check_if_user_earned_new_badges)
         expect {
           post :create, check: attributes, format: 'json'
         }.to change{ Check.count }.by(1)

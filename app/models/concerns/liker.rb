@@ -7,7 +7,9 @@ module Liker
     has_many :liked_events, through: :likes, source: :event
 
     def like(event)
-      self.likes.create! event: event
+      like_obj = self.likes.create! event: event
+      Notifier.new(like_obj, self).create_notification
+      like_obj
     end
 
     def unlike(event)
