@@ -11,6 +11,14 @@ BeerServer::Application.configure do
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = true
 
+  config.action_dispatch.rack_cache = {
+    metastore: Dalli::Client.new,
+    entitystore: 'file:tmp/cache/rack/body',
+    allow_reload: false
+  }
+
+  config.eager_load = true
+
   config.static_cache_control = "public, max-age=2592000"
 
   # Compress JavaScripts and CSS
