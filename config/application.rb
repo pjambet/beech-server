@@ -47,5 +47,6 @@ module BeerServer
 
     config.sass.line_comments = false
     config.sass.style = :nested
+    config.assets.precompile += %w( admin.js admin.css )
   end
 end
