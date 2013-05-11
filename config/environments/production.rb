@@ -22,7 +22,8 @@ BeerServer::Application.configure do
   config.static_cache_control = "public, max-age=2592000"
 
   # Compress JavaScripts and CSS
-  config.assets.compress = true
+  config.assets.js_compressor  = :uglifier
+  config.assets.css_compressor = :sass
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
@@ -30,6 +31,7 @@ BeerServer::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
   config.assets.initialize_on_precompile = false
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
