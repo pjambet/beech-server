@@ -48,6 +48,7 @@ class User < ActiveRecord::Base
   has_many :created_beers, class_name: 'Beer', foreign_key: :added_by_id
   has_many :beers, through: :checks
   has_many :events, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   validates :email, uniqueness: true
   validates :nickname, presence: true, uniqueness: {case_sensitive: false}
