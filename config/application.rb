@@ -2,12 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-if defined?(Bundler)
-  # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
-  # If you want your assets lazily compiled in production, use this line
-  # Bundler.require(:default, :assets, Rails.env)
-end
+Bundler.require(:default, Rails.env)
 
 module BeerServer
   class Application < Rails::Application
@@ -18,9 +13,6 @@ module BeerServer
     config.i18n.available_locales = [:en, :fr]
 
     config.autoload_paths += %W(#{config.root}/lib)
-    config.autoload_paths += %W(#{config.root}/app/models/concerns)
-    config.autoload_paths += %W(#{config.root}/app/controllers/concerns)
-    config.autoload_paths += %W(#{config.root}/app/serializers/concerns)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     # Configure the default encoding used in templates for Ruby 1.9.
