@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :notification do
+    user { create :user }
+    notificable { create :like }
   end
 end

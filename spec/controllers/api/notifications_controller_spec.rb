@@ -14,6 +14,7 @@ describe Api::NotificationsController do
     context 'when logged in' do
       before(:each) do
         sign_in user
+        create :notification, user: user
         get :index, params.merge(format: :json)
       end
 
