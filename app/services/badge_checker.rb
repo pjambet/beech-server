@@ -44,7 +44,7 @@ class BadgeChecker
       badge.condition.split(':')
     end
 
-    def valid_badge_type(badge_type)
+    def self.valid_badge_type(badge_type)
       %w(quantity one_of_each different).include?(badge_type)
     end
   end
