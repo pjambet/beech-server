@@ -29,7 +29,7 @@ class BadgeChecker
 
     class << self
       def create_badge(badge, user)
-        return nil unless valid_badge_type(type)
+        return nil unless valid_badge_type(badge.badge_type)
         cst_name = "#{badge.badge_type}_badge_checker".camelize
         "BadgeChecker::#{cst_name}".constantize.new badge, user
       end
