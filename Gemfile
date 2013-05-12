@@ -21,7 +21,6 @@ gem 'dalli'
 gem 'memcachier'
 gem 'coveralls', require: false
 gem 'cancan'
-gem 'protected_attributes'
 gem 'fog'
 gem 'apipie-rails'
 gem 'maruku'

@@ -2,11 +2,14 @@ shared_examples 'an admin controller' do |actions|
 
   def execute_action(action, opts)
     if opts.is_a?(Symbol)
-      send(opts, action)
+      begin
+        send(opts, action)
+      rescue ActionController::ParameterMissing
+      end
     elsif opts.is_a?(Hash)
       begin
         send(opts[:method], action, opts[:params])
-      rescue ActiveRecord::RecordNotFound => e
+      rescue ActiveRecord::RecordNotFound, ActionController::ParameterMissing
         # If this exception is raised, it's that the user had access to the
         # action
         # As it's not the purpose of this spec, we just silently fail
@@ -50,11 +53,15 @@ shared_examples 'an api controller' do |actions|
 
   def execute_action(action, opts)
     if opts.is_a?(Symbol)
-      send(opts, action, format: :json)
+      begin
+        send(opts, action, format: :json)
+      rescue ActionController::ParameterMissing
+        ActionController::TestResponse.any_instance.stubs(:body).returns('{}')
+      end
     elsif opts.is_a?(Hash)
       begin
         send(opts[:method], action, opts[:params].merge(format: :json))
-      rescue ActiveRecord::RecordNotFound => e
+      rescue ActiveRecord::RecordNotFound, ActionController::ParameterMissing => e
         # If this exception is raised, it's that the user had access to the
         # action
         # As it's not the purpose of this spec, we just silently fail

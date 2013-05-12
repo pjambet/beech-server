@@ -28,9 +28,6 @@ class User < ActiveRecord::Base
   include Liker
   include Commenter
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me,
-    :nickname, :login, :avatar
-
   attr_accessor :login
 
   devise :database_authenticatable, :registerable, :recoverable,

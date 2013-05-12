@@ -10,8 +10,6 @@
 #
 
 class Country < ActiveRecord::Base
-  attr_accessible :name, :country_code
-
   has_many :breweries
   has_many :beers, through: :breweries
 end

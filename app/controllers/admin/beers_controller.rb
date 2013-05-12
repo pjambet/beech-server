@@ -12,7 +12,7 @@ class Admin::BeersController < Admin::ApplicationController
   end
 
   def create
-    @beer = Beer.new(params[:beer]).tap do |beer|
+    @beer = Beer.new(beer_params).tap do |beer|
       beer.accepted = true
       beer.added_by = current_user
     end
@@ -27,7 +27,7 @@ class Admin::BeersController < Admin::ApplicationController
   end
 
   def update
-    if @beer.update_attributes params[:beer]
+    if @beer.update_attributes beer_params
       redirect_to admin_beers_path
     else
       render :edit
@@ -52,4 +52,9 @@ class Admin::BeersController < Admin::ApplicationController
     redirect_to admin_beers_path
   end
 
+  private
+
+  def beer_params
+    params.require(:beer).permit!
+  end
 end

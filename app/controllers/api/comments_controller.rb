@@ -12,7 +12,7 @@ class Api::CommentsController < Api::ApplicationController
   end
 
   def create
-    @comment = current_user.comment(@event, params[:comment])
+    @comment = current_user.comment(@event, comment_params)
     render json: @comment
   end
 
@@ -20,5 +20,11 @@ class Api::CommentsController < Api::ApplicationController
     @comment = Comment.find(params['id'])
     current_user.comments.delete @comment
     render json: @comment
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:content, :event)
   end
 end

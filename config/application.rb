@@ -13,6 +13,7 @@ module BeerServer
     config.i18n.available_locales = [:en, :fr]
 
     config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/app/serializers/concerns)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     # Configure the default encoding used in templates for Ruby 1.9.
@@ -24,13 +25,11 @@ module BeerServer
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
 
-    # parameters by using an attr_accessible or attr_protected declaration.
-    config.active_record.whitelist_attributes = true
-
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.initialize_on_precompile = false
 
+    config.action_controller.action_on_unpermitted_parameters = :log
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

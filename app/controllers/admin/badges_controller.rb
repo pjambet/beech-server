@@ -1,4 +1,5 @@
 class Admin::BadgesController < Admin::ApplicationController
+  before_filter :badge_params, only: %i(create update)
   load_and_authorize_resource
 
   def index
@@ -10,7 +11,7 @@ class Admin::BadgesController < Admin::ApplicationController
   end
 
   def create
-    @badge = Badge.new params[:badge]
+    @badge = Badge.new badge_params
     if @badge.save
       redirect_to admin_badges_path
     else
@@ -22,7 +23,7 @@ class Admin::BadgesController < Admin::ApplicationController
   end
 
   def update
-    if @badge.update_attributes params[:badge]
+    if @badge.update_attributes badge_params
       redirect_to admin_badges_path
     else
       render :edit, status: 422
@@ -32,5 +33,11 @@ class Admin::BadgesController < Admin::ApplicationController
   def destroy
     @badge.destroy
     redirect_to admin_badges_path
+  end
+
+  private
+
+  def badge_params
+    params.require(:badge).permit!
   end
 end

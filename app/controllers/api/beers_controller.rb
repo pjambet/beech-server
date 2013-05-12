@@ -23,9 +23,19 @@ class Api::BeersController < Api::ApplicationController
     param :name, String
   end
   def create
-    @beer = current_user.created_beers.create(params[:beer])
-    NotificationMailer.new_beer(@beer).deliver
-    render json: @beer
+    begin
+      @beer = current_user.created_beers.create(beer_params)
+      NotificationMailer.new_beer(@beer).deliver
+      render json: @beer
+    rescue ActionController::ParameterMissing
+      render json: {error: "Error"}
+    end
+  end
+
+  private
+
+  def beer_params
+    params.require(:beer).permit(:name)
   end
 
 end

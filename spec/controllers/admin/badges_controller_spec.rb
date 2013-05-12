@@ -45,10 +45,9 @@ describe Admin::BadgesController do
   describe "POST 'create'" do
     before(:each) do
       sign_in user
-      post_request.call
     end
-    let(:post_request) { ->{ post :create, badge: params } }
-    let(:params) { attributes_for :badge }
+    let(:post_request) { ->{ post :create, badge: badge_params } }
+    let(:badge_params) { attributes_for :badge }
 
     it { expect{post_request.call}.to change{Badge.count}.by(1) }
   end

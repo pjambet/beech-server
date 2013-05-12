@@ -12,8 +12,6 @@
 class Award < ActiveRecord::Base
   include Eventable
 
-  attr_accessible :user_id, :badge_id, :user, :badge
-
   belongs_to :user
   belongs_to :badge
 

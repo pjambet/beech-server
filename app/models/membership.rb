@@ -8,8 +8,6 @@
 #
 
 class Membership < ActiveRecord::Base
-  attr_accessible :user, :role, :user_id, :role_id
-
   belongs_to :user
   belongs_to :role
 

@@ -11,8 +11,6 @@
 #
 
 class Notification < ActiveRecord::Base
-  attr_accessible :notificable, :user
-
   belongs_to :user
   belongs_to :notificable, polymorphic: true
 

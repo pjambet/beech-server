@@ -28,9 +28,6 @@ class Beer < ActiveRecord::Base
     ['#0089C6', '#ffffff'],
   ]
 
-  attr_accessible :name, :beer_color, :beer_color_id, :country, :font_color,
-    :background_color
-
   searchable_by :name
 
   after_create :assign_color

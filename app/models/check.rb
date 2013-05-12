@@ -11,7 +11,6 @@
 
 class Check < ActiveRecord::Base
   include Eventable
-  attr_accessible :user_id, :beer_id, :user, :beer
 
   belongs_to :user
   belongs_to :beer

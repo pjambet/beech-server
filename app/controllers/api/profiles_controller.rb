@@ -14,8 +14,17 @@ class Api::ProfilesController < Api::ApplicationController
 
   api :PUT, "/my/profile", "Update a profile"
   def update
-    status = current_user.update_attributes(params[:user]) ? 200 : 422
-    render json: current_user, status: status
+    begin
+      status = current_user.update_attributes(profile_params) ? 200 : 422
+      render json: current_user, status: status
+    rescue ActionController::ParameterMissing
+      render json: {error: 'Bad request'}, code: 400
+    end
+  end
+
+  def profile_params
+    params.require(:user).permit(:email, :password, :password_confirmation,
+                                 :remember_me, :nickname, :login, :avatar)
   end
 
 end

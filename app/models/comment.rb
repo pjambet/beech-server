@@ -20,6 +20,4 @@ class Comment < ActiveRecord::Base
   validates :event, presence: true
   validates :content, presence: true
 
-  attr_accessible :content, :event
-
 end

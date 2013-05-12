@@ -15,8 +15,6 @@ class Event < ActiveRecord::Base
   include Likeable
   include Commentable
 
-  attr_accessible :eventable, :user
-
   belongs_to :eventable, polymorphic: true
   belongs_to :user
 

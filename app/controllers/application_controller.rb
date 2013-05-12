@@ -34,8 +34,8 @@ class ApplicationController < ActionController::Base
       raise exception
     else
       respond_to do |format|
+        status = status_for_exception(exception)
         format.html do
-          status = status_for_exception(exception)
           render(template: "errors/error_#{status}",
                  layout: 'layouts/errors',
                  status: status)

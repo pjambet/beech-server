@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::ApplicationController
+  before_filter :user_params, only: %i(create update)
   load_and_authorize_resource
 
   def index
@@ -10,7 +11,7 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def create
-    @user = User.new params[:user]
+    @user = User.new user_params
     if @user.save
       redirect_to admin_users_path
     else
@@ -26,13 +27,13 @@ class Admin::UsersController < Admin::ApplicationController
     @user = User.find(params[:id])
 
     successfully_updated = if needs_password?(@user, params)
-      @user.update_with_password(params[:user])
+      @user.update_with_password(user_params)
     else
       # remove the virtual current_password attribute update_without_password
       # doesn't know how to ignore it
-      params[:user].delete(:current_password)
+      user_params.delete(:current_password)
 
-      @user.update_without_password(params[:user])
+      @user.update_without_password(user_params)
     end
 
     if successfully_updated
@@ -52,7 +53,11 @@ class Admin::UsersController < Admin::ApplicationController
 
   def needs_password?(user, params)
     user.email != params[:user][:email] ||
-      !params[:user][:password].empty?
+      !user_params[:password].empty?
+  end
+
+  def user_params
+    params.require(:user).permit!
   end
 end
 

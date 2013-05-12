@@ -17,9 +17,6 @@
 #
 
 class Brewery < ActiveRecord::Base
-  attr_accessible :name, :address, :city, :zipcode, :phone, :website, :country,
-    :lat, :lng
-
   belongs_to :country
   has_many :beers
 
