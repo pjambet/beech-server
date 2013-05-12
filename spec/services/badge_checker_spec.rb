@@ -59,21 +59,10 @@ describe BadgeChecker do
       context 'with a new instance' do
         subject(:instance) { BadgeChecker::RegularBadgeChecker.new badge, user  }
 
-        it 'should respond to #badge' do
-          should respond_to(:badge)
-        end
-
-        it 'should_not respond to #badge=' do
-          should_not respond_to(:badge=)
-        end
-
-        it 'should respond to #user' do
-          should respond_to(:user)
-        end
-
-        it 'should_not respond to #user=' do
-          should_not respond_to(:user=)
-        end
+        it {should respond_to(:badge)}
+        it {should_not respond_to(:badge=)}
+        it {should respond_to(:user)}
+        it {should_not respond_to(:user=)}
 
         describe '#badge_condition_params' do
           let(:badge) { stub 'badge', condition: condition }
@@ -81,24 +70,16 @@ describe BadgeChecker do
 
           context 'with a blank condition' do
             let(:condition) { '' }
-            it 'should return a list' do
-              should be_a(Array)
-            end
 
-            it 'should be empty' do
-              should be_empty
-            end
+            it {should be_a(Array)}
+            it {should be_empty}
           end
 
           context 'with a real condition' do
             let(:condition) { 'any:guiness' }
-            it 'should return a list' do
-              should be_a(Array)
-            end
 
-            it 'should not be empty' do
-              should_not be_empty
-            end
+            it {should be_a(Array)}
+            it {should_not be_empty}
           end
         end
       end
@@ -107,25 +88,19 @@ describe BadgeChecker do
     describe BadgeChecker::QuantityBadgeChecker do
       subject { BadgeChecker::QuantityBadgeChecker.new badge, user }
 
-      it 'should respond to #check' do
-        should respond_to(:check)
-      end
+      it {should respond_to(:check)}
     end
 
     describe BadgeChecker::OneOfEachBadgeChecker do
       subject { BadgeChecker::OneOfEachBadgeChecker.new badge, user }
 
-      it 'should respond to #check' do
-        should respond_to(:check)
-      end
+      it {should respond_to(:check)}
     end
 
     describe BadgeChecker::DifferentBadgeChecker do
       subject { BadgeChecker::DifferentBadgeChecker.new badge, user }
 
-      it 'should respond to #check' do
-        should respond_to(:check)
-      end
+      it {should respond_to(:check)}
     end
   end
 
