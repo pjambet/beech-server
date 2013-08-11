@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.0.0.rc1'
+gem 'rails', '4.0.0'
 gem 'puma'
 gem 'rack-cache'
 
@@ -54,7 +54,7 @@ group :development, :test do
   gem 'rails-erd'
 end
 
-gem 'sprockets-rails', '2.0.0.rc4'
+gem "sprockets-rails", "~> 2.0.0"
 gem 'zurb-foundation'
 gem 'sass-rails', '4.0.0.rc1'
 gem 'coffee-rails', '4.0.0'
