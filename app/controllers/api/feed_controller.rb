@@ -3,7 +3,7 @@ class Api::FeedController < Api::ApplicationController
   load_user
 
   api :GET, '/my/feed/'
-  param :users, desc: 'If set to to me'
+  param :users, String
   description "method description"
   formats ['json']
   def index

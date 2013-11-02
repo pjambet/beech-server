@@ -3,7 +3,7 @@ class Api::NotificationsController < Api::ApplicationController
   load_user
 
   api :GET, '/my/notifications/'
-  param :users, desc: ''
+  param :users, String
   description "method description"
   formats ['json']
   def index
