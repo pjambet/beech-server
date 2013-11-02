@@ -38,5 +38,7 @@ describe Api::ApplicationController do
       end
       it { I18n.locale.should eq(:en) }
     end
+
   end
+
 end

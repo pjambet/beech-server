@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   devise :database_authenticatable, :registerable, :recoverable,
-    :rememberable, :trackable, :validatable, :token_authenticatable
+    :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, AvatarUploader
   searchable_by :nickname
@@ -39,6 +39,12 @@ class User < ActiveRecord::Base
   self.per_page = 10
 
   before_save :ensure_authentication_token
+
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
 
   after_create :generate_random_avatar
 
@@ -98,6 +104,15 @@ class User < ActiveRecord::Base
     image = File.open("public/default-avatar-#{(rand 4) + 1}.png")
     self.avatar = image
     save!
+  end
+
+  private
+
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).first
+    end
   end
 end
 

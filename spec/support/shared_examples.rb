@@ -76,7 +76,7 @@ shared_examples 'an api controller' do |actions|
       before(:each) do
         Rails.application.config.stubs(:consider_all_requests_local)
         .returns(false)
-        sign_in user
+        @request.env['HTTP_AUTHORIZATION'] = "#{user.email}:#{user.authentication_token}"
         execute_action action, opts
       end
       specify "I should be able to access ##{action} via #{opts}" do
@@ -95,7 +95,7 @@ shared_examples 'an api controller' do |actions|
       before(:each) do
         Rails.application.config.stubs(:consider_all_requests_local)
         .returns(false)
-        sign_in user
+        @request.env['HTTP_AUTHORIZATION'] = "#{user.email}:#{user.authentication_token}"
         execute_action action, opts
       end
 
