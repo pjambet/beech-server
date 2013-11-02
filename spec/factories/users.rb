@@ -15,7 +15,7 @@ FactoryGirl.define do
 
     trait :with_awards do
       after(:create) do |user|
-        user.awards << create(:award, badge: create(:badge, name: '5 Kronembourg'))
+        user.awards << create(:award, badge: create(:badge, name: '5 Stella'))
         user.awards << create(:award, badge: create(:badge, name: '5 Stella Artois'))
       end
     end
