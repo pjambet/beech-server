@@ -1,4 +1,4 @@
-class MailPreview #< MailView
+class MailPreview < MailView
 
   def new_beer
     beer = Beer.first
